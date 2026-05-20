@@ -16,7 +16,11 @@
       "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => /^[A-Z]/.test\\(k\\) && !k.endsWith\\('Icon'\\) && !k.startsWith\\('Lucide'\\)\\).filter\\(k => /^\\(Twi|Insta|Link|Fac|Music|Whats|Tik\\)/i.test\\(k\\)\\).join\\('\\\\n'\\)\\)\")",
       "Bash(npx shadcn@latest add tooltip --yes)",
       "Read(//c/Users/ramir/OneDrive/Escritorio/ram_projects/ramsar-seguros-mcp/**)",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('strapi',{}\\).get\\('uuid','no-uuid'\\)\\); print\\(d.get\\('dependencies',{}\\).get\\('@strapi/strapi','no version'\\)\\)\")"
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('strapi',{}\\).get\\('uuid','no-uuid'\\)\\); print\\(d.get\\('dependencies',{}\\).get\\('@strapi/strapi','no version'\\)\\)\")",
+      "mcp__plugin_engram_engram__mem_search",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros\\\\app\\\\blog\\\\[categoria]\\\\[slug]\")",
+      "Bash(Out-Null)",
+      "Bash(Write-Host \"dir created\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\ramir\\OneDrive\\Escritorio\\ram_projects\\ramsar-seguros-mcp\\src\\components\\aseguradora",
