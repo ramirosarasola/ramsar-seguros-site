@@ -1,48 +1,61 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const MARCAS = [
-  'Volkswagen', 'Toyota', 'Chevrolet', 'Ford', 'Renault',
-  'Peugeot', 'Fiat', 'Citroën', 'Nissan', 'Honda',
-  'Jeep', 'Hyundai', 'Kia', 'Dodge', 'Suzuki', 'Otra',
-]
+  "Volkswagen",
+  "Toyota",
+  "Chevrolet",
+  "Ford",
+  "Renault",
+  "Peugeot",
+  "Fiat",
+  "Citroën",
+  "Nissan",
+  "Honda",
+  "Jeep",
+  "Hyundai",
+  "Kia",
+  "Dodge",
+  "Suzuki",
+  "Otra",
+];
 
-const currentYear = new Date().getFullYear()
-const YEARS = Array.from({ length: 16 }, (_, i) => currentYear - i)
+const currentYear = new Date().getFullYear();
+const YEARS = Array.from({ length: 16 }, (_, i) => currentYear - i);
 
 export function CotizadorWidget() {
-  const router = useRouter()
-  const [marca, setMarca] = useState('')
-  const [anio, setAnio] = useState('')
-  const [cp, setCp] = useState('')
+  const router = useRouter();
+  const [marca, setMarca] = useState("");
+  const [anio, setAnio] = useState("");
+  const [cp, setCp] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const params = new URLSearchParams()
-    if (marca) params.set('marca', marca)
-    if (anio) params.set('anio', anio)
-    if (cp) params.set('cp', cp)
-    router.push(`/seguros-de-auto/cotizar?${params.toString()}`)
-  }
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (marca) params.set("marca", marca);
+    if (anio) params.set("anio", anio);
+    if (cp) params.set("cp", cp);
+    router.push(`/seguros-de-auto/cotizar?${params.toString()}`);
+  };
 
   const selectBase = [
-    'h-12 px-3 bg-white border border-neutral-300 rounded-sm',
-    'font-sans text-[14px] text-neutral-900',
-    'focus:outline-none focus:ring-2 focus:ring-primary-700/30 focus:border-primary-700',
-    'transition-colors duration-[120ms]',
-    'cursor-pointer appearance-none',
-    'bg-[url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23807c6e\' stroke-width=\'2\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E")] bg-no-repeat bg-[right_10px_center]',
-    'pr-8',
-  ].join(' ')
+    "h-12 px-3 bg-white border border-neutral-300 rounded-sm",
+    "font-sans text-[14px] text-neutral-900",
+    "focus:outline-none focus:ring-2 focus:ring-primary-700/30 focus:border-primary-700",
+    "transition-colors duration-120",
+    "cursor-pointer appearance-none",
+    "bg-[url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23807c6e' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")] bg-no-repeat bg-[right_10px_center]",
+    "pr-8",
+  ].join(" ");
 
   const inputBase = [
-    'h-12 px-3 bg-white border border-neutral-300 rounded-sm',
-    'font-sans text-[14px] text-neutral-900 placeholder:text-neutral-400',
-    'focus:outline-none focus:ring-2 focus:ring-primary-700/30 focus:border-primary-700',
-    'transition-colors duration-[120ms]',
-  ].join(' ')
+    "h-12 px-3 bg-white border border-neutral-300 rounded-sm",
+    "font-sans text-[14px] text-neutral-900 placeholder:text-neutral-400",
+    "focus:outline-none focus:ring-2 focus:ring-primary-700/30 focus:border-primary-700",
+    "transition-colors duration-120",
+  ].join(" ");
 
   return (
     <form
@@ -58,9 +71,13 @@ export function CotizadorWidget() {
           className={`${selectBase} flex-1 min-w-0`}
           aria-label="Marca del vehículo"
         >
-          <option value="" disabled>Marca del auto</option>
+          <option value="" disabled>
+            Marca del auto
+          </option>
           {MARCAS.map((m) => (
-            <option key={m} value={m}>{m}</option>
+            <option key={m} value={m}>
+              {m}
+            </option>
           ))}
         </select>
 
@@ -71,9 +88,13 @@ export function CotizadorWidget() {
           className={`${selectBase} w-full sm:w-[120px]`}
           aria-label="Año del vehículo"
         >
-          <option value="" disabled>Año</option>
+          <option value="" disabled>
+            Año
+          </option>
           {YEARS.map((y) => (
-            <option key={y} value={y}>{y}</option>
+            <option key={y} value={y}>
+              {y}
+            </option>
           ))}
         </select>
 
@@ -85,7 +106,7 @@ export function CotizadorWidget() {
           maxLength={4}
           placeholder="Código postal"
           value={cp}
-          onChange={(e) => setCp(e.target.value.replace(/\D/g, ''))}
+          onChange={(e) => setCp(e.target.value.replace(/\D/g, ""))}
           className={`${inputBase} w-full sm:w-[150px]`}
           aria-label="Código postal"
         />
@@ -94,14 +115,14 @@ export function CotizadorWidget() {
         <button
           type="submit"
           className={[
-            'h-12 px-5 rounded-sm',
-            'bg-accent-500 text-secondary-700',
-            'font-sans font-semibold text-[14px]',
-            'flex-shrink-0 whitespace-nowrap',
-            'transition-colors duration-[120ms]',
-            'hover:bg-accent-600 active:bg-accent-700',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-700/50',
-          ].join(' ')}
+            "h-12 px-5 rounded-sm",
+            "bg-accent-500 text-secondary-700",
+            "font-sans font-semibold text-[14px]",
+            "shrink-0 whitespace-nowrap",
+            "transition-colors duration-120",
+            "hover:bg-accent-600 active:bg-accent-700",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-700/50",
+          ].join(" ")}
         >
           Ver precios →
         </button>
@@ -111,5 +132,5 @@ export function CotizadorWidget() {
         Sin registro · Sin compromiso · 100% gratis
       </p>
     </form>
-  )
+  );
 }

@@ -1,18 +1,18 @@
-import { ThumbsUp, AlertTriangle, Check, Minus } from 'lucide-react'
-import type { Insurer } from '@/lib/strapi'
+import { ThumbsUp, AlertTriangle, Check, Minus } from "lucide-react";
+import type { Insurer } from "@/lib/strapi";
 
 export function ProsConsSection({ insurer }: { insurer: Insurer }) {
   return (
     <section className="bg-white py-16">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
+      <div className="max-w-300 mx-auto px-6 lg:px-16">
         {/* Section header — spans both columns */}
         <div className="mb-10">
           <h2 className="font-serif text-4xl tracking-tight text-neutral-900">
             Ventajas y desventajas de {insurer.name}
           </h2>
           <p className="text-base text-neutral-500 mt-3 max-w-prose">
-            Análisis editorial independiente basado en pólizas reales, opiniones de asegurados y
-            datos públicos de la Superintendencia de Seguros.
+            Análisis editorial independiente basado en pólizas reales, opiniones
+            de asegurados y datos públicos de la Superintendencia de Seguros.
           </p>
         </div>
 
@@ -23,10 +23,12 @@ export function ProsConsSection({ insurer }: { insurer: Insurer }) {
               <ThumbsUp
                 size={20}
                 strokeWidth={2}
-                className="text-success flex-shrink-0"
+                className="text-success shrink-0"
                 aria-hidden="true"
               />
-              <h3 className="font-semibold text-base text-success">Lo que nos gusta</h3>
+              <h3 className="font-semibold text-base text-success">
+                Lo que nos gusta
+              </h3>
             </div>
             <ul className="flex flex-col gap-4">
               {insurer.pros.map((pro) => (
@@ -34,7 +36,7 @@ export function ProsConsSection({ insurer }: { insurer: Insurer }) {
                   <Check
                     size={16}
                     strokeWidth={2}
-                    className="text-success flex-shrink-0 mt-0.5"
+                    className="text-success shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
                   <span className="text-base text-neutral-700">{pro}</span>
@@ -49,10 +51,12 @@ export function ProsConsSection({ insurer }: { insurer: Insurer }) {
               <AlertTriangle
                 size={20}
                 strokeWidth={2}
-                className="text-warning flex-shrink-0"
+                className="text-warning shrink-0"
                 aria-hidden="true"
               />
-              <h3 className="font-semibold text-base text-warning">Lo que podría mejorar</h3>
+              <h3 className="font-semibold text-base text-warning">
+                Lo que podría mejorar
+              </h3>
             </div>
             <ul className="flex flex-col gap-4">
               {insurer.cons.map((con) => (
@@ -60,7 +64,7 @@ export function ProsConsSection({ insurer }: { insurer: Insurer }) {
                   <Minus
                     size={16}
                     strokeWidth={2}
-                    className="text-warning flex-shrink-0 mt-0.5"
+                    className="text-warning shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
                   <span className="text-base text-neutral-700">{con}</span>
@@ -71,5 +75,5 @@ export function ProsConsSection({ insurer }: { insurer: Insurer }) {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { BadgeCheck, ArrowRight } from 'lucide-react'
-import { RatingHistogram } from './RatingHistogram'
-import type { Insurer, InsurerReview } from '@/lib/strapi'
+import Link from "next/link";
+import { BadgeCheck, ArrowRight } from "lucide-react";
+import { RatingHistogram } from "./RatingHistogram";
+import type { Insurer, InsurerReview } from "@/lib/strapi";
 
 function StarRow({ stars }: { stars: number }) {
   return (
@@ -11,7 +11,7 @@ function StarRow({ stars }: { stars: number }) {
           key={i}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill={i <= stars ? 'currentColor' : 'none'}
+          fill={i <= stars ? "currentColor" : "none"}
           stroke="currentColor"
           strokeWidth={1.5}
           className="w-4 h-4 text-accent-500"
@@ -25,49 +25,60 @@ function StarRow({ stars }: { stars: number }) {
         </svg>
       ))}
     </div>
-  )
+  );
 }
 
 function initials(name: string) {
   return name
-    .split(' ')
+    .split(" ")
     .map((w) => w[0])
-    .join('')
+    .join("")
     .slice(0, 2)
-    .toUpperCase()
+    .toUpperCase();
 }
 
 function ReviewCard({
   review,
   insurerName,
 }: {
-  review: InsurerReview
-  insurerName: string
+  review: InsurerReview;
+  insurerName: string;
 }) {
   return (
     <blockquote className="bg-white rounded-xl border border-neutral-200 p-6 flex flex-col h-full">
       <StarRow stars={review.stars} />
 
       <p className="text-base text-neutral-700 mt-4 flex-1 line-clamp-6 italic">
-        "{review.quote}"
+        {review.quote}
       </p>
 
       <footer className="mt-auto pt-5 border-t border-neutral-100 flex items-center gap-3">
         <div
-          className="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center flex-shrink-0"
+          className="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center shrink-0"
           aria-hidden="true"
         >
-          <span className="text-sm font-semibold text-neutral-600">{initials(review.authorName)}</span>
+          <span className="text-sm font-semibold text-neutral-600">
+            {initials(review.authorName)}
+          </span>
         </div>
         <cite className="not-italic flex flex-col flex-1 min-w-0">
           <span className="text-sm font-semibold text-neutral-900 leading-tight">
             {review.authorName}
           </span>
-          <span className="text-xs text-neutral-500 leading-tight">{review.vehicle}</span>
+          <span className="text-xs text-neutral-500 leading-tight">
+            {review.vehicle}
+          </span>
         </cite>
-        <span className="flex items-center gap-1 flex-shrink-0">
-          <BadgeCheck size={14} strokeWidth={2} className="text-primary-500" aria-hidden="true" />
-          <span className="text-xs font-semibold text-primary-600">Verificado</span>
+        <span className="flex items-center gap-1 shrink-0">
+          <BadgeCheck
+            size={14}
+            strokeWidth={2}
+            className="text-primary-500"
+            aria-hidden="true"
+          />
+          <span className="text-xs font-semibold text-primary-600">
+            Verificado
+          </span>
         </span>
       </footer>
 
@@ -75,33 +86,33 @@ function ReviewCard({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Review',
+            "@context": "https://schema.org",
+            "@type": "Review",
             reviewRating: {
-              '@type': 'Rating',
+              "@type": "Rating",
               ratingValue: review.stars,
               bestRating: 5,
             },
             author: {
-              '@type': 'Person',
+              "@type": "Person",
               name: review.authorName,
             },
             reviewBody: review.quote,
             itemReviewed: {
-              '@type': 'Organization',
+              "@type": "Organization",
               name: insurerName,
             },
           }),
         }}
       />
     </blockquote>
-  )
+  );
 }
 
 export function ReviewsSection({ insurer }: { insurer: Insurer }) {
   return (
     <section className="bg-white py-16">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
+      <div className="max-w-300 mx-auto px-6 lg:px-16">
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="font-serif text-4xl tracking-tight text-neutral-900">
@@ -123,13 +134,13 @@ export function ReviewsSection({ insurer }: { insurer: Insurer }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'AggregateRating',
+              "@context": "https://schema.org",
+              "@type": "AggregateRating",
               ratingValue: insurer.rating,
               reviewCount: insurer.reviewCount,
               bestRating: 5,
               itemReviewed: {
-                '@type': 'Organization',
+                "@type": "Organization",
                 name: insurer.name,
               },
             }),
@@ -139,7 +150,11 @@ export function ReviewsSection({ insurer }: { insurer: Insurer }) {
         {/* Review cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {insurer.reviews.map((review) => (
-            <ReviewCard key={review.authorName} review={review} insurerName={insurer.name} />
+            <ReviewCard
+              key={review.authorName}
+              review={review}
+              insurerName={insurer.name}
+            />
           ))}
         </div>
 
@@ -149,11 +164,12 @@ export function ReviewsSection({ insurer }: { insurer: Insurer }) {
             href={`/aseguradoras/${insurer.slug}/opiniones`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:underline underline-offset-2 no-underline transition-colors duration-150"
           >
-            Ver todas las {insurer.reviewCount.toLocaleString('es-AR')} opiniones
+            Ver todas las {insurer.reviewCount.toLocaleString("es-AR")}{" "}
+            opiniones
             <ArrowRight size={14} aria-hidden="true" />
           </Link>
         </div>
       </div>
     </section>
-  )
+  );
 }

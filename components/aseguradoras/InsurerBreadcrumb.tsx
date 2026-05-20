@@ -1,45 +1,49 @@
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
-import { JsonLd } from '@/components/seo/JsonLd'
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ramsarseguros.com.ar'
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ramsarseguros.com.ar";
 
 interface InsurerBreadcrumbProps {
-  insurerName: string
-  insurerSlug: string
+  insurerName: string;
+  insurerSlug: string;
 }
 
-export function InsurerBreadcrumb({ insurerName, insurerSlug }: InsurerBreadcrumbProps) {
+export function InsurerBreadcrumb({
+  insurerName,
+  insurerSlug,
+}: InsurerBreadcrumbProps) {
   const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: [
       {
-        '@type': 'ListItem',
+        "@type": "ListItem",
         position: 1,
-        name: 'Inicio',
+        name: "Inicio",
         item: siteUrl,
       },
       {
-        '@type': 'ListItem',
+        "@type": "ListItem",
         position: 2,
-        name: 'Aseguradoras',
+        name: "Aseguradoras",
         item: `${siteUrl}/aseguradoras`,
       },
       {
-        '@type': 'ListItem',
+        "@type": "ListItem",
         position: 3,
         name: insurerName,
         item: `${siteUrl}/aseguradoras/${insurerSlug}`,
       },
     ],
-  }
+  };
 
   return (
     <>
       <JsonLd schema={breadcrumbSchema} />
       <div className="bg-white py-4">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
+        <div className="max-w-300 mx-auto px-6 lg:px-16">
           <nav aria-label="Breadcrumb">
             <ol className="flex items-center gap-2 flex-wrap">
               <li>
@@ -51,7 +55,7 @@ export function InsurerBreadcrumb({ insurerName, insurerSlug }: InsurerBreadcrum
                 </Link>
               </li>
               <li aria-hidden="true">
-                <ChevronRight size={14} className="text-neutral-400 flex-shrink-0" />
+                <ChevronRight size={14} className="text-neutral-400 shrink-0" />
               </li>
               <li>
                 <Link
@@ -62,7 +66,7 @@ export function InsurerBreadcrumb({ insurerName, insurerSlug }: InsurerBreadcrum
                 </Link>
               </li>
               <li aria-hidden="true">
-                <ChevronRight size={14} className="text-neutral-400 flex-shrink-0" />
+                <ChevronRight size={14} className="text-neutral-400 shrink-0" />
               </li>
               <li>
                 <span
@@ -77,5 +81,5 @@ export function InsurerBreadcrumb({ insurerName, insurerSlug }: InsurerBreadcrum
         </div>
       </div>
     </>
-  )
+  );
 }

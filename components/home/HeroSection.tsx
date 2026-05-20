@@ -166,7 +166,7 @@ export function HeroSection() {
         minHeight: "640px",
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-16 pt-24 pb-0">
+      <div className="max-w-300 mx-auto px-6 lg:px-16 pt-24 pb-0">
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.22fr_1fr] gap-8 lg:gap-12 items-center">
           {/* Left column */}
@@ -190,7 +190,7 @@ export function HeroSection() {
                   "font-sans font-semibold text-[15px]",
                   "px-6 py-3.5 rounded-sm no-underline",
                   "shadow-elevation-3",
-                  "transition-colors duration-[120ms]",
+                  "transition-colors duration-120",
                   "hover:bg-primary-600 active:bg-primary-800",
                   "text-center",
                 ].join(" ")}
@@ -204,7 +204,7 @@ export function HeroSection() {
                   "font-sans font-semibold text-[15px] text-primary-700",
                   "px-4 py-3.5 no-underline",
                   "hover:underline hover:underline-offset-2",
-                  "transition-colors duration-[120ms]",
+                  "transition-colors duration-120",
                   "text-center",
                 ].join(" ")}
               >
@@ -259,7 +259,7 @@ export function HeroSection() {
             {INSURER_NAMES.map((name) => (
               <span
                 key={name}
-                className="font-mono text-[11px] tracking-[0.12em] uppercase text-neutral-400 opacity-55 hover:opacity-100 hover:text-neutral-700 transition-all duration-[120ms] whitespace-nowrap cursor-default select-none"
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-neutral-400 opacity-55 hover:opacity-100 hover:text-neutral-700 transition-all duration-120 whitespace-nowrap cursor-default select-none"
               >
                 {name}
               </span>

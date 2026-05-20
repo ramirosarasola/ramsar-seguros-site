@@ -1,49 +1,52 @@
-import { JsonLd } from '@/components/seo/JsonLd'
+import { JsonLd } from "@/components/seo/JsonLd";
 
 const TESTIMONIALS = [
   {
     stars: 5,
     quote:
-      'Cotizé en 2 minutos y ahorré $8.000 por mes comparado con lo que pagaba antes. Increíble lo fácil que fue.',
-    author: 'Martín G.',
-    vehicle: 'Volkswagen Gol 2020 · CABA',
+      "Cotizé en 2 minutos y ahorré $8.000 por mes comparado con lo que pagaba antes. Increíble lo fácil que fue.",
+    author: "Martín G.",
+    vehicle: "Volkswagen Gol 2020 · CABA",
   },
   {
     stars: 5,
     quote:
-      'Siempre le huía a los seguros porque me parecía complicado. Acá comparé tres opciones claras y elegí sin dramas. Re recomendable.',
-    author: 'Laura P.',
-    vehicle: 'Toyota Corolla 2022 · Córdoba',
+      "Siempre le huía a los seguros porque me parecía complicado. Acá comparé tres opciones claras y elegí sin dramas. Re recomendable.",
+    author: "Laura P.",
+    vehicle: "Toyota Corolla 2022 · Córdoba",
   },
   {
     stars: 4,
     quote:
-      'La plataforma es muy clara. Me explicó las diferencias entre coberturas de forma simple. Buen servicio.',
-    author: 'Diego F.',
-    vehicle: 'Chevrolet Cruze 2019 · Rosario',
+      "La plataforma es muy clara. Me explicó las diferencias entre coberturas de forma simple. Buen servicio.",
+    author: "Diego F.",
+    vehicle: "Chevrolet Cruze 2019 · Rosario",
   },
-]
+];
 
 const aggregateRatingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'InsuranceAgency',
-  name: 'Ramsar Seguros',
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  name: "Ramsar Seguros",
   aggregateRating: {
-    '@type': 'AggregateRating',
+    "@type": "AggregateRating",
     ratingValue: 4.8,
     reviewCount: 2400,
     bestRating: 5,
     worstRating: 1,
   },
-}
+};
 
 function StarRow({ count }: { count: number }) {
   return (
-    <span className="font-mono text-[12px] text-accent-500" aria-label={`${count} de 5 estrellas`}>
-      {'★'.repeat(count)}
-      {'☆'.repeat(5 - count)}
+    <span
+      className="font-mono text-[12px] text-accent-500"
+      aria-label={`${count} de 5 estrellas`}
+    >
+      {"★".repeat(count)}
+      {"☆".repeat(5 - count)}
     </span>
-  )
+  );
 }
 
 export function TestimoniosSection() {
@@ -51,7 +54,7 @@ export function TestimoniosSection() {
     <>
       <JsonLd schema={aggregateRatingSchema} />
       <section id="opiniones" className="bg-white py-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
+        <div className="max-w-300 mx-auto px-6 lg:px-16">
           {/* Centered header + aggregate rating */}
           <div className="flex flex-col items-center text-center mb-10">
             <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary-500 mb-3">
@@ -67,13 +70,16 @@ export function TestimoniosSection() {
                 <span className="font-serif text-[56px] leading-none tracking-[-0.02em] text-primary-600">
                   4.8
                 </span>
-                <span className="font-sans text-[20px] text-neutral-400">/5</span>
+                <span className="font-sans text-[20px] text-neutral-400">
+                  /5
+                </span>
               </div>
               <span className="font-mono text-[16px] text-accent-500 tracking-[0.08em]">
                 ★ ★ ★ ★ ★
               </span>
               <span className="font-sans text-[14px] text-neutral-500">
-                <span className="text-neutral-700 font-medium">+2.400</span> opiniones verificadas
+                <span className="text-neutral-700 font-medium">+2.400</span>{" "}
+                opiniones verificadas
               </span>
             </div>
           </div>
@@ -100,12 +106,17 @@ export function TestimoniosSection() {
                 </blockquote>
 
                 <footer className="flex items-center gap-2.5 pt-3 border-t border-neutral-200">
-                  <div className="w-9 h-9 rounded-full bg-neutral-200 flex-shrink-0" aria-hidden="true" />
+                  <div
+                    className="w-9 h-9 rounded-full bg-neutral-200 shrink-0"
+                    aria-hidden="true"
+                  />
                   <div>
                     <p className="font-sans font-semibold text-[13px] text-neutral-900 m-0">
                       {t.author}
                     </p>
-                    <p className="font-mono text-[11px] text-neutral-500 m-0">{t.vehicle}</p>
+                    <p className="font-mono text-[11px] text-neutral-500 m-0">
+                      {t.vehicle}
+                    </p>
                   </div>
                 </footer>
               </article>
@@ -114,5 +125,5 @@ export function TestimoniosSection() {
         </div>
       </section>
     </>
-  )
+  );
 }
