@@ -12,6 +12,7 @@ export type BlogArticle = {
   excerpt: string
   author: string
   authorRole: string
+  coverUrl?: string
   publishedAt: string // ISO date: "2026-05-12"
   readMinutes: number
   featured: boolean
@@ -34,6 +35,27 @@ export const CATEGORY_STYLES: Record<ArticleCategory, { bg: string; text: string
 
 export const ALL_CATEGORIES: ArticleCategory[] = ['guias', 'comparativas', 'consejos', 'novedades']
 
+// ─── Strapi v5 populate helpers ──────────────────────────────────────────────
+// DynamicZones require the `on` fragment per component — `populate[blocks]=*` is invalid.
+
+const BLOCKS_POPULATE = [
+  'populate[blocks][on][blog.content-heading][fields][0]=level',
+  'populate[blocks][on][blog.content-heading][fields][1]=anchorId',
+  'populate[blocks][on][blog.content-heading][fields][2]=text',
+  'populate[blocks][on][blog.content-paragraph][fields][0]=text',
+  'populate[blocks][on][blog.content-list][fields][0]=listType',
+  'populate[blocks][on][blog.content-list][fields][1]=items',
+  'populate[blocks][on][blog.content-callout][fields][0]=variant',
+  'populate[blocks][on][blog.content-callout][fields][1]=title',
+  'populate[blocks][on][blog.content-callout][fields][2]=body',
+  'populate[blocks][on][blog.content-image][fields][0]=alt',
+  'populate[blocks][on][blog.content-image][fields][1]=caption',
+  'populate[blocks][on][blog.content-image][populate][image][fields][0]=url',
+  'populate[blocks][on][blog.content-table][fields][0]=caption',
+  'populate[blocks][on][blog.content-table][fields][1]=headers',
+  'populate[blocks][on][blog.content-table][fields][2]=rows',
+].join('&')
+
 // ─── Strapi v5 Client ─────────────────────────────────────────────────────────
 
 async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> {
@@ -45,7 +67,9 @@ async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> 
         Authorization: `Bearer ${STRAPI_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      next: { revalidate },
+      next: process.env.NODE_ENV === 'development'
+        ? { revalidate: 0 }
+        : { revalidate },
     })
     if (!res.ok) return null
     const json = await res.json()
@@ -57,18 +81,49 @@ async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mapArticle(raw: Record<string, any>): BlogArticle {
+  // author comes as a populated relation object from Strapi, or a plain string from static data
+  const authorRel = raw.author && typeof raw.author === 'object' ? raw.author : null
+  const coverUrl: string | undefined = raw.cover?.url
+    ? `${process.env.STRAPI_URL ?? ''}${raw.cover.url}`
+    : undefined
+
   return {
     slug: raw.slug,
     categoria: raw.categoria as ArticleCategory,
     title: raw.title,
     excerpt: raw.excerpt ?? '',
-    author: raw.author ?? '',
-    authorRole: raw.authorRole ?? '',
+    author: authorRel?.name ?? (typeof raw.author === 'string' ? raw.author : ''),
+    authorRole: authorRel?.role ?? raw.authorRole ?? '',
+    ...(coverUrl && { coverUrl }),
     publishedAt: raw.publishedAt ?? raw.createdAt ?? '',
     readMinutes: raw.readMinutes ?? 5,
     featured: raw.featured ?? false,
-    tags: raw.tags ?? [],
+    tags: Array.isArray(raw.tags) ? raw.tags : [],
   }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapBlocks(raw: Record<string, any>[]): ContentBlock[] {
+  return raw.flatMap((block): ContentBlock[] => {
+    switch (block.__component) {
+      case 'blog.content-heading':
+        return [{ type: block.level as 'h2' | 'h3', id: block.anchorId, text: block.text }]
+      case 'blog.content-paragraph':
+        return [{ type: 'p', text: block.text }]
+      case 'blog.content-list':
+        return [{ type: block.listType as 'ul' | 'ol', items: Array.isArray(block.items) ? block.items : [] }]
+      case 'blog.content-callout':
+        return [{ type: 'callout', variant: block.variant as 'tip' | 'warning' | 'info', title: block.title, body: block.body }]
+      case 'blog.content-image':
+        return [{ type: 'image', alt: block.alt, caption: block.caption }]
+      case 'blog.content-table':
+        return [{ type: 'table', headers: block.headers ?? [], rows: block.rows ?? [] }]
+      case 'blog.content-divider':
+        return [{ type: 'hr' }]
+      default:
+        return []
+    }
+  })
 }
 
 // ─── Static Seed Data ─────────────────────────────────────────────────────────
@@ -202,7 +257,7 @@ export async function getAllArticles(categoria?: string): Promise<BlogArticle[]>
 
   type StrapiItem = Record<string, unknown>
   const remote = await strapiGet<StrapiItem[]>(
-    `articulos?sort=publishedAt:desc&pagination[pageSize]=50${categoryFilter}&populate=*`,
+    `articulos?sort=publishedAt:desc&pagination[pageSize]=50${categoryFilter}&populate[author][fields][0]=name&populate[author][fields][1]=role&populate[cover][fields][0]=url`,
     3600,
   )
 
@@ -217,7 +272,7 @@ export async function getAllArticles(categoria?: string): Promise<BlogArticle[]>
 export async function getFeaturedArticle(): Promise<BlogArticle | null> {
   type StrapiItem = Record<string, unknown>
   const remote = await strapiGet<StrapiItem[]>(
-    'articulos?filters[featured][$eq]=true&sort=publishedAt:desc&pagination[pageSize]=1&populate=*',
+    'articulos?filters[featured][$eq]=true&sort=publishedAt:desc&pagination[pageSize]=1&populate[author][fields][0]=name&populate[author][fields][1]=role&populate[cover][fields][0]=url',
     3600,
   )
   if (remote?.[0]) return mapArticle(remote[0])
@@ -269,7 +324,7 @@ const STATIC_POSTS: Record<string, BlogPost> = {
   'terceros-plus-todo-riesgo-comparativa': {
     slug: 'terceros-plus-todo-riesgo-comparativa',
     categoria: 'guias',
-    title: 'Terceros, Terceros Plus o Todo Riesgo: ¿cuál conviene en 2026?',
+    title: 'Terceros, Terceros Plus o Todo Riesgo: ¿cuál conviene en 2021?',
     excerpt:
       'Entendé las diferencias reales entre cada tipo de cobertura y descubrí cuál se adapta mejor a tu auto y tu presupuesto.',
     author: 'Lucía Andrade',
@@ -292,7 +347,7 @@ const STATIC_POSTS: Record<string, BlogPost> = {
       },
       {
         type: 'p',
-        text: 'Las tres categorías de cobertura más comunes en Argentina difieren en qué riesgos cubren y, en consecuencia, en su costo mensual. No se trata solo de precio: cada tipo refleja un nivel distinto de exposición al riesgo que decidís asumir.',
+        text: 'Las dos categorías de cobertura más comunes en Argentina difieren en qué riesgos cubren y, en consecuencia, en su costo mensual. No se trata solo de precio: cada tipo refleja un nivel distinto de exposición al riesgo que decidís asumir.',
       },
       {
         type: 'h3',
@@ -556,12 +611,19 @@ export async function getArticleBySlug(
 ): Promise<BlogPost | null> {
   type StrapiItem = Record<string, unknown>
   const remote = await strapiGet<StrapiItem[]>(
-    `articulos?filters[slug][$eq]=${encodeURIComponent(slug)}&filters[categoria][$eq]=${encodeURIComponent(categoria)}&pagination[pageSize]=1&populate=*`,
+    `articulos?filters[slug][$eq]=${encodeURIComponent(slug)}&filters[categoria][$eq]=${encodeURIComponent(categoria)}&pagination[pageSize]=1&populate[author][fields][0]=name&populate[author][fields][1]=role&populate[author][fields][2]=bio&populate[cover][fields][0]=url&${BLOCKS_POPULATE}`,
     86400,
   )
   if (remote?.[0]) {
-    const base = mapArticle(remote[0])
-    return makeGenericPost(base)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const raw = remote[0] as Record<string, any>
+    const base = mapArticle(raw)
+    const authorRel = raw.author && typeof raw.author === 'object' ? raw.author : null
+    return {
+      ...base,
+      authorBio: authorRel?.bio ?? `${base.author} es especialista en seguros automotor con experiencia en el mercado argentino.`,
+      content: mapBlocks(Array.isArray(raw.blocks) ? raw.blocks : []),
+    }
   }
 
   if (STATIC_POSTS[slug]) return STATIC_POSTS[slug]
