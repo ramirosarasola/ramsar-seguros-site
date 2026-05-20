@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Trust Badge Row</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-4">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.4</div>
+    <h3 class="cs-title">Trust Badge Row</h3>
+    <p class="cs-purpose">A horizontal strip of micro-trust signals. Reused near every CTA and in the footer trust section. Minimal treatment: no boxes, no shadows — icons + text and air.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 28px;">
+        <span class="px-label">5 BADGES · DESKTOP · vertical rules between</span>
+        <div class="demo-trust" style="justify-content: center;">
+          <div class="tb"><div class="ic-sq"></div><span>Sitio 100% seguro</span></div>
+          <div style="width: 1px; height: 16px; background: var(--ramsar-neutral-200);"></div>
+          <div class="tb"><div class="ic-sq"></div><span>Corredor matriculado</span></div>
+          <div style="width: 1px; height: 16px; background: var(--ramsar-neutral-200);"></div>
+          <div class="tb"><div class="ic-sq"></div><span>Sin costo para vos</span></div>
+          <div style="width: 1px; height: 16px; background: var(--ramsar-neutral-200);"></div>
+          <div class="tb"><div class="ic-sq"></div><span>+50.000 cotizaciones</span></div>
+          <div style="width: 1px; height: 16px; background: var(--ramsar-neutral-200);"></div>
+          <div class="tb"><div class="ic-sq"></div><span>Respuesta inmediata</span></div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Badge inventory · all 5</th><td>
+          <ol style="margin: 0; padding-left: 18px;">
+            <li><b>SSL Seguro</b> · icon <code>lock</code> · label <i>"Sitio 100% seguro"</i></li>
+            <li><b>Matrícula SSN</b> · icon <code>shield-check</code> · label <i>"Corredor matriculado"</i></li>
+            <li><b>Gratis</b> · icon <code>circle-dollar-sign</code> · label <i>"Sin costo para vos"</i></li>
+            <li><b>Cotizaciones</b> · icon <code>users</code> · label <i>"+50.000 cotizaciones"</i></li>
+            <li><b>Respuesta</b> · icon <code>zap</code> · label <i>"Respuesta inmediata"</i></li>
+          </ol>
+        </td></tr>
+
+        <tr><th>Badge anatomy</th><td>Icon left · label right. Icon size <code>icon-sm (16 px)</code> · stroke 1.75. Label typography <code>label-s (11.5 · 500 · +0.01 em · sans)</code>. Icon → label gap <code>space-2 (8 px)</code>. No background, no border, no padding around the badge itself.</td></tr>
+
+        <tr><th>Row layout · desktop</th><td>Horizontal · justify-content center · gap <code>space-6 (24 px)</code>. Between every adjacent pair of badges: a 1 px × <span class="mono">16 px</span> vertical rule in <code>sand-200</code>, vertically centered with the badge label baseline.</td></tr>
+        <tr><th>Row layout · tablet (md)</th><td>Horizontal · 5 badges wrap to two rows if container width < 720 px (3 + 2 typical). Vertical rules removed when row wraps; replaced by row-gap <code>space-3 (12 px)</code>.</td></tr>
+        <tr><th>Row layout · mobile (xs/sm)</th><td>Two-column grid (3+2). Rules removed; column-gap <code>space-4 (16 px)</code>, row-gap <code>space-3 (12 px)</code>. Badge labels can wrap to 2 lines if needed.</td></tr>
+
+        <tr><th>Context variant · on cream / white</th><td>Icon color <code>marine-700</code>. Label color <code>sand-700</code>. Vertical rules <code>sand-200</code>. Used in homepage hero footer, cotizador hero, mid-page banners.</td></tr>
+        <tr><th>Context variant · on marine-700</th><td>Icon color <code>amber-500</code>. Label color <code>sand-0 @ 88% α</code>. Vertical rules <code>marine-500</code>. Used in dark CTA bands.</td></tr>
+        <tr><th>Context variant · on midnight footer</th><td>Icon color <code>amber-500</code>. Label color <code>sand-200 @ 78% α</code>. Vertical rules removed (footer trust strip uses larger gaps instead — see §1.6).</td></tr>
+
+        <tr><th>Accessibility</th><td>The row is a <code>&lt;ul role="list"&gt;</code>; each badge is an <code>&lt;li&gt;</code>. Icons are <code>aria-hidden</code>; label text carries the meaning. Vertical rules are CSS pseudo-elements (not in DOM) so screen readers don't recite them.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep the badge set to 5 maximum, in the order listed. More badges read as desperation; reorder breaks the rhythm of reassurance from "safe" → "credible" → "free" → "social-proven" → "fast".</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't wrap the row in a card with padding and shadow. The trust row's restraint is what makes it credible; chrome makes it feel marketed.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>context:</b> light · marine · midnight — <b>badgeCount:</b> 3 · 4 · 5 — <b>showRules:</b> boolean — text override per badge label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

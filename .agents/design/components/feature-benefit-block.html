@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Feature Benefit Block</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-8">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.8</div>
+    <h3 class="cs-title">Feature / Benefit Block</h3>
+    <p class="cs-purpose">The system's least-decorated card. Used in 3- or 4-column feature grids ("Por qué Ramsar", "Qué incluye tu cobertura"). Informational, not interactive — no hover state, no link.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="gap: 24px;">
+        <span class="px-label">VARIANT A · light bg · iconbox</span>
+        <div class="demo-fb">
+          <div class="icbox"><div class="ic-sq"></div></div>
+          <div class="t">14 aseguradoras</div>
+          <div class="d">Comparamos en simultáneo las pólizas más elegidas del país sin sesgos comerciales.</div>
+        </div>
+        <span class="px-label" style="position: static; transform: none;">VARIANT B · dark bg · icon-only</span>
+        <div class="demo-fb" style="background: var(--ramsar-primary-700); padding: 20px; border-radius: 12px; color: #fff;">
+          <div style="width: 28px; height: 28px; border: 1.5px solid #fff; border-radius: 4px;"></div>
+          <div class="t" style="color: #fff;">Sin compromiso</div>
+          <div class="d" style="color: rgba(255,255,255,0.78);">Cotizá sin tarjeta, sin firma, sin trampas. Sin nada que después aparezca.</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Variants</th><td><b>A · On light background</b> (cream/white sections): icon sits inside a colored container. <b>B · On colored background</b> (marine-700 sections, midnight footer): icon sits naked, container removed, stroke recolored. The choice is contextual to the surrounding section, not a Figma boolean of the component itself.</td></tr>
+
+        <tr><th>Variant A · icon container</th><td>Shape <b>rounded square</b> (<code>radius-md (12 px)</code>) · size <span class="mono">48 × 48 px</span>. Background <code>marine-50</code>. Icon inside: <code>icon-md (20 px)</code> · stroke 1.75 · color <code>marine-700</code>. Centered both axes.</td></tr>
+        <tr><th>Variant B · icon</th><td>No container. Icon <code>icon-lg (24 px)</code> · stroke 2 · color <code>sand-0</code> (or <code>amber-500</code> for emphasis-block use). Sits flush-left of the title with no padding.</td></tr>
+
+        <tr><th>Title</th><td>Typography <code>h5 (18 / 26 · 600 · sans)</code>. <b>Color:</b> <code>sand-900</code> on light · <code>sand-0</code> on dark. Top margin from icon: <span class="mono">space-3 (12 px)</span>. <b>Max 1 line</b> on desktop (24 ch); wraps to 2 lines on mobile.</td></tr>
+        <tr><th>Description</th><td>Typography <code>body-s (14 / 22 · 400)</code>. <b>Color:</b> <code>sand-600</code> on light · <code>sand-200 @ 78% α</code> on dark. Max <b>120 characters</b> (≈ 3 lines at column width). Top margin <code>space-2 (8 px)</code>.</td></tr>
+
+        <tr><th>Block dimensions</th><td>No fixed width — fills the column. No background, no border, no shadow (the block <i>is</i> the content). Vertical internal alignment: top-aligned within the column so multi-row grids align on the icon row.</td></tr>
+
+        <tr><th>Grid layout</th><td><b>Desktop:</b> 3 or 4 columns (section-dependent; 3 for emphasis blocks · 4 for compact feature grids) · gap <code>space-8 (32 px)</code> horizontal · <code>space-12 (48 px)</code> vertical (when wrapping to a second row). <b>Tablet:</b> 2 columns. <b>Mobile:</b> 1 column · gap <code>space-8 (32 px)</code>.</td></tr>
+
+        <tr><th>States</th><td>None. This is an informational block. No hover, no focus, no link wrapping. If it needs a CTA, the section that contains it gets one — not the block itself.</td></tr>
+        <tr><th>Accessibility</th><td>Title is <code>&lt;h3&gt;</code> within the surrounding section (per page structure). Icon is <code>aria-hidden</code>. The block is plain content — no <code>role</code> override needed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Treat the feature block as <i>text-first</i>. The icon decorates the heading; the heading decorates the description; the description is the work.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a hover lift "for consistency with cards". Feature blocks are paragraphs with icons, not interactive surfaces.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> light · dark — <b>icon:</b> instance-swap — text overrides for title and description.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

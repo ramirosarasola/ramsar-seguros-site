@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Empty State</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-8">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.8</div>
+    <h3 class="cs-title">Empty State</h3>
+    <p class="cs-purpose">What a section looks like when it has nothing to show. Three variants — no results, no content yet, error loading. Each variant carries an illustration concept, copy, and an optional CTA that converts the empty moment into the next action.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 32px;">
+        <span class="px-label">EMPTY · NO RESULTS · centered · 400 px max</span>
+        <div class="demo-empty">
+          <div class="ill" style="background: var(--ramsar-primary-50); border-radius: 16px; padding: 14px;"><div style="width: 56px; height: 56px; border: 2px solid var(--ramsar-primary-300); border-radius: 50%; position: relative;"><div style="position: absolute; bottom: -8px; right: -8px; width: 18px; height: 4px; background: var(--ramsar-primary-300); transform: rotate(45deg); border-radius: 2px;"></div></div></div>
+          <h5>No encontramos resultados</h5>
+          <p>Intentá con otros términos o explorá todas las aseguradoras.</p>
+          <button class="btn-primary" style="margin-top: 8px; padding: 10px 16px; font-size: 13px;">Ver todas las aseguradoras</button>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Layout</th><td>Vertical stack · centered horizontally · max-width <span class="mono">400 px</span>. Vertical padding <code>space-12 (48 px)</code> top and bottom (relative to the empty container's bounds).</td></tr>
+
+        <tr><th>Illustration</th><td><b>Size:</b> 120 × 120 px square. <b>Style:</b> flat SVG · 2 colors maximum — <code>marine-200</code> + <code>sand-300</code>. <b>No shadows, no gradients</b> · clean geometric primitives only. Sits inside a 16 px <code>marine-50</code> rounded square (radius-lg) as a visual frame — the frame is the only chromatic surface in the empty state.</td></tr>
+
+        <tr><th>Headline</th><td>Typography <code>h5 (18 / 26 · 600 · sans)</code> · color <code>sand-700</code> (slightly muted from sand-900 — empty states should feel calm, not stark). Top margin from illustration: <code>space-4 (16 px)</code>.</td></tr>
+        <tr><th>Description</th><td>Typography <code>body-s (14 · 400)</code> · color <code>sand-500</code>. <b>Max 80 characters</b> · 1–2 line wrap. Top margin <code>space-2 (8 px)</code>. Text-align center.</td></tr>
+        <tr><th>CTA (optional)</th><td>Variant <code>btn-primary-md</code>. Top margin <code>space-6 (24 px)</code>. Width: auto (centered). Always optional — many empty states resolve naturally (e.g. "Pronto habrá contenido aquí" needs no action).</td></tr>
+
+        <tr><th>Variant · no search results</th><td>
+          <p><b>Illustration concept:</b> A magnifying-glass outline (marine-200 stroke 2 px) with a sand-300 dashed circle inside representing "nothing found". 120 × 120 artboard, centered.</p>
+          <p><b>Headline:</b> "No encontramos resultados"</p>
+          <p><b>Description:</b> "Intentá con otros términos o explorá todas las aseguradoras."</p>
+          <p><b>CTA:</b> "Ver todas las aseguradoras" → navigates to the listing index.</p>
+        </td></tr>
+
+        <tr><th>Variant · no articles yet</th><td>
+          <p><b>Illustration concept:</b> A blank document outline (3 thin horizontal lines suggesting page rules, marine-200) overlapped by a pencil at 30° (sand-300). Communicates "in progress" without becoming literal.</p>
+          <p><b>Headline:</b> "Pronto habrá contenido aquí"</p>
+          <p><b>Description:</b> "Estamos trabajando en nuevos artículos para esta categoría."</p>
+          <p><b>CTA:</b> none. Linking back to the main blog index is offered <i>below</i> the empty state in the page footer, not inside it.</p>
+        </td></tr>
+
+        <tr><th>Variant · error loading</th><td>
+          <p><b>Illustration concept:</b> A cloud shape (marine-200 outline) with a small lightning-bolt sand-300 stroke cutting diagonally through it. Reads as "interrupted" rather than "broken" — calmer than a sad-face cloud, more diagnostic.</p>
+          <p><b>Headline:</b> "Algo salió mal"</p>
+          <p><b>Description:</b> "No pudimos cargar el contenido. Intentá de nuevo."</p>
+          <p><b>CTA:</b> "Reintentar" — triggers the parent component's load function (not a full-page reload).</p>
+        </td></tr>
+
+        <tr><th>Container</th><td>The empty state inherits the parent section's bounds. No internal background, no border. The cream paper of the page is the canvas; the empty state is its own quietness.</td></tr>
+
+        <tr><th>Accessibility</th><td>Wrapped in <code>&lt;div role="status" aria-live="polite"&gt;</code> so screen readers announce the empty state when it replaces a previously-populated section. Illustration is <code>aria-hidden</code>. Headline is <code>&lt;h3&gt;</code> within the section's hierarchy.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Let some empty states stand without a CTA. Sometimes "Pronto habrá contenido aquí" is the entire message — adding a button to it implies the empty state is a failure rather than a moment.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't draw the illustration with shadows, gradients, or 3+ colors. Empty-state illustrations earn their character from restraint; complexity here reads as cope.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> no-results · no-content · error — <b>illustration:</b> instance-swap — <b>showCta:</b> boolean — text overrides for headline · description · CTA label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

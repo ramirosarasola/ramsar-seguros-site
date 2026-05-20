@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Top Navigation Bar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-1-1">
+  <header class="cs-head">
+    <div class="cs-num">§ 1.1</div>
+    <h3 class="cs-title">Top Navigation Bar</h3>
+    <p class="cs-purpose">The desktop primary nav. Three jobs: hold the brand mark, route to high-equity SEO pages, and surface the single "Cotizá ahora" conversion target at all times.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white">
+        <span class="px-label">DEFAULT · Desktop</span>
+        <div class="demo-nav" style="max-width: 580px;">
+          <div class="nav-l">
+            <span class="nav-logo">Ramsar</span>
+          </div>
+          <div class="nav-r">
+            <a class="nav-link active">Seguros</a>
+            <a class="nav-link">Vehículos</a>
+            <a class="nav-link">Blog</a>
+            <button class="btn-primary" style="padding: 9px 14px; font-size: 13px;">Cotizá ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-preview" style="margin-top: 12px;">
+        <span class="px-label">SCROLLED · 72→64 px · elevation-2 · 96% α paper</span>
+        <div class="demo-nav" style="max-width: 580px; background: rgba(248,247,244,0.96); padding: 8px 20px;">
+          <div class="nav-l">
+            <span class="nav-logo" style="font-size: 19px;">Ramsar</span>
+          </div>
+          <div class="nav-r">
+            <a class="nav-link">Seguros</a>
+            <a class="nav-link">Vehículos</a>
+            <a class="nav-link">Blog</a>
+            <button class="btn-primary" style="padding: 8px 12px; font-size: 12.5px;">Cotizá ahora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Layout (L → R)</th><td>Logo · gap-20 (80&nbsp;px) · nav-link cluster · gap-12 (48&nbsp;px) · Primary CTA. Logo is left-aligned to <code>container-default</code>; CTA is right-aligned to the same container.</td></tr>
+        <tr><th>Height</th><td><span class="mono">72&nbsp;px</span> default · <span class="mono">64&nbsp;px</span> scrolled. Vertical padding <span class="mono">space-4 (16)</span> default, <span class="mono">space-3 (12)</span> scrolled. Total inner band is <span class="mono">40&nbsp;px</span> at rest.</td></tr>
+        <tr><th>Logo</th><td>Eclipse wordmark, height <span class="mono">28&nbsp;px</span> default → <span class="mono">24&nbsp;px</span> scrolled. Clickable hit-zone padded to <span class="mono">44×44&nbsp;px</span>. Always links to <code>/</code>; never visited-state colored.</td></tr>
+        <tr><th>Nav links · count</th><td><b>Maximum 5</b>, recommended 3. Current set: <em>Seguros</em> (dropdown · 14 aseguradoras), <em>Vehículos</em> (dropdown · 15 marcas), <em>Blog</em>. Adding a 4th link requires dropping the dropdown indicator from another to keep visual rhythm.</td></tr>
+        <tr><th>Link typography</th><td><span class="mono">label-l (15 / 20 · 500 · sans)</span>. Tracking 0. No transform.</td></tr>
+        <tr><th>Link gap</th><td><span class="mono">space-8 (32&nbsp;px)</span> between adjacent links. Last link → CTA: <span class="mono">space-12 (48&nbsp;px)</span> to visually separate destinations from conversion.</td></tr>
+        <tr><th>Link color · default</th><td>Label <code>text-secondary</code> (sand-700). Dropdown chevron: <code>icon-xs</code>, sand-500, gap 4 px after label.</td></tr>
+        <tr><th>Link color · hover</th><td>Label → <code>text-brand</code> (marine-700). Chevron → marine-700. <span class="mono">duration-fast (120) · ease-out</span>.</td></tr>
+        <tr><th>Active / current</th><td><b>Underline indicator.</b> 2&nbsp;px solid <code>marine-700</code>, full label width, sits 12&nbsp;px below baseline (visually centered in the band's bottom half). Animates in via scaleX(0)→scaleX(1) from center, <span class="mono">duration-default · ease-out</span>. No background pill, no left border — those treatments belong to vertical nav.</td></tr>
+        <tr><th>Dropdown trigger</th><td>Links with sub-pages carry a <code>chevron-down</code> icon (icon-xs) trailing the label. On hover/focus the chevron rotates 180° in <span class="mono">duration-default · ease-out</span>. Hover delay <span class="mono">120 ms</span> before opening to prevent accidental triggers; close delay <span class="mono">240 ms</span> on pointer-leave to forgive cursor overshoot.</td></tr>
+        <tr><th>Primary CTA</th><td>Label <b>"Cotizá ahora"</b> (Spanish-AR voseo). Variant <code>btn-primary-md</code> (40&nbsp;px tall, 12+16 padding). Right-aligned. Carries no icon by default; on viewports ≥ <code>xl</code> add a trailing <code>arrow-right</code> (icon-sm, gap 6&nbsp;px) for affordance.</td></tr>
+        <tr><th>Sticky behavior</th><td><b>Yes, sticky.</b> The CTA must be reachable at all times — a Ramsar visitor's most likely intent on any page is "I want a quote." <code>position: sticky; top: 0</code>.</td></tr>
+        <tr><th>Scroll transition</th><td>Triggered at <span class="mono">scrollY ≥ 24&nbsp;px</span>. Height 72→64, logo 28→24, vertical padding 16→12, background opacity 100→96%. All four interpolate together over <span class="mono">duration-default (220 ms) · ease-out</span>. Reverses at <span class="mono">scrollY ≤ 8&nbsp;px</span> (deadband prevents thrash).</td></tr>
+        <tr><th>Background · rest</th><td>Solid <code>bg-page</code> (sand-50). Never transparent over hero — Ramsar's hero is cream too, and a transparent nav would float without an anchor.</td></tr>
+        <tr><th>Background · scrolled</th><td><code>bg-page</code> at 96% α with <code>backdrop-filter: blur(12px)</code>. The 4% transparency lets content texture show through and signals layered chrome.</td></tr>
+        <tr><th>Border / shadow</th><td>Rest: <span class="mono">border-bottom: 1px solid border-subtle</span>. Scrolled: border drops, <code>elevation-2</code> shadow appears. Both interpolate alongside the height transition.</td></tr>
+        <tr><th>Z-index</th><td><code>z-50</code> = <span class="mono">50</span>. Below modals (100), above page content (auto) and dropdown panels (40).</td></tr>
+        <tr><th>Responsive</th><td>Visible at <code>md</code> (≥ 768&nbsp;px) and above. Below <code>md</code>: replaced by §1.2 Mobile Navigation Bar.</td></tr>
+        <tr><th>Accessibility</th><td><code>&lt;header&gt;</code> wrapping <code>&lt;nav aria-label="Principal"&gt;</code>. Links are <code>&lt;a&gt;</code>, not buttons. Skip-link "Saltar al contenido" appears at top on focus (positions absolute, transforms in). Focus ring per §05.</td></tr>
+        <tr><th>Keyboard</th><td>Tab order: skip-link → logo → each link L→R → CTA. Enter/Space activate. <code>aria-current="page"</code> on the active link.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep the link cluster &lt; 5 items. Conversion suffers measurably past 5; a missed visitor never opens a dropdown.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't recolor the CTA to amber here. The CTA in nav must read as "primary action of the site"; amber is for in-page accents and "Recommended" affordances only.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> default · scrolled — <b>activeLink:</b> none · seguros · vehiculos · blog — <b>showCtaArrow:</b> boolean — <b>logoColor:</b> brand · inverse (for the rare dark-hero case) — <b>linkText[1..5]:</b> text overrides — <b>ctaLabel:</b> text override (default "Cotizá ahora").</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — FAQ Accordion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-2">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.2</div>
+    <h3 class="cs-title">FAQ Accordion</h3>
+    <p class="cs-purpose">Eight components in this library would be optional if the SEO didn't depend on it. This one isn't. FAQPage schema + featured-snippet capture make this the single highest-traffic UI surface in long-tail keyword space.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 24px; align-items: stretch;">
+        <span class="px-label">3 ITEMS · MIDDLE OPEN · marine-50 active state</span>
+        <div class="demo-acc">
+          <div class="item">
+            <div class="q">¿Qué cubre exactamente "Terceros Plus"? <span class="chev"></span></div>
+          </div>
+          <div class="item open" style="background: var(--ramsar-primary-50); border-bottom-color: var(--ramsar-primary-200);">
+            <div class="q" style="color: var(--ramsar-primary-700);">¿Puedo cambiar de aseguradora en cualquier momento? <span class="chev" style="border-color: var(--ramsar-primary-700);"></span></div>
+            <div class="a">Sí. En Argentina podés rescindir tu póliza con 30 días de aviso. Si pagaste por adelantado, te corresponde la devolución proporcional del importe no usado.</div>
+          </div>
+          <div class="item">
+            <div class="q">¿Qué documentación necesito para cotizar? <span class="chev"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Container</th><td>Max-width <code>container-narrow (720 px)</code> · centered on the page (FAQ is reading-mode content). Vertical padding <code>space-12 (48 px)</code> top + bottom.</td></tr>
+        <tr><th>Item · structure</th><td>Trigger row + collapsible answer panel. Both share the same horizontal padding (<code>space-5 / 20 px</code>). Border-bottom 1 px <code>sand-200</code> on every item (last item retains its border to close the list).</td></tr>
+
+        <tr><th>Trigger · closed</th><td>Min-height <span class="mono">56 px</span>. Padding <code>space-4 / space-5 (16 / 20 px)</code>. Background <code>sand-0</code>. Display flex / justify-between / align-center. Cursor pointer.</td></tr>
+        <tr><th>Trigger · question text</th><td>Typography <code>label-l (15 / 20 · 500 · sans)</code> · color <code>sand-900</code>. Text-align left. <b>Real question marks</b> at start and end ("¿…?" — Spanish punctuation). Length recommendation 60–80 chars for snippet eligibility.</td></tr>
+        <tr><th>Trigger · expand icon</th><td><code>chevron-down</code> · icon-sm (16 px · stroke 1.75) · color <code>sand-500</code>. Right-aligned via flex.</td></tr>
+
+        <tr><th>Trigger · open state</th><td>Background <code>marine-50</code>. Question text color <code>marine-700</code>. Chevron color <code>marine-700</code> + <code>transform: rotate(180deg)</code>. Border-bottom updates to 1 px <code>marine-200</code>. All transitions <span class="mono">duration-fast (120 ms) · ease-in-out</span>.</td></tr>
+
+        <tr><th>Answer panel</th><td>Padding <code>space-2 (8) top · space-5 (20) right · space-5 (20) bottom · space-5 (20) left</code>. Background <code>marine-50</code> (continuous with open trigger — no internal divider). Border-bottom 1 px <code>sand-200</code> (reverts to standard).</td></tr>
+        <tr><th>Answer · typography</th><td><code>body-m (16 / 26 · 400)</code> · color <code>sand-800</code>. Max-width <span class="mono">62 ch</span> for readability.</td></tr>
+        <tr><th>Answer · allowed content</th><td>Plain text, links (color <code>marine-700</code> · underline), short bulleted lists (3–6 items max), <b>one</b> inline CTA link at the end. No images, no tables, no nested accordions — those belong in the article body, not in a snippet-eligible block.</td></tr>
+
+        <tr><th>Expand animation</th><td><code>grid-template-rows: 0fr → 1fr</code> on the panel's wrapper · <span class="mono">duration-default (220 ms) · ease-out</span>. The body content itself does <b>not</b> fade — the height reveal is the entire effect. Chevron rotation runs synchronously.</td></tr>
+        <tr><th>Collapse animation</th><td>Reverse · <span class="mono">duration-fast (120 ms) · ease-in</span>. Faster than open by design.</td></tr>
+
+        <tr><th>Single-open rule</th><td><b>One item open at a time.</b> Opening item B closes item A automatically. <i>Justification:</i> insurance FAQ entries are dense; allowing multiple opens turns the page into a wall of paragraphs the user didn't ask for. Single-open keeps each answer a deliberate read.</td></tr>
+
+        <tr><th>Keyboard</th><td><b>Enter / Space</b>: toggle. <b>↓ / ↑</b>: focus next / previous trigger. <b>Home / End</b>: focus first / last. <b>Esc</b>: close currently-open item, focus returns to its trigger. <b>Tab</b>: leaves the accordion entirely (does not iterate through panel contents on open — preserves linear flow).</td></tr>
+        <tr><th>ARIA</th><td>Trigger is a <code>&lt;button&gt;</code> with <code>aria-expanded</code>, <code>aria-controls="answer-{id}"</code>. Answer panel <code>role="region" id="answer-{id}" aria-labelledby="trigger-{id}"</code>. Hidden state uses <code>hidden</code> attribute, not CSS display alone.</td></tr>
+        <tr><th>SEO · schema</th><td>Required: <code>FAQPage</code> JSON-LD embedded in <code>&lt;head&gt;</code>. Every visible question/answer pair must appear in schema 1:1. Schema text and visible text must match character-for-character — Google penalizes mismatches as cloaking. Targets featured-snippet capture for "¿cómo cotizo un seguro de auto?" and similar.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Phrase questions exactly as a Spanish-AR user would type them. Voseo, contractions, real punctuation — match the query, capture the snippet.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't allow multiple items open simultaneously. The "all-open" affordance feels generous and reads as overwhelming.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>state:</b> closed · open — <b>itemCount:</b> 3–12 — <b>showCtaLink:</b> boolean per item — text overrides for question + answer.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Interior Page Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-2-2">
+  <header class="cs-head">
+    <div class="cs-num">§ 2.2</div>
+    <h3 class="cs-title">Interior Page Hero</h3>
+    <p class="cs-purpose">Used on insurer landing pages, vehicle brand pages, and static pages. Shorter, centred, no illustration — its job is to set the page topic clearly so users and crawlers know what they're looking at, then get out of the way.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="background: var(--ramsar-primary-50); padding: 40px 24px;">
+        <span class="px-label">VARIANT A · Brand tint · insurer page</span>
+        <div style="text-align: center; max-width: 520px;">
+          <div class="demo-bc" style="justify-content: center; margin-bottom: 16px;">
+            <a>Inicio</a><span class="sep">/</span><a>Aseguradoras</a><span class="sep">/</span><span class="curr">Sancor Seguros</span>
+          </div>
+          <div class="badge b-new" style="margin-bottom: 14px;">Aseguradora destacada</div>
+          <h1 style="font-family: var(--serif); font-size: 40px; line-height: 1.08; color: var(--ramsar-primary-700); letter-spacing: -0.018em; margin: 0 0 12px;">Seguros Sancor en Argentina</h1>
+          <p style="font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--ramsar-neutral-700); margin: 0;">Planes, coberturas, opiniones de clientes y comparativa actualizada de Sancor Seguros para autos.</p>
+        </div>
+      </div>
+      <div class="cs-preview" style="margin-top: 12px; background: var(--ramsar-neutral-100); padding: 36px 24px;">
+        <span class="px-label">VARIANT B · Neutral · vehicle page</span>
+        <div style="text-align: center; max-width: 520px;">
+          <h1 style="font-family: var(--serif); font-size: 36px; line-height: 1.08; color: var(--ramsar-neutral-900); margin: 0 0 10px;">Seguros para Toyota Corolla</h1>
+          <p style="font-size: 15px; color: var(--ramsar-neutral-600); margin: 0;">Cotizá tu Corolla con 14 aseguradoras del país.</p>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Layout</th><td><b>Centered text, no visual element.</b> Justification: an interior page hero is a wayfinding signal, not a sales surface. Centering the H1 makes the page topic unambiguous in one glance and works equally for "Sancor Seguros" (proper noun, balanced visual weight) and "Seguros para Toyota Corolla" (longer string).</td></tr>
+        <tr><th>Container</th><td><code>container-default</code> · content centred horizontally · inner content max-width <span class="mono">680 px</span>.</td></tr>
+        <tr><th>Height</th><td><b>Desktop:</b> <span class="mono">min-height 280 px</span> · vertical padding <code>space-16 (64 px)</code> top · <code>space-12 (48 px)</code> bottom. <b>Mobile:</b> <span class="mono">min-height 200 px</span> · padding <code>space-10 / space-8 (40 / 32 px)</code>.</td></tr>
+
+        <tr><th>Elements (top → bottom)</th><td>
+          <ol style="margin: 0; padding-left: 18px;">
+            <li>Breadcrumb (§1.5) · centered · bottom margin <span class="mono">space-4 (16)</span></li>
+            <li>Optional category/status badge · bottom margin <span class="mono">space-3 (12)</span></li>
+            <li>H1 · centered · bottom margin <span class="mono">space-3 (12)</span></li>
+            <li>Subtitle/description · centered · bottom margin <span class="mono">space-6 (24)</span> (or omitted if no CTA follows)</li>
+            <li>Optional CTA · centered</li>
+          </ol>
+        </td></tr>
+
+        <tr><th>Badge above H1</th><td>Variant <code>badge-md</code> (per §5.4). Color variant by context: Aseguradora destacada → <code>marine-50</code> bg / <code>marine-700</code> text. Vehículo popular → <code>amber-300</code> / <code>amber-700</code>. Static page → omit.</td></tr>
+        <tr><th>H1 · typography</th><td><code>h1 (44 / 50 · −0.018 em · serif · 400)</code>. Color depends on variant background (see colors below). Max-width <span class="mono">22 ch</span> for clean 1–2 line wrap.</td></tr>
+        <tr><th>Subtitle · typography</th><td><code>body-l (18 / 30 · 400)</code> · color <code>text-secondary</code> (sand-700) · max-width <span class="mono">56 ch</span> · max 2 lines (truncate with ellipsis if longer; full copy goes in body).</td></tr>
+        <tr><th>Optional CTA</th><td>When present: <code>btn-primary-md</code> · single button only. Used on insurer pages ("Cotizar con Sancor"), omitted on most vehicle pages and static pages (vehicle page CTA lives in §4.7 inline-CTA further down).</td></tr>
+
+        <tr><th>Variant A · Brand tint</th><td>For <b>insurer landing pages</b>. Background <code>marine-50</code> (<span class="mono">#ECF4F3</span>). H1 color <code>marine-700</code>. Subtitle <code>sand-700</code>. Justify: visually signals "this is an insurer surface within our system"; the tint pairs with insurer logos in Column 2 of the footer.</td></tr>
+        <tr><th>Variant B · Neutral</th><td>For <b>vehicle brand/model pages</b>. Background <code>sand-100</code> (<span class="mono">#EFEEE9</span>) — one step warmer than page bg. H1 color <code>sand-900</code>. Subtitle <code>sand-600</code>. Justify: vehicles are the user's territory, not Ramsar's — staying chromatically neutral lets the auto brand stand on its own.</td></tr>
+        <tr><th>Variant C · White + border</th><td>For <b>static pages</b> (Contacto, FAQ, Nosotros, legal). Background <code>sand-0</code> (white). 1 px <code>border-subtle (sand-200)</code> on bottom. H1 color <code>sand-900</code>. Subtitle <code>sand-600</code>. Justify: signals "utility page" — no brand campaign, no insurer affiliation; just information.</td></tr>
+
+        <tr><th>Responsive</th><td>Layout unchanged across breakpoints (centred, single column). Only vertical padding shrinks (see Height). Breadcrumb truncates on mobile per §1.5.</td></tr>
+        <tr><th>Accessibility</th><td>Single <code>&lt;h1&gt;</code> per page. Breadcrumb precedes it in DOM. Optional badge is decorative (<code>aria-hidden</code>) — its text is not navigational.</td></tr>
+        <tr><th>SEO</th><td>The H1 is the most semantically important text on the page. On insurer pages, format: "Seguros [Insurer] en Argentina" (matches likely search query). On vehicle pages: "Seguros para [Marca] [Modelo]".</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Match the variant to the page type strictly: brand tint = insurer, neutral = vehicle, white = static. The chromatic signal helps users orient across sections.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a hero illustration here. The illustration belongs to the homepage; reusing it on every page drains it of meaning.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> brand-tint · neutral · white-bordered — <b>showBadge:</b> boolean — <b>showCta:</b> boolean — <b>showSubtitle:</b> boolean — text overrides for H1, subtitle, badge, CTA.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

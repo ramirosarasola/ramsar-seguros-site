@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Toast Notification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-6">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.6</div>
+    <h3 class="cs-title">Toast Notification</h3>
+    <p class="cs-purpose">Transient floating feedback after an action. Same content shape as Alert (icon + title + description) but lives in a fixed-position stack and disappears automatically. Used for "Cotización guardada", "Datos copiados", "Sin conexión".</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="padding: 24px; flex-direction: column; gap: 12px; align-items: stretch;">
+        <span class="px-label">SUCCESS · ERROR · INFO · TOP-RIGHT STACK</span>
+        <div class="demo-toast">
+          <div class="ic-sq" style="background: var(--ramsar-success);"></div>
+          <div style="flex: 1;"><div class="t">Cotización guardada</div><div class="b">Te enviamos los detalles a tu email.</div></div>
+          <span style="color: var(--ramsar-neutral-400); cursor: pointer;">✕</span>
+        </div>
+        <div class="demo-toast" style="border-left-color: var(--ramsar-error);">
+          <div class="ic-sq" style="background: var(--ramsar-error); border-color: var(--ramsar-error);"></div>
+          <div style="flex: 1;"><div class="t">Error al enviar</div><div class="b">Revisá tu conexión.</div></div>
+          <span style="font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--ramsar-primary-700); cursor: pointer;">Reintentar</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Position · desktop</th><td>Fixed · top-right · offset <code>space-6 (24 px)</code> from top and right edges of viewport.</td></tr>
+        <tr><th>Position · mobile</th><td>Fixed · top-center · offset <code>space-4 (16 px)</code> from top edge · horizontal padding <code>space-4 (16 px)</code> from viewport edges.</td></tr>
+
+        <tr><th>Width</th><td>Desktop fixed <span class="mono">360 px</span>. Mobile <code>calc(100vw − space-8)</code> (full minus 2× 16 px gutters).</td></tr>
+
+        <tr><th>Container</th><td>Background <code>sand-0</code>. Radius <code>radius-md (12 px)</code>. Shadow <code>elevation-3</code>. Border-left 3 px in variant color. Padding <code>space-4 (16 px)</code>. Layout: flex · gap <code>space-3 (12 px)</code> · align-items center.</td></tr>
+
+        <tr><th>Stacking</th><td>Multiple toasts stack <b>vertically</b>, newest on <b>top</b> (visually above previous), gap <code>space-2 (8 px)</code>. <b>Maximum 3 visible</b> simultaneously. A 4th toast pushes the oldest off (oldest exits with slide animation).</td></tr>
+
+        <tr><th>Anatomy</th><td>Identical to §5.5 Alert (icon · title · description) <b>plus</b> an optional inline <b>action button</b> (variant <code>btn-ghost-sm</code>) right of the description (replaces dismiss-X when present). When both action and dismiss are needed, action sits inline, dismiss-X stays top-right.</td></tr>
+        <tr><th>Typography</th><td>Title: <code>label-m (13 · 600)</code> · color <code>sand-900</code>. Description: <code>body-xs (13 · 400)</code> · color <code>sand-600</code> — slightly tighter than alerts because the toast is read in a glance.</td></tr>
+
+        <tr><th>Auto-dismiss</th><td><b>Success</b>: 5 seconds. <b>Info</b>: 5 seconds. <b>Warning</b>: 8 seconds (warnings need extra read time). <b>Error</b>: <i>never auto-dismiss</i> — errors require user acknowledgement. Toast with an action: never auto-dismiss (the action is the dismissal).</td></tr>
+        <tr><th>Pause on hover</th><td>Yes — auto-dismiss timer pauses on pointer-enter, resumes on pointer-leave. Implemented as setTimeout pause/resume, not just visual freeze.</td></tr>
+
+        <tr><th>Entry animation</th><td>From <code>translateX(calc(100% + 24px))</code> + <code>opacity 0</code> → <code>translateX(0)</code> + <code>opacity 1</code>. Duration <code>duration-default (220 ms) · ease-out</code>. Mobile: <code>translateY(-100%)</code> → 0 (slides from top).</td></tr>
+        <tr><th>Exit animation</th><td>Reverse · duration <code>duration-fast (120 ms) · ease-in</code>. Faster than entry.</td></tr>
+
+        <tr><th>Progress indicator</th><td>Optional 2 px bar along the bottom edge of the toast, color = variant-default. Width animates 100% → 0 over the dismiss duration. Provides a visual countdown without intruding. Disabled in reduced-motion.</td></tr>
+
+        <tr><th>Z-index</th><td><code>z-90</code> · <span class="mono">90</span>. Above modals (z-80), below the absolute-top emergency layer (reserved).</td></tr>
+
+        <tr><th>Accessibility</th><td>Container <code>role="status"</code> (success/info) or <code>role="alert"</code> (error/warning). <code>aria-live="polite"</code> or <code>"assertive"</code> respectively. <code>aria-atomic="true"</code>. Stack container is <code>role="region" aria-label="Notificaciones"</code>. Toast focus management: focus does <b>not</b> shift to toasts on appearance (would steal focus from user's current task); action button is reachable via Tab.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Make error toasts persistent. An error that auto-dismisses before the user reads it is a worse experience than no error at all.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't use toasts for things the user expected to happen. "Saved" after a deliberate "Save" click is unnecessary noise — only use toast feedback for ambient or asynchronous actions.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> success · warning · error · info — <b>showAction:</b> boolean — <b>showProgress:</b> boolean — <b>state:</b> entering · resting · exiting — text overrides for title · description · action.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

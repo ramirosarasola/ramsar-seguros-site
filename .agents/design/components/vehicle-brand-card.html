@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Vehicle Brand Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-2">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.2</div>
+    <h3 class="cs-title">Vehicle Brand Card</h3>
+    <p class="cs-purpose">Tiles the homepage "Vehículos" grid (15 brands). Routes the visitor from "I drive a Toyota" to <code>/seguros-de-auto/toyota</code> with a single click.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="gap: 16px;">
+        <span class="px-label">DEFAULT &amp; HOVER · 1:1 ratio</span>
+        <div class="demo-vcard">
+          <div class="blogo">TOYOTA</div>
+          <div class="bn">Toyota</div>
+          <div class="mn">12 modelos</div>
+        </div>
+        <div class="demo-vcard" style="background: var(--ramsar-primary-50); border-color: var(--ramsar-primary-200);">
+          <div class="blogo" style="background: #fff;">VW</div>
+          <div class="bn" style="color: var(--ramsar-primary-700);">Volkswagen</div>
+          <div class="mn">9 modelos</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Shape &amp; size</th><td>Square. Desktop <span class="mono">176 × 176 px</span> at <code>lg</code>. Tablet <span class="mono">152 × 152 px</span>. Mobile <span class="mono">112 × 112 px</span>. Padding <span class="mono">space-4 (16 px)</span> all sides at every size.</td></tr>
+        <tr><th>Surface</th><td>Background <code>sand-50</code>. Border 1 px <code>border-default (sand-200 · slightly softer than insurer cards)</code>. Radius <code>radius-lg (16 px)</code>. Shadow <code>elevation-0</code>.</td></tr>
+
+        <tr><th>Logo container</th><td>Centered circle. Diameter <span class="mono">64 px</span> desktop · <span class="mono">56 px</span> tablet · <span class="mono">40 px</span> mobile. Background always <b>white</b> (<code>sand-0</code>) regardless of card hover state — protects logo legibility. Border-radius 50%. Internal padding <span class="mono">space-2 (8 px)</span>. Image fit <b>contain</b>. The container reaches white even on hover; only the card body shifts.</td></tr>
+
+        <tr><th>Brand name</th><td>Typography <code>label-l (15 · 500 · sans)</code> · color <code>sand-900</code> · center-aligned · top margin <span class="mono">space-3 (12 px)</span> from logo container.</td></tr>
+        <tr><th>Model count</th><td>Text <i>"X modelos"</i> · typography <code>caption (12 · 400 · +0.005 em)</code> · color <code>sand-500</code> · center-aligned · top margin <span class="mono">2 px</span> from brand name (snug deliberately — they read as a paired label).</td></tr>
+
+        <tr><th>States · default</th><td>As specified above.</td></tr>
+        <tr><th>States · hover</th><td>Background <code>marine-50</code> · border <code>marine-200</code> · brand name color <code>marine-700</code>. Logo container stays white. Transition <span class="mono">duration-default (220) · ease-out</span>. No translate, no shadow change — the chromatic shift carries the entire interaction.</td></tr>
+        <tr><th>States · focus-visible</th><td>Standard focus ring per §05 around the entire card (it is a single link).</td></tr>
+
+        <tr><th>Grid layout</th><td><b>Desktop ≥ lg:</b> 6 columns (15 brands across 3 rows · last row half-filled — anchor the 15th to the leftmost column). <b>md:</b> 4 columns. <b>sm:</b> 4 columns smaller cards. <b>xs:</b> 3 columns at 112 px. Column gap <span class="mono">space-3 (12 px)</span> · row gap <span class="mono">space-3 (12 px)</span>.</td></tr>
+
+        <tr><th>Accessibility</th><td>The entire card is a single <code>&lt;a&gt;</code> (unlike Insurance card, there is no secondary destination here). <code>aria-label="Ver seguros para [Brand]"</code> — model count is read separately by virtue of being a sibling text node within the link.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Always render the logo container in white, regardless of card background state. Logos are protected — they predate Ramsar.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't recolor the brand name to <code>amber-500</code> on hover. Amber is reserved for accent/badge use; using it here would dilute the system.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>brandImage:</b> instance-swap — <b>brandName:</b> text override — <b>modelCount:</b> number — <b>state:</b> default · hover · focus.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

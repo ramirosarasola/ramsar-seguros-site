@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Mobile Drawer Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-1-3">
+  <header class="cs-head">
+    <div class="cs-num">§ 1.3</div>
+    <h3 class="cs-title">Mobile Drawer Menu</h3>
+    <p class="cs-purpose">Full-height drawer that holds the complete navigation tree on mobile. Slides in from the right to keep the user's thumb anchor (right hand) close to the interactive surface.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview">
+        <span class="px-label">DRAWER · right-side · 88% viewport</span>
+        <div class="demo-drawer">
+          <div class="row-top">
+            <span class="nav-logo" style="font-family: var(--serif); font-size: 20px; color: var(--ramsar-primary-700);">Ramsar</span>
+            <div style="width: 22px; height: 22px; position: relative;">
+              <span style="position: absolute; top: 10px; left: 0; right: 0; height: 1.5px; background: var(--ramsar-neutral-800); transform: rotate(45deg);"></span>
+              <span style="position: absolute; top: 10px; left: 0; right: 0; height: 1.5px; background: var(--ramsar-neutral-800); transform: rotate(-45deg);"></span>
+            </div>
+          </div>
+          <div class="links">
+            <a>Seguros</a>
+            <a>Vehículos</a>
+            <a>Blog</a>
+          </div>
+          <button class="btn-primary">Cotizá ahora →</button>
+          <div style="display: flex; gap: 16px; margin-top: 18px; font-family: var(--mono); font-size: 11px; color: var(--ramsar-neutral-500);">
+            <span>Nosotros</span><span>Contacto</span><span>FAQ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Trigger</th><td>Tap of §1.2 hamburger. Also tap of body skip-target on first focus when a screen reader is detected.</td></tr>
+        <tr><th>Slide direction</th><td><b>From the right</b>. Argentina (and 85% of mobile users globally) holds the phone right-handed; sliding from the right keeps the thumb closer to interactive items. The left edge becomes the visual "trailing" edge where the close action lives.</td></tr>
+        <tr><th>Animation</th><td>translateX(100%) → translateX(0) · <span class="mono">duration-slow (360 ms) · ease-in-out</span>. Backdrop fades in parallel.</td></tr>
+        <tr><th>Backdrop</th><td><code>bg-overlay</code> = midnight-900 @ 64% α. <code>backdrop-filter: blur(4px)</code> applied. Tap-to-close: yes (single tap anywhere outside the drawer dismisses).</td></tr>
+        <tr><th>Drawer width</th><td><span class="mono">88% viewport width · max 420 px</span>. The remaining 12% lets the user see the backdrop and reinforces the "this is dismissable" affordance.</td></tr>
+        <tr><th>Drawer height</th><td><code>100dvh</code> (dynamic viewport, accounts for mobile browser chrome). Background <code>bg-page</code>.</td></tr>
+        <tr><th>Internal padding</th><td>Top <span class="mono">space-6 (24)</span> · sides <span class="mono">space-5 (20)</span> · bottom <span class="mono">space-8 (32)</span> (extra for one-thumb reach to the CTA).</td></tr>
+        <tr><th>Internal layout</th><td>
+          <p><b>Top row:</b> Logo (height 24 px, links to home) + Close button (X · icon-md · 44×44 target · right-aligned).</p>
+          <p><b>Primary links</b> stacked vertically: typography <code>h5 (18/26 · 600 · sans)</code>, color <code>sand-900</code>. Per-item padding <code>space-3 (12)</code> top/bottom. Divider <code>1 px border-subtle</code> between items. Each link a <code>&lt;a&gt;</code>; primary destinations only (Seguros, Vehículos, Blog).</p>
+          <p><b>CTA button:</b> appears after primary links, with <code>space-4 (16 px)</code> separator above. Variant <code>btn-primary-lg</code> · full-width · trailing arrow-right icon.</p>
+          <p><b>Secondary links:</b> separated by <code>space-5 (20 px)</code> from CTA. Inline row: "Nosotros", "Contacto", "FAQ". Typography <code>body-s (14/22 · 400)</code>, color <code>sand-600</code>, gap <code>space-4 (16 px)</code>.</p>
+          <p><b>Legal strip:</b> bottom-pinned. "Política de Privacidad" · "Términos". Typography <code>body-xs (13/20)</code>, color <code>sand-500</code>. Pipe separator in <code>sand-300</code>.</p>
+          <p><b>Social row:</b> immediately above legal strip. Instagram · TikTok · LinkedIn · WhatsApp. Icons <code>icon-md</code>, color <code>sand-700</code>, gap <code>space-4 (16 px)</code>. (Four platforms only; the AR audience uses these four; X/Twitter and Facebook excluded by user-data review.)</p>
+        </td></tr>
+        <tr><th>Scroll behavior</th><td>Drawer body scrolls internally when content exceeds viewport. Top row (logo + close) is sticky and gains a 1 px bottom border on internal scroll.</td></tr>
+        <tr><th>Focus trap</th><td>Yes. On open, focus moves to the close button. Tab cycles within the drawer; Shift+Tab cycles in reverse. Last tabbable wraps to first. Escape closes and restores focus to the hamburger trigger.</td></tr>
+        <tr><th>Body scroll lock</th><td>While open: <code>overflow: hidden</code> on document.body + position-fixed restore on close to preserve scroll position.</td></tr>
+        <tr><th>Z-index</th><td>Drawer <code>z-60</code> · backdrop <code>z-55</code>. Both above all page chrome.</td></tr>
+        <tr><th>Accessibility</th><td><code>role="dialog" aria-modal="true" aria-labelledby="drawer-title"</code> where drawer-title is the visually-hidden phrase "Menú principal".</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Pin the CTA inside the drawer too. Some users open the drawer searching for it; deliver it where they look.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't slide from the left. Left-side drawers feel "navigation-y" but force right-handed users to thumb-stretch on every tap.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>state:</b> closed · opening · open · closing — <b>showSocial:</b> boolean — <b>legalText:</b> text override — instance-swap for each primary link.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

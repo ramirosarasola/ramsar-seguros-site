@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Dropdown Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-1-4">
+  <header class="cs-head">
+    <div class="cs-num">§ 1.4</div>
+    <h3 class="cs-title">Dropdown Menu</h3>
+    <p class="cs-purpose">Hover-or-focus panel attached to a top-nav link with sub-destinations. Used for "Seguros" (insurer landing pages) and "Vehículos" (brand landing pages). Built for SEO link surfacing as much as for navigation.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview">
+        <span class="px-label">PANEL · 320 px · elevation-2 · 8 px below trigger</span>
+        <div class="demo-dropdown">
+          <div class="item hover">
+            <div class="ic-sq"></div>
+            <div>
+              <div class="dn">Sancor Seguros</div>
+              <div class="desc">Plan Federal · cobertura nacional</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ic-sq"></div>
+            <div>
+              <div class="dn">Zurich Argentina</div>
+              <div class="desc">Cotización digital sin agente</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ic-sq"></div>
+            <div>
+              <div class="dn">San Cristóbal Seguros</div>
+              <div class="desc">Atención presencial · 100+ sucursales</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ic-sq"></div>
+            <div>
+              <div class="dn">La Meridional</div>
+              <div class="desc">Especialista en alta gama</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Trigger · desktop</th><td>Pointer-enter <b>or</b> focus on a top-nav link with the <code>data-dropdown</code> attribute. 120 ms open-delay (prevents flyover triggers). Click on the trigger itself navigates to the parent index page (e.g. <code>/aseguradoras</code>) — the trigger is also a real destination.</td></tr>
+        <tr><th>Trigger · touch/mobile</th><td>Dropdowns do not exist on mobile. The same sub-destinations appear as collapsible sections inside §1.3 Mobile Drawer. Touch devices receive direct navigation on tap of the trigger (same href as desktop click).</td></tr>
+        <tr><th>Panel width</th><td>Fixed <span class="mono">320&nbsp;px</span>. Vehículos variant uses <span class="mono">480 px</span> with a 2-column inner grid (15 brands need it).</td></tr>
+        <tr><th>Panel max-height</th><td><span class="mono">min(480 px, 70vh)</span>. If exceeded, internal scroll appears; scrollbar styled to sand-300 thumb.</td></tr>
+        <tr><th>Panel padding</th><td><span class="mono">space-2 (8 px)</span> all sides. Items themselves carry padding.</td></tr>
+        <tr><th>Panel background</th><td><code>bg-card</code> (sand-0 / white).</td></tr>
+        <tr><th>Shadow / radius</th><td><code>elevation-2</code> · <code>radius-md (12 px)</code>. All four corners equally rounded.</td></tr>
+        <tr><th>Position</th><td>Below trigger · left edge of panel aligned to left edge of trigger label · <span class="mono">8 px</span> vertical offset from trigger baseline. If panel would overflow viewport on the right, anchor right-aligned instead (auto-flip).</td></tr>
+        <tr><th>Item anatomy</th><td>Left: optional icon (icon-sm · sand-700). Right: stacked label + description. Right-edge: optional arrow-right icon on hover.</td></tr>
+        <tr><th>Item · label</th><td><code>label-l (15 · 500)</code> · color <code>sand-900</code>.</td></tr>
+        <tr><th>Item · description</th><td><code>body-xs (13 · 400)</code> · color <code>sand-500</code>. Maximum one line; truncate with ellipsis.</td></tr>
+        <tr><th>Item · padding</th><td><span class="mono">space-3 (12 px) vertical · space-3 (12 px) horizontal</span>. Height result: <span class="mono">≈ 56 px</span>. Items reach the full panel content width.</td></tr>
+        <tr><th>Item · gap</th><td>Icon → label cluster: <span class="mono">space-3 (12 px)</span>. Label → description: <span class="mono">2 px</span> (snug deliberately).</td></tr>
+        <tr><th>States · default</th><td>Background transparent · label sand-900 · description sand-500 · icon sand-700.</td></tr>
+        <tr><th>States · hover</th><td>Background <code>marine-50</code> · radius <code>radius-sm (8 px)</code> · icon &amp; label → <code>marine-700</code>. Arrow-right icon-sm appears at right edge, translates in 0→4 px. <span class="mono">120 ms · ease-out</span>.</td></tr>
+        <tr><th>States · focused</th><td>Same as hover plus a 2 px <code>marine-700</code> focus ring outset 2 px inside the panel padding.</td></tr>
+        <tr><th>States · active / current</th><td>If the user is already on the linked page: background <code>marine-50</code>, label <code>marine-700</code>, plus a 3 px <code>marine-700</code> rounded indicator pill on the left edge (full item height, 3 px wide, 12 px from left). Display <code>aria-current="page"</code>.</td></tr>
+        <tr><th>Open animation</th><td>opacity 0→1 + translateY −4 → 0 · transform-origin top · <span class="mono">duration-default (220 ms) · ease-out</span>.</td></tr>
+        <tr><th>Close animation</th><td>opacity 1→0 + translateY 0 → −4 · <span class="mono">duration-fast (120 ms) · ease-in</span>. Faster than open by design (exits should feel decisive).</td></tr>
+        <tr><th>Keyboard</th><td><b>↓ / ↑</b>: move focus between items. <b>Home / End</b>: first / last. <b>Enter / Space</b>: navigate. <b>Esc</b>: close, return focus to trigger. <b>Tab</b>: closes panel and continues to next nav item.</td></tr>
+        <tr><th>ARIA</th><td>Trigger: <code>aria-haspopup="menu" aria-expanded="true|false" aria-controls="dd-seguros"</code>. Panel: <code>role="menu"</code>. Items: <code>role="menuitem"</code>.</td></tr>
+        <tr><th>Z-index</th><td><code>z-40</code> · <span class="mono">40</span>. Below sticky nav (50) so the panel reads as descending from the nav.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Make the trigger itself a real link to a parent index page. Dropdowns supplement; they don't replace the index.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't close the dropdown the instant the cursor leaves the trigger. The 240 ms close-delay is non-negotiable — without it, the panel becomes unreachable.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>columns:</b> 1 · 2 — <b>itemCount:</b> 4–14 — <b>showDescription:</b> boolean (Vehículos uses false; Seguros uses true) — <b>showIcon:</b> boolean — instance-swap for each menu item.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

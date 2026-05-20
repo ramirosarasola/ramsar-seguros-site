@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Table of Contents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-6">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.6</div>
+    <h3 class="cs-title">Table of Contents</h3>
+    <p class="cs-purpose">Sticky-sidebar TOC on desktop article pages; collapsible inline TOC on mobile. Surfaces the article's H2/H3 hierarchy as a navigable index, with a live-active indicator that tracks the user's scroll position.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="padding: 28px;">
+        <span class="px-label">DESKTOP · 240 px sidebar · active H2</span>
+        <div class="demo-toc">
+          <div class="h">En este artículo</div>
+          <a>¿Qué cubre Terceros?</a>
+          <a class="sub">Responsabilidad civil</a>
+          <a class="sub">Auxilio mecánico</a>
+          <a class="active">Terceros Plus vs. Todo Riesgo</a>
+          <a class="sub">Tabla comparativa</a>
+          <a>Conclusión y recomendación</a>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Desktop · placement</th><td><b>Right sidebar</b>, sticky. <code>position: sticky · top: 96 px</code> (= sticky nav height 72 + space-6 24). Sits to the right of the reading column, separated by <code>space-12 (48 px)</code>. Visible only at <code>lg (≥ 1024 px)</code>.</td></tr>
+        <tr><th>Desktop · dimensions</th><td>Width <span class="mono">240 px</span>. Max-height <code>calc(100vh − 96px − 48px)</code>. Internal vertical scroll when content overflows; scrollbar 4 px <code>sand-300</code> thumb.</td></tr>
+        <tr><th>Desktop · surface</th><td>Background <code>sand-50</code>. Border 1 px <code>sand-200</code>. Radius <code>radius-md (12 px)</code>. Padding <code>space-4 (16 px)</code>.</td></tr>
+
+        <tr><th>Header label</th><td>"En este artículo" · typography <code>label-m (13 · 600 · +0.02 em · sans)</code> · color <code>sand-900</code> · bottom margin <code>space-3 (12 px)</code> · bottom border 1 px <code>sand-200</code> with <code>space-3 (12 px)</code> padding below border.</td></tr>
+
+        <tr><th>Item · H2</th><td>Typography <code>body-s (14 · 400)</code> · color <code>sand-700</code>. Padding <code>space-2 (8 px) vertical · space-3 (12 px) left · 0 right</code>. Left border 2 px transparent (becomes the active indicator).</td></tr>
+        <tr><th>Item · H3</th><td>Typography <code>body-xs (13 · 400)</code> · color <code>sand-500</code>. Same vertical padding · left padding <code>space-5 (20 px)</code> (8 px indent past H2 left padding).</td></tr>
+
+        <tr><th>Hover</th><td>Item color → <code>marine-700</code>. Transition <span class="mono">120 ms · ease-out</span>. No background change on hover.</td></tr>
+        <tr><th>Active (in viewport)</th><td>Left border 2 px → <code>marine-700</code>. Item color → <code>marine-700</code>. Font-weight 500. Background <code>marine-50</code> (entire item row, including indent area for H3). Determined via IntersectionObserver on heading anchors: the H2/H3 closest to the top of the viewport is "active". Transition <span class="mono">120 ms · ease-out</span>.</td></tr>
+
+        <tr><th>Mobile · placement</th><td>Inline, above the article body, below the hero. Width 100% of <code>container-narrow</code>.</td></tr>
+        <tr><th>Mobile · default state</th><td><b>Collapsed</b>. Single-row trigger: label "Ver contenido del artículo (8 secciones)" · variant <code>btn-ghost-md</code> · full-width · trailing <code>chevron-down</code> icon. Bottom border 1 px <code>sand-200</code>.</td></tr>
+        <tr><th>Mobile · expanded</th><td>Reveals the same items as desktop, full-width, indented. Expand animation: <code>grid-template-rows 0fr → 1fr · duration-slow (360 ms) · ease-in-out</code>. Chevron rotates 180°. No sticky behavior on mobile (the floor scrolls with the page).</td></tr>
+
+        <tr><th>Accessibility</th><td>Wrapped in <code>&lt;nav aria-label="Contenido del artículo"&gt;</code>. Items are a <code>&lt;ol&gt;</code> with smooth-scroll anchor links. Active item carries <code>aria-current="true"</code>. Mobile trigger is a real <code>&lt;button aria-expanded&gt;</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Make active-state tracking based on the heading nearest to the top of the viewport. Updating on visual center causes the active item to lag the user's perception of "where I am".</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't try to make the TOC sticky on mobile. There's no horizontal room, and a sticky bar above body content blocks the reading column at exactly the moment the user wants the reading column unobstructed.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>state:</b> desktop · mobile-collapsed · mobile-expanded — <b>itemCount:</b> 3–15 — <b>activeIndex:</b> number — text overrides per item.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

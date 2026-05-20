@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Process Step Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-7">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.7</div>
+    <h3 class="cs-title">Process Step Card</h3>
+    <p class="cs-purpose">Three steps, one row: <i>Completá · Comparamos · Elegís</i>. The homepage's "Cómo funciona" anchor. No card chrome — these are visual diagrams more than UI.</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr;">
+    <div class="cs-preview" style="padding: 40px 24px;">
+      <span class="px-label">3 STEPS · desktop row · dashed connector</span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; align-items: start; width: 100%; max-width: 720px; position: relative;">
+        <div class="demo-step" style="margin: 0 auto;">
+          <div class="num" style="position: absolute; top: -20px; left: 0; opacity: 0.6;">01</div>
+          <div style="position: relative; width: 56px; height: 56px; background: var(--ramsar-primary-100); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><div class="ic-sq" style="width: 22px; height: 22px; border: 1.5px solid var(--ramsar-primary-700); border-radius: 4px;"></div></div>
+          <div class="t">Completá</div>
+          <div class="d">Tu auto, tu zona y un par de datos más. Te lleva 2 minutos.</div>
+        </div>
+        <div class="demo-step" style="margin: 0 auto;">
+          <div class="num" style="position: absolute; top: -20px; left: 0; opacity: 0.6;">02</div>
+          <div style="position: relative; width: 56px; height: 56px; background: var(--ramsar-primary-100); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><div class="ic-sq" style="width: 22px; height: 22px; border: 1.5px solid var(--ramsar-primary-700); border-radius: 4px;"></div></div>
+          <div class="t">Comparamos</div>
+          <div class="d">Cruzamos las 14 aseguradoras con tu perfil. Sin sesgos comerciales.</div>
+        </div>
+        <div class="demo-step" style="margin: 0 auto;">
+          <div class="num" style="position: absolute; top: -20px; left: 0; opacity: 0.6;">03</div>
+          <div style="position: relative; width: 56px; height: 56px; background: var(--ramsar-primary-100); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><div class="ic-sq" style="width: 22px; height: 22px; border: 1.5px solid var(--ramsar-primary-700); border-radius: 4px;"></div></div>
+          <div class="t">Elegís</div>
+          <div class="d">Ves todo lado a lado. Elegís el plan. Firmás digital.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Layout</th><td><b>Desktop:</b> 3 horizontal cards in equal columns · no card background. <b>Mobile:</b> vertical stack · connector removed · steps separated by <code>space-12 (48 px)</code>.</td></tr>
+      <tr><th>Step container</th><td>No background, no border, no shadow — the step is a typographic + iconographic composition, not a UI surface. Width: equal third of <code>container-default</code>. Padding <span class="mono">space-6 (24 px)</span> horizontal · 0 vertical. Center-aligned text.</td></tr>
+
+      <tr><th>Step number · decorative</th><td><b>Format:</b> <code>01 · 02 · 03</code> (leading zero, hardcoded). <b>Typography:</b> <code>display-2xl (96 px · serif · 400 · −0.03 em)</code>. <b>Color:</b> <code>marine-50</code> (very light). <b>Position:</b> absolute · top-left of the step container · z-index 0 · partially behind the icon. <code>aria-hidden="true"</code>. <b>SR-only span:</b> <code>&lt;span class="sr-only"&gt;Paso 1 de 3:&lt;/span&gt;</code> precedes the step title so screen-readers read "Paso 1 de 3: Completá" — the visual number is decorative ornament.</td></tr>
+
+      <tr><th>Icon container</th><td>Circle · diameter <span class="mono">64 px</span> · background <code>marine-100</code> · centered horizontally within the step. <b>z-index 1</b> so it sits in front of the decorative number. Icon inside: <code>icon-lg (24 px)</code> · color <code>marine-700</code> · stroke 1.75. <i>Step icons:</i> step 1 <code>file-text</code>, step 2 <code>refresh-cw</code> (two-arrow loop), step 3 <code>check-circle</code>. Top margin <code>space-3 (12)</code> from the decorative number's top (visually overlapping ~50%).</td></tr>
+
+      <tr><th>Title</th><td>Typography <code>h4 (22 · 600 · sans)</code> · color <code>sand-900</code> · top margin <code>space-4 (16)</code> from icon container.</td></tr>
+      <tr><th>Description</th><td>Typography <code>body-m (16 / 26 · 400)</code> · color <code>sand-600</code> · max-width <span class="mono">240 px</span> · center-aligned · top margin <code>space-2 (8)</code>.</td></tr>
+
+      <tr><th>Connector (desktop only)</th><td><b>Style:</b> 1.5 px <b>dashed</b> line (dash pattern <code>6 4</code>) · color <code>marine-200</code>. <b>Position:</b> from step 1's icon-container right edge to step 2's icon-container left edge (and the same between steps 2 and 3). Vertical: aligned with the icon container's vertical center. <b>Terminator:</b> the line ends in a <code>chevron-right</code> icon (icon-xs · color <code>marine-200</code> · 4 px before the next icon container). <b>Implementation:</b> rendered as an absolutely-positioned pseudo-element of the parent step row, not as a per-card border. <b>Hidden below <code>md</code></b> entirely.</td></tr>
+
+      <tr><th>Accessibility</th><td>The row is an <code>&lt;ol&gt;</code> · each step is an <code>&lt;li&gt;</code>. Step title is <code>&lt;h3&gt;</code> within the surrounding section. SR-only "Paso N de 3:" prefix supplies the step number explicitly.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep the dashed connector exclusively decorative and desktop-only. On mobile, removing it tightens the vertical rhythm.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't render the decorative number in marine-700 to "make it pop". The whole point of marine-50 is that it functions as ornament — readable when the eye lingers, invisible when it scans.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>stepNumber:</b> 1 · 2 · 3 — <b>icon:</b> instance-swap — <b>showConnector:</b> boolean — text overrides for title, description.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Rating Review Summary Block</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-8">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.8</div>
+    <h3 class="cs-title">Rating / Review Summary Block</h3>
+    <p class="cs-purpose">The aggregate-rating block at the top of every insurer page. Big number on the left, distribution-bar histogram on the right. Built so the visitor knows in two seconds whether reviews skew positive, mixed, or hostile.</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr;">
+    <div class="cs-preview white" style="padding: 32px;">
+      <span class="px-label">AGGREGATE · big score · breakdown histogram</span>
+      <div style="width: 100%; max-width: 640px; display: grid; grid-template-columns: auto 1px 1fr; gap: 32px; align-items: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 140px;">
+          <div style="display: flex; align-items: baseline; gap: 2px;">
+            <span style="font-family: var(--serif); font-size: 64px; line-height: 1; color: var(--ramsar-neutral-900); font-weight: 400;">4.4</span>
+            <span style="font-family: var(--sans); font-size: 22px; color: var(--ramsar-neutral-400);">/5</span>
+          </div>
+          <div style="font-family: var(--mono); font-size: 16px; color: var(--ramsar-accent-500); letter-spacing: 0.08em;">★ ★ ★ ★ ★</div>
+          <div style="font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-500);">312 reseñas verificadas</div>
+        </div>
+        <div style="background: var(--ramsar-neutral-200); width: 1px; height: 120px;"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-family: var(--mono); font-size: 11.5px; color: var(--ramsar-neutral-700);">
+          <div style="display: grid; grid-template-columns: 70px 1fr 40px; gap: 8px; align-items: center;"><span>5 estrellas</span><div style="height: 8px; background: var(--ramsar-neutral-200); border-radius: 999px; position: relative; overflow: hidden;"><div style="position: absolute; left: 0; top: 0; bottom: 0; background: var(--ramsar-accent-500); border-radius: 999px; width: 62%;"></div></div><span style="text-align: right; color: var(--ramsar-neutral-500);">194</span></div>
+          <div style="display: grid; grid-template-columns: 70px 1fr 40px; gap: 8px; align-items: center;"><span>4 estrellas</span><div style="height: 8px; background: var(--ramsar-neutral-200); border-radius: 999px; position: relative; overflow: hidden;"><div style="position: absolute; left: 0; top: 0; bottom: 0; background: var(--ramsar-accent-500); border-radius: 999px; width: 22%;"></div></div><span style="text-align: right; color: var(--ramsar-neutral-500);">68</span></div>
+          <div style="display: grid; grid-template-columns: 70px 1fr 40px; gap: 8px; align-items: center;"><span>3 estrellas</span><div style="height: 8px; background: var(--ramsar-neutral-200); border-radius: 999px; position: relative; overflow: hidden;"><div style="position: absolute; left: 0; top: 0; bottom: 0; background: var(--ramsar-accent-500); border-radius: 999px; width: 9%;"></div></div><span style="text-align: right; color: var(--ramsar-neutral-500);">28</span></div>
+          <div style="display: grid; grid-template-columns: 70px 1fr 40px; gap: 8px; align-items: center;"><span>2 estrellas</span><div style="height: 8px; background: var(--ramsar-neutral-200); border-radius: 999px; position: relative; overflow: hidden;"><div style="position: absolute; left: 0; top: 0; bottom: 0; background: var(--ramsar-accent-500); border-radius: 999px; width: 4%;"></div></div><span style="text-align: right; color: var(--ramsar-neutral-500);">14</span></div>
+          <div style="display: grid; grid-template-columns: 70px 1fr 40px; gap: 8px; align-items: center;"><span>1 estrella</span><div style="height: 8px; background: var(--ramsar-neutral-200); border-radius: 999px; position: relative; overflow: hidden;"><div style="position: absolute; left: 0; top: 0; bottom: 0; background: var(--ramsar-accent-500); border-radius: 999px; width: 3%;"></div></div><span style="text-align: right; color: var(--ramsar-neutral-500);">8</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Container</th><td>No background, no border — transparent block within an insurer-page section. Width 100% of <code>container-default</code>. Used once per insurer page.</td></tr>
+      <tr><th>Layout · desktop</th><td>Horizontal grid · template <code>auto 1px 1fr</code> · column gap <code>space-8 (32 px)</code> · align-items center. Left = aggregate score · 1 px vertical divider <code>sand-200</code> · right = breakdown bars.</td></tr>
+      <tr><th>Layout · mobile</th><td>Stacks vertically · score on top centered · vertical rule replaced by horizontal 1 px <code>sand-200</code> divider with <code>space-5 (20 px)</code> padding above/below · breakdown below.</td></tr>
+
+      <tr><th>Score number</th><td>Typography <code>display-l serif (56 · 400 · −0.02 em)</code>. <i>Note: weight 400, not 700</i> — Instrument Serif at this scale needs no extra weight; bold reads as institutional rather than authoritative. Color <code>sand-900</code>. <code>font-variant-numeric: tabular-nums</code>. Always one decimal place (4.4, not 4.40 or 4).</td></tr>
+      <tr><th>"/5" suffix</th><td>Typography <code>h4 sans (22 · 400)</code> · color <code>sand-400</code> · baseline-aligned with score · 2 px gap.</td></tr>
+      <tr><th>Stars row</th><td>24 px stars · color <code>amber-500</code> filled · <code>sand-300</code> empty. Half-stars via CSS clip-path on duplicate star. Letter-spacing +0.06 em for breathing. Top margin from score <span class="mono">space-1 (4 px)</span>.</td></tr>
+      <tr><th>Review count</th><td>Format: "<b>312</b> reseñas verificadas". Typography <code>body-s (14 · 400)</code> · color <code>sand-500</code>. The count itself bumps to <code>sand-700</code> and weight 500 to emphasize the credibility quantum. Top margin <span class="mono">space-1 (4 px)</span> from stars.</td></tr>
+
+      <tr><th>Breakdown · structure</th><td>5 rows, top to bottom: "5 estrellas" → "1 estrella". Each row: 3-column grid · template <code>70px 1fr 40px</code> · column gap <code>space-2 (8 px)</code> · align-items center.</td></tr>
+      <tr><th>Breakdown · label</th><td>Typography <code>label-s mono (11.5 · 500)</code> · color <code>sand-700</code>. Format: "X estrellas" (singular "1 estrella" — accurate Spanish, not lazy localization).</td></tr>
+      <tr><th>Breakdown · track</th><td>Height <span class="mono">8 px</span>. Border-radius <code>radius-full</code>. Background <code>sand-200</code>.</td></tr>
+      <tr><th>Breakdown · fill</th><td>Background <code>amber-500</code> (consistent with stars — the warm color carries "review weight" throughout). Border-radius <code>radius-full</code>. Width = (rating bucket count ÷ total count) × 100%.</td></tr>
+      <tr><th>Breakdown · count</th><td>Typography <code>label-s mono (11.5 · 400 · tabular-nums)</code> · color <code>sand-500</code> · text-align right.</td></tr>
+      <tr><th>Row gap</th><td><span class="mono">space-2 (8 px)</span> between rows.</td></tr>
+
+      <tr><th>Animation</th><td>On viewport entry (IntersectionObserver, threshold 0.5): each bar's fill animates from 0% → final % over <span class="mono">duration-slow (360 ms) · ease-out</span>. Bars stagger <span class="mono">100 ms</span> apart, top-down (5★ first, 1★ last). Score number counts up from 0 → final via <code>requestAnimationFrame</code> ease-out over 600 ms · tabular-nums prevents horizontal jiggle. Reduced motion: bars render at final width immediately, score appears final.</td></tr>
+
+      <tr><th>Accessibility</th><td>Container <code>role="group" aria-label="Resumen de reseñas: 4.4 de 5 estrellas basado en 312 reseñas"</code>. Each breakdown row carries <code>aria-label="194 reseñas con 5 estrellas"</code> — bars are decorative, the spoken label carries the data. Stars use <code>aria-hidden</code>; the aggregate score number is the meaningful text.</td></tr>
+      <tr><th>SEO · schema</th><td>Must emit <code>AggregateRating</code> JSON-LD attached to the <code>Organization</code> entity for the insurer page: <code>ratingValue · reviewCount · bestRating: 5 · worstRating: 1</code>. Schema and visible UI must agree exactly.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Animate bars and score together on scroll-in. The motion communicates "real data computed live" — the same gesture financial dashboards use to signal liveness.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't pluralize "estrellas" universally. Spanish pluralization is grammatical — "1 estrella" not "1 estrellas". Mixed locale on a UI block this prominent looks careless.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>score:</b> 0.0–5.0 step 0.1 — <b>reviewCount:</b> number — <b>bucket[5..1]:</b> percentages — text override for "reseñas verificadas" label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

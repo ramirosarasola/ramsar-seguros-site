@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Blog Card Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-3">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.3</div>
+    <h3 class="cs-title">Blog Card · Grid</h3>
+    <p class="cs-purpose">The default blog card. Used in 3-column grids on the homepage "Artículos destacados" rail, the blog index, and "Related articles" rails at the end of articles.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="gap: 16px;">
+        <span class="px-label">DEFAULT &amp; HOVER · 16:9 image · pill category</span>
+        <div class="demo-bcard">
+          <div class="img" style="position: relative;">
+            <span class="cat" style="position: absolute; bottom: 12px; left: 12px;">Comparativas</span>
+          </div>
+          <div class="body">
+            <h6>Sancor vs. Zurich: ¿cuál cubre mejor a tu auto en 2026?</h6>
+            <div class="ex">Comparamos planes, coberturas opcionales y opiniones de 540+ clientes para ayudarte a elegir.</div>
+            <div class="meta"><div class="av"></div><span>Lucía A.</span><span>·</span><span>12 may 2026</span><span>·</span><span>8 min</span></div>
+          </div>
+        </div>
+        <div class="demo-bcard" style="box-shadow: 0 1px 2px rgba(15,67,63,0.06), 0 2px 6px rgba(15,67,63,0.06);">
+          <div class="img" style="position: relative;">
+            <span class="cat" style="position: absolute; bottom: 12px; left: 12px; background: var(--ramsar-success); color: #fff;">Guías</span>
+          </div>
+          <div class="body">
+            <h6 style="color: var(--ramsar-primary-600);">Qué cubre exactamente un seguro contra todo riesgo</h6>
+            <div class="ex">Una guía honesta de qué entra, qué no entra y qué deberías verificar antes de firmar.</div>
+            <div class="meta"><div class="av"></div><span>Martín R.</span><span>·</span><span>6 may 2026</span><span>·</span><span>5 min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Card structure</th><td>Image (flush top) + content area. Border 1 px <code>sand-200</code>. Radius <code>radius-md (12 px)</code> — applied to outer card; image inherits top corners. Background <code>sand-0</code>. Shadow <code>elevation-0</code> default · <code>elevation-1</code> hover. <code>overflow: hidden</code> so the image hover-zoom is clipped.</td></tr>
+
+        <tr><th>Image</th><td>Aspect ratio fixed <span class="mono">16 : 9</span>. Width 100% of card. Border radius inherits top-left + top-right (<code>radius-md</code>); bottom corners 0. Object-fit cover. <b>Hover</b>: scale(1.03) over <span class="mono">duration-fast (120 ms) · ease-out</span> · origin center.</td></tr>
+
+        <tr><th>Category badge · position</th><td>Absolute · <span class="mono">bottom: 12 px · left: 12 px</span> overlaid on image bottom-left.</td></tr>
+        <tr><th>Category badge · style</th><td><b>Solid</b> background (not semi-transparent — translucent reads as overlay UI, solid reads as label). Radius <code>radius-full</code>. Padding <span class="mono">3 px (vertical) / 10 px (horizontal)</span>. Typography <code>label-s (11.5 · 600 · sans · +0.02 em)</code>.</td></tr>
+        <tr><th>Category · 6 fixed colors</th><td>
+          <ul>
+            <li><b>Consejos</b> · bg <code>marine-50</code> · text <code>marine-700</code></li>
+            <li><b>Comparativas</b> · bg <code>amber-300</code> · text <code>amber-700</code></li>
+            <li><b>Novedades</b> · bg <code>info-light (#E1ECF7)</code> · text <code>info-dark (#173A66)</code></li>
+            <li><b>Guías</b> · bg <code>success-default (#1F7A4D)</code> · text <code>sand-0</code></li>
+            <li><b>Por marca</b> · bg <code>sand-200</code> · text <code>sand-800</code></li>
+            <li><b>Por aseguradora</b> · bg <code>marine-700</code> · text <code>sand-0</code></li>
+          </ul>
+          The same 6 colors appear on the blog-article hero badge (§2.3) — continuity is the whole point.
+        </td></tr>
+
+        <tr><th>Content padding</th><td><span class="mono">space-5 (20 px)</span> all sides. Internal vertical gap <span class="mono">space-2 (8 px)</span> between blocks (headline · excerpt · meta).</td></tr>
+        <tr><th>Headline</th><td>Typography <code>h5 (18 / 26 · 600 · sans)</code> · color <code>sand-900</code>. <b>Max 2 lines</b> · ellipsis (<code>-webkit-line-clamp: 2</code>). Bottom margin <span class="mono">space-2 (8 px)</span>.</td></tr>
+        <tr><th>Excerpt</th><td>Typography <code>body-s (14 / 22 · 400)</code> · color <code>sand-600</code>. <b>Max 3 lines</b> · ellipsis. Bottom margin <span class="mono">space-3 (12 px)</span>.</td></tr>
+
+        <tr><th>Metadata row</th><td>Single line · baseline-aligned. Order: avatar · author · separator · date · separator · read-time.<br/>
+          <b>Avatar:</b> 24 px circle · 1 px <code>sand-200</code> border. Fallback initials in marine-50 + marine-700 italic serif.<br/>
+          <b>Author / date / read-time</b> typography <code>label-s mono</code> (11.5 · 500). Colors: author <code>sand-700</code> · date <code>sand-500</code> · read-time <code>sand-500</code>.<br/>
+          <b>Separators</b> are "·" CSS pseudo-elements at <code>sand-300</code>, 6 px padding each side.<br/>
+          Gap avatar → author: <span class="mono">space-2 (8 px)</span>.
+        </td></tr>
+
+        <tr><th>States · default</th><td>As described above.</td></tr>
+        <tr><th>States · hover</th><td>Shadow <code>elevation-0</code> → <code>elevation-1</code>. Image scales 1.03. Headline color shifts <code>sand-900</code> → <code>marine-600</code>. All over <span class="mono">120 ms · ease-out</span>.</td></tr>
+        <tr><th>States · focus-visible</th><td>Card receives standard focus ring (the whole card is a single link).</td></tr>
+
+        <tr><th>Responsive</th><td>3 / 2 / 1 columns across <code>lg / md / xs</code>. Image aspect stays 16:9 at every breakpoint. Headline max-lines stays 2; excerpt drops from 3 → 2 below <code>sm</code>.</td></tr>
+        <tr><th>Accessibility</th><td>Entire card is one <code>&lt;a&gt;</code>. <code>aria-label</code> assembled at render: "[Headline] — [Categoría] — [Read time] de lectura — Publicado [Date]". Avatar carries empty alt. Title is the linked text; ARIA label augments, never replaces.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep category colors stable across hero, badge, and card. The color <i>is</i> the category — change it and the system goes blind.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a "Leer más →" link inside the card body. The whole card is the link; a second affordance halves the click target.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>category:</b> 6 enum — <b>image:</b> instance-swap — <b>avatar:</b> instance-swap — text overrides for headline · excerpt · author · date · read-time.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

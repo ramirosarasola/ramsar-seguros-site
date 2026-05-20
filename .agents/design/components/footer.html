@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-1-6">
+  <header class="cs-head">
+    <div class="cs-num">§ 1.6</div>
+    <h3 class="cs-title">Footer</h3>
+    <p class="cs-purpose">The site's link-equity engine. Five columns of crawlable internal links, a trust strip, and a legal bar. Sits at the bottom of every page including cotizador (its minimal variant).</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr; gap: 16px;">
+    <div class="cs-preview dark" style="min-height: 280px; padding: 0;">
+      <span class="px-label">FOOTER · Midnight 700 · 5-column desktop</span>
+      <div class="demo-footer">
+        <div class="col brand-col">
+          <div class="lg">Ramsar</div>
+          <div style="font-size: 11px; opacity: 0.7; margin-bottom: 12px;">El amigo informado que te ayuda a elegir tu seguro de auto en Argentina.</div>
+          <div style="display: flex; gap: 8px;">
+            <div style="width: 18px; height: 18px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px;"></div>
+            <div style="width: 18px; height: 18px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px;"></div>
+            <div style="width: 18px; height: 18px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px;"></div>
+            <div style="width: 18px; height: 18px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px;"></div>
+          </div>
+        </div>
+        <div class="col">
+          <h6>Seguros</h6>
+          <a>Sancor Seguros</a><a>Zurich</a><a>San Cristóbal</a><a>La Meridional</a><a>Mapfre</a><a>Federación Patronal</a>
+        </div>
+        <div class="col">
+          <h6>Vehículos</h6>
+          <a>Toyota</a><a>Volkswagen</a><a>Ford</a><a>Chevrolet</a><a>Renault</a><a>Peugeot</a>
+        </div>
+        <div class="col">
+          <h6>Blog</h6>
+          <a>Consejos</a><a>Comparativas</a><a>Novedades</a><a>Guías</a><a>Por marca</a><a>Por aseguradora</a>
+        </div>
+        <div class="col">
+          <h6>Empresa</h6>
+          <a>Sobre Ramsar</a><a>Contacto</a><a>FAQ</a><a>Trabaja con nosotros</a><a>Cómo funciona</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Background</th><td><b>Dark — Midnight 700</b> (<code>bg-inverse</code> · #0B1F2A). Justification: a footer in cream would float ambiguously and dilute the page's reading rhythm. Midnight signals "end of page", anchors the document, and gives the Amber accent on the trust strip a high-contrast bed.</td></tr>
+      <tr><th>Top section padding</th><td>Desktop: <span class="mono">space-20 (80 px)</span> top · <span class="mono">space-12 (48 px)</span> bottom. Mobile: <span class="mono">space-12 / space-10 (48/40)</span>.</td></tr>
+      <tr><th>Top section grid</th><td><b>Desktop ≥ lg:</b> 5 columns · template <code>1.4fr 1fr 1fr 1fr 1fr</code> · column gap <code>space-8 (32 px)</code>. <b>Tablet md:</b> 3 columns · brand col spans 3 in row 1, link cols 1+2 in row 2, 3+4 in row 3. <b>Mobile xs/sm:</b> single column, all collapse to accordion (see below).</td></tr>
+      <tr><th>Container</th><td><code>container-default (1200 px max, 64 px / 24 px outer padding)</code>.</td></tr>
+
+      <tr><th>Column 1 · Brand</th><td>
+        <p>Logo (Eclipse, inverse colorway): height <span class="mono">28 px</span> · bottom margin <span class="mono">space-4 (16 px)</span>.</p>
+        <p>Tagline: <i>"El amigo informado que te ayuda a elegir tu seguro de auto en Argentina."</i> — <code>body-s (14 · 400)</code> · color <code>sand-200 @ 78% α</code> · max-width <span class="mono">28 ch</span>. Bottom margin <code>space-5 (20)</code>.</p>
+        <p>Social row (4 icons): Instagram · TikTok · LinkedIn · WhatsApp. Lucide names <code>instagram</code> · <code>music-2</code> (TikTok proxy) · <code>linkedin</code> · <code>message-circle</code>. Size <code>icon-md (20 px)</code>. Color <code>sand-200 @ 70% α</code>. Gap <code>space-3 (12 px)</code>. Hit-target 32×32 with transparent padding. Hover → <code>amber-500</code>.</p>
+      </td></tr>
+
+      <tr><th>Column heading typography</th><td><code>label-s (11.5 · 500 · +0.01 em · all-caps)</code> · color <code>sand-200 @ 50% α</code> · bottom margin <span class="mono">space-3 (12 px)</span>. All four link columns share this heading style.</td></tr>
+
+      <tr><th>Link list</th><td><code>body-s (14 · 400)</code> · color <code>sand-200 @ 78% α</code> · line-height through <span class="mono">vertical gap space-2 (8 px)</span> between links. Hover: color <code>sand-0</code> (full white) plus 1 px underline at 2 px offset. Visited: same as default (footer links don't visually decay).</td></tr>
+
+      <tr><th>Column 2 · Seguros</th><td>Heading "Seguros". 6 link slots: Sancor Seguros · Zurich · San Cristóbal · La Meridional · Mapfre · Federación Patronal. Plus a 7th: "Ver todas las aseguradoras →" in <code>amber-500</code>.</td></tr>
+
+      <tr><th>Column 3 · Vehículos</th><td>Heading "Vehículos". 6 link slots: Toyota · Volkswagen · Ford · Chevrolet · Renault · Peugeot. Plus 7th: "Ver todas las marcas →" in <code>amber-500</code>.</td></tr>
+
+      <tr><th>Column 4 · Blog</th><td>Heading "Blog". 6 link slots: Consejos · Comparativas · Novedades · Guías · Por marca · Por aseguradora.</td></tr>
+
+      <tr><th>Column 5 · Empresa</th><td>Heading "Empresa". 5 link slots: Sobre Ramsar · Contacto · Preguntas frecuentes · Trabaja con nosotros · Cómo funciona.</td></tr>
+
+      <tr><th>Mobile accordion</th><td>Below <code>md (768 px)</code>, each column collapses to an accordion row. Row anatomy: column heading (label-s) + trailing <code>chevron-down</code> icon (icon-sm, sand-200 @ 70%). Vertical padding <code>space-4 (16 px)</code>. 1 px <code>midnight-300</code> bottom border. <b>Default state: all collapsed</b> except column 1 (Brand) which is never collapsed — its content is identity, not navigation. Chevron rotates 180° on open, <span class="mono">duration-default · ease-in-out</span>. Multiple may be open at once.</td></tr>
+
+      <tr><th>Trust section</th><td>
+        <p>Sits between top section and bottom bar. Full container width, centred.</p>
+        <p>Background: same Midnight 700 as footer · separated by 1 px <code>midnight-300 @ 30% α</code> divider above and below.</p>
+        <p>Vertical padding <span class="mono">space-8 (32 px)</span>.</p>
+        <p>Layout: 4 badges in a row (desktop), 2×2 grid on tablet, vertical stack on mobile. Gap <code>space-8 (32 px)</code>.</p>
+        <p>Badge anatomy: icon <code>icon-md (20)</code> in <code>amber-500</code> + label <code>label-m (13 · 500)</code> in <code>sand-200 @ 90% α</code>. Icon→label gap <code>space-2 (8 px)</code>.</p>
+        <p>Badges: <b>1.</b> <code>lock</code> + "SSL Secure · datos encriptados". <b>2.</b> <code>shield-check</code> + "Matrícula SSN · Corredor matriculado". <b>3.</b> <code>phone</code> + "Atención personalizada 9–21 h". <b>4.</b> <code>file-text</code> + "+ 50.000 cotizaciones realizadas".</p>
+      </td></tr>
+
+      <tr><th>Bottom bar · background</th><td><b>Midnight 900</b> (<code>#061018</code>) — one step darker than the footer body. The shift signals "fine print" without an actual divider.</td></tr>
+
+      <tr><th>Bottom bar · layout</th><td>Container <code>container-default</code>. Vertical padding <code>space-5 (20 px)</code>. Desktop: 3-zone grid (auto 1fr auto). Mobile: stacked, each zone its own row.</td></tr>
+
+      <tr><th>Bottom bar · left</th><td>Copyright: "© 2026 Ramsar Seguros · Todos los derechos reservados." Typography <code>body-xs (13 · 400 · +0.005 em)</code> · color <code>sand-200 @ 50% α</code>.</td></tr>
+
+      <tr><th>Bottom bar · centre</th><td>Legal link strip. Items: "Política de Privacidad" · "Términos de Uso" · "Política de Cookies". Typography <code>body-xs</code> · color <code>sand-200 @ 70%</code>. Hover color <code>amber-500</code>. Separator: "·" (middle dot) in <code>sand-200 @ 30% α</code> with <code>space-2 (8 px)</code> on each side. Pipes "|" forbidden — they collide with the system's monospace voice.</td></tr>
+
+      <tr><th>Bottom bar · right</th><td>Two seals stacked horizontally:
+        <ul>
+          <li><b>SSN matrícula</b>: small text plate "SSN · Mat. N° XXXX" rendered as a 1 px <code>amber-500 @ 50% α</code> rounded-rect outline + Geist Mono label, height 28 px, padding 6+10. Color <code>amber-300</code> on dark.</li>
+          <li><b>AFIP Data Fiscal</b>: official AFIP image (160×120 ratio · max-height 36 px), supplied by AFIP — never recolored, never resized below 32 px. Sits to the right of the SSN plate with <code>space-3 (12 px)</code> gap.</li>
+        </ul>
+      </td></tr>
+
+      <tr><th>Mobile stacking order</th><td>Brand column (always expanded) → Seguros accordion → Vehículos → Blog → Empresa → Trust strip → Bottom bar (copyright → legal links row → seals row).</td></tr>
+
+      <tr><th>Z-index</th><td>Native document order — no stacking context. Footer participates in normal scroll, no fixed/sticky behavior.</td></tr>
+
+      <tr><th>Accessibility</th><td>Wrapped in <code>&lt;footer role="contentinfo"&gt;</code>. Column headings are <code>&lt;h2&gt;</code> (semantic — Google uses these as section indicators). Social icons carry <code>aria-label</code> in Spanish-AR. Mobile accordion buttons are real <code>&lt;button&gt;</code> with <code>aria-expanded</code>.</td></tr>
+
+      <tr><th>SEO</th><td>Every link in the top section is internal and crawlable — no <code>nofollow</code>, no <code>rel="sponsored"</code>. Total internal-link surface from footer ≈ 29 (5 col headings as anchors + 29 destinations) on every indexed page; this is the project's largest single source of internal link equity. External social links use <code>rel="me noopener"</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep every internal link in the top section dofollow. Footer links are how Ramsar's deep insurer/vehicle pages reach crawlable depth.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't centre the column headings or links. Left-aligned is non-negotiable — centred footer columns become unscannable past four items.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> full · minimal (cotizador) — <b>columnCount:</b> 5 · 3 · 1 — <b>mobileAccordion[col]:</b> open · closed — instance-swap for each link.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

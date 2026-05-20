@@ -1,0 +1,473 @@
+/* Wireframes-specific styles — extends styles.css + components.css */
+
+/* Page wireframe map (mini schematic shown in cover) */
+.page-map {
+  background: var(--ramsar-neutral-0);
+  border: 1px solid var(--rule);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.page-map .pm {
+  background: var(--paper-3);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  padding: 8px 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px dashed var(--rule-strong);
+}
+.page-map .pm.complete { background: var(--ramsar-primary-50); border-color: var(--ramsar-primary-300); color: var(--ramsar-primary-700); }
+.page-map .pm.pending { opacity: 0.55; }
+.page-map .pm .id { font-weight: 600; color: var(--mark); }
+.page-map .pm.complete .id { color: var(--ramsar-primary-700); }
+
+/* Section/spec card for wireframes — similar to .cs but tuned */
+.ws {
+  border-top: 1px solid var(--rule);
+  padding: 56px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.ws-head {
+  display: grid;
+  grid-template-columns: 96px 1fr 1fr;
+  gap: 24px;
+  align-items: end;
+}
+.ws-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--mark);
+  letter-spacing: 0.12em;
+}
+.ws-title {
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0;
+}
+.ws-title em { font-style: italic; color: var(--ink-2); }
+.ws-purpose {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 52ch;
+}
+@media (max-width: 900px) {
+  .ws-head { grid-template-columns: 1fr; gap: 8px; }
+}
+
+.ws-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.5fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .ws-grid { grid-template-columns: 1fr; }
+}
+
+/* Schematic — a stylized rendition of the wireframe section */
+.schem {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  padding: 0;
+  position: relative;
+  min-height: 280px;
+}
+.schem .schem-label {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  z-index: 2;
+}
+.schem .schem-frame {
+  background: var(--ramsar-neutral-0);
+  margin: 36px 24px 24px;
+  border: 1px solid var(--rule);
+  position: relative;
+}
+.schem .schem-band {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-bottom: 1px dashed var(--rule-strong);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.schem .schem-band:last-child { border-bottom: 0; }
+
+/* Wireframe spec table — same as spec-tbl but slightly tighter section labels */
+.ws-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border-top: 1px solid var(--rule);
+}
+.ws-tbl tr { border-bottom: 1px solid var(--rule); }
+.ws-tbl th, .ws-tbl td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 0;
+}
+.ws-tbl th {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  width: 140px;
+  padding-right: 18px;
+}
+.ws-tbl td {
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.ws-tbl td b { color: var(--ink); font-weight: 600; }
+.ws-tbl td code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--paper-2);
+  padding: 0 4px;
+  border-radius: 2px;
+}
+.ws-tbl td ul {
+  margin: 4px 0 0;
+  padding-left: 16px;
+}
+.ws-tbl td ul li { margin-bottom: 3px; }
+.ws-tbl td p { margin: 0 0 6px; }
+.ws-tbl td p:last-child { margin: 0; }
+
+/* Copy block — for showing actual page copy */
+.copy-block {
+  border-left: 3px solid var(--ramsar-primary-700);
+  background: var(--ramsar-primary-50);
+  padding: 14px 18px;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.copy-block .ck {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ramsar-primary-700);
+}
+.copy-block .cv {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.copy-block .cv-sans {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+/* SEO impact callout */
+.seo-callout {
+  background: var(--paper-2);
+  border: 1px dashed var(--rule-strong);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.seo-callout .sk {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mark);
+}
+.seo-callout .sv {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.seo-callout .sv ul { margin: 4px 0 0; padding-left: 16px; }
+
+/* Hero rendering inside schematic */
+.schem-hero-body {
+  display: grid;
+  grid-template-columns: 1.22fr 1fr;
+  gap: 16px;
+  padding: 18px 16px 22px;
+}
+.schem-hero-body .lhs { display: flex; flex-direction: column; gap: 10px; }
+.schem-hero-body h1 {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.08;
+  color: var(--ramsar-primary-700);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.schem-hero-body .sub {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ramsar-neutral-600);
+  line-height: 1.5;
+  margin: 0;
+}
+.schem-hero-body .ctas { display: flex; gap: 8px; flex-wrap: wrap; }
+.schem-hero-body .ctas .pr {
+  background: var(--ramsar-primary-700);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(15,67,63,0.28);
+}
+.schem-hero-body .ctas .gh {
+  background: transparent;
+  color: var(--ramsar-primary-700);
+  padding: 8px 12px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.schem-hero-body .trust {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--ramsar-neutral-600);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+.schem-hero-body .visual {
+  background: linear-gradient(135deg, var(--ramsar-primary-100), var(--ramsar-primary-50));
+  border-radius: 10px;
+  position: relative;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--ramsar-primary-700);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Insurer strip mini */
+.schem-insurers {
+  padding: 10px 16px 14px;
+  border-top: 1px dashed var(--rule-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.schem-insurers .lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--ramsar-neutral-500);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.schem-insurers .row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.schem-insurers .row .ll {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--ramsar-neutral-500);
+  letter-spacing: 0.06em;
+  border: 1px solid var(--ramsar-neutral-300);
+  padding: 3px 6px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+/* Social proof bar in schematic */
+.schem-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 16px 18px;
+}
+.schem-stats .stat {
+  border-right: 1px solid var(--ramsar-neutral-200);
+  padding: 0 10px;
+  text-align: center;
+}
+.schem-stats .stat:last-child { border-right: 0; }
+.schem-stats .stat .n {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--ramsar-primary-600);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.schem-stats .stat .l {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  color: var(--ramsar-neutral-500);
+  margin-top: 4px;
+}
+
+/* How It Works in schematic */
+.schem-how {
+  padding: 22px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.schem-how .h-ov {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ramsar-primary-500);
+}
+.schem-how .h-h {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ramsar-neutral-900);
+  margin: 0;
+}
+.schem-how .h-sub {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ramsar-neutral-500);
+}
+.schem-how .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+  position: relative;
+}
+.schem-how .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  position: relative;
+}
+.schem-how .step .num {
+  position: absolute;
+  top: -16px;
+  font-family: var(--serif);
+  font-size: 56px;
+  color: var(--ramsar-primary-50);
+  line-height: 1;
+  z-index: 0;
+}
+.schem-how .step .ic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ramsar-primary-100);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.schem-how .step .ic span {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--ramsar-primary-700);
+  border-radius: 4px;
+}
+.schem-how .step .t {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ramsar-neutral-900);
+  margin-top: 4px;
+}
+.schem-how .step .d {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ramsar-neutral-600);
+  line-height: 1.45;
+}
+.schem-how .conn {
+  position: absolute;
+  top: 18px;
+  height: 0;
+  border-top: 1.5px dashed var(--ramsar-primary-200);
+}
+.schem-how .cta-row {
+  text-align: center;
+  margin-top: 6px;
+}
+.schem-how .cta-row .pr {
+  background: var(--ramsar-primary-700);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Nav schematic */
+.schem-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px dashed var(--rule-strong);
+  background: rgba(248,247,244,0.7);
+}
+.schem-nav .ll, .schem-nav .rr { display: flex; gap: 12px; align-items: center; font-family: var(--sans); font-size: 11.5px; color: var(--ramsar-neutral-700); }
+.schem-nav .lg {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ramsar-primary-700);
+  letter-spacing: -0.02em;
+}
+.schem-nav .pr {
+  background: var(--ramsar-primary-700);
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+}
+.schem-nav .ll .a, .schem-nav .rr .a { color: var(--ramsar-neutral-800); }
+.schem-nav .ll .a.active { color: var(--ramsar-primary-700); border-bottom: 1.5px solid var(--ramsar-primary-700); padding-bottom: 2px; }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Blog Card Featured</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-4">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.4</div>
+    <h3 class="cs-title">Blog Card · Featured</h3>
+    <p class="cs-purpose">One per page only. The lead slot at the top of the blog index. Promoted to horizontal layout so its image earns extra real estate and its headline reads at H3 scale.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="padding: 24px;">
+        <span class="px-label">FEATURED · horizontal · 55/45 · 320 px tall</span>
+        <div style="width: 100%; max-width: 640px; background: #fff; border: 1px solid var(--ramsar-neutral-200); border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 1.22fr 1fr; height: 240px;">
+          <div style="background: repeating-linear-gradient(45deg, var(--ramsar-neutral-200) 0 8px, var(--ramsar-neutral-100) 8px 16px); position: relative;">
+            <span class="badge b-popular" style="position: absolute; bottom: 12px; left: 12px; background: var(--ramsar-accent-300); color: var(--ramsar-accent-700);">Comparativas</span>
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
+            <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ramsar-primary-500);">Destacado</span>
+            <h3 style="font-family: var(--serif); font-size: 24px; line-height: 1.15; color: var(--ramsar-neutral-900); margin: 0; letter-spacing: -0.01em;">Sancor vs. Zurich: la comparativa más completa de 2026</h3>
+            <div style="font-family: var(--sans); font-size: 12.5px; color: var(--ramsar-neutral-600); line-height: 1.5;">Diez ítems de cobertura, 540 opiniones cruzadas y la conclusión que ninguna de las dos quiere admitir.</div>
+            <a style="font-family: var(--sans); font-weight: 600; font-size: 12.5px; color: var(--ramsar-primary-700); margin-top: 4px;">Leer artículo →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Layout</th><td><b>Horizontal · image-left 55 / content-right 45</b>. Desktop fixed height <span class="mono">320 px</span> (image fills full height). Mobile collapses to vertical — same proportions as §3.3 Grid variant.</td></tr>
+        <tr><th>Card surface</th><td>Background <code>sand-0</code> · border 1 px <code>sand-200</code> · radius <code>radius-lg (16 px)</code> · shadow <code>elevation-1</code> default · <code>elevation-2</code> hover. <code>overflow: hidden</code>.</td></tr>
+
+        <tr><th>Image</th><td>Width 55% · height 100% (fills card). Border-radius inherits left corners only (top-left + bottom-left both <code>radius-lg</code>). Object-fit cover. Hover scale 1.03 same as §3.3.</td></tr>
+        <tr><th>Category badge</th><td>Positioned absolute · <span class="mono">bottom: 16 px · left: 16 px</span>. Same color treatments as §3.3 (6 fixed categories). Slightly larger padding: <span class="mono">4 px / 12 px</span>.</td></tr>
+
+        <tr><th>Content area · padding</th><td><span class="mono">space-8 (32 px)</span> all sides. Internal vertical centering (<code>justify-content: center</code>) so short headlines don't pin to the top.</td></tr>
+
+        <tr><th>"Destacado" label</th><td>Above the headline. Typography <code>overline (11 · mono · +0.16 em · uppercase · 500)</code> · color <code>marine-500</code>. Bottom margin <span class="mono">space-2 (8 px)</span>. Reads as section tag, not category.</td></tr>
+
+        <tr><th>Headline</th><td>Typography <code>h3 (28 / 34 · 600 · sans)</code> · color <code>sand-900</code>. <b>Max 3 lines · ellipsis</b>. Bottom margin <span class="mono">space-3 (12 px)</span>.</td></tr>
+
+        <tr><th>Excerpt</th><td>Typography <code>body-m (16 / 26 · 400)</code> · color <code>sand-600</code>. <b>Max 4 lines</b> (one more than §3.3). Bottom margin <span class="mono">space-4 (16 px)</span>.</td></tr>
+
+        <tr><th>Metadata row</th><td>Identical to §3.3 except author/date colors bump one step darker (<code>sand-800 / sand-600</code>) — featured card carries slightly higher visual weight throughout. Bottom margin <span class="mono">space-3 (12 px)</span>.</td></tr>
+
+        <tr><th>"Leer artículo →" link</th><td>Typography <code>label-m (13 · 600 · sans)</code> · color <code>marine-700</code>. Trailing <code>arrow-right</code> icon-xs · 4 px gap. Hover: arrow translates 4 px right · underline appears 1 px / 3 px offset. <b>Why explicit link here:</b> the larger card invites scanning; an explicit "read" action grounds the eye at the end of the content block.</td></tr>
+
+        <tr><th>States · hover</th><td>Shadow <code>elevation-1</code> → <code>elevation-2</code>. Headline → <code>marine-700</code>. Image scales 1.03. Arrow translates. <span class="mono">220 ms · ease-out</span>.</td></tr>
+
+        <tr><th>Responsive</th><td>At <code>md (≤ 1023 px)</code>: switches to vertical layout (image top · content bottom) and adopts the §3.3 Grid spec dimensionally. The <i>"Destacado"</i> overline is preserved as the visual differentiator from the grid variant.</td></tr>
+        <tr><th>Accessibility</th><td>Entire card is one <code>&lt;a&gt;</code>. The "Leer artículo →" text is decorative inside that link — it carries <code>aria-hidden="true"</code> so the headline isn't read twice.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use one featured card per page. Two competing featured slots dilute the signal to "nothing here is special".</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't make the "Leer artículo →" link a separate tab-stop. It is decorative — the card itself is the destination.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td>Same as §3.3 plus <b>showLeerLink:</b> boolean (default true) — <b>height:</b> fixed · auto.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

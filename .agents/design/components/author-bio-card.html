@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Author Bio Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-5">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.5</div>
+    <h3 class="cs-title">Author Bio Card</h3>
+    <p class="cs-purpose">Sits at the foot of every blog article. Establishes author credibility (E-E-A-T signal for Google) and gives readers a face — a small but consequential trust transfer in a financial-content context.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="padding: 28px;">
+        <span class="px-label">AUTHOR BIO · top accent rule · 72 px avatar</span>
+        <div style="width: 100%; max-width: 520px; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-top: 4px solid var(--ramsar-primary-500); border-radius: 12px; padding: 24px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--ramsar-neutral-300); border: 3px solid #fff; box-shadow: 0 1px 2px rgba(15,67,63,0.18); flex: 0 0 auto;"></div>
+          <div style="flex: 1;">
+            <div style="font-family: var(--serif); font-size: 20px; color: var(--ramsar-neutral-900); margin-bottom: 2px;">Lucía Andrade</div>
+            <div style="font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ramsar-primary-600); margin-bottom: 8px;">Especialista en seguros · Ramsar Editorial</div>
+            <div style="font-family: var(--sans); font-size: 13px; color: var(--ramsar-neutral-600); line-height: 1.5;">12 años cubriendo el mercado asegurador argentino. Antes en La Nación Economía. Vive en Rosario, maneja un Corolla.</div>
+            <div style="display: flex; gap: 12px; margin-top: 12px;">
+              <div style="width: 16px; height: 16px; border: 1.5px solid var(--ramsar-neutral-400); border-radius: 3px;"></div>
+              <div style="width: 16px; height: 16px; border: 1.5px solid var(--ramsar-neutral-400); border-radius: 3px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Container</th><td>Background <code>sand-50</code> · border 1 px <code>sand-200</code> · top border <b>4 px <code>marine-500</code></b> (the only visual accent the component carries). Radius <code>radius-lg (16 px)</code>. Padding <code>space-6 (24 px)</code> all sides. Width: 100% of <code>container-narrow</code>.</td></tr>
+
+        <tr><th>Layout · desktop</th><td>Horizontal flex · avatar left · content right · gap <span class="mono">space-5 (20 px)</span> · align-items flex-start.</td></tr>
+        <tr><th>Layout · mobile</th><td>Stacks vertically · avatar centered above content · gap <span class="mono">space-4 (16 px)</span>. Content text remains left-aligned for readability.</td></tr>
+
+        <tr><th>Avatar · desktop</th><td>Circle · <span class="mono">72 px</span> diameter · 3 px <code>sand-0</code> border · <code>elevation-1</code> shadow. Object-fit cover. Fallback (no image): initials in serif italic, marine-700 on marine-50, same dimensions.</td></tr>
+        <tr><th>Avatar · mobile</th><td>Diameter reduces to <span class="mono">56 px</span> · border 2 px · same elevation.</td></tr>
+
+        <tr><th>Author name</th><td>Typography <code>h5 sans (18 · 600)</code> on desktop — actually we use <b>serif</b> here for tone: <code>20 · serif · 400</code> · color <code>sand-900</code>. Bottom margin <span class="mono">2 px</span> (snug to role).</td></tr>
+        <tr><th>Role</th><td>Format: <i>"[Role] · Ramsar Editorial"</i>. Typography <code>label-m (13 · 500 · sans)</code> · color <code>marine-600</code>. Bottom margin <code>space-2 (8 px)</code>.</td></tr>
+        <tr><th>Bio</th><td>Typography <code>body-s (14 / 22 · 400)</code> · color <code>sand-600</code>. <b>Maximum 180 characters</b> — enforced. Truncate-with-link on overflow ("…leé más") routes to author profile.</td></tr>
+
+        <tr><th>Social row</th><td>Top margin <span class="mono">space-3 (12 px)</span> from bio. Platforms: <b>LinkedIn</b> and <b>X / Twitter</b> only (the two platforms where AR financial-journalism authority lives). Icon size <code>icon-sm (16 px)</code> · color <code>sand-400</code> rest · <code>sand-700</code> hover. Gap <span class="mono">space-3 (12 px)</span> between icons. Hit target 32 × 32 px transparent padding. <code>rel="me noopener"</code> on links.</td></tr>
+
+        <tr><th>Placement on page</th><td>At end of article body · top margin <code>space-12 (48 px)</code> from last paragraph. Sits <b>above</b> the "Related articles" rail. One per article only.</td></tr>
+        <tr><th>Accessibility</th><td>Author name is wrapped in an <code>&lt;a&gt;</code> to <code>/blog/autor/[slug]</code>. Avatar carries <code>alt="Foto de [name]"</code> if real image; empty alt if initial-fallback (decorative). Social links use <code>aria-label="Perfil de [name] en LinkedIn"</code>.</td></tr>
+        <tr><th>SEO · E-E-A-T</th><td>Linked to <code>Person</code> JSON-LD schema with author name, role, image URL, and sameAs (social links). On financial-content topics, named-author bylines with linked profiles measurably improve YMYL rankings.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use a serif for the author name even though most card titles are sans. The serif signals "byline" — the same convention every newspaper uses — and the convention is the credibility.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a "Síganos" or "Suscribite" CTA inside this card. The author bio earns trust precisely by not selling at the moment of credit-claim.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>showAvatar:</b> image · initials — <b>showSocial:</b> boolean — <b>socialPlatform[1..2]:</b> linkedin · twitter · email — text overrides for name · role · bio.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

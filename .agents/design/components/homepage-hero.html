@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Homepage Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-2-1">
+  <header class="cs-head">
+    <div class="cs-num">§ 2.1</div>
+    <h3 class="cs-title">Homepage Hero</h3>
+    <p class="cs-purpose">The single highest-value surface on the site. Job-to-be-done: in one viewport, deliver the SEO keyword ("seguros de auto Argentina") inside an authoritative H1 and route the visitor to the cotizador without scrolling.</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr;">
+    <div class="cs-preview" style="padding: 0; align-items: stretch;">
+      <span class="px-label">DESKTOP · TEXT-LEFT (55) + VISUAL-RIGHT (45)</span>
+      <div class="demo-hero" style="margin: 0; border-radius: 0;">
+        <div>
+          <h1>Tu auto, asegurado en <em>2 minutos</em>.</h1>
+          <p class="sub">Compará pólizas de 14 aseguradoras del país y elegí la cobertura que mejor se ajusta a tu auto y a tu bolsillo.</p>
+          <div class="ctas">
+            <button class="btn-primary" style="padding: 14px 22px;">Cotizá gratis ahora →</button>
+            <button class="btn-outline">Ver coberturas</button>
+          </div>
+          <div class="trust-row">
+            <span>✓ Gratis · sin compromiso</span>
+            <span>✓ En menos de 2 minutos</span>
+            <span>✓ 14 aseguradoras comparadas</span>
+          </div>
+        </div>
+        <div class="visual">Illustration · marine + amber</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Container</th><td>Outer: <b>full-bleed background</b> (paper, no rounded corners, no max-width on the color band). Inner: <code>container-default (1200 px max · 64 / 24 px outer padding)</code>. The hero's <i>color</i> is full-bleed; the hero's <i>content</i> is contained.</td></tr>
+      <tr><th>Height</th><td><b>Desktop:</b> <span class="mono">min-height: 640 px</span> (content-driven). Targets one viewport on a 1366×768 laptop with global nav above (72 px) — leaves the insurer-strip visible without scroll. <b>Tablet (md):</b> 560 px. <b>Mobile (xs/sm):</b> auto height, content-driven, ~480 px typical.</td></tr>
+      <tr><th>Vertical padding</th><td>Desktop: <span class="mono">space-24 (96 px) top · space-20 (80 px) bottom</span>. Mobile: <span class="mono">space-16 (64) · space-12 (48)</span>.</td></tr>
+
+      <tr><th>Layout</th><td><b>Option A — Text 55% / Visual 45% — chosen.</b> Justification: (1) The H1 wraps to a clean 2–3 lines at 55% column width with our Display-XL leading, which is essential for SEO crawlers reading line one and humans reading the promise. (2) A centred text + bg-visual hero (Option B) would force the H1 to compete with the illustration's chroma and reduce ranking-text legibility. (3) The 45% visual slot accommodates a real illustration without imagery feeling decorative — it earns its place by anchoring the page brand visually right where the eye scans next after the H1.</td></tr>
+      <tr><th>Grid</th><td>2-column · template <code>1.22fr 1fr</code> (≈55/45) · column gap <span class="mono">space-12 (48 px)</span> · align-items center.</td></tr>
+
+      <tr><th>Background · color</th><td>Solid <code>bg-page</code> (sand-50, <span class="mono">#F8F7F4</span>). No gradient. The page is cream-on-cream; the hero is unified with the rest of the document and the visual + amber accents do the chromatic work.</td></tr>
+      <tr><th>Background · texture</th><td>One decorative element: a 1 px <code>marine-200 @ 28% α</code> hairline rule beneath the trust-row, extending the full container width. Reads as "specification line", not "web decoration". Nothing else — no gradient mesh, no noise, no shapes.</td></tr>
+      <tr><th>Visual · style</th><td><b>Illustration — chosen over photography.</b> Why: (a) Stock photography of Argentine drivers reads templated; original photoshoots cost five figures and freeze the brand into one demographic. (b) Illustration is recolorable via tokens — when palette shifts, the visual ships with it. (c) Illustration carries the "smart friend" tone without the parasocial weight of a photographed face.</td></tr>
+      <tr><th>Visual · subject</th><td><b>"The garaged car at dusk."</b> A 3/4 front view of a generic compact sedan parked under a soft amber pool of light. Mid-flat illustration style — geometric shapes with restrained gradient shading, no outlines, no faces, no logos. The car body fills 65% of the visual frame, sits on a horizontal ground-line, with a single Eclipse-mark glyph orbiting above the roof at 1/8 scale to read as "covered" — symbolic, not literal. Surroundings: implied garage — two vertical rule-lines marking columns at left and right edges, a flat horizon plate.</td></tr>
+      <tr><th>Visual · color allocation</th><td>Car body: <code>marine-500</code>. Underlight pool: radial gradient <code>amber-300 → amber-500 @ 0% α</code>. Ground line: <code>sand-300</code>. Eclipse glyph: <code>amber-500 ring, sand-50 core</code>. Highlights/reflections: <code>marine-300</code>. <b>No black ink anywhere in the illustration</b> — it lives in the document's palette.</td></tr>
+      <tr><th>Visual · dimensions</th><td>Aspect ratio <span class="mono">5 : 4</span> · max-width 540 px. SVG, optimized. Rendered at 100% no scaling.</td></tr>
+
+      <tr><th>H1 · copy</th><td><b>"Tu auto, asegurado en 2 minutos."</b> The italic "2 minutos" carries the value prop; the rest delivers the SEO keyword stem "asegurado" (matches "seguros de auto"). H1 is rendered as HTML text (never image-text) per SEO §06.</td></tr>
+      <tr><th>H1 · typography</th><td><code>display-xl (72 / 76 · −0.025 em · serif · 400)</code> · color <code>text-brand</code> (marine-700) · italic span "<em>2 minutos</em>" uses <code>mark</code> color (#C14A1F). Max-width <span class="mono">12 ch</span> (forces a 2-line wrap that the eye scans cleanly).</td></tr>
+      <tr><th>H1 · bottom margin</th><td><span class="mono">space-5 (20 px)</span>.</td></tr>
+
+      <tr><th>Subheadline · copy</th><td><b>"Compará pólizas de 14 aseguradoras del país y elegí la cobertura que mejor se ajusta a tu auto y a tu bolsillo."</b> Spanish-AR voseo ("elegí"). Lengths under 160 chars (works as meta description fallback).</td></tr>
+      <tr><th>Subheadline · typography</th><td><code>body-xl (20 / 32 · 400)</code> · color <code>text-secondary</code> (sand-700). Max-width <span class="mono">42 ch</span>.</td></tr>
+      <tr><th>Subheadline · bottom margin</th><td><span class="mono">space-8 (32 px)</span> before the CTA group.</td></tr>
+
+      <tr><th>CTA · primary</th><td>Label <b>"Cotizá gratis ahora"</b> trailing <code>arrow-right</code> icon (icon-sm, gap 8 px). Variant <code>btn-primary-xl</code> (height 56 px · padding 16 + 24 · radius-sm). Background <code>marine-700</code> · text <code>sand-0</code>. Shadow <code>elevation-1</code> default → <code>elevation-2</code> on hover with translateY(−1 px).</td></tr>
+      <tr><th>CTA · secondary</th><td>Label <b>"Ver coberturas"</b>. Variant <code>btn-outline-xl</code> (same height 56 px · same radius · 1.5 px <code>marine-700</code> border · transparent fill · marine-700 label). Hover: fill <code>marine-50</code>.</td></tr>
+      <tr><th>CTA · gap &amp; arrangement</th><td>Desktop: horizontal · <span class="mono">space-3 (12 px)</span> gap. Mobile: stacked · same gap · both buttons stretch to full container width (<code>flex-direction: column</code>).</td></tr>
+      <tr><th>CTA · pulse</th><td>None. A pulsing CTA in a high-trust insurance context reads as desperate and undermines the brand's "calm advisor" tone. The amber accent appears in trust-row checks and the eclipse glyph — that's enough chromatic pull.</td></tr>
+
+      <tr><th>Trust micro-row</th><td>Sits <span class="mono">space-6 (24 px)</span> below CTAs. Three items, each: <code>check</code> icon (icon-xs · marine-700 · solid stroke) + label. Typography <code>label-m (13 · 500)</code> · color <code>sand-700</code>. Items separated by an <span class="mono">11 px wide · 1 px tall · sand-300</span> vertical rule (NOT a bullet character); rule-gap <span class="mono">space-3 (12 px)</span> on each side.<br/>
+        <b>Items:</b>
+        <ul>
+          <li>"Gratis · sin compromiso"</li>
+          <li>"En menos de 2 minutos"</li>
+          <li>"14 aseguradoras comparadas"</li>
+        </ul>
+      </td></tr>
+
+      <tr><th>Insurer strip</th><td>Sits at the bottom of the hero band, full container width. <b>Label above</b>: <code>overline (11 · mono · +0.16 em · uppercase)</code> color <code>sand-500</code>, copy "<i>Comparamos las mejores aseguradoras del país</i>". Bottom margin <span class="mono">space-4 (16 px)</span> to logo row.<br/>
+        <b>Logo row:</b> 10 partner marks · grayscale (filter: grayscale(1) · opacity 0.55) · uniform height <span class="mono">28 px</span> · gap <span class="mono">space-10 (40 px)</span>. Hover an individual mark → opacity 1 · grayscale(0), <span class="mono">duration-fast · ease-out</span>.<br/>
+        <b>Mobile overflow:</b> single horizontal row, scrollable, snap-to-item. Edge fade: 24 px <code>linear-gradient(to right, paper, paper @ 0%)</code> mask on both edges to hint at off-screen content. Top margin from trust-row: <span class="mono">space-12 (48 px)</span>.
+      </td></tr>
+
+      <tr><th>Responsive · md (768–1279)</th><td>Layout becomes 1 column. Visual moves below text, scales to max-width 380 px, centered. CTAs stay horizontal at 768+. Trust-row keeps three items but reduces vertical rule height. Insurer strip stays.</td></tr>
+      <tr><th>Responsive · xs/sm (&lt; 768)</th><td>Visual is <b>visible</b> (do not hide) — but reduced to a 240 px max-width centered crop. The illustration carries brand recall that homepage text alone can't deliver. CTAs stack vertically full-width. Trust-row collapses to a 2-column 1 ch grid (item 3 wraps to its own row). Insurer strip becomes horizontal-scroll with edge fade.</td></tr>
+
+      <tr><th>Accessibility</th><td>H1 is the page's only <code>&lt;h1&gt;</code>. Subhead is <code>&lt;p&gt;</code> (not <code>&lt;h2&gt;</code>). Visual is an <code>&lt;img&gt;</code> or <code>&lt;svg role="img"&gt;</code> with <code>aria-label="Auto compacto en garaje con halo de cobertura — ilustración de marca"</code>. The trust-row rule separators are CSS pseudo-elements so screen readers read the three items as a clean list.</td></tr>
+      <tr><th>Performance</th><td>The illustration is the LCP element. Inline-SVG or preloaded WebP; total weight ≤ 14 KB. <code>fetchpriority="high"</code>. Heading text never appears inside the image asset.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Render the H1 as live HTML text and place the keyword inside it. Cotizador conversion follows ranking; ranking follows crawlable H1 text.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't replace the illustration with a smiling-couple stock photo. That look anchored Argentine fintech in 2018 and now reads as cheap; the brand-owned illustration is what makes the hero feel like Ramsar's hero, not anyone's.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> default · campaign — <b>showSecondaryCta:</b> boolean — <b>trustItemCount:</b> 2 · 3 · 4 — <b>visualAsset:</b> instance-swap (garage · highway · city) — text overrides for H1, sub, both CTAs, three trust items, insurer-strip label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

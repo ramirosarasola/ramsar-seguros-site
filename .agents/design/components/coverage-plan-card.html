@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Coverage Plan Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-5">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.5</div>
+    <h3 class="cs-title">Coverage Plan Card</h3>
+    <p class="cs-purpose">Three-card row on insurer landing pages: <i>Terceros · Terceros Plus · Todo Riesgo</i>. The middle card recommends; the outer cards anchor the comparison. Most commercially-consequential cards in the system after §3.1.</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr;">
+    <div class="cs-preview" style="gap: 16px; padding: 32px;">
+      <span class="px-label">3-COLUMN ROW · MIDDLE = RECOMENDADO</span>
+      <div class="demo-plan">
+        <div class="pname">Terceros</div>
+        <div class="price">$24.800</div>
+        <div class="perd">/mes · precio orientativo</div>
+        <ul>
+          <li>Responsabilidad civil</li>
+          <li>Auxilio mecánico</li>
+          <li class="no">Granizo</li>
+          <li class="no">Robo total</li>
+          <li class="no">Daño parcial</li>
+          <li class="no">Cristales</li>
+        </ul>
+        <div class="cta secondary">Cotizar este plan</div>
+      </div>
+      <div class="demo-plan rec">
+        <div class="badge-rec">Más elegido</div>
+        <div class="pname">Terceros Plus</div>
+        <div class="price">$36.400</div>
+        <div class="perd">/mes · precio orientativo</div>
+        <ul>
+          <li>Responsabilidad civil</li>
+          <li>Auxilio + grúa nacional</li>
+          <li>Granizo + incendio</li>
+          <li>Robo total</li>
+          <li class="no">Daño parcial</li>
+          <li class="no">Cristales</li>
+        </ul>
+        <div class="cta primary">Cotizar este plan</div>
+      </div>
+      <div class="demo-plan">
+        <div class="pname">Todo Riesgo</div>
+        <div class="price">$54.900</div>
+        <div class="perd">/mes · precio orientativo</div>
+        <ul>
+          <li>Responsabilidad civil</li>
+          <li>Auxilio + grúa MERCOSUR</li>
+          <li>Granizo + incendio</li>
+          <li>Robo total + parcial</li>
+          <li>Daño parcial · sin franquicia</li>
+          <li>Cristales · sin franquicia</li>
+        </ul>
+        <div class="cta secondary">Cotizar este plan</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Grid</th><td><b>Desktop:</b> 3 equal columns · column gap <span class="mono">space-6 (24 px)</span>. <b>Mobile:</b> <b>vertical stack</b>, not horizontal scroll. <i>Justification:</i> on a phone, comparison is a secondary task to comprehension — readers don't compare plans by swiping at thumbnail size; they scroll one plan at a time. A horizontal-scroll carousel hides plans the user didn't ask to hide. Stacked: the "recomendado" plan moves to position 1 on mobile (above the others) so the recommendation is the first encounter.</td></tr>
+
+      <tr><th>Card · standard</th><td>Width: equal in 3-column grid. Padding <span class="mono">space-6 (24 px)</span>. Background <code>sand-0</code> · border 1 px <code>sand-200</code> · radius <code>radius-lg (16 px)</code> · shadow <code>elevation-0</code>.</td></tr>
+
+      <tr><th>Card · recomendado</th><td>Border <b>1.5 px <code>marine-700</code></b> (vs 1 px sand-200). Shadow <code>elevation-2</code> (vs elevation-0). <b>Background remains sand-0</b> — no tint. Tinting plus border-emphasis is double-treatment; one signal is enough. <b>Scale:</b> <code>transform: scale(1.02)</code> on desktop only. Justify: a 2% lift breaks the row's visual rhythm just enough for the eye to settle on the middle card, without making the side cards feel "demoted". On mobile the scale is disabled (every plan is full-width, scale is invisible).</td></tr>
+
+      <tr><th>"Más elegido" badge</th><td>Position absolute · <span class="mono">top: −12 px · left: 50% · transform: translateX(−50%)</span> (floats above card, horizontally centered). Background <code>amber-500</code> · text <code>midnight-700</code>. Padding <span class="mono">4 px / 14 px</span>. Radius <code>radius-full</code>. Typography <code>label-s (11.5 · 700 · +0.02 em)</code> — slightly heavier (700) than the §3.1 popular badge because this is a more prescriptive recommendation.</td></tr>
+
+      <tr><th>Anatomy · top to bottom</th><td>
+        <ol style="margin: 0; padding-left: 18px;">
+          <li>Plan name (always visible at top)</li>
+          <li>1-line description (optional, e.g. "Cobertura básica obligatoria"). Bottom margin <code>space-3 (12)</code></li>
+          <li>1 px divider · color <code>sand-200</code> · full card width. Bottom margin <code>space-4 (16)</code></li>
+          <li>Price block</li>
+          <li>1 px divider after price. Bottom margin <code>space-4 (16)</code></li>
+          <li>Coverage list (6–8 items)</li>
+          <li>CTA button (full-width)</li>
+        </ol>
+      </td></tr>
+
+      <tr><th>Plan name</th><td>Typography <code>h5 (18 · 600 · sans)</code> · color <code>sand-900</code>.</td></tr>
+      <tr><th>Plan description</th><td>Typography <code>body-s (14 · 400)</code> · color <code>sand-500</code>. Max 1 line · ellipsis. Top margin <code>2 px</code>.</td></tr>
+
+      <tr><th>Price block · "Desde" label</th><td>Typography <code>caption (12 · 400 · +0.005 em)</code> · color <code>sand-500</code>.</td></tr>
+      <tr><th>Price block · value</th><td><b>Display-L scale</b> (56 / 62 · 400 · serif · −0.02 em). Color <code>sand-900</code>. <i>Justification:</i> the price is the moment the user decides; H2 (36 px) is too quiet, Display-L (56 px) reads as "headline of this card". Single line, tabular-nums.</td></tr>
+      <tr><th>Price · /mes suffix</th><td>Typography <code>body-m mono (16 · 500)</code> · color <code>sand-500</code>. Baseline-aligned to the price (not centered) · 4 px gap.</td></tr>
+      <tr><th>Price · note</th><td>"Precio orientativo · IVA incluido" · typography <code>caption mono (12 · 400)</code> · color <code>sand-500</code>. Top margin <code>space-1 (4)</code>. Mandatory under Argentine consumer law for displayed prices.</td></tr>
+
+      <tr><th>Coverage list</th><td>
+        <p><b>Included item:</b> <code>check</code> icon (icon-sm · stroke 1.75 · color <code>success-default (#1F7A4D)</code>) + label. Label typography <code>body-s (14 · 400)</code> · color <code>sand-800</code>. Icon → label gap <code>space-2 (8 px)</code>.</p>
+        <p><b>Excluded item:</b> <code>x</code> icon (icon-sm · color <code>sand-300</code>) + label. Label typography same size · color <code>sand-400</code>. <i>Justification:</i> excluded items visually recede (light grey on light grey) — they remain readable but communicate absence without shouting. This is a deliberate departure from the marine-700 check used on §3.1: in plan comparisons, the user is reading <i>differences</i>; success-green vs sand-300 makes the contrast scannable in a single sweep.</p>
+        <p><b>Item gap:</b> <code>space-3 (12 px)</code> between items.</p>
+        <p><b>Count:</b> 6–8 items per card. <b>Order is identical across all three cards</b> — same row in card 1 must describe the same coverage in card 2 and card 3, so the eye can scan horizontally across cards on desktop.</p>
+      </td></tr>
+
+      <tr><th>CTA button · standard cards</th><td>Variant <code>btn-outline-md</code> · full card width · top margin <code>space-6 (24 px)</code>. Label "Cotizar este plan".</td></tr>
+      <tr><th>CTA button · recomendado card</th><td>Variant <code>btn-primary-md</code> · full card width · same label. Visual contrast (solid vs outline) is the second differentiator after the border treatment.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Align coverage-list items row-for-row across the three cards. Visual alignment is what makes the comparison real.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't tint the recommended card's background. The border + shadow + scale + CTA inversion are already the recommendation. Adding fill is shouting.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> standard · recomendado — <b>itemCount:</b> 6 · 7 · 8 — <b>showDescription:</b> boolean — text overrides for plan name, price, description, all coverage items (boolean per item: included · excluded).</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

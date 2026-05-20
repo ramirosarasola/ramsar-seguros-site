@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Button System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-3">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.3</div>
+    <h3 class="cs-title">Button System</h3>
+    <p class="cs-purpose">The system's vocabulary of action. Five variants × four sizes = the entire interactive surface. Primary drives conversion, Secondary supports, Ghost recedes, Destructive warns, CTA carries the homepage hero. Anything outside this set is forbidden.</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr;">
+    <div class="cs-preview white" style="padding: 28px; flex-direction: column; gap: 18px; align-items: stretch;">
+      <span class="px-label">VARIANTS × SIZES</span>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <button class="btn-primary" style="height: 32px; padding: 0 12px; font-size: 12px;">SM</button>
+        <button class="btn-primary" style="height: 40px; padding: 0 16px; font-size: 13px;">MD</button>
+        <button class="btn-primary" style="height: 48px; padding: 0 20px; font-size: 14px;">LG</button>
+        <button class="btn-primary" style="height: 56px; padding: 0 24px; font-size: 15px;">XL · Primary</button>
+        <button class="btn-outline">Secondary MD</button>
+        <button style="background: transparent; color: var(--ramsar-primary-700); border: 0; padding: 8px 12px; font-family: var(--sans); font-weight: 600; font-size: 13px;">Ghost MD</button>
+        <button style="background: var(--ramsar-error); color: #fff; border: 0; padding: 0 16px; height: 40px; border-radius: 8px; font-family: var(--sans); font-weight: 600; font-size: 13px;">Destructive MD</button>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3);">CTA · HERO</span>
+        <button class="btn-primary" style="height: 56px; padding: 0 28px; font-size: 15px; box-shadow: 0 4px 14px rgba(15,67,63,0.32);">Cotizá ahora →</button>
+        <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3);">LOADING</span>
+        <button class="btn-primary" style="height: 40px; padding: 0 16px; font-size: 13px; opacity: 0.85;">⟳ Cotizando…</button>
+        <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3);">DISABLED</span>
+        <button style="background: var(--ramsar-neutral-200); color: var(--ramsar-neutral-400); border: 0; padding: 0 16px; height: 40px; border-radius: 8px; font-family: var(--sans); font-weight: 600; font-size: 13px; cursor: not-allowed;">Cotizar</button>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Size scale</th><td>
+        <ul>
+          <li><b>sm</b>: height <span class="mono">32 px</span> · padding <code>0 space-3 (12 px)</code> · typography <code>label-s (11.5 · 600)</code>. Used in toolbars, dense table actions.</li>
+          <li><b>md</b>: height <span class="mono">40 px</span> · padding <code>0 space-4 (16 px)</code> · typography <code>label-m (13 · 600)</code>. Default size. Used in nav, cards, inline CTAs.</li>
+          <li><b>lg</b>: height <span class="mono">48 px</span> · padding <code>0 space-5 (20 px)</code> · typography <code>label-m (13 · 600)</code>. Used in modal footers, prominent in-flow actions.</li>
+          <li><b>xl</b>: height <span class="mono">56 px</span> · padding <code>0 space-6 (24 px)</code> · typography <code>label-l (15 · 600)</code>. Reserved for homepage hero, cotizador entry.</li>
+        </ul>
+      </td></tr>
+      <tr><th>Common spec</th><td>Radius <code>radius-sm (8 px)</code> on all sizes/variants. Display <code>inline-flex</code> · align-items center · gap <code>space-2 (8 px)</code> for icons. Cursor pointer. No text-transform.</td></tr>
+
+      <tr><th>Primary · default</th><td>Background <code>marine-700</code> · text <code>sand-0</code> · border 0 · shadow <code>elevation-1</code>.</td></tr>
+      <tr><th>Primary · hover</th><td>Background <code>marine-800</code>. translateY(−1 px). Shadow <code>elevation-2</code>. <span class="mono">120 ms · ease-out</span>.</td></tr>
+      <tr><th>Primary · active</th><td>Background <code>marine-900</code>. translateY(0). Shadow <code>elevation-0</code>. Instant (no transition).</td></tr>
+      <tr><th>Primary · focus</th><td>Same colors as default. <code>outline: 2px solid marine-700</code> · outline-offset 2 px · halo <code>0 0 0 5px marine-700 @ 18% α</code>.</td></tr>
+      <tr><th>Primary · disabled</th><td>Background <code>sand-200</code> · text <code>sand-400</code> · shadow none · cursor not-allowed · opacity 1 (no transparency — opacity hides why it's disabled).</td></tr>
+      <tr><th>Primary · loading</th><td>Background stays <code>marine-700</code>. <code>pointer-events: none</code>. Label transforms to gerund form: "Cotizar" → "<i>Cotizando…</i>", "Guardar" → "<i>Guardando…</i>", "Enviar" → "<i>Enviando…</i>". Leading <code>loader-2</code> icon-sm spinning at 720 ms · linear · infinite. Original button width preserved (CSS <code>min-width</code> locks pre-loading width to prevent reflow jitter).</td></tr>
+
+      <tr><th>Secondary · default</th><td>Background transparent · border <b>1.5 px <code>marine-700</code></b> · text <code>marine-700</code>. Border, not 1 px outline — at 1 px the outlined button reads weaker than a Ghost variant.</td></tr>
+      <tr><th>Secondary · hover</th><td>Background <code>marine-50</code>. Border + text unchanged.</td></tr>
+      <tr><th>Secondary · active</th><td>Background <code>marine-100</code>.</td></tr>
+      <tr><th>Secondary · focus</th><td>Standard focus ring.</td></tr>
+      <tr><th>Secondary · disabled</th><td>Border <code>sand-300</code> · text <code>sand-400</code>.</td></tr>
+
+      <tr><th>Ghost · default</th><td>Background transparent · border 0 · text <code>marine-700</code>.</td></tr>
+      <tr><th>Ghost · hover</th><td>Background <code>marine-50</code>. <b>No underline</b> — the bg shift is the entire feedback. Underlines belong to inline text-links, not buttons.</td></tr>
+      <tr><th>Ghost · active</th><td>Background <code>marine-100</code>.</td></tr>
+
+      <tr><th>Destructive · structure</th><td>Same structure as Primary, error palette throughout. Default bg <code>error-default (#B8341C)</code> · text <code>sand-0</code>. Hover bg <code>error-dark (#7A1F0F)</code>. Used only for: cancel policy, delete saved quote, remove account. <b>Always requires a confirmation step</b> — never the first click in a destructive flow.</td></tr>
+
+      <tr><th>CTA · the hero button</th><td>Base = Primary at <b>xl</b> size. Additional treatment: <b>colored shadow glow</b> — <code>box-shadow: 0 4px 14px rgba(15, 67, 63, 0.32), 0 2px 4px rgba(15, 67, 63, 0.18)</code>. The shadow intensifies on hover: <code>0 6px 20px rgba(15, 67, 63, 0.4), 0 2px 4px rgba(15, 67, 63, 0.18)</code>. <b>No pulse animation, ever.</b> A pulsing CTA in insurance reads as "act before you think" — the opposite of the brand voice. The glow is sufficient.</td></tr>
+
+      <tr><th>Icon variants · icon-left</th><td>Icon <code>icon-sm (16 px)</code> preceding label · gap <code>space-2 (8 px)</code>. Used for affordance ("Volver" with <code>arrow-left</code>).</td></tr>
+      <tr><th>Icon variants · icon-right</th><td>Icon trailing label · same gap. Default for CTA buttons ("Cotizá ahora" + <code>arrow-right</code>).</td></tr>
+      <tr><th>Icon-only</th><td>Equal padding all sides → square button. Sizes: sm 32×32 · md 40×40 · lg 48×48 · xl 56×56. <code>aria-label</code> required, no exceptions. Used for close, copy, settings cog, etc.</td></tr>
+
+      <tr><th>Full-width variant</th><td><code>width: 100%</code>. Used in mobile CTAs, modal footers, card actions. Available on all variants/sizes via a single boolean property.</td></tr>
+
+      <tr><th>Accessibility</th><td>Always a real <code>&lt;button&gt;</code> (or <code>&lt;a&gt;</code> when navigating). Disabled state uses <code>disabled</code> attribute, not <code>aria-disabled</code> (we want it skipped from tab order). Loading state uses <code>aria-busy="true"</code> + the visible spinner. Icon-only buttons require <code>aria-label</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Transform labels to the Spanish gerund in loading state ("Cotizando…", "Guardando…"). The verb form tells the user what's happening — generic spinners don't.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a pulse animation to the CTA. The glow shadow is the affordance; pulse turns "act" into "panic".</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> primary · secondary · ghost · destructive · cta — <b>size:</b> sm · md · lg · xl — <b>state:</b> default · hover · active · focus · disabled · loading — <b>icon:</b> none · left · right · only — <b>fullWidth:</b> boolean — text override for label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

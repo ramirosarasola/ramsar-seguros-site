@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Brand Identity & Design Tokens v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Sohne+Breit&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============== COVER ============== -->
+<main class="page">
+
+<section class="cover">
+  <div class="cover-top">
+    <div>Ramsar Seguros — Specification Archive</div>
+    <div class="stamp">v 1.0 · MAY 2026</div>
+  </div>
+
+  <div class="cover-middle">
+    <div class="eyebrow">Document № RS-DS-001 / Confidential / For Implementation</div>
+    <h1 class="doc-title">Brand Identity<br/>&amp; <em>Design Tokens</em></h1>
+    <p class="lede">A complete, opinionated specification for Ramsar Seguros — the easiest, most transparent way to compare and quote auto insurance in Argentina. Every value is fixed. Every decision is justified. Hand to Figma; build verbatim.</p>
+  </div>
+
+  <div>
+    <div class="cover-foot">
+      <div class="cell"><span class="k">Audience</span><span class="v">Brand designer · UI designer · Engineering</span></div>
+      <div class="cell"><span class="k">Format</span><span class="v">Source-of-truth spec</span></div>
+      <div class="cell"><span class="k">Market</span><span class="v">Argentina · ES-AR</span></div>
+      <div class="cell"><span class="k">Status</span><span class="v" style="color: var(--mark);">● Locked for build</span></div>
+    </div>
+
+    <nav class="toc" aria-label="Table of contents">
+      <a href="#s01"><span class="num">01</span><span>Logo Concepts</span><span class="pg">P. 02</span></a>
+      <a href="#s02"><span class="num">02</span><span>Color System</span><span class="pg">P. 06</span></a>
+      <a href="#s03"><span class="num">03</span><span>Typography System</span><span class="pg">P. 14</span></a>
+      <a href="#s04"><span class="num">04</span><span>Spacing &amp; Layout</span><span class="pg">P. 20</span></a>
+      <a href="#s05"><span class="num">05</span><span>Elevation &amp; Borders</span><span class="pg">P. 26</span></a>
+      <a href="#s06"><span class="num">06</span><span>Iconography</span><span class="pg">P. 30</span></a>
+      <a href="#s07"><span class="num">07</span><span>Motion &amp; Animation</span><span class="pg">P. 34</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============== 01 LOGO CONCEPTS ============== -->
+<section class="spec" id="s01">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 01 / VII</span>
+      <h2 class="section-title">Logo <em>Concepts</em></h2>
+    </div>
+    <p class="lede">Three directions, each engineered for a slightly different facet of trust. We propose <strong>Direction A — Eclipse</strong> as the primary recommendation; the alternates exist to pressure-test the decision.</p>
+  </div>
+
+  <!-- DIRECTION A -->
+  <div style="margin-bottom: 56px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule);">
+      <div class="logo-card" style="border: 0;"><div class="stage cream"><span class="wordmark brand-on-cream"><span class="mark"></span>Ramsar<span class="seguros">Seguros</span></span></div><div class="body"><div class="name">Primary — full color on cream</div><div class="desc">Marine 700 wordmark, amber/cream eclipse mark</div></div></div>
+      <div class="logo-card" style="border: 0;"><div class="stage dark"><span class="wordmark light"><span class="mark"></span>Ramsar<span class="seguros">Seguros</span></span></div><div class="body"><div class="name">Reversed — full color on Marine 700</div><div class="desc">All-white wordmark, amber/white eclipse mark</div></div></div>
+      <div class="logo-card" style="border: 0;"><div class="stage"><span class="wordmark mono-ink"><span class="mark"></span>Ramsar<span class="seguros">Seguros</span></span></div><div class="body"><div class="name">Monochrome — ink on neutral</div><div class="desc">Single-color print, fax, and embossing fallback</div></div></div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 32px;">
+      <div class="prose">
+        <span class="callout">★ Recommended</span>
+        <h3 class="h-sub" style="margin: 12px 0 8px;">Direction A — <em>Eclipse</em></h3>
+        <p><strong>Symbol.</strong> A perfect circular disc with a smaller concentric circle removed at the center — an "eclipse" or coin. The outer ring is solid amber (Accent 500); the inner negative space takes the surface color it sits on (cream on cream, navy on navy). Geometry: outer diameter equals the cap-height of the wordmark; ring thickness is exactly 22% of the outer diameter. The mark is a closed, complete form — no open shapes, no broken curves — to signal coverage, completeness, and a policy fully in effect.</p>
+        <p><strong>Wordmark.</strong> Set in <span class="mono">Instrument Serif Regular</span>, true italic disabled. Cap-line tracking <span class="mono">−2%</span>; the "R" terminals are kept long for character. The descriptor "SEGUROS" sits to the right baseline-aligned with the wordmark cap-height, in <span class="mono">Geist Mono Medium</span> at 28% of wordmark size, letter-spacing <span class="mono">+32%</span>, set in Ink/3.</p>
+        <p><strong>Rationale.</strong> Argentine insurance is dominated by shields, road silhouettes, and aggressive sans-serifs. Eclipse refuses those tropes. The serif wordmark carries the formality of a legal document; the geometric mark carries the precision of a guarantee. Together they read as <em>"a credentialed advisor who is also a modern product."</em> The amber ring is warm enough to feel human and bright enough to function as a UI accent without ever being mistaken for an alert.</p>
+      </div>
+
+      <div>
+        <table class="tokens">
+          <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td class="tok">Symbol diameter</td><td class="note">Equals wordmark cap-height (1.00×)</td></tr>
+            <tr><td class="tok">Symbol ring</td><td class="note">22% of diameter, solid Accent 500</td></tr>
+            <tr><td class="tok">Symbol → wordmark gap</td><td class="note">0.32× cap-height</td></tr>
+            <tr><td class="tok">Wordmark → "SEGUROS"</td><td class="note">0.50× cap-height (vertical baseline preserved)</td></tr>
+            <tr><td class="tok">Safe zone (clear-space)</td><td class="note">0.5× wordmark cap-height on all sides</td></tr>
+            <tr><td class="tok">Min size · digital</td><td class="note">112 px horizontal lockup · 32 px icon-only</td></tr>
+            <tr><td class="tok">Min size · print</td><td class="note">22 mm horizontal · 8 mm icon-only</td></tr>
+            <tr><td class="tok">Symbol color · default</td><td class="note">Accent 500 ring · surface-color core</td></tr>
+            <tr><td class="tok">Wordmark color · default</td><td class="note">Primary 700 on light · Neutral 0 on dark</td></tr>
+            <tr><td class="tok">Approved lockups</td><td class="note">Horizontal · Stacked · Icon-only · Wordmark-only</td></tr>
+          </tbody>
+        </table>
+
+        <h4 class="h-sub2" style="margin: 24px 0 10px;">Forbidden uses</h4>
+        <ul class="numlist">
+          <li><div><div class="nl-title">Do not rotate or skew</div><div class="nl-body">The eclipse must remain perfectly upright. Tilt implies imbalance — fatal for an insurance brand.</div></div></li>
+          <li><div><div class="nl-title">Do not place on photographic backgrounds without scrim</div><div class="nl-body">If the logo must appear over imagery, place it on a Marine 700 plate at 92% opacity with 24 px padding.</div></div></li>
+          <li><div><div class="nl-title">Do not recolor the wordmark with the accent</div><div class="nl-body">The amber is reserved for the ring and for UI energy. An all-amber wordmark reads as warning.</div></div></li>
+          <li><div><div class="nl-title">Do not collapse the SEGUROS descriptor onto the wordmark baseline</div><div class="nl-body">It is positioned at cap-height intentionally to read as a credential, not a continuation.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- DIRECTION B -->
+  <div style="margin: 56px 0;">
+    <div class="grid-2">
+      <div>
+        <div class="logo-card">
+          <div class="stage cream">
+            <div style="display: flex; align-items: center; gap: 18px;">
+              <div class="monogram-badge">R</div>
+              <div style="display: flex; flex-direction: column; gap: 2px; line-height: 1.05;">
+                <span style="font-family: var(--serif); font-size: 32px; color: var(--ramsar-primary-700); letter-spacing: -0.02em;">Ramsar</span>
+                <span style="font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); letter-spacing: 0.28em; text-transform: uppercase;">Seguros · Arg.</span>
+              </div>
+            </div>
+          </div>
+          <div class="body"><div class="name">Direction B — Letterform Seal</div><div class="desc">Stacked monogram badge with serif wordmark to the right</div></div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3 class="h-sub" style="margin: 0 0 8px;">Direction B — <em>Letterform Seal</em></h3>
+        <p><strong>Symbol.</strong> An 88×88 px rounded-square plate, <span class="mono">14 px</span> corner radius, filled Primary 700. A thin amber inner-rule sits 6 px from the edge at 40% opacity. The letterform <em>R</em> is set in Instrument Serif at 56 px, weight 400, color Accent 500. The plate functions as a hallmark stamp; the inner-rule references certification documents.</p>
+        <p><strong>Wordmark.</strong> "Ramsar" in Instrument Serif Regular, 32 px, color Primary 700. Below: "SEGUROS · ARG." in Geist Mono Medium 10.5 px, tracking <span class="mono">+28%</span>, Ink/3. Vertical leading between the two: 4 px optical.</p>
+        <p><strong>Rationale.</strong> Where Eclipse is geometric, Seal is heraldic. It is the version of Ramsar that would look at home on a notarized contract or embossed on a leather portfolio. Use this direction <em>only</em> if user research surfaces a strong preference for traditional/institutional cues over modern minimalism.</p>
+      </div>
+    </div>
+
+    <table class="tokens" style="margin-top: 24px;">
+      <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">Plate</td><td class="note">88×88 base unit · 14 px radius · Primary 700 fill</td></tr>
+        <tr><td class="tok">Inner-rule</td><td class="note">1 px Accent 500 at 40% α · inset 6 px · 10 px radius</td></tr>
+        <tr><td class="tok">Monogram</td><td class="note">Instrument Serif "R" 56/88 (64% plate height) · Accent 500</td></tr>
+        <tr><td class="tok">Safe zone</td><td class="note">Equal to the plate's corner-radius (14 px @ 1× scale)</td></tr>
+        <tr><td class="tok">Min size · digital</td><td class="note">128 px horizontal · 28 px monogram-only</td></tr>
+        <tr><td class="tok">Min size · print</td><td class="note">26 mm horizontal · 7 mm monogram-only</td></tr>
+        <tr><td class="tok">Approved lockups</td><td class="note">Horizontal · Monogram-only · Wordmark-only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- DIRECTION C -->
+  <div style="margin: 56px 0 0;">
+    <div class="grid-2">
+      <div>
+        <div class="logo-card">
+          <div class="stage cream">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+              <div class="seal">
+                CERTIFICADO · DESDE 2026 ·
+                <div class="seal-inner">RS</div>
+              </div>
+              <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ramsar-primary-700);">Ramsar Seguros</div>
+            </div>
+          </div>
+          <div class="body"><div class="name">Direction C — Stamp &amp; Track</div><div class="desc">Circular stamp with rotating descriptor, mono lockup below</div></div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3 class="h-sub" style="margin: 0 0 8px;">Direction C — <em>Stamp &amp; Track</em></h3>
+        <p><strong>Symbol.</strong> A 120 px circular stamp: outer ring is a 1 px dashed stroke in Primary 700 carrying rotating descriptor text ("CERTIFICADO · DESDE 2026 ·" set in Geist Mono Medium 10 px, +18% tracking) along the path. Inside, an 80 px solid Primary 700 disc with the monogram "RS" set in Instrument Serif Italic at 40 px, Accent 500. Diameter ratio outer:inner is <span class="mono">3:2</span>, fixed.</p>
+        <p><strong>Wordmark.</strong> Set entirely in Geist Mono Medium, all-caps, +32% tracking, 11 px at 1× lockup, Primary 700. The wordmark sits 16 px below the stamp, centered.</p>
+        <p><strong>Rationale.</strong> The most expressive of the three. The rotating descriptor track is a designable surface that can evolve over time (e.g. "1.000.000+ COTIZACIONES" once milestones are hit) without breaking the system. The monospace wordmark signals "engineered" — a counterweight to the heraldic stamp. Pick this only if Ramsar wants to lean editorial / collectible-product over institutional.</p>
+      </div>
+    </div>
+
+    <table class="tokens" style="margin-top: 24px;">
+      <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">Outer stamp</td><td class="note">120 px Ø · 1 px dashed Primary 700 · text-on-path Geist Mono Med 10/+18%</td></tr>
+        <tr><td class="tok">Inner disc</td><td class="note">80 px Ø · solid Primary 700 · concentric</td></tr>
+        <tr><td class="tok">Monogram</td><td class="note">Instrument Serif Italic "RS" 40 px · Accent 500</td></tr>
+        <tr><td class="tok">Wordmark</td><td class="note">Geist Mono Medium 11/+32% · all-caps · Primary 700 · 16 px below stamp</td></tr>
+        <tr><td class="tok">Safe zone</td><td class="note">0.25× outer diameter (30 px at 1×)</td></tr>
+        <tr><td class="tok">Min size · digital</td><td class="note">144 px stacked · 40 px stamp-only</td></tr>
+        <tr><td class="tok">Min size · print</td><td class="note">28 mm stacked · 10 mm stamp-only</td></tr>
+        <tr><td class="tok">Approved lockups</td><td class="note">Stacked · Stamp-only · Horizontal (descriptor track simplified)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============== 02 COLOR SYSTEM ============== -->
+<section class="spec" id="s02">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 02 / VII</span>
+      <h2 class="section-title">Color <em>System</em></h2>
+    </div>
+    <p class="lede">A two-temperature palette: a deep <strong>marine teal</strong> as the brand anchor, balanced by a warm <strong>amber</strong> for energy. Every value is locked. Every contrast ratio is tested against WCAG 2.2 AA.</p>
+  </div>
+
+  <!-- PRIMARY -->
+  <div style="margin-bottom: 56px;">
+    <div class="cluster" style="--g: 12px; margin-bottom: 16px;">
+      <span class="tag">Brand · Primary</span>
+      <span class="muted">Marine</span>
+    </div>
+    <h3 class="h-sub" style="margin-bottom: 6px;">Marine — the brand's center of gravity</h3>
+    <p class="prose"><strong>Hue rationale.</strong> A blue-leaning teal sits between two ideas the category lives in: the formality of navy (banks, law firms, traditional insurers) and the modernity of teal (digital products, fintech). It is the color of a calm harbor — not the blue of authority, but the blue-green of <em>safe arrival</em>. In the Argentine market — saturated with primary blues (Banco Provincia, YPF, AFA) and reds (Banco Galicia, Movistar) — marine carves out an unowned, premium space. Primary 700 is the deployable workhorse: it passes <span class="mono">7.2:1</span> against white, comfortably exceeding AAA for body text.</p>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-primary-100);">100</div><div class="meta"><div class="name">Marine 100</div><div class="vals"><span>#CEE2DF</span><span>rgb(206 226 223)</span><span>hsl(174° 25% 84%)</span></div><div class="ratio"><span>vs #fff <b>1.18:1</b></span><span>· tint backgrounds, hover fills</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-primary-300);">300</div><div class="meta"><div class="name">Marine 300</div><div class="vals"><span>#6EA89F</span><span>rgb(110 168 159)</span><span>hsl(171° 22% 55%)</span></div><div class="ratio"><span>vs #fff <b>2.65:1</b></span><span>· decorative · large headings</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-primary-500);">500</div><div class="meta"><div class="name">Marine 500</div><div class="vals"><span>#1F6F66</span><span>rgb(31 111 102)</span><span>hsl(173° 56% 28%)</span></div><div class="ratio"><span>vs #fff <b>5.62:1</b></span><span>· secondary buttons · icons · borders strong</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-primary-700);">700 ★</div><div class="meta"><div class="name">Marine 700 — Brand</div><div class="vals"><span>#0E433F</span><span>rgb(14 67 63)</span><span>hsl(175° 65% 16%)</span></div><div class="ratio"><span>vs #fff <b>10.84:1</b></span><span>· primary CTAs · headings · brand surface</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-primary-900);">900</div><div class="meta"><div class="name">Marine 900</div><div class="vals"><span>#061F1E</span><span>rgb(6 31 30)</span><span>hsl(176° 68% 7%)</span></div><div class="ratio"><span>vs #fff <b>17.62:1</b></span><span>· footer · ink on brand surfaces</span></div></div></div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- SECONDARY -->
+  <div style="margin: 56px 0;">
+    <div class="cluster" style="--g: 12px; margin-bottom: 16px;">
+      <span class="tag">Brand · Secondary</span>
+      <span class="muted">Midnight</span>
+    </div>
+    <h3 class="h-sub" style="margin-bottom: 6px;">Midnight — the quiet authority</h3>
+    <p class="prose"><strong>Relationship to primary.</strong> Midnight is a desaturated, near-black navy. It is intentionally less chromatic than Marine so the two never compete: Marine carries the brand voice, Midnight handles weight (footers, dark-mode chrome, dense data surfaces). The pair reads as "marine on a moonless night" — same world, different role. Midnight 700 is the safe pairing color for amber accents that need a high-contrast bed.</p>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="swatch"><div class="chip" style="background: #DBDEE2;">100</div><div class="meta"><div class="name">Midnight 100</div><div class="vals"><span>#DBDEE2</span><span>rgb(219 222 226)</span><span>hsl(214° 9% 87%)</span></div><div class="ratio"><span>vs #fff <b>1.16:1</b></span><span>· dividers on dark · subtle chips</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: #7B8590;">300</div><div class="meta"><div class="name">Midnight 300</div><div class="vals"><span>#7B8590</span><span>rgb(123 133 144)</span><span>hsl(212° 8% 52%)</span></div><div class="ratio"><span>vs #fff <b>3.65:1</b></span><span>· captions · placeholder text</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: #2E3A47;">500</div><div class="meta"><div class="name">Midnight 500</div><div class="vals"><span>#2E3A47</span><span>rgb(46 58 71)</span><span>hsl(211° 21% 23%)</span></div><div class="ratio"><span>vs #fff <b>11.04:1</b></span><span>· dense data · table headers</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-secondary-500);">700</div><div class="meta"><div class="name">Midnight 700</div><div class="vals"><span>#0B1F2A</span><span>rgb(11 31 42)</span><span>hsl(199° 58% 10%)</span></div><div class="ratio"><span>vs #fff <b>17.85:1</b></span><span>· footer ground · dark mode chrome</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-secondary-700);">900</div><div class="meta"><div class="name">Midnight 900</div><div class="vals"><span>#061018</span><span>rgb(6 16 24)</span><span>hsl(207° 60% 6%)</span></div><div class="ratio"><span>vs #fff <b>19.12:1</b></span><span>· absolute ink · dark surfaces overlay</span></div></div></div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- ACCENT -->
+  <div style="margin: 56px 0;">
+    <div class="cluster" style="--g: 12px; margin-bottom: 16px;">
+      <span class="tag">Brand · Accent</span>
+      <span class="muted">Amber</span>
+    </div>
+    <h3 class="h-sub" style="margin-bottom: 6px;">Amber — energy without alarm</h3>
+    <p class="prose"><strong>Why amber, not red or orange.</strong> Red is reserved for errors and danger — using it as an accent would erode validation feedback. Pure orange reads cheap and discount-y (a brand-trust hazard in insurance). Amber sits between gold and orange: it borrows gold's premium, hand-finished quality and orange's warmth, without the loudness of either. Against Marine 700 it generates a contrast of <span class="mono">5.94:1</span> — high enough to function as a CTA on dark surfaces, low enough to feel inviting rather than emergency. The accent appears at roughly 5–8% of any composition; if you see more, redesign.</p>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="swatch"><div class="chip dark" style="background: var(--ramsar-accent-300);">300</div><div class="meta"><div class="name">Amber 300</div><div class="vals"><span>#F4C98A</span><span>rgb(244 201 138)</span><span>hsl(34° 81% 75%)</span></div><div class="ratio"><span>vs #fff <b>1.62:1</b></span><span>· badge tints · highlight underlines</span></div></div></div>
+      <div class="swatch"><div class="chip dark" style="background: var(--ramsar-accent-500);">500 ★</div><div class="meta"><div class="name">Amber 500 — Accent</div><div class="vals"><span>#E8A451</span><span>rgb(232 164 81)</span><span>hsl(31° 78% 61%)</span></div><div class="ratio"><span>vs #061018 <b>9.42:1</b></span><span>· "Recommended" badges · price highlights · CTAs on dark</span></div></div></div>
+      <div class="swatch"><div class="chip" style="background: var(--ramsar-accent-700);">700</div><div class="meta"><div class="name">Amber 700</div><div class="vals"><span>#A86A23</span><span>rgb(168 106 35)</span><span>hsl(30° 66% 40%)</span></div><div class="ratio"><span>vs #fff <b>4.62:1</b></span><span>· text on amber tint · links inside accent surfaces</span></div></div></div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- NEUTRAL SCALE -->
+  <div style="margin: 56px 0;">
+    <div class="cluster" style="--g: 12px; margin-bottom: 16px;">
+      <span class="tag">Foundation</span>
+      <span class="muted">Neutral scale — Sand</span>
+    </div>
+    <h3 class="h-sub" style="margin-bottom: 6px;">Sand — neutrals with a 2% warm bias</h3>
+    <p class="prose">Pure-grey neutrals would read clinical and cold next to Marine. We bias the entire neutral ramp toward warm-grey by ~2% — invisible on its own, but it ties everything to the cream paper of the brand. Every step is 1.4× the previous in CIE L* lightness for an even visual cadence.</p>
+
+    <div class="scale-row" style="margin-top: 24px;">
+      <div class="step" style="background: var(--ramsar-neutral-0);">0<br/>#FFFFFF</div>
+      <div class="step" style="background: var(--ramsar-neutral-50);">50<br/>#F8F7F4</div>
+      <div class="step" style="background: var(--ramsar-neutral-100);">100<br/>#EFEEE9</div>
+      <div class="step" style="background: var(--ramsar-neutral-200);">200<br/>#E2E0D8</div>
+      <div class="step" style="background: var(--ramsar-neutral-300);">300<br/>#CAC7BC</div>
+      <div class="step" style="background: var(--ramsar-neutral-400);">400<br/>#A8A496</div>
+      <div class="step dark" style="background: var(--ramsar-neutral-500);">500<br/>#807C6E</div>
+      <div class="step dark" style="background: var(--ramsar-neutral-600);">600<br/>#5E5B50</div>
+      <div class="step dark" style="background: var(--ramsar-neutral-700);">700<br/>#423F37</div>
+      <div class="step dark" style="background: var(--ramsar-neutral-800);">800<br/>#292723</div>
+      <div class="step dark" style="background: var(--ramsar-neutral-900);">900<br/>#181612</div>
+    </div>
+
+    <table class="tokens" style="margin-top: 24px;">
+      <thead><tr><th>Token</th><th>Hex</th><th>RGB</th><th>Primary usage</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">sand-0</td><td class="val">#FFFFFF</td><td class="val">255 255 255</td><td class="note">Card surface, input fill, modal canvas</td></tr>
+        <tr><td class="tok">sand-50</td><td class="val">#F8F7F4</td><td class="val">248 247 244</td><td class="note">Page background, content shell</td></tr>
+        <tr><td class="tok">sand-100</td><td class="val">#EFEEE9</td><td class="val">239 238 233</td><td class="note">Subtle section background, table zebra</td></tr>
+        <tr><td class="tok">sand-200</td><td class="val">#E2E0D8</td><td class="val">226 224 216</td><td class="note">Border subtle, divider on cream</td></tr>
+        <tr><td class="tok">sand-300</td><td class="val">#CAC7BC</td><td class="val">202 199 188</td><td class="note">Border default, disabled fill</td></tr>
+        <tr><td class="tok">sand-400</td><td class="val">#A8A496</td><td class="val">168 164 150</td><td class="note">Border strong on light, placeholder text</td></tr>
+        <tr><td class="tok">sand-500</td><td class="val">#807C6E</td><td class="val">128 124 110</td><td class="note">Tertiary text, caption text</td></tr>
+        <tr><td class="tok">sand-600</td><td class="val">#5E5B50</td><td class="val">94 91 80</td><td class="note">Secondary text, meta, supporting copy</td></tr>
+        <tr><td class="tok">sand-700</td><td class="val">#423F37</td><td class="val">66 63 55</td><td class="note">Body text on cream — primary reading color</td></tr>
+        <tr><td class="tok">sand-800</td><td class="val">#292723</td><td class="val">41 39 35</td><td class="note">Headings on cream when not using Marine 700</td></tr>
+        <tr><td class="tok">sand-900</td><td class="val">#181612</td><td class="val">24 22 18</td><td class="note">Maximum-emphasis text, ink on light</td></tr>
+        <tr><td class="tok">sand-950</td><td class="val">#0C0B09</td><td class="val">12 11 9</td><td class="note">Absolute ink (rarely used; reserved for print)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- SEMANTIC -->
+  <div style="margin: 56px 0;">
+    <div class="cluster" style="--g: 12px; margin-bottom: 16px;">
+      <span class="tag">Semantic</span>
+      <span class="muted">Success · Warning · Error · Info</span>
+    </div>
+    <h3 class="h-sub" style="margin-bottom: 6px;">Semantic colors — quiet, never shouting</h3>
+
+    <table class="tokens" style="margin-top: 24px;">
+      <thead><tr><th>Family</th><th>Light (bg tint)</th><th>Default (icon/border)</th><th>Dark (text)</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tok">success</td>
+          <td class="val">#E4F1EA · #1F7A4D @ 12%</td>
+          <td class="val">#1F7A4D</td>
+          <td class="val">#0F4A2C</td>
+          <td class="note">"Cotización guardada", policy confirmed, valid input. Pairs with check-circle icon.</td>
+        </tr>
+        <tr>
+          <td class="tok">warning</td>
+          <td class="val">#FBEFD8 · #C8881E @ 14%</td>
+          <td class="val">#C8881E</td>
+          <td class="val">#6E4A0C</td>
+          <td class="note">Missing optional field, expiring soon, partial coverage gap. Pairs with triangle-alert.</td>
+        </tr>
+        <tr>
+          <td class="tok">error</td>
+          <td class="val">#F6E2DD · #B8341C @ 14%</td>
+          <td class="val">#B8341C</td>
+          <td class="val">#7A1F0F</td>
+          <td class="note">Validation failure, declined card, destructive action. Pairs with circle-x.</td>
+        </tr>
+        <tr>
+          <td class="tok">info</td>
+          <td class="val">#E1ECF7 · #2A5F9E @ 14%</td>
+          <td class="val">#2A5F9E</td>
+          <td class="val">#173A66</td>
+          <td class="note">Tooltips, contextual help, "Did you know" tips. Pairs with info-circle.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="prose" style="margin-top: 16px;"><strong>Saturation rule.</strong> Every semantic Default is desaturated approximately 25% from its archetypal hue. The brand voice is calm; loud reds and acid yellows would betray that. A semantic color should signal — not interrupt.</p>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- BG / TEXT / BORDER TOKENS -->
+  <div style="margin: 56px 0;">
+    <div class="cluster" style="--g: 12px; margin-bottom: 16px;">
+      <span class="tag">Applied Tokens</span>
+      <span class="muted">Background · Text · Border</span>
+    </div>
+
+    <div class="grid-3" style="align-items: start;">
+      <div>
+        <h4 class="h-sub2" style="margin-bottom: 12px;">Background</h4>
+        <table class="tokens">
+          <tbody>
+            <tr><td class="tok">bg-page</td><td class="note">sand-50</td></tr>
+            <tr><td class="tok">bg-card</td><td class="note">sand-0</td></tr>
+            <tr><td class="tok">bg-subtle</td><td class="note">sand-100</td></tr>
+            <tr><td class="tok">bg-tint-brand</td><td class="note">marine-100</td></tr>
+            <tr><td class="tok">bg-inverse</td><td class="note">midnight-700</td></tr>
+            <tr><td class="tok">bg-brand</td><td class="note">marine-700</td></tr>
+            <tr><td class="tok">bg-overlay</td><td class="note">midnight-900 @ 64% α</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h4 class="h-sub2" style="margin-bottom: 12px;">Text</h4>
+        <table class="tokens">
+          <tbody>
+            <tr><td class="tok">text-primary</td><td class="note">sand-900 — headings, body</td></tr>
+            <tr><td class="tok">text-secondary</td><td class="note">sand-700 — supporting copy</td></tr>
+            <tr><td class="tok">text-tertiary</td><td class="note">sand-500 — captions, meta</td></tr>
+            <tr><td class="tok">text-placeholder</td><td class="note">sand-400</td></tr>
+            <tr><td class="tok">text-disabled</td><td class="note">sand-300</td></tr>
+            <tr><td class="tok">text-inverse</td><td class="note">sand-0</td></tr>
+            <tr><td class="tok">text-brand</td><td class="note">marine-700</td></tr>
+            <tr><td class="tok">link-default</td><td class="note">marine-700</td></tr>
+            <tr><td class="tok">link-hover</td><td class="note">marine-500 + underline</td></tr>
+            <tr><td class="tok">link-visited</td><td class="note">marine-900</td></tr>
+            <tr><td class="tok">link-focus</td><td class="note">marine-700 + 3 px amber ring</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h4 class="h-sub2" style="margin-bottom: 12px;">Border</h4>
+        <table class="tokens">
+          <tbody>
+            <tr><td class="tok">border-subtle</td><td class="note">sand-200 — section dividers</td></tr>
+            <tr><td class="tok">border-default</td><td class="note">sand-300 — inputs, cards</td></tr>
+            <tr><td class="tok">border-strong</td><td class="note">sand-400 — emphasis, hover</td></tr>
+            <tr><td class="tok">border-focus</td><td class="note">marine-700 + 3 px marine-700 @ 18% ring</td></tr>
+            <tr><td class="tok">border-brand</td><td class="note">marine-700</td></tr>
+            <tr><td class="tok">border-inverse</td><td class="note">midnight-300 — dividers on dark</td></tr>
+            <tr><td class="tok">border-error</td><td class="note">error-default</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== 03 TYPOGRAPHY ============== -->
+<section class="spec" id="s03">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 03 / VII</span>
+      <h2 class="section-title">Typography <em>System</em></h2>
+    </div>
+    <p class="lede">Two voices: a serif that <em>speaks</em>, a sans that <em>explains</em>. The serif handles emotional moments — promises, headlines, brand affirmations. The sans handles everything that has to be read at length, scanned, or filled in.</p>
+  </div>
+
+  <!-- Font selection -->
+  <div class="grid-3" style="margin-bottom: 48px;">
+    <div>
+      <span class="tag">Heading</span>
+      <div style="font-family: var(--serif); font-size: 96px; line-height: 0.95; letter-spacing: -0.025em; margin: 12px 0 0; color: var(--ink);">Ag</div>
+      <div style="font-family: var(--serif); font-style: italic; font-size: 32px; line-height: 1.1; color: var(--mark); margin-top: -8px;">Instrument Serif</div>
+      <table class="tokens" style="margin-top: 16px;">
+        <tbody>
+          <tr><td class="tok">Family</td><td class="note">Instrument Serif (Google Fonts)</td></tr>
+          <tr><td class="tok">URL</td><td class="note">fonts.google.com/specimen/Instrument+Serif</td></tr>
+          <tr><td class="tok">Weights used</td><td class="note">400 only (Regular) · 400 italic</td></tr>
+          <tr><td class="tok">License</td><td class="note">OFL · web + product use</td></tr>
+        </tbody>
+      </table>
+      <p class="prose" style="font-size: 13.5px; margin-top: 16px;"><strong>Why.</strong> Instrument Serif is contemporary, generously open, and has a beautifully restrained italic. Its high stroke contrast carries the formality insurance demands; its rounded terminals soften that formality just enough to feel modern. We use a single weight (400) and let scale do the rest of the work — a deliberate constraint that keeps every headline coherent.</p>
+    </div>
+
+    <div>
+      <span class="tag">Body</span>
+      <div style="font-family: var(--sans); font-weight: 500; font-size: 96px; line-height: 0.95; letter-spacing: -0.04em; margin: 12px 0 0; color: var(--ink);">Ag</div>
+      <div style="font-family: var(--sans); font-weight: 600; font-size: 24px; color: var(--ramsar-primary-700); margin-top: 4px;">Geist</div>
+      <table class="tokens" style="margin-top: 16px;">
+        <tbody>
+          <tr><td class="tok">Family</td><td class="note">Geist (Google Fonts / Vercel)</td></tr>
+          <tr><td class="tok">URL</td><td class="note">fonts.google.com/specimen/Geist</td></tr>
+          <tr><td class="tok">Weights used</td><td class="note">400 · 500 · 600 · 700</td></tr>
+          <tr><td class="tok">License</td><td class="note">OFL · web + product use</td></tr>
+        </tbody>
+      </table>
+      <p class="prose" style="font-size: 13.5px; margin-top: 16px;"><strong>Why.</strong> Geist is built for screens — neutral but not characterless, with a wide x-height and unambiguous numerals (essential for prices, ages, license plates). It is the sans we trust to render a 14 px helper-text label legibly at 360 px viewport width, and a 64 px H1 with composure. Avoids the over-familiarity of Inter and the under-personality of Roboto.</p>
+    </div>
+
+    <div>
+      <span class="tag">Mono</span>
+      <div style="font-family: var(--mono); font-size: 96px; line-height: 0.95; margin: 12px 0 0; color: var(--ink);">Ag</div>
+      <div style="font-family: var(--mono); font-size: 24px; color: var(--ramsar-primary-700); margin-top: 4px;">Geist Mono</div>
+      <table class="tokens" style="margin-top: 16px;">
+        <tbody>
+          <tr><td class="tok">Family</td><td class="note">Geist Mono</td></tr>
+          <tr><td class="tok">Weights</td><td class="note">400 · 500</td></tr>
+          <tr><td class="tok">Tabular numerals</td><td class="note">Default ON for all price/data contexts</td></tr>
+        </tbody>
+      </table>
+      <p class="prose" style="font-size: 13.5px; margin-top: 16px;"><strong>Why.</strong> Used exclusively for: prices ($AR 480.000), policy numbers, dates in tabular contexts, overlines, and UI labels with all-caps tracking. Pairs with Geist by sharing a designer and metrics, eliminating optical inconsistency when mono and sans sit adjacent.</p>
+    </div>
+  </div>
+
+  <!-- TYPE SCALE -->
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Type scale — 21 named steps</h3>
+    <p class="prose" style="margin-bottom: 16px;">Scale is a modified 1.200 (minor third) ratio with manual overrides at H1, Body M, and Caption to match optical expectations. All sizes are quoted at the default desktop breakpoint; mobile overrides are listed in §04.</p>
+
+    <div class="specimen">
+      <div class="tk">display-2xl</div>
+      <div class="demo" style="font-family: var(--serif); font-size: 96px; line-height: 96px; letter-spacing: -0.03em; font-weight: 400;">Tu auto, asegurado.</div>
+      <div class="specs"><span>size</span><b>96 / 100%</b><span>line</span><b>96px · 1.000</b><span>track</span><b>-0.03em</b><span>weight</span><b>400</b><span>family</span><b>Serif</b><span>use</span><b>Reserved hero headline · landing only</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">display-xl</div>
+      <div class="demo" style="font-family: var(--serif); font-size: 72px; line-height: 76px; letter-spacing: -0.025em; font-weight: 400;">Compará en 2 minutos.</div>
+      <div class="specs"><span>size</span><b>72 / 76</b><span>line</span><b>76px · 1.056</b><span>track</span><b>-0.025em</b><span>weight</span><b>400</b><span>family</span><b>Serif</b><span>use</span><b>Homepage hero, campaign pages</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">display-l</div>
+      <div class="demo" style="font-family: var(--serif); font-size: 56px; line-height: 62px; letter-spacing: -0.02em; font-weight: 400;">Tu cobertura, sin sorpresas.</div>
+      <div class="specs"><span>size</span><b>56 / 62</b><span>line</span><b>62px · 1.107</b><span>track</span><b>-0.02em</b><span>weight</span><b>400</b><span>family</span><b>Serif</b><span>use</span><b>Section openers, blog hero</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">h1</div>
+      <div class="demo" style="font-family: var(--serif); font-size: 44px; line-height: 50px; letter-spacing: -0.018em; font-weight: 400;">Aseguradoras destacadas en Argentina</div>
+      <div class="specs"><span>size</span><b>44 / 50</b><span>line</span><b>50px · 1.136</b><span>track</span><b>-0.018em</b><span>weight</span><b>400</b><span>family</span><b>Serif</b><span>use</span><b>Page H1 · one per page, SEO-significant</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">h2</div>
+      <div class="demo" style="font-family: var(--serif); font-size: 36px; line-height: 42px; letter-spacing: -0.015em; font-weight: 400;">Cómo funciona la comparación</div>
+      <div class="specs"><span>size</span><b>36 / 42</b><span>line</span><b>42px · 1.167</b><span>track</span><b>-0.015em</b><span>weight</span><b>400</b><span>family</span><b>Serif</b><span>use</span><b>Major section heading</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">h3</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 28px; line-height: 34px; letter-spacing: -0.01em; font-weight: 600;">Coberturas más elegidas</div>
+      <div class="specs"><span>size</span><b>28 / 34</b><span>line</span><b>34px · 1.214</b><span>track</span><b>-0.01em</b><span>weight</span><b>600</b><span>family</span><b>Sans</b><span>use</span><b>Sub-section heading · sans for density</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">h4</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 22px; line-height: 28px; letter-spacing: -0.005em; font-weight: 600;">¿Qué incluye la cobertura intermedia?</div>
+      <div class="specs"><span>size</span><b>22 / 28</b><span>line</span><b>28px · 1.273</b><span>track</span><b>-0.005em</b><span>weight</span><b>600</b><span>family</span><b>Sans</b><span>use</span><b>Card titles, accordion questions</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">h5</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 18px; line-height: 26px; letter-spacing: 0; font-weight: 600;">Documentos requeridos</div>
+      <div class="specs"><span>size</span><b>18 / 26</b><span>line</span><b>26px · 1.444</b><span>track</span><b>0</b><span>weight</span><b>600</b><span>family</span><b>Sans</b><span>use</span><b>Small card titles, side-nav headings</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">h6</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 16px; line-height: 22px; letter-spacing: 0; font-weight: 600;">Resumen de cobertura</div>
+      <div class="specs"><span>size</span><b>16 / 22</b><span>line</span><b>22px · 1.375</b><span>track</span><b>0</b><span>weight</span><b>600</b><span>family</span><b>Sans</b><span>use</span><b>Mini-cards, list group headers</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">body-xl</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 20px; line-height: 32px; letter-spacing: -0.005em; font-weight: 400; color: var(--ramsar-neutral-700);">Cotizá en 2 minutos, compará cobertura y precio, y contratá con una sola firma digital.</div>
+      <div class="specs"><span>size</span><b>20 / 32</b><span>line</span><b>32px · 1.600</b><span>track</span><b>-0.005em</b><span>weight</span><b>400</b><span>family</span><b>Sans</b><span>use</span><b>Hero subheadline, lead paragraph</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">body-l</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 18px; line-height: 30px; letter-spacing: 0; font-weight: 400; color: var(--ramsar-neutral-700);">Comparamos pólizas de las 14 aseguradoras más elegidas del país, en un solo lugar.</div>
+      <div class="specs"><span>size</span><b>18 / 30</b><span>line</span><b>30px · 1.667</b><span>track</span><b>0</b><span>weight</span><b>400</b><span>family</span><b>Sans</b><span>use</span><b>Article body, long-form blog</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">body-m ★</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 16px; line-height: 26px; letter-spacing: 0; font-weight: 400; color: var(--ramsar-neutral-700);">Default body text. Used everywhere from card descriptions to FAQ answers and marketing paragraphs.</div>
+      <div class="specs"><span>size</span><b>16 / 26</b><span>line</span><b>26px · 1.625</b><span>track</span><b>0</b><span>weight</span><b>400</b><span>family</span><b>Sans</b><span>use</span><b>Default — anything not given another role</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">body-s</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 14px; line-height: 22px; letter-spacing: 0; font-weight: 400; color: var(--ramsar-neutral-600);">Helper text on forms, card descriptions, secondary card content.</div>
+      <div class="specs"><span>size</span><b>14 / 22</b><span>line</span><b>22px · 1.571</b><span>track</span><b>0</b><span>weight</span><b>400</b><span>family</span><b>Sans</b><span>use</span><b>Helper text, table cell, secondary descriptions</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">body-xs</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 13px; line-height: 20px; letter-spacing: 0.005em; font-weight: 400; color: var(--ramsar-neutral-600);">Footer links, legal microcopy, dense data table cells.</div>
+      <div class="specs"><span>size</span><b>13 / 20</b><span>line</span><b>20px · 1.538</b><span>track</span><b>+0.005em</b><span>weight</span><b>400</b><span>family</span><b>Sans</b><span>use</span><b>Footer, legal, dense data</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">label-l</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 15px; line-height: 20px; letter-spacing: 0; font-weight: 500; color: var(--ramsar-neutral-800);">Marca del vehículo</div>
+      <div class="specs"><span>size</span><b>15 / 20</b><span>line</span><b>20px · 1.333</b><span>track</span><b>0</b><span>weight</span><b>500</b><span>family</span><b>Sans</b><span>use</span><b>Form labels, primary nav items</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">label-m</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 13px; line-height: 18px; letter-spacing: 0; font-weight: 500; color: var(--ramsar-neutral-800);">Patente del vehículo</div>
+      <div class="specs"><span>size</span><b>13 / 18</b><span>line</span><b>18px · 1.385</b><span>track</span><b>0</b><span>weight</span><b>500</b><span>family</span><b>Sans</b><span>use</span><b>Compact form labels, sub-nav</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">label-s</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 11.5px; line-height: 16px; letter-spacing: +0.01em; font-weight: 500; color: var(--ramsar-neutral-800);">Plan recomendado</div>
+      <div class="specs"><span>size</span><b>11.5 / 16</b><span>line</span><b>16px · 1.391</b><span>track</span><b>+0.01em</b><span>weight</span><b>500</b><span>family</span><b>Sans</b><span>use</span><b>Badge text, chip label</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">caption</div>
+      <div class="demo" style="font-family: var(--sans); font-size: 12px; line-height: 16px; letter-spacing: +0.005em; font-weight: 400; color: var(--ramsar-neutral-500);">Última actualización: 12 de mayo, 2026</div>
+      <div class="specs"><span>size</span><b>12 / 16</b><span>line</span><b>16px · 1.333</b><span>track</span><b>+0.005em</b><span>weight</span><b>400</b><span>family</span><b>Sans</b><span>use</span><b>Timestamps, image captions, byline meta</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">overline</div>
+      <div class="demo" style="font-family: var(--mono); font-size: 11px; line-height: 16px; letter-spacing: +0.16em; text-transform: uppercase; font-weight: 500; color: var(--ramsar-primary-700);">Guía rápida</div>
+      <div class="specs"><span>size</span><b>11 / 16</b><span>line</span><b>16px · 1.455</b><span>track</span><b>+0.16em</b><span>weight</span><b>500</b><span>family</span><b>Mono</b><span>use</span><b>Section eyebrow above a heading</b></div>
+    </div>
+    <div class="specimen">
+      <div class="tk">code-mono</div>
+      <div class="demo" style="font-family: var(--mono); font-size: 14px; line-height: 22px; letter-spacing: 0; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ramsar-neutral-900);">$AR 482.500 / año</div>
+      <div class="specs"><span>size</span><b>14 / 22</b><span>line</span><b>22px · 1.571</b><span>track</span><b>0</b><span>weight</span><b>500</b><span>family</span><b>Mono</b><span>use</span><b>Prices, policy IDs, license plates, tabular data</b></div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHIC RULES -->
+  <div style="margin-top: 56px;">
+    <h3 class="h-sub" style="margin-bottom: 16px;">Typographic rules</h3>
+    <table class="tokens">
+      <thead><tr><th>Rule</th><th>Value</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">Max line length · body</td><td class="val">66 ch · ideal 56–62 ch</td><td class="note">Reading comprehension drops sharply past 75 ch; enforced via max-width on prose containers.</td></tr>
+        <tr><td class="tok">Min font size · mobile</td><td class="val">14 px (body-s)</td><td class="note">Below 14 px touch comprehension fails on small screens; legal microcopy at 13 px is the only exception.</td></tr>
+        <tr><td class="tok">Paragraph spacing</td><td class="val">+16 px between paragraphs (1em at body-m)</td><td class="note">Use margin-block-end, not line-break <br>. Resets at 12 px inside cards.</td></tr>
+        <tr><td class="tok">Heading top margin</td><td class="val">H1 +0 · H2 +48 · H3 +32 · H4 +24 · H5 +20 · H6 +16</td><td class="note">Headings receive top space, not bottom. Bottom is reserved for the content the heading owns.</td></tr>
+        <tr><td class="tok">Heading bottom margin</td><td class="val">+12 px (H1–H4) · +8 px (H5, H6)</td><td class="note">Tight against the content that follows; the eye should not get lost in white.</td></tr>
+        <tr><td class="tok">Weight usage · 300</td><td class="val">Never used</td><td class="note">300 weight reduces contrast unacceptably at small sizes; banned from the system.</td></tr>
+        <tr><td class="tok">Weight usage · 400</td><td class="val">All serif headings · all body sans</td><td class="note">Default reading weight.</td></tr>
+        <tr><td class="tok">Weight usage · 500</td><td class="val">Labels, badges, secondary buttons, table headers</td><td class="note">Establishes weight without entering heading territory.</td></tr>
+        <tr><td class="tok">Weight usage · 600</td><td class="val">Sans headings (H3–H6), primary buttons, emphasis in body</td><td class="note">Our "this matters" weight.</td></tr>
+        <tr><td class="tok">Weight usage · 700</td><td class="val">Reserved — price callouts, in-context emphasis only</td><td class="note">Visual loud; rationed deliberately to retain its impact.</td></tr>
+        <tr><td class="tok">Italic · allowed</td><td class="val">Instrument Serif italic in display sizes for tonal emphasis</td><td class="note">e.g. "Tu cobertura, <em>sin sorpresas</em>." Maximum one italic phrase per page.</td></tr>
+        <tr><td class="tok">Italic · forbidden</td><td class="val">Body sans italics</td><td class="note">Geist italic does not exist in our weights; quotes and titles use double-curly quotes "..." instead.</td></tr>
+        <tr><td class="tok">All-caps · allowed</td><td class="val">Overlines, badges, mono labels — all set with +14% letter-spacing</td><td class="note">Tracking is mandatory; un-tracked all-caps reads as shouting.</td></tr>
+        <tr><td class="tok">All-caps · forbidden</td><td class="val">Headings H1–H6, body, buttons, navigation</td><td class="note">All-caps in product UI reduces scanability and feels institutional in the wrong way.</td></tr>
+        <tr><td class="tok">Numerals</td><td class="val">Tabular always-on in mono · proportional in serif/sans body</td><td class="note">Prices and IDs must align vertically across rows; running text uses proportional for natural rhythm.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============== 04 SPACING & LAYOUT ============== -->
+<section class="spec" id="s04">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 04 / VII</span>
+      <h2 class="section-title">Spacing &amp; <em>Layout</em></h2>
+    </div>
+    <p class="lede">A single 4 px base unit, 14 named steps, six breakpoints, five container shapes. Everything is divisible by 4 — there are no half-pixel guesses in this system.</p>
+  </div>
+
+  <div class="grid-2" style="align-items: start; gap: 56px;">
+    <div>
+      <h3 class="h-sub" style="margin-bottom: 16px;">Spacing scale</h3>
+      <p class="prose" style="font-size: 13.5px; margin-bottom: 24px;">Base unit <span class="mono">4 px</span>. The scale is non-linear (4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128, 160) — denser at small sizes where micro-decisions matter, sparser at large sizes where rhythm matters more than precision.</p>
+
+      <div>
+        <div class="ruler"><span class="tok">space-1</span><div class="bar" style="width: 4px;"></div><span class="px">4 px</span></div>
+        <div class="ruler"><span class="tok">space-2</span><div class="bar" style="width: 8px;"></div><span class="px">8 px</span></div>
+        <div class="ruler"><span class="tok">space-3</span><div class="bar" style="width: 12px;"></div><span class="px">12 px</span></div>
+        <div class="ruler"><span class="tok">space-4</span><div class="bar" style="width: 16px;"></div><span class="px">16 px</span></div>
+        <div class="ruler"><span class="tok">space-5</span><div class="bar" style="width: 20px;"></div><span class="px">20 px</span></div>
+        <div class="ruler"><span class="tok">space-6</span><div class="bar" style="width: 24px;"></div><span class="px">24 px</span></div>
+        <div class="ruler"><span class="tok">space-8</span><div class="bar" style="width: 32px;"></div><span class="px">32 px</span></div>
+        <div class="ruler"><span class="tok">space-10</span><div class="bar" style="width: 40px;"></div><span class="px">40 px</span></div>
+        <div class="ruler"><span class="tok">space-12</span><div class="bar" style="width: 48px;"></div><span class="px">48 px</span></div>
+        <div class="ruler"><span class="tok">space-16</span><div class="bar" style="width: 64px;"></div><span class="px">64 px</span></div>
+        <div class="ruler"><span class="tok">space-20</span><div class="bar" style="width: 80px;"></div><span class="px">80 px</span></div>
+        <div class="ruler"><span class="tok">space-24</span><div class="bar" style="width: 96px;"></div><span class="px">96 px</span></div>
+        <div class="ruler"><span class="tok">space-32</span><div class="bar" style="width: 128px;"></div><span class="px">128 px</span></div>
+        <div class="ruler"><span class="tok">space-40</span><div class="bar" style="width: 160px;"></div><span class="px">160 px</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="h-sub" style="margin-bottom: 16px;">Usage by step</h3>
+      <table class="tokens">
+        <thead><tr><th>Token</th><th>Used for</th></tr></thead>
+        <tbody>
+          <tr><td class="tok">space-1 · 4</td><td class="note">Icon ↔ adjacent text within a tight label</td></tr>
+          <tr><td class="tok">space-2 · 8</td><td class="note">Badge inner padding · button icon gap</td></tr>
+          <tr><td class="tok">space-3 · 12</td><td class="note">Input vertical padding · form helper-text gap</td></tr>
+          <tr><td class="tok">space-4 · 16</td><td class="note">Default card padding · paragraph spacing</td></tr>
+          <tr><td class="tok">space-5 · 20</td><td class="note">Heading ↔ paragraph (tight)</td></tr>
+          <tr><td class="tok">space-6 · 24</td><td class="note">Card padding (default) · grid gutter on mobile</td></tr>
+          <tr><td class="tok">space-8 · 32</td><td class="note">Card padding (spacious) · grid gutter on desktop</td></tr>
+          <tr><td class="tok">space-10 · 40</td><td class="note">Page header ↔ first section on mobile</td></tr>
+          <tr><td class="tok">space-12 · 48</td><td class="note">Internal section padding (mobile) · column gap</td></tr>
+          <tr><td class="tok">space-16 · 64</td><td class="note">Section ↔ section (mobile) · hero internal padding (mobile)</td></tr>
+          <tr><td class="tok">space-20 · 80</td><td class="note">Internal section padding (desktop)</td></tr>
+          <tr><td class="tok">space-24 · 96</td><td class="note">Section ↔ section (desktop)</td></tr>
+          <tr><td class="tok">space-32 · 128</td><td class="note">Hero internal padding (desktop) · final CTA banner</td></tr>
+          <tr><td class="tok">space-40 · 160</td><td class="note">Page top ↔ hero (rarely; brand campaigns only)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <!-- BREAKPOINTS / GRID -->
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Breakpoints &amp; grid</h3>
+    <p class="prose" style="margin-bottom: 24px;">Six named breakpoints. Each defines a column count, a fixed gutter, fixed outer margins, and a max container width. Pixel values, not percentages.</p>
+
+    <table class="tokens">
+      <thead><tr><th>Breakpoint</th><th>Min-width</th><th>Columns</th><th>Gutter</th><th>Outer margin</th><th>Max container</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">xs</td><td class="val">0 px</td><td class="val">4</td><td class="val">16 px</td><td class="val">20 px</td><td class="val">100% · max 460</td></tr>
+        <tr><td class="tok">sm</td><td class="val">480 px</td><td class="val">6</td><td class="val">20 px</td><td class="val">24 px</td><td class="val">100% · max 680</td></tr>
+        <tr><td class="tok">md</td><td class="val">768 px</td><td class="val">8</td><td class="val">24 px</td><td class="val">32 px</td><td class="val">100% · max 960</td></tr>
+        <tr><td class="tok">lg</td><td class="val">1024 px</td><td class="val">12</td><td class="val">24 px</td><td class="val">48 px</td><td class="val">100% · max 1200</td></tr>
+        <tr><td class="tok">xl</td><td class="val">1280 px</td><td class="val">12</td><td class="val">32 px</td><td class="val">64 px</td><td class="val">1280 px fixed</td></tr>
+        <tr><td class="tok">2xl</td><td class="val">1536 px</td><td class="val">12</td><td class="val">32 px</td><td class="val">96 px</td><td class="val">1440 px fixed</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 24px;">
+      <div class="bp-bar"><span class="bp-name">xs · 0</span><div class="bp-track"><div class="fill" style="width: 18%;"></div></div><span class="bp-px">460</span></div>
+      <div class="bp-bar"><span class="bp-name">sm · 480</span><div class="bp-track"><div class="fill" style="width: 27%;"></div></div><span class="bp-px">680</span></div>
+      <div class="bp-bar"><span class="bp-name">md · 768</span><div class="bp-track"><div class="fill" style="width: 38%;"></div></div><span class="bp-px">960</span></div>
+      <div class="bp-bar"><span class="bp-name">lg · 1024</span><div class="bp-track"><div class="fill" style="width: 48%;"></div></div><span class="bp-px">1200</span></div>
+      <div class="bp-bar"><span class="bp-name">xl · 1280</span><div class="bp-track"><div class="fill" style="width: 65%;"></div></div><span class="bp-px">1280</span></div>
+      <div class="bp-bar"><span class="bp-name">2xl · 1536</span><div class="bp-track"><div class="fill" style="width: 92%;"></div></div><span class="bp-px">1440</span></div>
+    </div>
+  </div>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <!-- CONTAINERS -->
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Container variants</h3>
+    <table class="tokens">
+      <thead><tr><th>Container</th><th>Max-width</th><th>Inner padding</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">container-bleed</td><td class="val">100% — no max</td><td class="val">0 (children manage own padding)</td><td class="note">Hero sections, banners, full-width imagery, footer ground</td></tr>
+        <tr><td class="tok">container-wide</td><td class="val">1440 px</td><td class="val">96 px / 32 px (desktop / mobile)</td><td class="note">Comparison tables, dense dashboards, insurer grids</td></tr>
+        <tr><td class="tok">container-default</td><td class="val">1200 px</td><td class="val">64 px / 24 px</td><td class="note">Standard marketing page content, FAQs, sections</td></tr>
+        <tr><td class="tok">container-narrow</td><td class="val">720 px</td><td class="val">48 px / 20 px</td><td class="note">Blog reading column, long-form articles, single-column forms</td></tr>
+        <tr><td class="tok">container-tight</td><td class="val">480 px</td><td class="val">32 px / 16 px</td><td class="note">Modal body content, tooltips, login forms, error pages</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <!-- SECTION RHYTHM -->
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Section spacing &amp; vertical rhythm</h3>
+    <table class="tokens">
+      <thead><tr><th>Token</th><th>Desktop</th><th>Mobile</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">section-gap-xl</td><td class="val">128 px</td><td class="val">80 px</td><td class="note">Between hero and first content section</td></tr>
+        <tr><td class="tok">section-gap-l</td><td class="val">96 px</td><td class="val">64 px</td><td class="note">Default between major sections (use this unless reason not to)</td></tr>
+        <tr><td class="tok">section-gap-m</td><td class="val">64 px</td><td class="val">48 px</td><td class="note">Between closely related sub-sections within a topic</td></tr>
+        <tr><td class="tok">section-pad-y</td><td class="val">80 px</td><td class="val">56 px</td><td class="note">Vertical padding inside a tinted/inverse section</td></tr>
+        <tr><td class="tok">card-pad-compact</td><td class="val">16 px</td><td class="val">16 px</td><td class="note">Dense cards (vehicle brand tile, chip card)</td></tr>
+        <tr><td class="tok">card-pad-default</td><td class="val">24 px</td><td class="val">20 px</td><td class="note">Insurer card, blog card, FAQ block</td></tr>
+        <tr><td class="tok">card-pad-spacious</td><td class="val">40 px</td><td class="val">28 px</td><td class="note">Hero quote widget, featured plan card, CTA blocks</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============== 05 ELEVATION & BORDERS ============== -->
+<section class="spec" id="s05">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 05 / VII</span>
+      <h2 class="section-title">Elevation &amp; <em>Borders</em></h2>
+    </div>
+    <p class="lede">Shadows are tinted by the brand — they fall in marine, never neutral grey. Borders do most of the elevation work; shadows enter only when an element is intentionally floating.</p>
+  </div>
+
+  <h3 class="h-sub" style="margin-bottom: 16px;">Shadow scale — five elevations</h3>
+
+  <div class="grid-3" style="gap: 24px; margin-bottom: 24px;">
+    <div class="shadow-spec s1">
+      <div style="font-family: var(--sans); font-weight: 600;">Elevation 1</div>
+      <div class="mono" style="font-size: 11px; color: var(--ink-3);">elevation-1</div>
+    </div>
+    <div class="shadow-spec s2">
+      <div style="font-family: var(--sans); font-weight: 600;">Elevation 2</div>
+      <div class="mono" style="font-size: 11px; color: var(--ink-3);">elevation-2</div>
+    </div>
+    <div class="shadow-spec s3">
+      <div style="font-family: var(--sans); font-weight: 600;">Elevation 3</div>
+      <div class="mono" style="font-size: 11px; color: var(--ink-3);">elevation-3</div>
+    </div>
+    <div class="shadow-spec s4">
+      <div style="font-family: var(--sans); font-weight: 600;">Elevation 4</div>
+      <div class="mono" style="font-size: 11px; color: var(--ink-3);">elevation-4</div>
+    </div>
+    <div class="shadow-spec s5">
+      <div style="font-family: var(--sans); font-weight: 600;">Elevation 5</div>
+      <div class="mono" style="font-size: 11px; color: var(--ink-3);">elevation-5</div>
+    </div>
+  </div>
+
+  <table class="tokens">
+    <thead><tr><th>Token</th><th>CSS box-shadow</th><th>Use case</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="tok">elevation-0</td>
+        <td class="val">none</td>
+        <td class="note"><b>Flat.</b> Default state for cards on a tinted section background. Separation comes from 1 px border-subtle.</td>
+      </tr>
+      <tr>
+        <td class="tok">elevation-1</td>
+        <td class="val">0 1px 0 rgba(15,67,63,.06), 0 1px 2px rgba(15,67,63,.04)</td>
+        <td class="note"><b>Slight lift.</b> Card hover, segmented tab indicator, autocomplete chip. Just enough to read as raised; should not draw the eye.</td>
+      </tr>
+      <tr>
+        <td class="tok">elevation-2</td>
+        <td class="val">0 1px 2px rgba(15,67,63,.06), 0 2px 6px rgba(15,67,63,.06)</td>
+        <td class="note"><b>Floating.</b> Dropdown panels, popovers, tooltips, sticky CTA bar. The default "I am layered above the page" elevation.</td>
+      </tr>
+      <tr>
+        <td class="tok">elevation-3</td>
+        <td class="val">0 2px 4px rgba(15,67,63,.06), 0 8px 16px rgba(15,67,63,.08)</td>
+        <td class="note"><b>Overlay.</b> Side drawers, navigation flyouts, mobile bottom sheets at rest. Implies an action is in progress.</td>
+      </tr>
+      <tr>
+        <td class="tok">elevation-4</td>
+        <td class="val">0 4px 8px rgba(15,67,63,.06), 0 16px 32px rgba(15,67,63,.12)</td>
+        <td class="note"><b>Dialog.</b> Modal dialogs, confirmation prompts, image lightboxes. Always paired with a 64%-α midnight-900 backdrop.</td>
+      </tr>
+      <tr>
+        <td class="tok">elevation-5</td>
+        <td class="val">0 8px 16px rgba(15,67,63,.08), 0 32px 64px rgba(15,67,63,.18)</td>
+        <td class="note"><b>Maximum.</b> Reserved for destructive confirmations and quote-success "celebration" cards. Use one per session.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="prose" style="margin-top: 16px;"><strong>Color rule.</strong> Every shadow uses <span class="mono">rgba(15, 67, 63, α)</span> — Marine 700 with reduced alpha — never pure black. Black shadows on cream paper read as cheap UI; tinted shadows read as ink absorbing into paper.</p>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <!-- RADIUS -->
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Border radius scale</h3>
+    <div class="grid-4" style="margin-bottom: 24px;">
+      <div class="radius-spec" style="border-radius: 0;">0 px</div>
+      <div class="radius-spec" style="border-radius: 4px;">4 px</div>
+      <div class="radius-spec" style="border-radius: 8px;">8 px</div>
+      <div class="radius-spec" style="border-radius: 12px;">12 px</div>
+      <div class="radius-spec" style="border-radius: 16px;">16 px</div>
+      <div class="radius-spec" style="border-radius: 24px;">24 px</div>
+      <div class="radius-spec" style="border-radius: 32px;">32 px</div>
+      <div class="radius-spec" style="border-radius: 999px;">pill</div>
+    </div>
+
+    <table class="tokens">
+      <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">radius-none</td><td class="val">0 px</td><td class="note">Full-bleed images, dividers, sharp data tables, footer ground.</td></tr>
+        <tr><td class="tok">radius-xs</td><td class="val">4 px</td><td class="note">Tags, small inline chips, code spans, segmented control segments.</td></tr>
+        <tr><td class="tok">radius-sm</td><td class="val">8 px</td><td class="note">Inputs, buttons, dropdown items, small cards. The system's default radius.</td></tr>
+        <tr><td class="tok">radius-md</td><td class="val">12 px</td><td class="note">Default cards (insurer, blog, vehicle), popovers, toast.</td></tr>
+        <tr><td class="tok">radius-lg</td><td class="val">16 px</td><td class="note">Featured cards, modal dialogs, accordion bodies, quote widget.</td></tr>
+        <tr><td class="tok">radius-xl</td><td class="val">24 px</td><td class="note">Hero cards, illustrated tiles, cotizador large surfaces.</td></tr>
+        <tr><td class="tok">radius-2xl</td><td class="val">32 px</td><td class="note">Brand campaign hero blocks (rare; reserve for marketing).</td></tr>
+        <tr><td class="tok">radius-full</td><td class="val">9999 px</td><td class="note">Pills, badges, avatars, the eclipse logo mark, segmented-control wrappers.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <!-- BORDER WIDTH -->
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Border width scale</h3>
+    <table class="tokens">
+      <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">border-thin</td><td class="val">1 px</td><td class="note">Dividers, card borders, inputs (rest state), table cell borders — the system default.</td></tr>
+        <tr><td class="tok">border-default</td><td class="val">1.5 px</td><td class="note">Outlined buttons, hover-state inputs, emphasized cards, "Recommended" plan card outline.</td></tr>
+        <tr><td class="tok">border-thick</td><td class="val">2 px</td><td class="note">Focus rings (outline-offset 2 px in Marine 700), error-state input outline, current-selected radio.</td></tr>
+        <tr><td class="tok">border-heavy</td><td class="val">3 px</td><td class="note">Hero callout treatments, marketing flourishes; never in product UI.</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top: 16px;"><strong>Focus ring rule.</strong> All interactive elements receive a uniform 2-layer focus indicator on <code>:focus-visible</code>: a 2 px Marine 700 outline with 2 px outline-offset, surrounded by a 3 px Marine 700 @ 18% α halo. This compound ring is visible against every background in the system, including amber accent surfaces.</p>
+  </div>
+</section>
+
+
+<!-- ============== 06 ICONOGRAPHY ============== -->
+<section class="spec" id="s06">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 06 / VII</span>
+      <h2 class="section-title">Icono<em>graphy</em></h2>
+    </div>
+    <p class="lede"><strong>Lucide</strong>, set in <strong>outline</strong> at <strong>1.75 px stroke</strong>, recolored to Marine 700 by default. Decision is final: a single library, a single weight, a single style across the product.</p>
+  </div>
+
+  <div class="grid-2" style="gap: 56px; align-items: start;">
+    <div>
+      <h3 class="h-sub" style="margin-bottom: 12px;">Library recommendation</h3>
+      <p class="prose"><strong>Choice: Lucide.</strong> Lucide is permissively licensed (ISC), maintained as a community fork of Feather with active growth (~1,500 icons), and crucially — its geometry uses a consistent 1.5 px stroke on a 24 px artboard. We override stroke to 1.75 px to better fit Geist's weight and match Instrument Serif's stroke contrast.</p>
+      <p class="prose"><strong>Outline, not filled.</strong> Filled icon sets read corporate-utility (Material) or fintech-flat (Phosphor Fill). Outlined icons sit beside serif headlines without competing — they read as marginalia, not graphics. The only exception: active-state navigation items use a filled variant to indicate selection.</p>
+      <p class="prose"><strong>Forbidden alternates.</strong> No mixing with Heroicons, Tabler, Material, or custom SVGs. If Lucide doesn't have an icon, request it upstream or draw a custom one to Lucide's geometric rules (24 px artboard, 1.75 px stroke, 2 px round caps, 2 px corner radius, geometric construction).</p>
+    </div>
+
+    <div>
+      <h3 class="h-sub" style="margin-bottom: 12px;">Size scale</h3>
+      <table class="tokens">
+        <thead><tr><th>Token</th><th>Size</th><th>Stroke</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td class="tok">icon-xs</td><td class="val">12 px</td><td class="val">1.5 px</td><td class="note">Inline within body-xs text · meta rows · dense chips</td></tr>
+          <tr><td class="tok">icon-sm</td><td class="val">16 px</td><td class="val">1.75 px</td><td class="note">Inside buttons, form inputs, alert toasts — the most-used size</td></tr>
+          <tr><td class="tok">icon-md</td><td class="val">20 px</td><td class="val">1.75 px</td><td class="note">Navigation items, list bullets, in-card iconography</td></tr>
+          <tr><td class="tok">icon-lg</td><td class="val">24 px</td><td class="val">2 px</td><td class="note">Section accent (process steps, feature blocks), large nav</td></tr>
+          <tr><td class="tok">icon-xl</td><td class="val">32 px</td><td class="val">2 px</td><td class="note">Hero feature blocks, empty-state illustrations</td></tr>
+          <tr><td class="tok">icon-2xl</td><td class="val">48 px</td><td class="val">2.25 px</td><td class="note">Process-step large numerals, success/error landing illustrations</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <div class="grid-2" style="gap: 56px; align-items: start;">
+    <div>
+      <h3 class="h-sub" style="margin-bottom: 12px;">Usage rules</h3>
+      <table class="tokens">
+        <tbody>
+          <tr><td class="tok">Outline vs filled</td><td class="note">Outline always. Filled only for active state on bottom-nav and side-nav indicators.</td></tr>
+          <tr><td class="tok">Icon + label gap</td><td class="note">8 px for icon-sm · 10 px for icon-md · 12 px for icon-lg and above. Vertical alignment: baseline-aligned to label cap-height (not center).</td></tr>
+          <tr><td class="tok">Color · default</td><td class="note">Inherits text color (currentColor). Default reading color on light: sand-700.</td></tr>
+          <tr><td class="tok">Color · brand</td><td class="note">Marine 700 — for process-step icons, feature-block icons, brand affirmations.</td></tr>
+          <tr><td class="tok">Color · semantic</td><td class="note">Match semantic context: success-default on validation tick, error-default on form error, warning-default on disclosure.</td></tr>
+          <tr><td class="tok">Color · accent</td><td class="note">Amber 500 — reserved for "Recommended" / "Most popular" / star ratings only.</td></tr>
+          <tr><td class="tok">Touch target</td><td class="note">Minimum 44×44 px hit-area, even when the icon itself is 16 px. Pad with transparent space.</td></tr>
+          <tr><td class="tok">Decorative vs informative</td><td class="note">Decorative icons: <code>aria-hidden="true"</code>. Informative icons: <code>aria-label</code> with Spanish-AR descriptor.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h3 class="h-sub" style="margin-bottom: 12px;">Pattern preview</h3>
+      <div class="icon-grid">
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">shield-check</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">car-front</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">file-text</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">check</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">star</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">search</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">menu</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">x</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">chevron-r</span></div>
+        <div class="icon-cell"><div class="ic"></div><span class="lbl">info</span></div>
+      </div>
+      <p class="prose" style="font-size: 12.5px; margin-top: 12px; color: var(--ink-3);">Geometric placeholders shown above represent the consistent visual bounding-box treatment — actual Lucide glyphs occupy 70–80% of the 24 px artboard.</p>
+    </div>
+  </div>
+
+  <hr class="rule" style="margin: 56px 0;" />
+
+  <div>
+    <h3 class="h-sub" style="margin-bottom: 16px;">Required icon list — 24 icons for the Ramsar product</h3>
+    <table class="tokens">
+      <thead><tr><th>Role</th><th>Lucide name</th><th>Context</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">Shield (trust)</td><td class="val">shield-check</td><td class="note">Cobertura confirmada, trust badges, hero affirmation</td></tr>
+        <tr><td class="tok">Car (vehicle)</td><td class="val">car-front</td><td class="note">Vehicle model context, "tu auto" affordance</td></tr>
+        <tr><td class="tok">Document</td><td class="val">file-text</td><td class="note">Policy document, condiciones generales, downloads</td></tr>
+        <tr><td class="tok">Check</td><td class="val">check</td><td class="note">Feature inclusion in coverage tables, valid-input states</td></tr>
+        <tr><td class="tok">Check circle</td><td class="val">circle-check</td><td class="note">Success confirmation, completed step, "cotización guardada"</td></tr>
+        <tr><td class="tok">X</td><td class="val">x</td><td class="note">Close modal, dismiss toast, remove tag</td></tr>
+        <tr><td class="tok">Star</td><td class="val">star</td><td class="note">Insurer rating display, filled at amber-500</td></tr>
+        <tr><td class="tok">Search</td><td class="val">search</td><td class="note">Blog search, vehicle model search inside dropdowns</td></tr>
+        <tr><td class="tok">Menu</td><td class="val">menu</td><td class="note">Mobile hamburger trigger</td></tr>
+        <tr><td class="tok">Chevron right</td><td class="val">chevron-right</td><td class="note">Card "leer más", breadcrumb separator, accordion (rotated)</td></tr>
+        <tr><td class="tok">Chevron down</td><td class="val">chevron-down</td><td class="note">Select inputs, dropdown triggers, expansion affordance</td></tr>
+        <tr><td class="tok">Arrow right</td><td class="val">arrow-right</td><td class="note">In-CTA arrow (with 4 px gap from label), next-step</td></tr>
+        <tr><td class="tok">Info</td><td class="val">info</td><td class="note">Tooltip trigger, contextual help, glossary terms</td></tr>
+        <tr><td class="tok">Alert triangle</td><td class="val">triangle-alert</td><td class="note">Warning state, "tu cobertura vence en X días"</td></tr>
+        <tr><td class="tok">Alert circle</td><td class="val">circle-alert</td><td class="note">Validation error state, declined-card prompt</td></tr>
+        <tr><td class="tok">Calendar</td><td class="val">calendar</td><td class="note">Date pickers (DOB, policy start, vehicle year)</td></tr>
+        <tr><td class="tok">User</td><td class="val">user</td><td class="note">Account, profile, author bio avatar fallback</td></tr>
+        <tr><td class="tok">Phone</td><td class="val">phone</td><td class="note">Asesoramiento telefónico, contact CTA</td></tr>
+        <tr><td class="tok">Mail</td><td class="val">mail</td><td class="note">Email signup, newsletter, send-quote-to-email</td></tr>
+        <tr><td class="tok">Map pin</td><td class="val">map-pin</td><td class="note">Provincia/CABA selector, oficinas de aseguradoras</td></tr>
+        <tr><td class="tok">Credit card</td><td class="val">credit-card</td><td class="note">Payment method selector, billing</td></tr>
+        <tr><td class="tok">Lock</td><td class="val">lock</td><td class="note">Secure transaction badge, password fields, "datos protegidos"</td></tr>
+        <tr><td class="tok">Clock</td><td class="val">clock</td><td class="note">"2 minutos para cotizar", read-time on blog</td></tr>
+        <tr><td class="tok">Filter</td><td class="val">filter</td><td class="note">Blog category filter, insurer/coverage filtering</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============== 07 MOTION ============== -->
+<section class="spec" id="s07">
+  <div class="section-head">
+    <div class="meta">
+      <span class="section-num">§ 07 / VII</span>
+      <h2 class="section-title">Motion &amp; <em>Animation</em></h2>
+    </div>
+    <p class="lede">Motion in Ramsar is restrained, purposeful, and respects the user's attention. Every animation answers one question: <em>did something change, and where?</em> If it doesn't, it doesn't ship.</p>
+  </div>
+
+  <!-- EASING -->
+  <h3 class="h-sub" style="margin-bottom: 16px;">Easing curves</h3>
+  <div class="grid-4" style="margin-bottom: 16px;">
+    <div class="easing-card">
+      <div class="name">ease-in</div>
+      <div class="curve">
+        <svg viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M 0 80 C 80 80 80 0 100 0" fill="none" stroke="#0E433F" stroke-width="2"/></svg>
+      </div>
+      <div class="specs"><span>cubic-bezier</span><span>0.55, 0.06, 0.68, 0.19</span></div>
+      <div class="muted" style="font-size: 12px;">Entering elements that will then exit (toasts coming in before they live, drawer about to close).</div>
+    </div>
+    <div class="easing-card">
+      <div class="name">ease-out ★</div>
+      <div class="curve">
+        <svg viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M 0 80 C 0 0 60 0 100 0" fill="none" stroke="#0E433F" stroke-width="2"/></svg>
+      </div>
+      <div class="specs"><span>cubic-bezier</span><span>0.22, 1, 0.36, 1</span></div>
+      <div class="muted" style="font-size: 12px;">The system default. UI appearing, cards lifting on hover, modal opens, toast enters. Use unless reason not to.</div>
+    </div>
+    <div class="easing-card">
+      <div class="name">ease-in-out</div>
+      <div class="curve">
+        <svg viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M 0 80 C 40 80 60 0 100 0" fill="none" stroke="#0E433F" stroke-width="2"/></svg>
+      </div>
+      <div class="specs"><span>cubic-bezier</span><span>0.65, 0, 0.35, 1</span></div>
+      <div class="muted" style="font-size: 12px;">State changes (tab switching, accordion expand/collapse, theme toggle, page transitions).</div>
+    </div>
+    <div class="easing-card">
+      <div class="name">ease-spring</div>
+      <div class="curve">
+        <svg viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M 0 80 C 20 -10 60 -10 80 10 S 100 0 100 0" fill="none" stroke="#C14A1F" stroke-width="2"/></svg>
+      </div>
+      <div class="specs"><span>cubic-bezier</span><span>0.34, 1.56, 0.64, 1</span></div>
+      <div class="muted" style="font-size: 12px;">Attention moments only: successful quote, badge appearance, milestone counter. Rationed — once per session.</div>
+    </div>
+  </div>
+
+  <hr class="rule" style="margin: 40px 0;" />
+
+  <!-- DURATION -->
+  <h3 class="h-sub" style="margin-bottom: 16px;">Duration scale</h3>
+  <table class="tokens">
+    <thead><tr><th>Token</th><th>ms</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td class="tok">duration-instant</td><td class="val">0 ms</td><td class="note">No transition. Used for hit-area state where motion would feel laggy (button-press <code>:active</code> scale).</td></tr>
+      <tr><td class="tok">duration-fast</td><td class="val">120 ms</td><td class="note">Hover states, button feedback, focus rings, color shifts on links. Anything that should feel immediate.</td></tr>
+      <tr><td class="tok">duration-default ★</td><td class="val">220 ms</td><td class="note">Default transition. Dropdown reveal, card lift, tab indicator slide, modal entry.</td></tr>
+      <tr><td class="tok">duration-slow</td><td class="val">360 ms</td><td class="note">Page transitions, accordion expand, drawer slide, large surface reveal.</td></tr>
+      <tr><td class="tok">duration-glacial</td><td class="val">600 ms</td><td class="note">Counter number animation, multi-step onboarding choreography, full-screen takeover.</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="rule" style="margin: 40px 0;" />
+
+  <!-- ANIMATION PATTERNS -->
+  <h3 class="h-sub" style="margin-bottom: 16px;">Animation patterns — by element</h3>
+  <ul class="numlist">
+    <li>
+      <div>
+        <div class="nl-title">Button hover</div>
+        <div class="nl-body">Background-color shift from Marine 700 → Marine 600 over <span class="mono">120 ms ease-out</span>. Translate: none. Box-shadow elevation-0 → elevation-1 over the same duration. On <code>:active</code>, instant scale(0.985) (no transition) for tactile press, then restore in 120 ms.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Card hover (lift)</div>
+        <div class="nl-body">translateY(-2 px) and box-shadow elevation-0 → elevation-2, both at <span class="mono">220 ms ease-out</span>. No scale, no rotation. The lift is the entire vocabulary.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Dropdown / menu open &amp; close</div>
+        <div class="nl-body"><b>Open:</b> opacity 0 → 1 and translateY(-4 px) → 0 over <span class="mono">220 ms ease-out</span>; transform-origin top. <b>Close:</b> opacity 1 → 0 and translateY 0 → -4 px over <span class="mono">120 ms ease-in</span>. Closing is always faster than opening — exits should feel decisive.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Accordion expand &amp; collapse</div>
+        <div class="nl-body">grid-template-rows 0fr → 1fr over <span class="mono">360 ms ease-in-out</span> for the body container. The chevron rotates 0 → 180 deg synchronously. Body contents themselves do not fade — the height reveal is the entire animation.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Page transition (client-side route change)</div>
+        <div class="nl-body">Outgoing page: opacity 1 → 0 + translateY 0 → -8 px, <span class="mono">220 ms ease-in</span>. Incoming page: opacity 0 → 1 + translateY 8 px → 0, <span class="mono">360 ms ease-out</span>, 80 ms delay. Total: 460 ms. Scroll-restoration: instant to top, no animated scroll.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Skeleton loading → content reveal</div>
+        <div class="nl-body">Skeletons use a 1.4 s shimmer: linear-gradient sweep at <span class="mono">cubic-bezier(0.4, 0, 0.6, 1)</span> infinite. On content arrival, skeleton fades out (opacity 1 → 0, <span class="mono">220 ms ease-out</span>); content fades in (opacity 0 → 1, <span class="mono">360 ms ease-out</span>, 80 ms delay). No layout shift — skeletons share exact dimensions with eventual content.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Toast / alert appearance &amp; dismissal</div>
+        <div class="nl-body"><b>Enter:</b> from translateY(16 px) + opacity 0 to translateY(0) + opacity 1, <span class="mono">220 ms ease-out</span>. <b>Hold:</b> 5 s (success), 8 s (error), persistent (warning with action). <b>Dismiss:</b> opacity 1 → 0 + translateX(16 px), <span class="mono">160 ms ease-in</span>.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Modal open &amp; close</div>
+        <div class="nl-body"><b>Backdrop:</b> opacity 0 → 0.64, <span class="mono">220 ms ease-out</span>. <b>Surface:</b> opacity 0 → 1 + scale(0.96) → scale(1) + translateY(8 px) → 0, <span class="mono">360 ms ease-out</span>, 60 ms delay. <b>Close:</b> reverse, but <span class="mono">220 ms ease-in</span>, no delay. Body scroll locked during open.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Number counter (stats)</div>
+        <div class="nl-body">Triggered when element enters viewport (IntersectionObserver, threshold 0.5). Duration <span class="mono">600 ms ease-out</span>. Easing applied to the numeric value, not via interpolation between rendered digits. Mono font with tabular numerals prevents horizontal shift during count-up. Final value held — no overshoot, no bounce.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Form field focus</div>
+        <div class="nl-body">Border-color sand-300 → Marine 700 and 0 → 3 px Marine 700 @ 18% box-shadow halo, both at <span class="mono">120 ms ease-out</span>. No label motion, no input scaling. The ring does the entire job.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="nl-title">Quote-success "celebration"</div>
+        <div class="nl-body">The one place ease-spring is sanctioned. Check-circle icon: scale 0.6 → 1.0 over <span class="mono">600 ms ease-spring</span>, with a 0 → 1 amber radial-gradient pulse behind it (220 ms ease-out). Used at end of cotizador only. No confetti — that would betray the brand's seriousness.</div>
+      </div>
+    </li>
+  </ul>
+
+  <hr class="rule" style="margin: 40px 0;" />
+
+  <!-- REDUCED MOTION -->
+  <h3 class="h-sub" style="margin-bottom: 16px;">Reduced motion strategy</h3>
+  <p class="prose" style="margin-bottom: 16px;">When <code>@media (prefers-reduced-motion: reduce)</code> is true, the following global rules apply, in order:</p>
+  <ol class="numlist">
+    <li><div><div class="nl-title">Strip all transform-based motion</div><div class="nl-body">translateY, scale, rotate animations are set to <span class="mono">transform: none</span> and <span class="mono">animation: none</span>. The visual outcome (final state) appears instantly.</div></div></li>
+    <li><div><div class="nl-title">Preserve opacity transitions, halved</div><div class="nl-body">Opacity changes are kept — they communicate state without inducing motion sickness — but durations are halved (e.g. 220 ms → 110 ms). This is the only motion-related transition retained.</div></div></li>
+    <li><div><div class="nl-title">Remove all looping/decorative motion</div><div class="nl-body">Skeleton shimmer, hero parallax, infinite-marquee testimonial tickers, ambient background gradients — all paused. Skeletons remain visible as static blocks.</div></div></li>
+    <li><div><div class="nl-title">Counter animations: jump to final</div><div class="nl-body">Stat counters render their final value immediately on viewport entry. No count-up.</div></div></li>
+    <li><div><div class="nl-title">Accordions, modals, dropdowns: instant</div><div class="nl-body">Height/scale transitions removed; open/close states snap. The information is more important than the choreography of revealing it.</div></div></li>
+    <li><div><div class="nl-title">Hover-state color shifts: retained</div><div class="nl-body">Color changes do not induce motion-related issues; they are kept at 0 ms (instant) so that interactivity remains legible.</div></div></li>
+    <li><div><div class="nl-title">Focus rings: always visible, never animated</div><div class="nl-body">Even in default motion settings, focus rings appear instantly. This rule restates the system default for clarity.</div></div></li>
+  </ol>
+</section>
+
+
+<!-- ============== FOOTER ============== -->
+<footer class="doc-foot page">
+  <div class="colophon">
+    Ramsar Seguros — Brand Identity &amp; Design Tokens, version 1.0. Set in Instrument Serif &amp; Geist. Specified May 2026.
+  </div>
+  <div>
+    <span class="k">Document</span>
+    RS-DS-001
+  </div>
+  <div>
+    <span class="k">Next deliverable</span>
+    RS-DS-002 · Components
+  </div>
+  <div>
+    <span class="k">Status</span>
+    <span style="color: var(--mark);">● Locked for build</span>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>

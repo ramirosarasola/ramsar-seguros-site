@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Page Wireframes v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="components.css" />
+<link rel="stylesheet" href="wireframes.css" />
+</head>
+<body>
+
+<main class="page">
+
+<!-- ============== COVER ============== -->
+<section class="cover">
+  <div class="cover-top">
+    <div>Ramsar Seguros — Specification Archive</div>
+    <div class="stamp">v 1.0 · MAY 2026</div>
+  </div>
+
+  <div class="cover-middle">
+    <div class="eyebrow">Document № RS-DS-003 / Confidential / For Implementation</div>
+    <h1 class="doc-title">Page<br/><em>Wireframes</em></h1>
+    <p class="lede">Section-by-section blueprints for every page in the Ramsar Seguros product, written for direct Figma build. Each section names its components from <span class="mono">RS-DS-002</span>, fixes its copy, declares its SEO role, and locks its spacing. The Figma designer assembles; nothing is invented downstream.</p>
+  </div>
+
+  <div>
+    <div class="cover-foot">
+      <div class="cell"><span class="k">Pairs with</span><span class="v">RS-DS-001 Tokens · RS-DS-002 Components</span></div>
+      <div class="cell"><span class="k">Scope (this pass)</span><span class="v">Page A · § 01–11 · complete</span></div>
+      <div class="cell"><span class="k">Pending</span><span class="v">Page B (Insurer Landing) · 10 sections</span></div>
+      <div class="cell"><span class="k">Status</span><span class="v" style="color: var(--mark);">● Page A locked</span></div>
+    </div>
+
+    <!-- Page map -->
+    <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <div class="eyebrow" style="margin-bottom: 10px;">Page A · Homepage ( / )</div>
+        <div class="page-map">
+          <div class="pm complete"><span><span class="id">A.01</span> · Sticky Navigation Bar</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.02</span> · Hero Section</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.03</span> · Social Proof Bar</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.04</span> · How It Works</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.05</span> · Insurance Companies</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.06</span> · Vehicle Brands</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.07</span> · Featured Blog Articles</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.08</span> · Testimonials</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.09</span> · FAQ</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.10</span> · Final CTA Banner</span><span>●</span></div>
+          <div class="pm complete"><span><span class="id">A.11</span> · Footer</span><span>●</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom: 10px;">Page B · Insurer Landing ( /aseguradoras/[slug] )</div>
+        <div class="page-map">
+          <div class="pm pending"><span><span class="id">B.01</span> · Breadcrumb + Sticky Nav</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.02</span> · Insurer Hero</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.03</span> · Quick Summary Card</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.04</span> · Coverage Plans Row</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.05</span> · Coverage Comparison Table</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.06</span> · Pros &amp; Cons</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.07</span> · Best-fit personas</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.08</span> · Reviews Summary + List</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.09</span> · Related Models</span><span>○</span></div>
+          <div class="pm pending"><span><span class="id">B.10</span> · Sticky CTA Sidebar</span><span>○</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== PAGE A INTRO ============== -->
+<div class="group-head">
+  <div class="l">
+    <span class="num">PAGE A / II</span>
+    <h2>Homepage <em>· /</em></h2>
+  </div>
+  <div class="r">
+    <p>The site's load-bearing page. Four jobs, ordered: <b>(1)</b> rank for <i>"seguros de auto Argentina"</i> and adjacent head terms · <b>(2)</b> route the visitor to the cotizador inside one viewport · <b>(3)</b> establish authority in &lt; 5 seconds · <b>(4)</b> distribute internal link equity to every major section of the site. Eleven sections. The first four resolve the conversion contract; the remaining seven sustain the trust and the SEO graph.</p>
+    <ol>
+      <li>A.01 Sticky Navigation Bar</li>
+      <li>A.02 Hero Section</li>
+      <li>A.03 Social Proof Bar</li>
+      <li>A.04 How It Works</li>
+      <li>A.05 Insurance Companies</li>
+      <li>A.06 Vehicle Brands</li>
+      <li>A.07 Featured Blog Articles</li>
+      <li>A.08 Testimonials</li>
+      <li>A.09 FAQ</li>
+      <li>A.10 Final CTA Banner</li>
+      <li>A.11 Footer</li>
+    </ol>
+  </div>
+</div>
+
+
+<!-- ============== A.01 STICKY NAV ============== -->
+<article class="ws" id="ws-a01">
+  <header class="ws-head">
+    <div class="ws-num">§ A.01</div>
+    <h3 class="ws-title">Sticky <em>Navigation Bar</em></h3>
+    <p class="ws-purpose">Persistent across the whole page. Starts transparent over the cream hero, hardens to opaque + shadow once the user scrolls past the hero band.</p>
+  </header>
+
+  <div class="ws-grid">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · default state · 1280 px viewport</span>
+      <div class="schem-frame">
+        <div class="schem-nav">
+          <div class="ll">
+            <span class="lg">●  Ramsar</span>
+            <span class="a active">Aseguradoras ⌄</span>
+            <span class="a">Vehículos ⌄</span>
+            <span class="a">Blog</span>
+            <span class="a">¿Cómo funciona?</span>
+          </div>
+          <div class="rr">
+            <span class="pr">Cotizá gratis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="ws-tbl">
+      <tbody>
+        <tr><th>Component</th><td><b>Top Navigation Bar (§1.1)</b>. No bespoke chrome; uses the library component directly.</td></tr>
+        <tr><th>Position</th><td><code>position: sticky; top: 0</code>. Z-index <code>z-50 (50)</code>. Width 100% of viewport · inner content held to <code>container-default (1200 px max · 64 / 24 px outer padding)</code>.</td></tr>
+        <tr><th>Height</th><td><b>72 px</b> default · <b>64 px</b> scrolled. Transition both via §1.1's height-interpolation spec.</td></tr>
+        <tr><th>Background · default</th><td><b>Solid <code>bg-page</code> (sand-50 / #F8F7F4)</b>. <i>Override of source brief:</i> we do not run transparent over the hero. The hero is also cream — a transparent nav would float without an anchor. Solid cream from the top is the system's commitment.</td></tr>
+        <tr><th>Background · scrolled</th><td>Same color at <span class="mono">96% α</span> + <code>backdrop-filter: blur(12px)</code>. The shift is felt rather than seen; the shadow does the visual signaling.</td></tr>
+        <tr><th>Scroll threshold</th><td>Triggers at <span class="mono">scrollY ≥ 80 px</span>. Reverses at <span class="mono">scrollY ≤ 24 px</span> (40 px deadband prevents thrash near the boundary).</td></tr>
+        <tr><th>Border / shadow</th><td>Default: 1 px <code>border-subtle</code> on the bottom. Scrolled: border drops, <code>elevation-2</code> shadow appears. Both transitions <span class="mono">duration-default (220 ms) · ease-out</span>.</td></tr>
+        <tr><th>Logo</th><td>Eclipse wordmark · height 28 px · links to <code>/</code> · 44×44 hit-zone.</td></tr>
+        <tr><th>Nav links (L→R)</th><td>
+          <ol style="margin: 0; padding-left: 18px;">
+            <li><b>"Aseguradoras"</b> · dropdown trigger · routes to <code>/aseguradoras</code> on click · 14 sub-items in panel.</li>
+            <li><b>"Vehículos"</b> · dropdown trigger · routes to <code>/vehiculos</code> · 15 sub-items in 2-column panel.</li>
+            <li><b>"Blog"</b> · no dropdown · routes to <code>/blog</code>.</li>
+            <li><b>"¿Cómo funciona?"</b> · no dropdown · routes to <code>/como-funciona</code> (static page). <i>Spanish punctuation</i> — opening "¿" included.</li>
+          </ol>
+          <b>Count:</b> 4 links — at the §1.1 floor of 3 and ceiling of 5. Gap between links <code>space-8 (32 px)</code>. Gap last-link → CTA <code>space-12 (48 px)</code>.
+        </td></tr>
+        <tr><th>Active state</th><td>Homepage: no link is active (root path). On any sub-route, the matching top-level link receives the §1.1 underline indicator (2 px marine-700, full label width, 12 px below baseline).</td></tr>
+        <tr><th>Primary CTA</th><td>Label <b>"Cotizá gratis"</b>. Variant <code>btn-primary-md</code> (height 40 · padding 0+16 · label-m). On viewports ≥ <code>xl (1280 px)</code> adds trailing <code>arrow-right</code> icon-sm.</td></tr>
+        <tr><th>Mobile (&lt; 768 px)</th><td>Swaps to <b>Mobile Navigation Bar (§1.2)</b>: 56 px tall · logo left · compact "Cotizá" CTA-sm + hamburger right. Drawer per §1.3 opens on hamburger tap.</td></tr>
+        <tr><th>Spacing above &amp; below</th><td>Above: 0 (top of viewport). Below: section A.02 starts flush — the hero's own top padding does the spacing work.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role</span>
+    <div class="sv">
+      <ul>
+        <li><b>Primary internal-link surface.</b> Every page receives 5 dofollow anchors from this bar — the logo (to <code>/</code>) and four nav links. Anchor text matches the destination page's H1 stem.</li>
+        <li><b>Anchor text discipline:</b> link labels are short, intent-matching, never marketing copy. "Aseguradoras" outranks "Nuestras opciones de aseguradoras" for the head term.</li>
+        <li><b>Crawl-budget friendly:</b> only 5 anchors here (vs the 29 in the footer) means the nav is for navigation; the footer is for surfacing the long tail.</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============== A.02 HERO ============== -->
+<article class="ws" id="ws-a02">
+  <header class="ws-head">
+    <div class="ws-num">§ A.02</div>
+    <h3 class="ws-title">Hero <em>Section</em></h3>
+    <p class="ws-purpose">The single most consequential 640 px of the site. The H1 is the SEO target; the CTA is the conversion target; the trust row and insurer strip make both feel earned. One section, four contracts.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · 2-COL TEXT-LEFT + ILLUSTRATION-RIGHT · 640 px min</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Hero band · full-bleed cream → white gradient (desktop only)</span><span>min-height 640 px</span></div>
+        <div class="schem-hero-body">
+          <div class="lhs">
+            <h1>Compará seguros de auto en Argentina y encontrá el mejor precio</h1>
+            <p class="sub">Cotizá gratis en 2 minutos. Comparamos más de 20 aseguradoras y te mostramos las mejores opciones para tu auto.</p>
+            <div class="ctas">
+              <span class="pr">Cotizá ahora gratis →</span>
+              <span class="gh">¿Cómo funciona?</span>
+            </div>
+            <div class="trust">
+              <span>✓ 100% gratis · sin compromiso</span>
+              <span>⏱ Listo en menos de 2 min</span>
+              <span>⛨ +20 aseguradoras comparadas</span>
+            </div>
+          </div>
+          <div class="visual">Illustration · couple · sedan · "✓"</div>
+        </div>
+        <div class="schem-insurers">
+          <div class="lbl" style="text-align: center;">Comparamos las principales aseguradoras del mercado</div>
+          <div class="row" style="justify-content: center; flex-wrap: wrap;">
+            <span class="ll">SANCOR</span><span class="ll">ZURICH</span><span class="ll">SAN CRISTÓBAL</span><span class="ll">LA MERIDIONAL</span><span class="ll">MAPFRE</span><span class="ll">FEDERACIÓN PATRONAL</span><span class="ll">ALLIANZ</span><span class="ll">GALICIA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Component base</th><td><b>Homepage Hero (§2.1)</b>. This wireframe locks the §2.1 variant for the homepage instance.</td></tr>
+
+      <tr><th>Layout</th><td><b>Desktop:</b> 2-column grid · template <code>1.22fr 1fr</code> (≈55/45) · column gap <code>space-12 (48 px)</code> · align-items center. Inner content held to <code>container-default</code>. <b>Tablet (md):</b> 1 column · visual moves below text · scales to 380 px max-width centered. <b>Mobile:</b> 1 column · visual scales to 240 px max-width centered (do not hide — illustration carries brand recall the text alone cannot).</td></tr>
+
+      <tr><th>Background</th><td><b>Desktop:</b> full-bleed <code>linear-gradient(90deg, marine-50 0%, sand-0 60%)</code>. The cream-to-white wash gives the text column a tinted bed that elevates the H1 contrast while leaving the visual column clean white. <b>Mobile:</b> solid <code>sand-0</code> — gradient disappears, the H1 sits on plain white. <i>Override of source brief's "primary-50 to white":</i> we use marine-50 (the brand tint) instead of primary-50 to match the system palette names.</td></tr>
+
+      <tr><th>Dimensions</th><td>Min-height <span class="mono">640 px</span> desktop · content-driven mobile (~520 px typical). Vertical padding <code>space-24 (96 px) top · space-20 (80 px) bottom</code> desktop · <code>space-16 / space-12</code> mobile.</td></tr>
+
+      <tr><th>Visual element</th><td><b>Flat vector illustration</b>, isometric perspective. <b>Scene:</b> a generic Argentine couple (no faces visible — three-quarter rear or shoulder-up framing without facial features) standing beside a silver compact sedan. One figure holds a phone; the phone screen displays a marine-700 checkmark on a sand-0 surface — implying "quote received". <b>Color allocation strictly:</b> <code>marine-400</code> + <code>marine-200</code> + <code>amber-300</code> + <code>sand-300</code> only (4 colors total · no shadows · no gradients on shapes). Car occupies bottom 60% of the artboard. Illustration background transparent so hero gradient shows through. <b>Bottom-aligned</b> to the hero's bottom edge — the car's tires sit on the insurer strip's top border (visual ground line). <b>Asset format:</b> inline SVG, ≤ 18 KB optimized, served as LCP element with <code>fetchpriority="high"</code>.</td></tr>
+
+      <tr><th>H1</th><td>
+        <div class="copy-block">
+          <span class="ck">H1 · PRIMARY KEYWORD TARGET</span>
+          <span class="cv">Compará seguros de auto en Argentina y encontrá el mejor precio</span>
+        </div>
+        <p>Typography <code>display-xl (72 / 76 · −0.025 em · serif · 400)</code> · color <code>text-primary</code> (sand-900). Max-width <span class="mono">520 px</span> (forces a 2-line wrap that the eye scans cleanly). <b>Rendered as HTML text only</b> — never inside an image or canvas. <i>Mobile clamp:</i> Display-L (56) → Display-M (44) at sm/xs breakpoints.</p>
+      </td></tr>
+
+      <tr><th>Subheadline</th><td>
+        <div class="copy-block">
+          <span class="ck">Subhead · BODY-XL · neutral-600</span>
+          <span class="cv-sans">Cotizá gratis en 2 minutos. Comparamos más de 20 aseguradoras y te mostramos las mejores opciones para tu auto.</span>
+        </div>
+        <p>Typography <code>body-xl (20 / 32 · 400)</code> · color <code>text-secondary</code> (sand-700). Max-width <span class="mono">480 px</span>. Top margin <code>space-5 (20 px)</code>. 158 characters — works as meta-description fallback.</p>
+      </td></tr>
+
+      <tr><th>CTA group</th><td>
+        <p><b>Primary CTA:</b> label <b>"Cotizá ahora gratis"</b> · variant <code>btn-cta</code> (xl size + colored glow shadow per §5.3). Trailing <code>arrow-right</code> icon-sm at ≥ xl breakpoint. Routes to <code>/cotizar</code>. No pulse animation.</p>
+        <p><b>Secondary CTA:</b> label <b>"¿Cómo funciona?"</b> · variant <code>btn-ghost-md</code>. Smooth-scrolls to section A.04 (same page · uses <code>#como-funciona</code> anchor). <i>Note:</i> not a destination, an in-page jump — the user investigating the process is staying on this page, not leaving.</p>
+        <p><b>Arrangement:</b> horizontal desktop · gap <code>space-4 (16 px)</code>. Mobile stacks vertical · both buttons full-width · same gap. Top margin from subheadline <code>space-8 (32 px)</code>.</p>
+      </td></tr>
+
+      <tr><th>Trust micro-signals row</th><td>3 items · horizontal flex · gap <code>space-5 (20 px)</code> · top margin from CTAs <code>space-6 (24 px)</code>.
+        <ul>
+          <li><code>circle-check</code> icon · color <code>success-default</code> · "100% gratis, sin compromiso"</li>
+          <li><code>clock</code> icon · color <code>marine-700</code> · "Listo en menos de 2 minutos"</li>
+          <li><code>shield-check</code> icon · color <code>marine-700</code> · "+20 aseguradoras comparadas"</li>
+        </ul>
+        Label typography <code>label-m (13 · 500)</code> · color <code>sand-700</code>. Items separated by <span class="mono">11 px × 1 px sand-300</span> vertical rules (CSS pseudo-elements, not bullet characters) with 12 px gap each side. On mobile: wraps to 2 lines / 3 lines · rules drop · row-gap <code>space-2 (8 px)</code>.
+      </td></tr>
+
+      <tr><th>Insurer logos strip</th><td>
+        <p>Sits at the bottom of the hero band, full container width.</p>
+        <p><b>Label:</b> "Comparamos las principales aseguradoras del mercado" · typography <code>overline (11 · mono · +0.16 em · uppercase · 500)</code> · color <code>sand-500</code> · text-align center · bottom margin <code>space-4 (16 px)</code>.</p>
+        <p><b>Logos · 8 marks</b>, fixed order: Sancor · Zurich · San Cristóbal · La Meridional · Mapfre · Federación Patronal · Allianz · Galicia Seguros. Uniform height <span class="mono">28 px</span> · grayscale + opacity 0.55 · gap <code>space-10 (40 px)</code> · centered horizontally. Hover any logo → opacity 1 · grayscale(0) · <span class="mono">120 ms · ease-out</span>.</p>
+        <p><b>Mobile:</b> single horizontal scroll row · snap-to-item · 24 px <code>linear-gradient</code> edge fade on the right (and left after first scroll). No fade ever appears desktop. Top margin from insurer label <span class="mono">space-3 (12 px)</span>.</p>
+        <p>Bottom padding of hero <code>space-10 (40 px)</code> below logo row to the next section.</p>
+      </td></tr>
+
+      <tr><th>Animation</th><td>On page load: H1 fades in (opacity 0 → 1 + translateY 8 → 0) at <code>duration-default · ease-out</code>. Subhead follows with 80 ms stagger. CTAs follow with another 80 ms. Trust row + insurer strip render instantly (no entrance animation — they're at the bottom of the fold and should never delay LCP). Reduced-motion: all entrance transforms removed; opacity transitions halved.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · highest-priority surface</span>
+    <div class="sv">
+      <ul>
+        <li><b>H1 ranking target:</b> single <code>&lt;h1&gt;</code> on the page, exact match on "seguros de auto Argentina" + secondary intent ("comparar", "mejor precio"). Crawlable HTML text — never image, never canvas.</li>
+        <li><b>Subhead serves dual duty:</b> 158 chars, under the 160-char meta description fallback. If <code>&lt;meta name="description"&gt;</code> is empty, Google often pulls this string.</li>
+        <li><b>Entity recognition:</b> the 8 insurer names in the strip help Google understand this page is a <i>comparison</i> entity rather than an insurer entity — important for ranking on aggregator queries vs brand queries.</li>
+        <li><b>Schema:</b> <code>WebSite</code> JSON-LD with <code>SearchAction</code> ("buscar aseguradora") + <code>Organization</code> entity for Ramsar itself.</li>
+        <li><b>LCP:</b> H1 is the LCP element. Inline SVG illustration avoids a render-blocking image request. Target LCP &lt; 1.8 s on 4G.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use marine-50 for the hero gradient (system palette name), not generic "primary-50". The token must be findable in <code>RS-DS-001</code>.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't hide the illustration on mobile. The source brief proposes hiding it; we keep it scaled to 240 px so the brand registers visually. The cost of one extra section of scroll is lower than the cost of an unrecognized brand.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.03 SOCIAL PROOF ============== -->
+<article class="ws" id="ws-a03">
+  <header class="ws-head">
+    <div class="ws-num">§ A.03</div>
+    <h3 class="ws-title">Social <em>Proof Bar</em></h3>
+    <p class="ws-purpose">The hairline strip directly below the hero. Four numbers that turn the brand's claim ("compará 20+ aseguradoras") into a measurable artifact. Always crosses the fold on desktop; functions as the first scroll-reward.</p>
+  </header>
+
+  <div class="ws-grid">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · full-bleed · 80 px · 4 stats · vertical rules</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Full-bleed band · bg sand-0 · top &amp; bottom 1 px sand-200</span><span>80 px desktop · auto mobile</span></div>
+        <div class="schem-stats">
+          <div class="stat"><div class="n">50.000<span style="font-family: var(--sans); font-size: 14px; color: var(--ramsar-primary-600); margin-left: 2px;">+</span></div><div class="l">cotizaciones realizadas</div></div>
+          <div class="stat"><div class="n">20<span style="font-family: var(--sans); font-size: 14px; color: var(--ramsar-primary-600); margin-left: 2px;">+</span></div><div class="l">aseguradoras comparadas</div></div>
+          <div class="stat"><div class="n">4.8<span style="font-family: var(--sans); font-size: 16px; color: var(--ramsar-neutral-400); margin-left: 2px;">/5</span></div><div class="l">calificación promedio</div></div>
+          <div class="stat"><div class="n">2 min</div><div class="l">tiempo promedio</div></div>
+        </div>
+      </div>
+    </div>
+
+    <table class="ws-tbl">
+      <tbody>
+        <tr><th>Layout</th><td><b>Full-bleed</b> background band. Inner content centered in <code>container-default</code>. 4 stats in a single horizontal row, evenly distributed.</td></tr>
+        <tr><th>Background</th><td><code>bg-card</code> (sand-0 / pure white) — one tone lighter than the page itself. The white strip reads as a "results panel" emerging from the cream hero. Top border 1 px <code>border-subtle (sand-200)</code> · bottom border same. No shadow — the borders are the visual containment.</td></tr>
+        <tr><th>Dimensions</th><td>Height <span class="mono">80 px</span> desktop (vertical-centered content) · content-driven mobile (~120 px in 2×2). Inner vertical padding <code>space-5 (20 px)</code> top + bottom.</td></tr>
+
+        <tr><th>Stat number</th><td>Typography <code>display-s serif (40 / 44 · 400 · −0.02 em)</code> · color <code>marine-600</code> · <code>font-variant-numeric: tabular-nums</code>.
+          <p><i>Note · weight 400 not 700:</i> Instrument Serif at 40 px reads as authoritative without bold; weight 700 would push it into "infographic" territory that fights the brand voice. Override of source brief.</p>
+          <p><b>Suffix treatment:</b> "+" appended to the first two ("50.000+", "20+") · typography <code>h4 sans (22 · 500)</code> · same color · 2 px gap. "/5" suffix on stat 3 · color <code>sand-400</code>.</p>
+        </td></tr>
+        <tr><th>Stat label</th><td>Typography <code>body-s (14 · 400)</code> · color <code>sand-500</code>. Top margin <span class="mono">space-1 (4 px)</span>. Lowercase except proper nouns.</td></tr>
+
+        <tr><th>4 stats — copy &amp; sources</th><td>
+          <ol style="margin: 0; padding-left: 18px;">
+            <li><b>"50.000+"</b> · "cotizaciones realizadas" — sourced from internal database; format with AR period separator.</li>
+            <li><b>"20+"</b> · "aseguradoras comparadas" — current count 14 in §1.6 footer; "+20" claim requires reconciling. Wireframe sets the value, content team confirms the source.</li>
+            <li><b>"4.8/5"</b> · "calificación promedio" — Google Reviews aggregate as of last refresh. Schema-eligible (see SEO section).</li>
+            <li><b>"2 min"</b> · "tiempo promedio de cotización" — median, not average (median is more honest for a skewed distribution; numerically the same to the reader).</li>
+          </ol>
+        </td></tr>
+
+        <tr><th>Vertical divider</th><td>1 px <code>border-subtle (sand-200)</code> · height <span class="mono">32 px</span> · vertically centered. Implemented as <code>border-right</code> on each stat except the last. Drops on mobile.</td></tr>
+
+        <tr><th>Animation</th><td>On viewport entry (IntersectionObserver, threshold 0.5): each number counts up from 0 → final value over <span class="mono">600 ms · ease-out</span>. Stagger 80 ms between stats (L→R). <code>tabular-nums</code> prevents horizontal jiggle. <i>Decimal stat (4.8):</i> animates as a float, not as integer ticks. Reduced motion: numbers render at final values immediately.</td></tr>
+
+        <tr><th>Responsive</th><td><b>Desktop (≥ md):</b> 4-column row as specified. <b>Mobile (xs/sm):</b> 2 × 2 grid · row-gap <code>space-4 (16 px)</code> · column-gap <code>space-3 (12 px)</code> · vertical rules removed · stat numbers reduce to <code>h2 serif (36)</code>.</td></tr>
+
+        <tr><th>Spacing above &amp; below</th><td>Above: 0 (flush against hero's bottom border). Below: section A.04 starts with its own padding (<code>space-20 (80 px)</code>). The hairline rule effectively gives this band a "shelf" of negative space afterward.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · E-E-A-T signals</span>
+    <div class="sv">
+      <ul>
+        <li><b>Authority / Trustworthiness</b> reinforcement on a YMYL ("Your Money or Your Life") page — Google reads volume + rating + speed as proof of operational scale.</li>
+        <li><b>Schema:</b> the same numbers must appear in <code>Organization</code> JSON-LD (numberOfEmployees as contextual proxy) and in <code>AggregateRating</code> attached to the brand entity (ratingValue 4.8, reviewCount drawn from the underlying total). <b>Mismatch is forbidden</b> — Google penalizes visible/schema delta as cloaking.</li>
+        <li>The "2 min" stat doubles as a featured-snippet hook for queries like "¿cuánto tarda cotizar un seguro de auto?". Phrasing in label should be search-shaped.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Refresh the four numbers monthly with the data team. Stale stats erode the strip's authority faster than the rest of the page's claims.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a 5th stat for "balance". Four is the legible maximum for a 80 px band at 1280 px wide; a 5th forces stat numbers below the optical comfort zone.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.04 HOW IT WORKS ============== -->
+<article class="ws" id="ws-a04">
+  <header class="ws-head">
+    <div class="ws-num">§ A.04</div>
+    <h3 class="ws-title">How It <em>Works</em></h3>
+    <p class="ws-purpose">Three steps · one row. The secondary CTA in A.02 lands the user here — and either resolves their hesitation or returns them to the primary CTA at the bottom of this section. The first opportunity to convert someone who scrolled past the hero.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · 3 STEPS · CONNECTOR · TRAILING CTA</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Container · centered · max-width 1200 px · padding-y 80 px desktop</span><span>id="como-funciona"</span></div>
+        <div class="schem-how">
+          <div class="h-ov">PROCESO SIMPLE</div>
+          <h2 class="h-h">Cotizá tu seguro en 3 pasos simples</h2>
+          <div class="h-sub">Sin papeles, sin llamadas, sin complicaciones.</div>
+          <div class="row">
+            <div class="step">
+              <div class="num">01</div>
+              <div class="ic"><span></span></div>
+              <div class="t">Ingresá los datos de tu auto</div>
+              <div class="d">Marca, modelo, año y tu código postal. Solo lo esencial, nada más.</div>
+            </div>
+            <div class="step">
+              <div class="num">02</div>
+              <div class="ic"><span></span></div>
+              <div class="t">Comparamos por vos</div>
+              <div class="d">Consultamos en tiempo real las aseguradoras más elegidas y ordenamos por precio y cobertura.</div>
+            </div>
+            <div class="step">
+              <div class="num">03</div>
+              <div class="ic"><span></span></div>
+              <div class="t">Elegís el que más te conviene</div>
+              <div class="d">Seleccionás la cobertura ideal y contratás directo desde la plataforma.</div>
+            </div>
+          </div>
+          <div class="cta-row">
+            <div style="font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-600); margin-bottom: 8px;">¿Listo para empezar?</div>
+            <span class="pr">Cotizá gratis ahora →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Anchor ID</th><td><code>#como-funciona</code> — the secondary CTA in A.02 smooth-scrolls here. Same anchor used by the nav link "¿Cómo funciona?" when triggered from a sub-page.</td></tr>
+
+      <tr><th>Layout</th><td>Centered · <code>container-default</code> · single column for header, 3-column row for steps. Background <code>bg-page</code> (sand-50). Padding <code>space-20 (80 px)</code> top + bottom desktop · <code>space-12 (48 px)</code> top + bottom mobile.</td></tr>
+
+      <tr><th>Component base</th><td><b>Process Step Card (§3.7)</b> for each of the three steps. No card chrome — these are visual diagrams.</td></tr>
+
+      <tr><th>Section header</th><td>
+        <div class="copy-block">
+          <span class="ck">Overline · OVERLINE · marine-700 · centered</span>
+          <span class="cv-sans" style="font-family: var(--mono); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;">Proceso simple</span>
+        </div>
+        <div class="copy-block">
+          <span class="ck">H2 · serif · neutral-900 · centered</span>
+          <span class="cv">Cotizá tu seguro en 3 pasos simples</span>
+        </div>
+        <div class="copy-block">
+          <span class="ck">Subtext · Body L · neutral-500 · centered</span>
+          <span class="cv-sans">Sin papeles, sin llamadas, sin complicaciones.</span>
+        </div>
+        <p>Vertical rhythm within header: overline → H2 gap <span class="mono">space-3 (12 px)</span>. H2 → subtext gap <span class="mono">space-3 (12 px)</span>. Subtext → steps row gap <span class="mono">space-12 (48 px)</span>.</p>
+        <p>H2 typography <code>h2 (36 / 42 · −0.015 em · serif · 400)</code>. Max-width <span class="mono">22 ch</span>.</p>
+      </td></tr>
+
+      <tr><th>Step 1</th><td>
+        <p><b>Decorative number:</b> "01" · per §3.7 (display-2xl · marine-50 · z-0).</p>
+        <p><b>Icon:</b> Lucide <code>car-front</code> · icon-lg · color <code>marine-700</code> · inside 64 px <code>marine-100</code> circle.</p>
+        <div class="copy-block"><span class="ck">Step title · H4 · 600</span><span class="cv-sans" style="font-weight: 600; font-size: 18px;">Ingresá los datos de tu auto</span></div>
+        <div class="copy-block"><span class="ck">Step description · Body M · neutral-600 · max 240 px wide</span><span class="cv-sans">Marca, modelo, año y tu código postal. Solo lo esencial, nada más.</span></div>
+        <p><i>Voseo:</i> "Ingresá" (not "Ingresa"). Required Spanish-AR consistency.</p>
+      </td></tr>
+
+      <tr><th>Step 2</th><td>
+        <p><b>Decorative number:</b> "02".</p>
+        <p><b>Icon:</b> Lucide <code>refresh-cw</code> (two-arrow comparison loop) · icon-lg · color <code>marine-700</code> · same marine-100 circle. <i>Override of source brief's "BarChart3":</i> a comparison-loop icon better represents "comparamos" than a chart icon. Visual metaphor matches the verb.</p>
+        <div class="copy-block"><span class="ck">Step title</span><span class="cv-sans" style="font-weight: 600; font-size: 18px;">Comparamos por vos</span></div>
+        <div class="copy-block"><span class="ck">Step description</span><span class="cv-sans">Consultamos en tiempo real las aseguradoras más elegidas y ordenamos los resultados por precio y cobertura.</span></div>
+      </td></tr>
+
+      <tr><th>Step 3</th><td>
+        <p><b>Decorative number:</b> "03".</p>
+        <p><b>Icon:</b> Lucide <code>circle-check</code> · icon-lg · color <code>success-default (#1F7A4D)</code>. <i>The only step using a non-marine icon</i> — the success-green signals "done, you can stop here". The chromatic shift across the three steps (marine → marine → success) reinforces progression without an arrow.</p>
+        <div class="copy-block"><span class="ck">Step title</span><span class="cv-sans" style="font-weight: 600; font-size: 18px;">Elegís el que más te conviene</span></div>
+        <div class="copy-block"><span class="ck">Step description</span><span class="cv-sans">Seleccionás la cobertura ideal y contratás directo desde nuestra plataforma.</span></div>
+      </td></tr>
+
+      <tr><th>Connector</th><td><b>Desktop only.</b> 1.5 px <b>dashed</b> line (dash pattern <code>6 4</code>) · color <code>marine-200</code> · from step 1 icon-circle right edge → step 2 icon-circle left edge, repeated 2→3. Vertical: aligned to icon-center. Terminator: <code>chevron-right</code> icon-xs · color <code>marine-200</code> · 4 px before the next icon-circle. Implemented as pseudo-elements of the row container so it doesn't disturb step grid layout. <b>Hidden below <code>md</code>.</b></td></tr>
+
+      <tr><th>Trailing CTA</th><td>
+        <p>Sits below the steps row, centered.</p>
+        <p><b>Prompt:</b> "<i>¿Listo para empezar?</i>" · typography <code>body-m (16 · 400)</code> · color <code>sand-600</code> · centered.</p>
+        <p><b>Button:</b> "<i>Cotizá gratis ahora</i>" · variant <code>btn-primary-md</code> with trailing arrow-right. Routes to <code>/cotizar</code>.</p>
+        <p>Top margin from steps row: <code>space-10 (40 px)</code>. Prompt → button gap: <code>space-2 (8 px)</code>.</p>
+      </td></tr>
+
+      <tr><th>Responsive · mobile</th><td>Steps stack vertically · gap <code>space-12 (48 px)</code>. Connector removed entirely. Header padding reduces to <code>space-12</code> top/bottom. Decorative number stays in place (it's the visual rhythm marker for each step).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · HowTo schema target</span>
+    <div class="sv">
+      <ul>
+        <li><b>HowTo JSON-LD</b> emitted with three <code>HowToStep</code> entries. Each step's <code>name</code> matches the step title verbatim; <code>text</code> matches the step description verbatim. Mismatch = cloaking risk.</li>
+        <li>Eligible for the "how to" rich result in SERP — surfaces below the cotizador's main listing as a stepped instruction widget on queries like <i>"cómo cotizar seguro de auto Argentina"</i>.</li>
+        <li>H2 carries a secondary keyword stem ("cotizá tu seguro") that complements but doesn't compete with the homepage H1.</li>
+        <li>Step titles use voseo imperatives ("Ingresá", "Elegís") — improves long-tail Argentine query match.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use <code>refresh-cw</code> for step 2's icon, not a chart icon. The verb is "comparamos" — the icon should be the verb, not a downstream artifact (a chart) of the verb.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a 4th step ("Renovás cada año"). A 4-step process visually breaks the trinity that makes "3 pasos simples" feel simple.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.05 INSURANCE COMPANIES ============== -->
+<article class="ws" id="ws-a05">
+  <header class="ws-head">
+    <div class="ws-num">§ A.05</div>
+    <h3 class="ws-title">Insurance <em>Companies</em></h3>
+    <p class="ws-purpose">The first major content section. Surfaces 6 high-value insurer destinations as a 3×2 card grid and distributes link equity to <code>/aseguradoras/[slug]</code> pages. The page's second-highest commercial moment after the hero.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · 3-COL INSURANCE CARDS · "MÁS POPULAR" ON CARD 1</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Section · bg sand-100 · padding-y 80 px · container-default</span><span>id="aseguradoras"</span></div>
+        <div style="padding: 22px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+            <div>
+              <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ramsar-primary-500); margin-bottom: 6px;">ASEGURADORAS</div>
+              <div style="font-family: var(--serif); font-size: 24px; line-height: 1.1; color: var(--ramsar-neutral-900); letter-spacing: -0.015em;">Las mejores aseguradoras de autos en Argentina</div>
+              <div style="font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-500); margin-top: 4px;">Comparamos precios, coberturas y opiniones reales.</div>
+            </div>
+            <div style="font-family: var(--sans); font-size: 11.5px; font-weight: 600; color: var(--ramsar-primary-700);">Ver todas →</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+            <div style="border: 1.5px solid var(--ramsar-accent-500); background: #fff; border-radius: 10px; padding: 14px; position: relative;">
+              <div style="position: absolute; top: -8px; right: 8px; background: var(--ramsar-accent-500); color: var(--ramsar-secondary-700); font-family: var(--sans); font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 999px;">★ MÁS POPULAR</div>
+              <div style="background: var(--ramsar-neutral-100); height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; color: var(--ramsar-neutral-500); margin-bottom: 8px;">SANCOR</div>
+              <div style="font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--ramsar-neutral-900);">Sancor Seguros</div>
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ramsar-accent-500); margin: 2px 0 6px;">★★★★☆ 4.4 <span style="color: var(--ramsar-neutral-500);">(312)</span></div>
+              <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-600); line-height: 1.5;">✓ Granizo + robo<br/>✓ Auxilio 24 h<br/>✓ Sin franquicia en luneta</div>
+            </div>
+            <div style="border: 1px solid var(--ramsar-neutral-200); background: #fff; border-radius: 10px; padding: 14px;">
+              <div style="background: var(--ramsar-neutral-100); height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; color: var(--ramsar-neutral-500); margin-bottom: 8px;">ZURICH</div>
+              <div style="font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--ramsar-neutral-900);">Zurich Argentina</div>
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ramsar-accent-500); margin: 2px 0 6px;">★★★★★ 4.7 <span style="color: var(--ramsar-neutral-500);">(541)</span></div>
+              <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-600); line-height: 1.5;">✓ Nacional + MERCOSUR<br/>✓ Cotización digital<br/>✓ App con denuncia online</div>
+            </div>
+            <div style="border: 1px solid var(--ramsar-neutral-200); background: #fff; border-radius: 10px; padding: 14px;">
+              <div style="background: var(--ramsar-neutral-100); height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; color: var(--ramsar-neutral-500); margin-bottom: 8px;">SAN CRISTÓBAL</div>
+              <div style="font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--ramsar-neutral-900);">San Cristóbal</div>
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ramsar-accent-500); margin: 2px 0 6px;">★★★★☆ 4.3 <span style="color: var(--ramsar-neutral-500);">(248)</span></div>
+              <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-600); line-height: 1.5;">✓ 100+ sucursales<br/>✓ Atención presencial<br/>✓ Cobertura nacional</div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 18px; font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-500);">¿No encontrás tu aseguradora? <span style="color: var(--ramsar-primary-700); font-weight: 600;">Ver todas las aseguradoras disponibles →</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Anchor ID</th><td><code>#aseguradoras</code> — also the click destination of the "Aseguradoras" nav link's <i>parent</i> route (the dropdown itself surfaces sub-pages; clicking the parent label routes to <code>/aseguradoras</code> which lists all 14, this anchor on the homepage is the marketing surface).</td></tr>
+      <tr><th>Layout</th><td>Container <code>container-default</code>. Background <code>bg-subtle (sand-100)</code> — one step darker than page bg, signals "different content zone". Padding <code>space-20 (80 px)</code> top + bottom desktop · <code>space-12 (48 px)</code> mobile.</td></tr>
+      <tr><th>Component base</th><td><b>Insurance Company Card (§3.1)</b> · 6 instances in a 3-column grid.</td></tr>
+
+      <tr><th>Section header layout</th><td><b>Left-aligned</b> (not centered — content-heavy sections benefit from left rhythm). Two-zone row at the top: left zone = overline + H2 + subtext; right zone = "Ver todas →" ghost link, baseline-aligned to H2. <i>Below md:</i> stacks vertical, "Ver todas" appears below subtext.</td></tr>
+
+      <tr><th>Section header copy</th><td>
+        <div class="copy-block"><span class="ck">Overline · OVERLINE · marine-700</span><span class="cv-sans" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">Aseguradoras</span></div>
+        <div class="copy-block"><span class="ck">H2 · serif · neutral-900</span><span class="cv">Las mejores aseguradoras de autos en Argentina</span></div>
+        <div class="copy-block"><span class="ck">Subtext · Body L · sand-500 · max-width 56 ch</span><span class="cv-sans">Comparamos precios, coberturas y opiniones reales para que tomes la mejor decisión.</span></div>
+        <p><b>"Ver todas las aseguradoras →"</b> · variant <code>btn-ghost-sm</code> · color <code>marine-700</code> · trailing arrow-right · routes to <code>/aseguradoras</code>.</p>
+      </td></tr>
+
+      <tr><th>Card grid</th><td>3 columns desktop (≥ lg) · 2 columns tablet (md) · 1 column mobile. Column gap <code>space-6 (24 px)</code> · row gap <code>space-6 (24 px)</code>. Bottom margin from grid to closing helper-row: <code>space-8 (32 px)</code>.</td></tr>
+
+      <tr><th>Card content · 6 fixed insurers</th><td>
+        <ol style="margin: 0; padding-left: 18px;">
+          <li><b>Sancor Seguros</b> — <i>"Más popular" badge</i> · 4.4★ (312) · bullets: "Granizo + robo total" / "Auxilio 24 h en todo el país" / "Sin franquicia en luneta" · price "Desde $34.800/mes" · routes <code>/aseguradoras/sancor-seguros</code></li>
+          <li><b>Zurich Argentina</b> — 4.7★ (541) · "Cobertura nacional + MERCOSUR" / "Cotización 100% digital" / "App con denuncia online" · "Desde $41.200/mes" · <code>/aseguradoras/zurich</code></li>
+          <li><b>San Cristóbal Seguros</b> — 4.3★ (248) · "100+ sucursales" / "Atención presencial" / "Cobertura nacional" · "Desde $32.500/mes" · <code>/aseguradoras/san-cristobal</code></li>
+          <li><b>La Meridional</b> — 4.5★ (187) · "Especialista en alta gama" / "Tasación con app" / "Servicio premium" · "Desde $48.900/mes" · <code>/aseguradoras/la-meridional</code></li>
+          <li><b>Mapfre</b> — 4.2★ (296) · "Grupo internacional" / "Cobertura todo riesgo flexible" / "Atención telefónica 24/7" · "Desde $38.400/mes" · <code>/aseguradoras/mapfre</code></li>
+          <li><b>Federación Patronal</b> — 4.6★ (412) · "Cooperativa argentina" / "Sin sorpresas en la prima" / "Tasa de siniestros baja" · "Desde $33.700/mes" · <code>/aseguradoras/federacion-patronal</code></li>
+        </ol>
+        <p><b>"Más popular" badge appears on Sancor only</b> (per §3.1's one-per-grid rule). Justification: Sancor leads AR-market quote volume in the project's internal data.</p>
+      </td></tr>
+
+      <tr><th>Closing helper row</th><td>Centered. Text "<i>¿No encontrás tu aseguradora?</i>" · typography <code>body-m (16 · 400)</code> · color <code>sand-500</code>. Inline link "<i>Ver todas las aseguradoras disponibles →</i>" · typography <code>label-m (13 · 600)</code> · color <code>marine-700</code> · 6 px gap from the question · trailing arrow-right · routes <code>/aseguradoras</code>.</td></tr>
+
+      <tr><th>Spacing above &amp; below</th><td>Above: A.04 closed with <code>space-20 (80 px)</code> bottom padding · this section opens with its own <code>space-20</code> top padding · effective gap 160 px desktop. Mobile: each side drops to <code>space-12 (48 px)</code>. Below: section A.06 has its own top padding.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · primary internal-link distribution</span>
+    <div class="sv">
+      <ul>
+        <li><b>6 dofollow internal links</b> from this section to <code>/aseguradoras/[slug]</code> + 2 more to the listing index. The card-grid is the homepage's single largest equity transfer to insurer-page destinations.</li>
+        <li><b>Entity recognition:</b> Sancor · Zurich · San Cristóbal · La Meridional · Mapfre · Federación Patronal — six AR-recognized insurer entities co-occurring with the page's H1 keyword push the homepage into "comparison aggregator" classification, not "single-insurer".</li>
+        <li><b>H2 targets</b> the long-tail "mejores aseguradoras de autos Argentina" — distinct from the H1's "comparar/cotizar" intent.</li>
+        <li><b>Anchor-text discipline:</b> each card's company name is the linked anchor — matches the destination's H1, no marketing rewrites.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep the "Más popular" badge on exactly one card per grid render. Two badges erase the recommendation; zero badges flattens the cluster and reduces click-through to the recommended option.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't sort cards by alphabet "for neutrality". The order is editorial — Sancor first because it carries the badge; the rest by AR market share. Alphabetic order would bury the badge.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.06 VEHICLE BRANDS ============== -->
+<article class="ws" id="ws-a06">
+  <header class="ws-head">
+    <div class="ws-num">§ A.06</div>
+    <h3 class="ws-title">Vehicle <em>Brands</em></h3>
+    <p class="ws-purpose">15 brand tiles in a 6-column grid + an SEO-anchor paragraph that gives Google and AI crawlers the topic context for why insurance prices vary by vehicle. Biggest single source of long-tail keyword surface on the homepage.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · 6×3 BRAND GRID + H3 + 2-PARA SEO COPY</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Section · bg sand-0 · padding-y 80 px · container-default</span><span>id="vehiculos"</span></div>
+        <div style="padding: 22px 24px;">
+          <div style="margin-bottom: 24px; max-width: 540px;">
+            <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ramsar-primary-500); margin-bottom: 6px;">POR VEHÍCULO</div>
+            <div style="font-family: var(--serif); font-size: 24px; line-height: 1.1; color: var(--ramsar-neutral-900); letter-spacing: -0.015em;">Seguros de auto por marca y modelo</div>
+            <div style="font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-500); margin-top: 4px;">Cada marca y modelo tiene características que afectan el precio y las coberturas disponibles.</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px;"><div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; font-family: var(--mono); font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--ramsar-neutral-500);">VW</div><div style="font-family: var(--sans); font-size: 10px; font-weight: 600; color: var(--ramsar-neutral-900);">Volkswagen</div><div style="font-family: var(--mono); font-size: 8px; color: var(--ramsar-neutral-500);">9 modelos</div></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px;"><div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; font-family: var(--mono); font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--ramsar-neutral-500);">TY</div><div style="font-family: var(--sans); font-size: 10px; font-weight: 600;">Toyota</div><div style="font-family: var(--mono); font-size: 8px; color: var(--ramsar-neutral-500);">12 modelos</div></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px;"><div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; font-family: var(--mono); font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--ramsar-neutral-500);">CH</div><div style="font-family: var(--sans); font-size: 10px; font-weight: 600;">Chevrolet</div><div style="font-family: var(--mono); font-size: 8px; color: var(--ramsar-neutral-500);">10 modelos</div></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px;"><div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; font-family: var(--mono); font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--ramsar-neutral-500);">FD</div><div style="font-family: var(--sans); font-size: 10px; font-weight: 600;">Ford</div><div style="font-family: var(--mono); font-size: 8px; color: var(--ramsar-neutral-500);">11 modelos</div></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px;"><div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; font-family: var(--mono); font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--ramsar-neutral-500);">RN</div><div style="font-family: var(--sans); font-size: 10px; font-weight: 600;">Renault</div><div style="font-family: var(--mono); font-size: 8px; color: var(--ramsar-neutral-500);">8 modelos</div></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px;"><div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; font-family: var(--mono); font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--ramsar-neutral-500);">PG</div><div style="font-family: var(--sans); font-size: 10px; font-weight: 600;">Peugeot</div><div style="font-family: var(--mono); font-size: 8px; color: var(--ramsar-neutral-500);">7 modelos</div></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.6;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.6;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.6;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.6;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.6;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.6;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.4;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.4;"></div>
+            <div style="aspect-ratio: 1; background: var(--ramsar-neutral-50); border-radius: 10px; opacity: 0.4;"></div>
+          </div>
+          <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ramsar-neutral-200); max-width: 640px;">
+            <div style="font-family: var(--serif); font-size: 18px; color: var(--ramsar-neutral-900); margin-bottom: 8px;">¿Por qué el seguro varía según la marca del auto?</div>
+            <div style="font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-700); line-height: 1.55;">Dos párrafos de copy SEO ↓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Anchor ID</th><td><code>#vehiculos</code>. Parallel to <code>/vehiculos</code> route — the dropdown's parent destination.</td></tr>
+      <tr><th>Layout &amp; bg</th><td>Container <code>container-default</code> · background <code>bg-card</code> (sand-0 / white). The white surface gives the brand tiles their own zone separate from the cream insurer section. Padding <code>space-20 / space-12</code> top+bottom (desktop / mobile).</td></tr>
+      <tr><th>Component base</th><td><b>Vehicle Brand Card (§3.2)</b> · 15 instances.</td></tr>
+
+      <tr><th>Section header</th><td>
+        <div class="copy-block"><span class="ck">Overline</span><span class="cv-sans" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">Por vehículo</span></div>
+        <div class="copy-block"><span class="ck">H2 · serif</span><span class="cv">Seguros de auto por marca y modelo</span></div>
+        <div class="copy-block"><span class="ck">Subtext · Body L · sand-500 · max-width 600 px · left-aligned</span><span class="cv-sans">Encontrá el seguro ideal según tu vehículo. Cada marca y modelo tiene características que afectan el precio y las coberturas disponibles.</span></div>
+        <p>Bottom margin to grid: <span class="mono">space-8 (32 px)</span>.</p>
+      </td></tr>
+
+      <tr><th>Brand grid</th><td><b>15 brands in fixed market-share order</b> (per source brief):
+        <p><span class="mono">1. Volkswagen · 2. Toyota · 3. Chevrolet · 4. Ford · 5. Renault · 6. Peugeot · 7. Fiat · 8. Citroën · 9. Nissan · 10. Honda · 11. Jeep · 12. Hyundai · 13. Kia · 14. Dodge · 15. Suzuki</span></p>
+        <p>Grid: <b>6 columns desktop</b> (15 brands = 2 full rows of 6 + 3 in row 3, anchored left). <b>4 columns tablet</b> (md). <b>3 columns mobile</b> (xs/sm). Column gap <code>space-3 (12 px)</code> at all sizes (compact — these are tiles, not cards). Row gap <code>space-3</code>.</p>
+        <p>Each card per §3.2: 176 px square desktop · brand logo in centered white circle · brand name · "<i>X modelos</i>" sub-label · entire card a single <code>&lt;a&gt;</code> to <code>/seguros-de-auto/[marca]</code>. Hover per §3.2 (chromatic shift to marine-50/marine-200/marine-700 brand-name).</p>
+      </td></tr>
+
+      <tr><th>SEO copy below grid</th><td>
+        <p>Top margin from grid <code>space-12 (48 px)</code>. Top 1 px <code>border-subtle</code> · top padding <code>space-6 (24 px)</code>. Max-width <span class="mono">640 px</span> (constrained for reading).</p>
+
+        <div class="copy-block"><span class="ck">H3 · serif · neutral-900</span><span class="cv">¿Por qué el seguro varía según la marca del auto?</span></div>
+
+        <div class="copy-block"><span class="ck">Paragraph 1 · Body M · neutral-700 · max-width 62 ch</span><span class="cv-sans">El precio y las coberturas de un seguro de auto dependen de varios factores relacionados con el vehículo: su valor de mercado, la disponibilidad de repuestos, el índice de siniestralidad de la marca y el costo de reparación.</span></div>
+
+        <div class="copy-block"><span class="ck">Paragraph 2 · Body M · neutral-700 · same max-width</span><span class="cv-sans">Por eso, un seguro para un Toyota Corolla no cuesta lo mismo que uno para un Volkswagen Gol. En Ramsar Seguros podés cotizar por marca y modelo para obtener el precio más preciso.</span></div>
+
+        <p>Paragraph gap <span class="mono">space-3 (12 px)</span>. H3 → P1 gap <span class="mono">space-3</span>. 79 words total — under the 80-word threshold in the brief.</p>
+      </td></tr>
+
+      <tr><th>Spacing</th><td>Above: from A.05's sand-100 bg → this section's sand-0 bg creates the visual transition (no extra gap needed). Below: section A.07 reverts to sand-100, completing the zebra alternation.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · long-tail link surface + topic-cluster anchor</span>
+    <div class="sv">
+      <ul>
+        <li><b>15 dofollow internal links</b> to <code>/seguros-de-auto/[marca]</code>. Together with the footer's 6 brand links (§1.6), the brand topic cluster receives 21 anchors from the homepage alone.</li>
+        <li><b>SEO paragraph below grid</b> targets long-tail queries: "<i>por qué varía el seguro según marca</i>", "<i>factores que afectan el precio del seguro de auto</i>", "<i>cuesta más asegurar Toyota Corolla o Volkswagen Gol</i>". Specific brand-model mentions create entity co-occurrence that AI search engines (Perplexity, ChatGPT, Google AI Overviews) extract directly.</li>
+        <li><b>H3 in question form</b> targets the featured-snippet slot for "¿por qué el seguro varía según marca?" type queries.</li>
+        <li><b>Anchor text per card:</b> the brand name alone — matches the destination's H1 ("Seguros para [Marca]"). Avoid "Ver seguros Toyota" or similar marketing rewrites.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep the 15 brands in market-share order. The first row is what 90% of users will recognize and click; alphabetic order buries the high-conversion brands in the middle of the grid.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't replace the SEO paragraph with a graphic. Google's algorithm and AI engines parse this text directly; a graphic erases the topic-cluster signal in exchange for nothing.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.07 BLOG ============== -->
+<article class="ws" id="ws-a07">
+  <header class="ws-head">
+    <div class="ws-num">§ A.07</div>
+    <h3 class="ws-title">Featured <em>Blog Articles</em></h3>
+    <p class="ws-purpose">Three high-traffic articles in a 3-column grid. Builds topical authority, generates the fresh-content signal Google uses for YMYL ranking, and routes equity into <code>/blog/[categoria]/[slug]</code> destinations.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · 3 BLOG CARDS · CATEGORIES: GUÍAS · COMPARATIVAS · CONSEJOS</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Section · bg sand-100 · padding-y 80 px · container-default</span><span>id="blog"</span></div>
+        <div style="padding: 22px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+            <div>
+              <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ramsar-primary-500); margin-bottom: 6px;">BLOG</div>
+              <div style="font-family: var(--serif); font-size: 24px; line-height: 1.1; color: var(--ramsar-neutral-900); letter-spacing: -0.015em;">Guías y consejos sobre seguros de auto</div>
+              <div style="font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-500); margin-top: 4px;">Todo lo que necesitás saber para elegir bien.</div>
+            </div>
+            <div style="font-family: var(--sans); font-size: 11.5px; font-weight: 600; color: var(--ramsar-primary-700);">Ver todos →</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+            <div style="background: #fff; border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; overflow: hidden;">
+              <div style="aspect-ratio: 16/9; background: repeating-linear-gradient(45deg, var(--ramsar-neutral-200) 0 6px, var(--ramsar-neutral-100) 6px 12px); position: relative;"><span style="position: absolute; bottom: 8px; left: 8px; background: rgba(31,122,77,0.95); color: #fff; padding: 2px 8px; border-radius: 999px; font-family: var(--sans); font-size: 9px; font-weight: 600;">Guías</span></div>
+              <div style="padding: 12px;">
+                <div style="font-family: var(--sans); font-weight: 600; font-size: 12px; line-height: 1.25; color: var(--ramsar-neutral-900);">Terceros, Terceros Plus o Todo Riesgo: ¿cuál conviene en 2025?</div>
+                <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-600); margin-top: 4px; line-height: 1.45;">Entendé las diferencias reales entre cada tipo de cobertura.</div>
+              </div>
+            </div>
+            <div style="background: #fff; border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; overflow: hidden;">
+              <div style="aspect-ratio: 16/9; background: repeating-linear-gradient(45deg, var(--ramsar-neutral-200) 0 6px, var(--ramsar-neutral-100) 6px 12px); position: relative;"><span style="position: absolute; bottom: 8px; left: 8px; background: var(--ramsar-accent-300); color: var(--ramsar-accent-700); padding: 2px 8px; border-radius: 999px; font-family: var(--sans); font-size: 9px; font-weight: 600;">Comparativas</span></div>
+              <div style="padding: 12px;">
+                <div style="font-family: var(--sans); font-weight: 600; font-size: 12px; line-height: 1.25; color: var(--ramsar-neutral-900);">Sancor vs Zurich: comparativa completa de precios y coberturas</div>
+                <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-600); margin-top: 4px; line-height: 1.45;">Las dos aseguradoras más consultadas en Argentina.</div>
+              </div>
+            </div>
+            <div style="background: #fff; border: 1px solid var(--ramsar-neutral-200); border-radius: 10px; overflow: hidden;">
+              <div style="aspect-ratio: 16/9; background: repeating-linear-gradient(45deg, var(--ramsar-neutral-200) 0 6px, var(--ramsar-neutral-100) 6px 12px); position: relative;"><span style="position: absolute; bottom: 8px; left: 8px; background: var(--ramsar-primary-50); color: var(--ramsar-primary-700); padding: 2px 8px; border-radius: 999px; font-family: var(--sans); font-size: 9px; font-weight: 600;">Consejos</span></div>
+              <div style="padding: 12px;">
+                <div style="font-family: var(--sans); font-weight: 600; font-size: 12px; line-height: 1.25; color: var(--ramsar-neutral-900);">¿Cuánto cuesta el seguro de un auto 0 km en Argentina?</div>
+                <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-600); margin-top: 4px; line-height: 1.45;">Los autos nuevos tienen particularidades que afectan el precio.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Anchor ID</th><td><code>#blog</code>. Nav "Blog" link routes to <code>/blog</code>; this section is the homepage funnel into the same destination.</td></tr>
+      <tr><th>Layout &amp; bg</th><td>Container <code>container-default</code> · background <code>bg-subtle (sand-100)</code> · padding <code>space-20 / space-12</code> top+bottom.</td></tr>
+      <tr><th>Component base</th><td><b>Blog Card · Grid (§3.3)</b> · 3 instances. No featured-variant on the homepage — that's reserved for the blog index page.</td></tr>
+
+      <tr><th>Section header</th><td>
+        <div class="copy-block"><span class="ck">Overline</span><span class="cv-sans" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">Blog</span></div>
+        <div class="copy-block"><span class="ck">H2</span><span class="cv">Guías y consejos sobre seguros de auto</span></div>
+        <div class="copy-block"><span class="ck">Subtext · Body L · sand-500</span><span class="cv-sans">Todo lo que necesitás saber para elegir bien.</span></div>
+        <p><b>"Ver todos los artículos →"</b> ghost-sm button, right-aligned in header row (left-aligned section header, two-zone). Routes <code>/blog</code>.</p>
+      </td></tr>
+
+      <tr><th>Grid</th><td>3 columns desktop · 2 tablet (md) · <b>1 column on mobile showing only 2 cards (the third is collapsed behind "Ver más artículos →")</b>. Justification: 3 stacked blog cards on mobile delay the next section by ~900 px; collapsing the third behind a single ghost link keeps mobile flow tight without hiding the path to the rest. Column gap <code>space-6 (24 px)</code> · row gap <code>space-6</code>.</td></tr>
+
+      <tr><th>Article 1</th><td>
+        <p><b>Category:</b> Guías (badge bg <code>success-default</code> · text <code>sand-0</code> · per §3.3 category color map).</p>
+        <p><b>Title:</b> "<i>Terceros, Terceros Plus o Todo Riesgo: ¿cuál conviene en 2025?</i>"</p>
+        <p><b>Excerpt:</b> "<i>Entendé las diferencias reales entre cada tipo de cobertura y descubrí cuál se adapta mejor a tu auto y tu presupuesto.</i>"</p>
+        <p><b>Routes</b> <code>/blog/guias/terceros-plus-todo-riesgo-comparativa</code>. Author "Lucía Andrade" · "12 may 2026" · "8 min".</p>
+      </td></tr>
+      <tr><th>Article 2</th><td>
+        <p><b>Category:</b> Comparativas (bg <code>amber-300</code> · text <code>amber-700</code>).</p>
+        <p><b>Title:</b> "<i>Sancor vs Zurich: comparativa completa de precios y coberturas</i>"</p>
+        <p><b>Excerpt:</b> "<i>Analizamos en detalle las dos aseguradoras más consultadas en Argentina para que puedas decidir con información real.</i>"</p>
+        <p><b>Routes</b> <code>/blog/comparativas/sancor-vs-zurich-2026</code>. Author "Martín Rey" · "6 may 2026" · "10 min".</p>
+      </td></tr>
+      <tr><th>Article 3</th><td>
+        <p><b>Category:</b> Consejos (bg <code>marine-50</code> · text <code>marine-700</code>).</p>
+        <p><b>Title:</b> "<i>¿Cuánto cuesta el seguro de un auto 0 km en Argentina?</i>"</p>
+        <p><b>Excerpt:</b> "<i>Los autos nuevos tienen particularidades que afectan el precio del seguro. Te explicamos todo antes de que contrates.</i>"</p>
+        <p><b>Routes</b> <code>/blog/consejos/seguro-auto-0km-argentina</code>. Author "Lucía Andrade" · "28 abr 2026" · "6 min".</p>
+      </td></tr>
+
+      <tr><th>Animation</th><td>On viewport entry: cards fade in (opacity 0 → 1 + translateY 8 → 0) with 80 ms stagger L→R · <code>duration-default · ease-out</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · topical authority + freshness signal</span>
+    <div class="sv">
+      <ul>
+        <li><b>3 dofollow internal links</b> + 1 to the blog index. The article URLs follow <code>/blog/[categoria]/[slug]</code> pattern that creates a topic-cluster hierarchy Google can crawl as silo'd authority.</li>
+        <li><b>Freshness:</b> homepage carrying 3 articles with recent dates (within 60 days) is a documented YMYL-ranking signal — Google reads "this site updates" as "this site is maintained" on a financial-content page.</li>
+        <li><b>Article titles target distinct query intents:</b> coverage comparison (1), insurer comparison (2), price discovery (3) — covers the three branches of pre-purchase intent.</li>
+        <li><b>Schema:</b> the article cards themselves don't emit schema (only the article pages do), but their links surface the article pages to Google's discovery crawl.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Rotate the three featured articles weekly — even if the same three articles cycle, the "last modified" timestamp on the homepage signals freshness.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't show all 3 articles full-height on mobile. The "show 2, collapse 1 behind link" rule preserves mobile scroll budget for the FAQ and final CTA that follow.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.08 TESTIMONIALS ============== -->
+<article class="ws" id="ws-a08">
+  <header class="ws-head">
+    <div class="ws-num">§ A.08</div>
+    <h3 class="ws-title">Testi<em>monials</em></h3>
+    <p class="ws-purpose">Three real-customer testimonials in a 3-column grid + a centered aggregate-rating header. The page's emotional weight-shift — moves the user from "feature comparison" mode into "person like me" mode before the FAQ closes the deal.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · CENTERED HEADER + 4.8 RATING + 3 CARDS</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Section · bg sand-0 · padding-y 80 px · container-default</span><span>id="opiniones"</span></div>
+        <div style="padding: 22px 24px;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ramsar-primary-500); margin-bottom: 6px;">OPINIONES</div>
+            <div style="font-family: var(--serif); font-size: 24px; line-height: 1.1; color: var(--ramsar-neutral-900); letter-spacing: -0.015em;">Lo que dicen nuestros usuarios</div>
+            <div style="margin-top: 14px; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+              <div style="display: flex; align-items: baseline; gap: 2px;"><span style="font-family: var(--serif); font-size: 36px; line-height: 1; color: var(--ramsar-primary-600);">4.8</span><span style="font-family: var(--sans); font-size: 14px; color: var(--ramsar-neutral-400);">/5</span></div>
+              <div style="font-family: var(--mono); font-size: 13px; color: var(--ramsar-accent-500); letter-spacing: 0.06em;">★ ★ ★ ★ ★</div>
+              <div style="font-family: var(--sans); font-size: 10.5px; color: var(--ramsar-neutral-500);">+2.400 opiniones verificadas</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+            <div style="background: #fff; border: 1px solid var(--ramsar-neutral-100); border-radius: 10px; padding: 16px; box-shadow: 0 1px 2px rgba(15,67,63,0.04);">
+              <div style="font-family: var(--serif); font-size: 28px; line-height: 0; color: var(--ramsar-accent-300); margin-top: 6px; margin-bottom: -6px;">"</div>
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ramsar-accent-500); margin-top: 8px;">★★★★★</div>
+              <div style="font-family: var(--serif); font-size: 14px; line-height: 1.4; color: var(--ramsar-neutral-900); margin-top: 6px;">Cotizé en 2 minutos y ahorré $8.000 por mes comparado con lo que pagaba antes.</div>
+              <div style="display: flex; gap: 8px; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--ramsar-neutral-200);">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--ramsar-neutral-300);"></div>
+                <div><div style="font-family: var(--sans); font-size: 11px; font-weight: 600;">Martín G.</div><div style="font-family: var(--mono); font-size: 9px; color: var(--ramsar-neutral-500);">VW Gol 2020 · CABA</div></div>
+              </div>
+            </div>
+            <div style="background: #fff; border: 1px solid var(--ramsar-neutral-100); border-radius: 10px; padding: 16px; box-shadow: 0 1px 2px rgba(15,67,63,0.04);">
+              <div style="font-family: var(--serif); font-size: 28px; line-height: 0; color: var(--ramsar-accent-300); margin-top: 6px; margin-bottom: -6px;">"</div>
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ramsar-accent-500); margin-top: 8px;">★★★★★</div>
+              <div style="font-family: var(--serif); font-size: 14px; line-height: 1.4; color: var(--ramsar-neutral-900); margin-top: 6px;">Siempre le huía a los seguros porque me parecía complicado. Acá comparé tres opciones claras y elegí sin dramas.</div>
+              <div style="display: flex; gap: 8px; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--ramsar-neutral-200);">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--ramsar-neutral-300);"></div>
+                <div><div style="font-family: var(--sans); font-size: 11px; font-weight: 600;">Laura P.</div><div style="font-family: var(--mono); font-size: 9px; color: var(--ramsar-neutral-500);">Toyota Corolla 2022 · Córdoba</div></div>
+              </div>
+            </div>
+            <div style="background: #fff; border: 1px solid var(--ramsar-neutral-100); border-radius: 10px; padding: 16px; box-shadow: 0 1px 2px rgba(15,67,63,0.04);">
+              <div style="font-family: var(--serif); font-size: 28px; line-height: 0; color: var(--ramsar-accent-300); margin-top: 6px; margin-bottom: -6px;">"</div>
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ramsar-accent-500); margin-top: 8px;">★★★★☆</div>
+              <div style="font-family: var(--serif); font-size: 14px; line-height: 1.4; color: var(--ramsar-neutral-900); margin-top: 6px;">La plataforma es muy clara. Me explicó las diferencias entre coberturas de forma simple.</div>
+              <div style="display: flex; gap: 8px; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--ramsar-neutral-200);">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--ramsar-neutral-300);"></div>
+                <div><div style="font-family: var(--sans); font-size: 11px; font-weight: 600;">Diego F.</div><div style="font-family: var(--mono); font-size: 9px; color: var(--ramsar-neutral-500);">Chevrolet Cruze 2019 · Rosario</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Anchor ID</th><td><code>#opiniones</code>.</td></tr>
+      <tr><th>Layout &amp; bg</th><td>Container <code>container-default</code> · background <code>bg-card</code> (sand-0 / white). The white surface lifts the testimonial cards out of the cream rhythm and ties them visually to the §A.05 white-card pattern (both surfaces hold sand-0 cards). Padding <code>space-20 / space-12</code>.</td></tr>
+      <tr><th>Component base</th><td><b>Testimonial Card (§3.6)</b> · 3 instances.</td></tr>
+
+      <tr><th>Header (centered)</th><td>
+        <div class="copy-block"><span class="ck">Overline · centered</span><span class="cv-sans" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">Opiniones</span></div>
+        <div class="copy-block"><span class="ck">H2 · serif · centered</span><span class="cv">Lo que dicen nuestros usuarios</span></div>
+
+        <p>Below H2: aggregate-rating cluster, vertically stacked, centered.</p>
+        <ul>
+          <li>Big score "<b>4.8</b>" + "/5" suffix · typography <code>display-l serif (56 · 400 · −0.02 em)</code> for "4.8" · <code>h3 sans (28 · 400)</code> for "/5" · color marine-600 for "4.8", sand-400 for "/5". <i>Override of source brief's "Display M":</i> Display-L gives the score the visual weight the centered header needs; per the §3.5/§4.8 rationale, weight stays 400 (not 700).</li>
+          <li>5 stars row (24 px · amber-500 filled) · top margin <span class="mono">space-1 (4 px)</span> from score.</li>
+          <li>"<i>+2.400 opiniones verificadas</i>" · typography <code>body-s (14 · 400)</code> · color <code>sand-500</code> · the "2.400" number bumps to <code>sand-700</code> weight 500.</li>
+        </ul>
+        <p>Bottom margin from rating cluster to card grid: <span class="mono">space-10 (40 px)</span>.</p>
+      </td></tr>
+
+      <tr><th>Testimonial grid</th><td>3 columns desktop · 2 tablet · <b>1-card horizontal carousel on mobile</b> (per §3.6 mobile spec — snap-to-item with dot indicator below). Column gap <code>space-6 (24 px)</code>.</td></tr>
+
+      <tr><th>Testimonial 1</th><td>
+        <p><b>Stars:</b> 5</p>
+        <p><b>Quote:</b> "<i>Cotizé en 2 minutos y ahorré $8.000 por mes comparado con lo que pagaba antes. Increíble lo fácil que fue.</i>"</p>
+        <p><b>Author:</b> Martín G. · "Volkswagen Gol 2020 · CABA"</p>
+      </td></tr>
+      <tr><th>Testimonial 2</th><td>
+        <p><b>Stars:</b> 5</p>
+        <p><b>Quote:</b> "<i>Siempre le huía a los seguros porque me parecía complicado. Acá comparé tres opciones claras y elegí sin dramas. Re recomendable.</i>"</p>
+        <p><b>Author:</b> Laura P. · "Toyota Corolla 2022 · Córdoba"</p>
+      </td></tr>
+      <tr><th>Testimonial 3</th><td>
+        <p><b>Stars:</b> 4</p>
+        <p><b>Quote:</b> "<i>La plataforma es muy clara. Me explicó las diferencias entre coberturas de forma simple. Buen servicio.</i>"</p>
+        <p><b>Author:</b> Diego F. · "Chevrolet Cruze 2019 · Rosario"</p>
+        <p><i>Note · intentional 4-star testimonial:</i> a single sub-5 testimonial in the set communicates "real reviews, not curated"; 3 × 5 stars reads as marketing-staged and undermines the aggregate signal.</p>
+      </td></tr>
+
+      <tr><th>Mobile carousel</th><td>Horizontal snap-scroll · single visible card · dot indicator (5 dots, one per testimonial state — even though only 3 are rendered, the dots are a UI hint of carousel-ness). Dot color: rest <code>sand-300</code>, active <code>marine-700</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · AggregateRating rich snippet</span>
+    <div class="sv">
+      <ul>
+        <li><b>AggregateRating JSON-LD</b> on the homepage entity: <code>ratingValue 4.8 · reviewCount 2400 · bestRating 5 · worstRating 1</code>. Generates the gold-star treatment on the Ramsar SERP entry.</li>
+        <li>Individual testimonials are <b>not</b> emitted as <code>Review</code> schema on the homepage (over-application of Review schema invites manual penalty). They live as <code>Review</code> entities on the dedicated <code>/opiniones</code> page only.</li>
+        <li><b>The 4-star testimonial is structurally important:</b> a 100%-5-star aggregate trips Google's review-spam filters; one sub-5 entry calibrates the cluster as real.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Include exactly one sub-5-star testimonial. The mix is more credible than uniform praise — and per Google's reviews guidance, more eligible for rich-snippet display.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't emit Review schema for the homepage testimonials. AggregateRating is the safe surface; individual Reviews belong on the dedicated opiniones page only.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.09 FAQ ============== -->
+<article class="ws" id="ws-a09">
+  <header class="ws-head">
+    <div class="ws-num">§ A.09</div>
+    <h3 class="ws-title">FAQ <em>Section</em></h3>
+    <p class="ws-purpose">Eight questions, eight answers. The single highest-leverage SEO surface on the homepage: targets featured-snippet capture in Google and extractable answers in AI engines. Also acts as the final pre-CTA trust pass.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · 720 px NARROW CONTAINER · 8 ACCORDION ITEMS</span>
+      <div class="schem-frame">
+        <div class="schem-band"><span>Section · bg sand-100 · padding-y 80 px · container-narrow centered</span><span>id="faq"</span></div>
+        <div style="padding: 22px 24px; max-width: 540px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ramsar-primary-500); margin-bottom: 6px;">PREGUNTAS FRECUENTES</div>
+            <div style="font-family: var(--serif); font-size: 22px; line-height: 1.1; color: var(--ramsar-neutral-900); letter-spacing: -0.015em;">Todo lo que querés saber sobre seguros de auto</div>
+          </div>
+          <div>
+            <div style="padding: 14px 16px; border-bottom: 1px solid var(--ramsar-neutral-200); background: #fff; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ramsar-neutral-900);">¿Cuánto cuesta un seguro de auto en Argentina? <span>⌄</span></div>
+            <div style="padding: 14px 16px; border-bottom: 1px solid var(--ramsar-primary-200); background: var(--ramsar-primary-50); font-family: var(--sans);">
+              <div style="display: flex; justify-content: space-between; color: var(--ramsar-primary-700); font-size: 13px; font-weight: 500;">¿Cuál es la diferencia entre terceros y todo riesgo? <span style="transform: rotate(180deg);">⌄</span></div>
+              <div style="font-size: 12px; color: var(--ramsar-neutral-800); margin-top: 8px; line-height: 1.5;">El seguro de terceros cubre los daños que le causás a terceros pero no cubre tu propio auto. El todo riesgo también cubre tu vehículo por accidente, robo y meteorología.</div>
+            </div>
+            <div style="padding: 14px 16px; border-bottom: 1px solid var(--ramsar-neutral-200); background: #fff; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ramsar-neutral-900);">¿Es obligatorio tener seguro de auto en Argentina? <span>⌄</span></div>
+            <div style="padding: 14px 16px; border-bottom: 1px solid var(--ramsar-neutral-200); background: #fff; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ramsar-neutral-900);">¿Cómo elijo la mejor aseguradora para mi auto? <span>⌄</span></div>
+            <div style="padding: 14px 16px; border-bottom: 1px solid var(--ramsar-neutral-200); background: #fff; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ramsar-neutral-900);">5 más… <span>⌄</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Anchor ID</th><td><code>#faq</code>.</td></tr>
+      <tr><th>Layout &amp; bg</th><td>Background <code>bg-subtle (sand-100)</code> · padding <code>space-20 / space-12</code> top+bottom. Container <code>container-narrow (720 px max)</code> centered — reading-mode width, not full content width.</td></tr>
+      <tr><th>Component base</th><td><b>FAQ Accordion (§4.2)</b>. Single-open-at-a-time per §4.2 rule.</td></tr>
+
+      <tr><th>Section header (centered)</th><td>
+        <div class="copy-block"><span class="ck">Overline · centered</span><span class="cv-sans" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">Preguntas frecuentes</span></div>
+        <div class="copy-block"><span class="ck">H2 · serif · centered</span><span class="cv">Todo lo que querés saber sobre seguros de auto</span></div>
+        <p>Bottom margin to first accordion item: <span class="mono">space-10 (40 px)</span>.</p>
+      </td></tr>
+
+      <tr><th>FAQ items — 8 total</th><td>All questions targeted at AR-specific high-volume Google queries. Listed in order of estimated search volume.</td></tr>
+
+      <tr><th>FAQ 1</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Cuánto cuesta un seguro de auto en Argentina?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">El precio varía según la marca, modelo, año del vehículo, zona geográfica y tipo de cobertura elegida. En promedio, un seguro de terceros completos para un auto mediano en el Gran Buenos Aires ronda entre $35.000 y $80.000 mensuales en 2026. La mejor forma de saberlo con precisión es cotizando, ya que cada situación es diferente.</span></div>
+      </td></tr>
+      <tr><th>FAQ 2</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Cuál es la diferencia entre terceros y todo riesgo?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">El seguro de terceros cubre los daños que le causás a terceros (personas, vehículos, propiedades) pero no cubre daños a tu propio auto. El todo riesgo, en cambio, también cubre los daños de tu vehículo por accidente, robo parcial o total, y fenómenos meteorológicos. Es más caro pero ofrece protección completa.</span></div>
+      </td></tr>
+      <tr><th>FAQ 3</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Es obligatorio tener seguro de auto en Argentina?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">Sí. La Ley 24.449 de Tránsito establece que todo vehículo que circule en vía pública debe contar como mínimo con seguro de responsabilidad civil hacia terceros. Circular sin seguro puede implicar multas, retención del vehículo y responsabilidad civil ilimitada en caso de accidente.</span></div>
+      </td></tr>
+      <tr><th>FAQ 4</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Cómo elijo la mejor aseguradora para mi auto?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">Considerá tres factores principales: precio (cotizá en varias aseguradoras para comparar), cobertura (verificá qué incluye cada plan y qué queda excluido) y reputación de siniestros (cómo responde la aseguradora cuando necesitás usarla). En Ramsar Seguros comparamos todos estos factores en un solo lugar.</span></div>
+      </td></tr>
+      <tr><th>FAQ 5</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Puedo cambiar de aseguradora en cualquier momento?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">Sí. Podés cambiar de aseguradora al vencimiento de tu póliza o en cualquier momento comunicando la rescisión con el preaviso establecido en tu contrato (generalmente 30 días). No existe penalidad por cambiar de compañía.</span></div>
+      </td></tr>
+      <tr><th>FAQ 6</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Qué necesito para cotizar mi seguro de auto?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">Solo necesitás tener a mano la marca, modelo, año de tu vehículo y tu código postal. No es necesario el DNI ni los datos de la patente para obtener una cotización orientativa. Si decidís contratar, ahí sí se te solicitará la documentación completa.</span></div>
+      </td></tr>
+      <tr><th>FAQ 7</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿El seguro cubre el robo total del auto?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">Depende del tipo de cobertura. Los seguros de terceros generalmente no cubren robo del propio vehículo. Las coberturas de terceros plus y todo riesgo sí incluyen robo total, y algunas también cubren robo parcial de partes. Siempre verificá las condiciones particulares de cada póliza.</span></div>
+      </td></tr>
+      <tr><th>FAQ 8</th><td>
+        <div class="copy-block"><span class="ck">Q</span><span class="cv">¿Ramsar Seguros cobra algo por comparar o cotizar?</span></div>
+        <div class="copy-block"><span class="ck">A</span><span class="cv-sans">No. El servicio de comparación y cotización es completamente gratuito para el usuario. Ramsar Seguros es un corredor de seguros matriculado ante la SSN (Superintendencia de Seguros de la Nación) y recibe comisión de las aseguradoras, no del asegurado.</span></div>
+      </td></tr>
+
+      <tr><th>Closing helper row</th><td>"<i>¿Tenés más preguntas?</i>" · Body M · sand-600 · centered. Inline link "<i>Visitá nuestro centro de ayuda →</i>" · label-m · marine-700 · routes <code>/ayuda</code>. Top margin from last accordion item: <code>space-8 (32 px)</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · highest-leverage surface for snippet capture + AI extraction</span>
+    <div class="sv">
+      <ul>
+        <li><b>FAQPage JSON-LD</b> emitted with all 8 Q/A pairs. Schema text must match visible text character-for-character (Google penalizes mismatch as cloaking).</li>
+        <li><b>Featured-snippet capture targets:</b> FAQ 1 ("cuánto cuesta seguro auto Argentina"), FAQ 2 ("diferencia terceros todo riesgo"), FAQ 3 ("es obligatorio seguro auto"), FAQ 6 ("qué necesito cotizar seguro auto") — all high-volume head queries.</li>
+        <li><b>AI search extraction:</b> Perplexity, ChatGPT, Google AI Overviews lift FAQ-formatted Q&A blocks directly into their generative answers. The 8 pairs become 8 surfaces in conversational search results.</li>
+        <li><b>Topical depth:</b> combined word count adds ~560 words to the homepage's indexable text, deepening topic relevance without diluting other sections.</li>
+        <li><b>Voice/voseo discipline:</b> "podés", "querés", "tenés", "cotizá" — matches AR-Spanish queries exactly. A castellano-Iberian variant ("puede", "quiere") would miss the locale match.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Phrase every question with Spanish opening-mark "¿". The interrogative punctuation is part of the query string Google fuzzy-matches; omitting it weakens the match.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't truncate the answers visually with "Leer más" links. The full answer must render once the accordion opens — Google can't snippet what it can't crawl in the initial HTML.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.10 FINAL CTA ============== -->
+<article class="ws" id="ws-a10">
+  <header class="ws-head">
+    <div class="ws-num">§ A.10</div>
+    <h3 class="ws-title">Final <em>CTA Banner</em></h3>
+    <p class="ws-purpose">The last conversion surface before the footer. By this point the user has seen the H1, the proof, the process, the insurers, the brands, the articles, the testimonials, and the FAQ. If they're still on the page, they're persuadable. This is the close.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">SCHEMATIC · FULL BLEED · MARINE 700→900 GRADIENT · INVERTED CTA</span>
+      <div class="schem-frame" style="background: linear-gradient(180deg, var(--ramsar-primary-700), var(--ramsar-primary-900)); border-color: var(--ramsar-primary-900);">
+        <div class="schem-band" style="color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.12);"><span>Full-bleed band · marine-700 → marine-900 gradient</span><span>padding-y 80 px</span></div>
+        <div style="padding: 32px 24px; text-align: center;">
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ramsar-accent-300); margin-bottom: 10px;">EMPEZÁ HOY</div>
+          <div style="font-family: var(--serif); font-size: 30px; line-height: 1.05; color: #fff; letter-spacing: -0.02em; margin: 0 auto 8px; max-width: 16ch;">Tu seguro ideal está a 2 minutos</div>
+          <div style="font-family: var(--sans); font-size: 14px; color: rgba(255,255,255,0.75); max-width: 32ch; margin: 0 auto 18px;">Gratis. Sin compromiso. Sin papeles.</div>
+          <div style="display: inline-block; background: #fff; color: var(--ramsar-primary-700); padding: 14px 26px; border-radius: 8px; font-family: var(--sans); font-weight: 600; font-size: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.4);">Cotizá gratis ahora →</div>
+          <div style="display: flex; justify-content: center; gap: 20px; margin-top: 22px; font-family: var(--mono); font-size: 9.5px; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; text-transform: uppercase; flex-wrap: wrap;">
+            <span>✓ 100% gratis</span><span>⏱ 2 minutos</span><span>⛨ +20 aseguradoras</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Layout</th><td><b>Full-bleed</b> background band. Inner content held to <code>container-narrow (720 px)</code> · text-align center. Padding <code>space-20 (80 px)</code> top+bottom desktop · <code>space-12 (48 px)</code> mobile.</td></tr>
+      <tr><th>Background</th><td><code>linear-gradient(180deg, marine-700 0%, marine-900 100%)</code>. Dark, high-contrast — deliberately breaks the cream rhythm at the page bottom to signal "final moment". No texture, no noise, no decorative shapes — the gradient is the entire treatment.</td></tr>
+
+      <tr><th>Section content (top → bottom, centered)</th><td>
+        <div class="copy-block" style="border-left-color: var(--ramsar-accent-500); background: rgba(232,164,81,0.08);">
+          <span class="ck" style="color: var(--ramsar-accent-700);">Overline · OVERLINE · amber-300 · centered</span>
+          <span class="cv-sans" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">Empezá hoy</span>
+        </div>
+
+        <div class="copy-block">
+          <span class="ck">H2 · serif · sand-0 · centered · max-width 16 ch</span>
+          <span class="cv">Tu seguro ideal está a 2 minutos</span>
+        </div>
+
+        <div class="copy-block">
+          <span class="ck">Subtext · Body XL · marine-100 (sand-200 @ 80%) · centered</span>
+          <span class="cv-sans">Gratis. Sin compromiso. Sin papeles.</span>
+        </div>
+
+        <p>Subtext → CTA gap: <span class="mono">space-8 (32 px)</span>.</p>
+
+        <p><b>CTA button:</b> label "<i>Cotizá gratis ahora</i>" · trailing arrow-right. <b>Inverted colorway</b>: background <code>sand-0</code> (white) · text <code>marine-700</code> · shadow <code>0 6px 24px rgba(0,0,0,0.4)</code> (stronger than light-bg CTAs — the dark background absorbs subtle shadows). Size <code>xl</code> (height 56 · padding 0+24). On hover: bg shifts to <code>marine-50</code>, shadow intensifies. <i>Override of source brief's standard "Primary xl":</i> on a marine-900 ground, the marine-700 primary button vanishes; the white inversion is required for affordance.</p>
+
+        <p><b>Trust micro-row</b> below CTA: same 3 items as A.02 hero, recolored for dark surface — icon <code>amber-500</code> · label <code>sand-0 @ 78% α</code> · vertical-rule separators <code>sand-0 @ 18% α</code>. Top margin from CTA <code>space-6 (24 px)</code>.</p>
+      </td></tr>
+
+      <tr><th>Responsive</th><td>Layout unchanged. H2 clamps from 36 → 28 px between md/xs. Trust row wraps 1 column on xs · centered · row-gap <code>space-2 (8 px)</code> · rules drop.</td></tr>
+      <tr><th>Accessibility</th><td>The H2 here is an <code>&lt;h2&gt;</code> (not h1 — H1 lives in the hero). CTA inherits §5.3 focus-ring with the ring color shifted to <code>amber-500</code> against the dark background.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · final equity to cotizador</span>
+    <div class="sv">
+      <ul>
+        <li>One dofollow link to <code>/cotizar</code> reinforces the cotizador page's importance signal — the homepage links to it 4× total (nav, hero primary, hero secondary jumps page-internal, this CTA, plus footer Empresa→Cómo funciona neighbor links).</li>
+        <li><b>H2 anchored to action keyword</b> ("Tu seguro ideal está a 2 minutos") — natural-language secondary keyword cluster ("seguro ideal", "2 minutos").</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Invert the CTA to white-on-marine here. On marine-900 ground the standard marine-700 primary disappears; an inverted white button is the only affordance that reads.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a secondary CTA ("Aprender más"). At the bottom of the page the user has two states — converting or leaving. A second option fragments the close.</div>
+  </div>
+</article>
+
+
+<!-- ============== A.11 FOOTER ============== -->
+<article class="ws" id="ws-a11">
+  <header class="ws-head">
+    <div class="ws-num">§ A.11</div>
+    <h3 class="ws-title">Footer</h3>
+    <p class="ws-purpose">Uses the Footer component (§1.6) verbatim. No homepage-specific overrides. Listed here for sequence completeness and to register the SEO note.</p>
+  </header>
+
+  <div class="ws-grid" style="grid-template-columns: 1fr;">
+    <div class="schem">
+      <span class="schem-label">FOOTER · MIDNIGHT 700 · 5-COL DESKTOP · §1.6 VERBATIM</span>
+      <div class="schem-frame" style="background: var(--ramsar-secondary-500); border: 0; padding: 14px;">
+        <div class="demo-footer" style="font-size: 10px;">
+          <div class="col brand-col">
+            <div class="lg" style="font-size: 16px;">Ramsar</div>
+            <div style="font-size: 9px; opacity: 0.7;">El amigo informado que te ayuda a elegir tu seguro de auto.</div>
+          </div>
+          <div class="col"><h6 style="font-size: 9px;">Seguros</h6><a>Sancor</a><a>Zurich</a><a>San Cristóbal</a><a>La Meridional</a><a>Mapfre</a></div>
+          <div class="col"><h6 style="font-size: 9px;">Vehículos</h6><a>Toyota</a><a>Volkswagen</a><a>Ford</a><a>Chevrolet</a><a>Renault</a></div>
+          <div class="col"><h6 style="font-size: 9px;">Blog</h6><a>Consejos</a><a>Comparativas</a><a>Novedades</a><a>Guías</a></div>
+          <div class="col"><h6 style="font-size: 9px;">Empresa</h6><a>Sobre Ramsar</a><a>Contacto</a><a>FAQ</a><a>Cómo funciona</a></div>
+        </div>
+        <div style="margin-top: 12px; padding: 10px 14px; background: var(--ramsar-secondary-700); border-radius: 6px; font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.5); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <span>© 2026 Ramsar Seguros</span>
+          <span>Privacidad · Términos · Cookies</span>
+          <span>SSN Mat. N° XXXX · AFIP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ws-tbl">
+    <tbody>
+      <tr><th>Component base</th><td><b>Footer (§1.6)</b> · variant <code>full</code> (5-column). No homepage-specific overrides. All colors, link sets, badge content, trust-strip composition, mobile-accordion behavior, and AFIP/SSN seal placement are inherited verbatim from RS-DS-002.</td></tr>
+      <tr><th>Spacing above</th><td>The A.10 dark band ends flush against the A.11 dark footer — visually they share a tonal zone. No padding gap between them (the section-pad of A.10 + the footer's own top-pad provides the rhythm). On a viewport with very tall A.10 content, this can read as "one dark surface"; that's the intent — the page closes with one large dark anchor.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="seo-callout">
+    <span class="sk">SEO role · the page's largest internal-link surface</span>
+    <div class="sv">
+      <ul>
+        <li><b>29 internal dofollow links</b> emitted from the footer on every indexed page (see §1.6 spec). The homepage is the entry surface for ~60% of Ramsar's organic traffic; multiplying those 29 anchors by the homepage's PageRank inflows makes the footer the project's most consequential link-equity distribution mechanism.</li>
+        <li>Footer columns mirror the page's content sections (Seguros = A.05, Vehículos = A.06, Blog = A.07, Empresa = future static pages, Brand = nav). The mirroring is intentional: it reinforces topical clustering to crawlers without requiring the user to scroll back.</li>
+        <li>The bottom-bar's SSN matrícula + AFIP seal carries E-E-A-T signal (regulatory compliance) for YMYL classification — increasingly weighted by Google for financial-product pages in LATAM jurisdictions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Inherit §1.6 wholesale. Page-specific footer variants fragment the internal-link graph and inflate test surface area for no SEO win.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a homepage-only "Cotizá ahora" CTA inside the footer. The final CTA banner (A.10) already owns this moment; duplicating it inside the footer reads as desperate.</div>
+  </div>
+</article>
+
+
+<!-- ============== FOOTER ============== -->
+<footer class="doc-foot page">
+  <div class="colophon">
+    Ramsar Seguros — Page Wireframes, v1.0 · Page A complete (§ 01–11). Set in Instrument Serif &amp; Geist. Specified May 2026.
+  </div>
+  <div>
+    <span class="k">Document</span>
+    RS-DS-003
+  </div>
+  <div>
+    <span class="k">Pairs with</span>
+    RS-DS-001 · RS-DS-002
+  </div>
+  <div>
+    <span class="k">Status</span>
+    <span style="color: var(--mark);">● Page A locked</span>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>

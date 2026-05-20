@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — In-Article CTA Block</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-7">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.7</div>
+    <h3 class="cs-title">In-Article CTA Block</h3>
+    <p class="cs-purpose">A conversion prompt embedded inside the article body. Earned, not imposed — appears only after the reader has invested in the content. Two instances per article maximum.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="padding: 28px;">
+        <span class="px-label">MID-ARTICLE CTA · marine surface · amber action</span>
+        <div class="demo-incta" style="max-width: 520px;">
+          <h5>¿Querés saber cuánto pagarías?</h5>
+          <p>Cotizá en 2 minutos y comparamos por vos. Sin tarjeta, sin compromiso.</p>
+          <button class="btn-primary accent">Cotizá ahora gratis →</button>
+        </div>
+        <div style="margin-top: 14px;"></div>
+        <div style="width: 100%; max-width: 520px; background: var(--ramsar-primary-50); border-left: 4px solid var(--ramsar-primary-500); border-radius: 8px; padding: 20px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center;">
+          <div>
+            <div style="font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ramsar-neutral-900); margin-bottom: 4px;">Compará en menos tiempo del que leíste esto.</div>
+            <div style="font-family: var(--sans); font-size: 13px; color: var(--ramsar-neutral-600);">14 aseguradoras · 1 cotizador · 2 minutos.</div>
+          </div>
+          <button class="btn-primary" style="padding: 10px 16px; font-size: 13px;">Cotizar →</button>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Two visual variants</th><td><b>A · Solid Marine (mid-article).</b> Full-saturation surface, amber CTA. Used at the 50% scroll mark. <b>B · Marine-tint with accent rule (in-flow).</b> Quiet treatment used at the end of the article, above the author bio. Variant A interrupts; Variant B closes.</td></tr>
+
+        <tr><th>Width</th><td>100% of reading column (<code>container-narrow</code>). Never breaks out of the column.</td></tr>
+
+        <tr><th>Variant A · surface</th><td>Background <code>marine-700</code> · text <code>sand-0</code>. Radius <code>radius-lg (16 px)</code>. Padding <code>space-6 (24 px)</code> all sides. Decorative element: an amber-300 @ 18% α circle (140 px) positioned absolute · top: −40 px · right: −40 px · overflow hidden on container. Reads as "warmth bleeding off the edge".</td></tr>
+        <tr><th>Variant A · headline</th><td>Typography <code>h4 serif (24 · 400)</code> · color <code>sand-0</code>. Example: <i>"¿Querés saber cuánto pagarías?"</i> Bottom margin <code>space-2 (8 px)</code>.</td></tr>
+        <tr><th>Variant A · subtext</th><td>Typography <code>body-s (14 · 400)</code> · color <code>sand-0 @ 85% α</code> · max-width <span class="mono">36 ch</span>. Example: <i>"Cotizá en 2 minutos y comparamos por vos. Sin tarjeta, sin compromiso."</i></td></tr>
+        <tr><th>Variant A · CTA</th><td>Variant <code>btn-primary-md · amber colorway</code>: background <code>amber-500</code> · text <code>midnight-700</code>. Hover: <code>amber-600</code>. Label "Cotizá ahora gratis" + arrow-right icon-sm trailing.</td></tr>
+
+        <tr><th>Variant B · surface</th><td>Background <code>marine-50</code>. <b>Left border 4 px <code>marine-500</code></b> (the accent treatment that visually attaches it to article reading flow, like a pull-quote rule). No top/right/bottom borders. Radius <code>radius-sm (8 px)</code> on the right edge corners only; left corners 0. Padding <code>space-5 (20 px)</code>.</td></tr>
+        <tr><th>Variant B · headline</th><td>Typography <code>h5 serif (20 · 400)</code> · color <code>sand-900</code>. Bottom margin <code>4 px</code>.</td></tr>
+        <tr><th>Variant B · subtext</th><td>Typography <code>body-s (14 · 400)</code> · color <code>sand-700</code>.</td></tr>
+        <tr><th>Variant B · CTA</th><td>Variant <code>btn-primary-md</code> (standard marine). Inline with text on desktop (right-aligned via grid); stacks below on mobile.</td></tr>
+
+        <tr><th>Layout</th><td>Desktop: 2-column grid · text-left + CTA-right · column gap <code>space-5 (20 px)</code> · align-items center. Mobile: stacks · CTA full-width below text · gap <code>space-4 (16 px)</code>.</td></tr>
+
+        <tr><th>Placement rule</th><td><b>Mid-article (variant A):</b> after the 3rd or 4th paragraph of the article body — <b>never</b> in the first two paragraphs (the reader hasn't paid in yet, and a CTA before they've extracted value reads as a bait-and-switch). <b>End-of-article (variant B):</b> above the §4.5 Author Bio, after the last content paragraph. Bottom margin to following element: <code>space-12 (48 px)</code>.</td></tr>
+        <tr><th>Frequency rule</th><td>Maximum <b>two</b> instances per article — one of each variant. A third instance trains readers to skim past them.</td></tr>
+
+        <tr><th>Accessibility</th><td>The block is a <code>&lt;aside aria-label="Cotizá tu seguro"&gt;</code>. The headline is an <code>&lt;h3&gt;</code> within the article hierarchy. Decorative amber circle on variant A is CSS only (zero DOM impact).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use variant A once in the body, variant B once at the end. Their visual contrast prevents the second CTA from feeling like a repeat of the first.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't place either variant in the first two paragraphs. Conversion-block-before-payoff reads as a paywall — the worst possible signal in a free-content brand.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> A-solid · B-tint — <b>showSubtext:</b> boolean — text overrides for headline · subtext · CTA label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Loading Skeleton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-7">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.7</div>
+    <h3 class="cs-title">Loading Skeleton</h3>
+    <p class="cs-purpose">Shown in place of content during async load. Skeletons preserve the layout, prevent jarring height shifts when content arrives, and communicate "loading" without a spinner blocking the page.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 24px; flex-direction: column; gap: 16px; align-items: stretch;">
+        <span class="px-label">SKELETON · blog card · text lines · insurance card</span>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <div class="demo-skel">
+            <div class="img"></div>
+            <div class="ln" style="width: 80%; height: 18px;"></div>
+            <div class="ln" style="width: 100%;"></div>
+            <div class="ln" style="width: 65%;"></div>
+            <div style="display: flex; gap: 8px; margin-top: 6px; align-items: center;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(90deg, var(--ramsar-neutral-200), var(--ramsar-neutral-100), var(--ramsar-neutral-200)); background-size: 200% 100%; animation: shimmer 1.4s linear infinite;"></div>
+              <div class="ln" style="width: 80px; height: 10px;"></div>
+              <div class="ln" style="width: 60px; height: 10px;"></div>
+            </div>
+          </div>
+          <div class="demo-skel" style="gap: 12px;">
+            <div class="ln" style="height: 40px; width: 100%;"></div>
+            <div class="ln" style="height: 20px; width: 70%;"></div>
+            <div style="display: flex; gap: 4px;"><div class="ln" style="height: 14px; width: 14px; border-radius: 50%;"></div><div class="ln" style="height: 14px; width: 14px; border-radius: 50%;"></div><div class="ln" style="height: 14px; width: 14px; border-radius: 50%;"></div><div class="ln" style="height: 14px; width: 14px; border-radius: 50%;"></div><div class="ln" style="height: 14px; width: 14px; border-radius: 50%;"></div></div>
+            <div class="ln" style="width: 100%;"></div>
+            <div class="ln" style="width: 90%;"></div>
+            <div class="ln" style="width: 80%;"></div>
+            <div class="ln" style="height: 18px; width: 50%; margin-top: 4px;"></div>
+            <div class="ln" style="height: 44px; width: 100%; border-radius: 8px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Color tokens</th><td>Base color <code>sand-200</code>. Shimmer pass-through <code>sand-100</code>. Implementation: <code>background: linear-gradient(90deg, sand-200 0%, sand-100 50%, sand-200 100%); background-size: 200% 100%</code>.</td></tr>
+        <tr><th>Animation</th><td>Background-position 200% 0 → −200% 0 · duration <span class="mono">1500 ms</span> · timing <code>linear</code> · iteration infinite. Wave moves left → right.</td></tr>
+
+        <tr><th>Border radius</th><td><b>Matches the element being represented</b>. Text lines: <code>radius-xs (4 px)</code>. Images: <code>radius-md (12 px)</code>. Avatars: <code>radius-full</code>. Buttons: <code>radius-sm (8 px)</code>.</td></tr>
+
+        <tr><th>Text line widths</th><td>
+          <ul>
+            <li><b>full:</b> 100% width · height 16 px</li>
+            <li><b>wide:</b> 75% width · same height</li>
+            <li><b>medium:</b> 50% width</li>
+            <li><b>narrow:</b> 30% width</li>
+          </ul>
+          Used in sequence to simulate paragraphs (e.g. full, full, wide, medium).
+        </td></tr>
+        <tr><th>Heading skeleton</th><td>Height <span class="mono">24 px</span> · width <span class="mono">60%</span> · radius-xs.</td></tr>
+        <tr><th>Avatar skeleton</th><td>Circle at the represented avatar's exact size (24 · 32 · 40 · 64 · 72 px).</td></tr>
+        <tr><th>Image skeleton</th><td>Aspect-ratio matches its target (e.g. <code>aspect-ratio: 16/9</code> for blog hero images). Radius matches.</td></tr>
+
+        <tr><th>Composite · blog card</th><td>16:9 image block + 2-line headline (full · 65%) + 3-line excerpt (full · full · 75%) + metadata row (24 px avatar circle + two short lines). Container takes the real blog-card border + radius. Total height matches real card height to prevent CLS.</td></tr>
+
+        <tr><th>Composite · insurance card</th><td>40 px logo block + 18 px name line + 5 × 14 px star circles + 3 bullet lines (full · 90% · 80%) + 16 px price line + 44 px button block. Real card border + radius preserved.</td></tr>
+
+        <tr><th>Composite · table row</th><td>Per row: 1 left-column label (medium-width) + N right-column cells (each: 16 px square for icon, or 60% width line for numeric value). Row height matches real table row.</td></tr>
+
+        <tr><th>Reduced motion</th><td>Shimmer animation paused. Skeletons remain visible as static sand-200 blocks. The waiting state is communicated by presence, not by motion.</td></tr>
+
+        <tr><th>Hand-off rule</th><td>When real content arrives: skeleton fades out (opacity 1 → 0, <span class="mono">duration-default · ease-out</span>) while content fades in (opacity 0 → 1, same duration, 80 ms delay). Dimensions must match exactly — any size mismatch causes layout shift, which defeats the purpose.</td></tr>
+
+        <tr><th>Accessibility</th><td>Wrapper carries <code>aria-busy="true" aria-live="polite"</code>. Once content arrives, <code>aria-busy</code> drops to false. Skeleton blocks themselves are decorative (<code>aria-hidden</code>).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Match skeleton dimensions to real content exactly. Any size mismatch causes Cumulative Layout Shift — which Google measures and ranks.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't use a spinning loader where a skeleton works. Spinners block the page; skeletons preserve the user's spatial memory of where things will be.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>type:</b> text-line · heading · avatar · image · button · composite-card · composite-row — <b>width:</b> full · wide · medium · narrow (for text variants) — <b>animated:</b> boolean.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

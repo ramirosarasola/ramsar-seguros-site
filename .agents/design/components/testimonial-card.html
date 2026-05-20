@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Testimonial Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-6">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.6</div>
+    <h3 class="cs-title">Testimonial Card</h3>
+    <p class="cs-purpose">Quote-driven social proof from real customers. Appears in the homepage "Lo que dicen" section and on insurer pages as part of the rating block.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="padding: 24px;">
+        <span class="px-label">TESTIMONIAL · 4-line clamp · quote-mark decorative</span>
+        <div class="demo-tcard">
+          <div class="qm">"</div>
+          <div class="rt">★ ★ ★ ★ ★</div>
+          <div class="quote">Cotizé un sábado a la noche y el lunes ya tenía la póliza. La diferencia con lo que pagaba antes fue de casi $9.000 al mes.</div>
+          <div class="author">
+            <div class="av"></div>
+            <div>
+              <div class="nm">Federico R.</div>
+              <div class="vh">Toyota Corolla 2022 · Rosario</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Card</th><td>Background <code>sand-0</code>. Border 1 px <code>sand-100</code> (deliberately softer than §3.1 to differentiate testimonial cards from product cards). Radius <code>radius-lg (16 px)</code>. Shadow <code>elevation-1</code>. Padding <span class="mono">space-6 (24 px)</span> all sides.</td></tr>
+
+        <tr><th>Decorative quote mark</th><td>Character <b>"</b> (opening double-curly · U+201C). Typography <code>display-2xl (96 px · serif · 400)</code>. Color <code>amber-300</code>. Position: top-left of card, partially overlapping the top edge — sits with negative top margin <span class="mono">−8 px</span> and a line-height of 0 to anchor only the baseline. <code>aria-hidden="true"</code>. <b>Behind</b> the rating row (z-index 0; rating is z-1).</td></tr>
+
+        <tr><th>Star rating</th><td>Same star spec as §3.1 — 14 px stars, amber-500 filled / sand-300 empty. Number adjacent to stars omitted on testimonial card (the count is in the author meta below). Top margin from decorative quote: <span class="mono">space-3 (12 px)</span>.</td></tr>
+
+        <tr><th>Quote text</th><td>Typography <code>body-l (18 / 30 · 400)</code> · serif italic <b>not</b> applied (Geist italic doesn't exist in our system — see Typography rules §03). Instead: regular weight 400 + the surrounding curly quotes carry the "voice" affordance. Color <code>sand-800</code>. <b>Max 4 lines · ellipsis</b>. Top margin <span class="mono">space-3 (12 px)</span> from stars.</td></tr>
+
+        <tr><th>Author row</th><td>Flex row · top border 1 px <code>sand-200</code> · top padding <span class="mono">space-4 (16 px)</span> · top margin <span class="mono">space-5 (20 px)</span> from quote.</td></tr>
+        <tr><th>Avatar</th><td>40 px circle · 1 px <code>sand-200</code> border · object-fit cover. Initials fallback: marine-50 bg + marine-700 serif italic.</td></tr>
+        <tr><th>Author name</th><td>First name + last initial only ("Federico R."). Typography <code>label-m (13 · 600 · sans)</code> · color <code>sand-900</code>. <b>Privacy rule:</b> never full surname.</td></tr>
+        <tr><th>Vehicle &amp; location</th><td>Format: <i>"Toyota Corolla 2022 · Rosario"</i>. Typography <code>body-xs mono (13 · 400 · +0.005 em)</code> · color <code>sand-500</code>. Top margin from name: <span class="mono">2 px</span>.</td></tr>
+
+        <tr><th>Grid layout</th><td><b>Desktop ≥ lg:</b> 3 columns · gap <code>space-6 (24 px)</code>. <b>md:</b> 2 columns. <b>xs/sm:</b> <b>horizontal-scroll carousel</b> — single card per viewport, snap-to-item, 24 px peek of the next card on the right to hint at overflow. Edge-fade mask on the right edge.</td></tr>
+
+        <tr><th>Accessibility</th><td><code>&lt;blockquote&gt;</code> wrapping the quote text + <code>&lt;cite&gt;</code> wrapping the author row. Decorative quote mark is <code>aria-hidden</code>. Star rating: <code>role="img" aria-label="5 de 5 estrellas"</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Include the vehicle model in the author meta. It is the single fact that converts "stranger's opinion" into "person like me".</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't put the testimonial card on a tinted brand background. Sand-0 on cream is what makes the quote feel like paper; tinting flattens it into UI.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>rating:</b> 3 · 4 · 5 stars — <b>showLocation:</b> boolean — <b>avatar:</b> instance-swap (image · initials fallback) — text overrides for quote · name · vehicle · location.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

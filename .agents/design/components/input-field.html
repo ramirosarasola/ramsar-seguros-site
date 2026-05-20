@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Input Field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-1">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.1</div>
+    <h3 class="cs-title">Input Field</h3>
+    <p class="cs-purpose">The cotizador's atomic unit. Used everywhere a user types: DNI, license plate, model year, email, phone, address. Designed to meet a 44 px touch-target floor at every viewport and to communicate state through border + halo, not through size shifts.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 24px; gap: 14px; flex-direction: column; align-items: stretch;">
+        <span class="px-label">STATES · DEFAULT · FOCUS · ERROR · DISABLED</span>
+        <div class="demo-field">
+          <label>Patente del vehículo <span style="color: var(--ramsar-error);">*</span></label>
+          <div class="input">AB 123 CD</div>
+          <span class="help">Formato Mercosur o anterior · sin espacios</span>
+        </div>
+        <div class="demo-field focused">
+          <label>Email <span style="color: var(--ramsar-error);">*</span></label>
+          <div class="input">lucia.andrade@</div>
+          <span class="help">Te enviamos la cotización a este correo</span>
+        </div>
+        <div class="demo-field error">
+          <label>DNI <span style="color: var(--ramsar-error);">*</span></label>
+          <div class="input" style="background: rgba(184,52,28,0.04); border-color: var(--ramsar-error);">2345</div>
+          <span class="err">⚠ El DNI debe tener entre 7 y 8 dígitos</span>
+        </div>
+        <div class="demo-field">
+          <label style="opacity: 0.5;">Año del vehículo</label>
+          <div class="input" style="background: var(--ramsar-neutral-100); color: var(--ramsar-neutral-400); border-color: var(--ramsar-neutral-200); cursor: not-allowed;">Seleccioná primero la marca</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Dimensions</th><td>Height <span class="mono">44 px</span> (touch-target floor). Padding <code>space-3 (12 px) vertical · space-4 (16 px) horizontal</code>. Radius <code>radius-sm (8 px)</code>. Border 1 px <code>border-default (sand-300)</code>. Background <code>sand-0</code>.</td></tr>
+
+        <tr><th>Label</th><td>Position <b>above</b> input. Typography <code>label-m (13 · 500 · sans)</code> · color <code>sand-800</code>. Bottom margin <code>space-1 (4 px)</code>. <b>Always above, never floating.</b> Floating labels measurably increase form-error rates (Baymard); they sacrifice the constant context label-above provides for an aesthetic that disappears the moment a user types.</td></tr>
+        <tr><th>Required indicator</th><td>"*" trailing the label · color <code>error-default (#B8341C)</code> · weight 700 · no space before "*". Optional fields receive a trailing "(opcional)" suffix in <code>caption · sand-500</code> instead — Argentine forms expect explicit optionality more than optional indicators.</td></tr>
+
+        <tr><th>Input text</th><td>Typography <code>body-m (16 · 400 · sans)</code> · color <code>sand-900</code>. <i>Note:</i> 16 px is non-negotiable — iOS Safari zooms the viewport on focus of any input &lt; 16 px, which is the worst possible UX on a cotizador.</td></tr>
+        <tr><th>Placeholder</th><td>Typography <code>body-m (16 · 400)</code> · color <code>sand-400</code>. <b>Used sparingly</b> — only for format hints ("AB 123 CD"). Never used to repeat the label.</td></tr>
+
+        <tr><th>Helper text</th><td>Below input · top margin <code>space-1 (4 px)</code>. Typography <code>body-xs (13 · 400 · +0.005 em)</code> · color <code>sand-500</code>. One line preferred; wraps to two maximum.</td></tr>
+        <tr><th>Error message</th><td><b>Replaces</b> helper text (does not stack with it). Typography same as helper · color <code>error-dark (#7A1F0F)</code> · weight 500. Leading icon <code>circle-alert</code> · icon-xs · color <code>error-default</code> · gap <code>space-1 (4 px)</code>. Copy formula: stating <i>what is wrong</i> + <i>what's required</i>. Example: "El DNI debe tener entre 7 y 8 dígitos" — not "Inválido".</td></tr>
+
+        <tr><th>Prefix icon</th><td>Inside input · left edge · 16 px left padding · icon-sm (16 px) · color <code>sand-400</code> rest, <code>marine-700</code> on focus. Input text re-indents to 40 px left padding when prefix present.</td></tr>
+        <tr><th>Suffix icon</th><td>Inside input · right edge · 16 px right padding · icon-sm · same colors. Used for show/hide password, clear-value (<code>x-circle</code>), copy-to-clipboard.</td></tr>
+        <tr><th>Character count</th><td>Bottom-right of input · typography <code>caption mono (11 · 400 · tabular-nums)</code> · color <code>sand-400</code> · format "<i>X / Max</i>". Only renders when max-length is set. Switches to <code>error-default</code> when characters &gt; max.</td></tr>
+
+        <tr><th>States · default</th><td>As specified above.</td></tr>
+        <tr><th>States · hover</th><td>Border <code>sand-300</code> → <code>sand-400</code>. Transition <code>120 ms · ease-out</code>. No bg change.</td></tr>
+        <tr><th>States · focus</th><td>Border <code>marine-700</code>. Halo: <code>box-shadow: 0 0 0 3px rgba(15,67,63,0.18)</code>. Background stays sand-0. Transition <code>120 ms · ease-out</code>. Caret color <code>marine-700</code>.</td></tr>
+        <tr><th>States · filled</th><td>Border stays <code>sand-300</code>. Background stays sand-0. Helper text remains; no visual change beyond text presence.</td></tr>
+        <tr><th>States · error</th><td>Border <code>error-default</code>. Background <code>error-light (#F6E2DD)</code> at 30% α (cream-toned blush, not pink). Focus ring color shifts to <code>error-default @ 18% α</code>. Label color unchanged (errors don't punish the label).</td></tr>
+        <tr><th>States · disabled</th><td>Background <code>sand-100</code> · border <code>sand-200</code> · text <code>sand-400</code> · label opacity 0.5 · <code>cursor: not-allowed</code>. Common pattern: a downstream field disabled until a prerequisite is selected; placeholder copy explains the prerequisite ("Seleccioná primero la marca").</td></tr>
+        <tr><th>States · read-only</th><td>Background <code>sand-50</code> · border <code>sand-200</code> · text <code>sand-900</code> (preserved — read-only is still readable data). No focus ring. Cursor default.</td></tr>
+
+        <tr><th>Accessibility</th><td>Label uses <code>&lt;label for&gt;</code>; never <code>aria-label</code> only. Error message linked via <code>aria-describedby</code>; <code>aria-invalid="true"</code> in error state. Required fields use <code>aria-required="true"</code> + the "*" indicator — never <code>required</code> attribute alone (browser-default validation messages are inconsistent and untranslated).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep input text at 16 px minimum on mobile. Anything smaller forces iOS Safari to zoom in on focus, which is the single most jarring UX moment in a 2-minute form.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't show both placeholder <i>and</i> label in error state. Pick one signal — the user needs guidance, not a duplicate of the label.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>state:</b> default · hover · focus · filled · error · disabled · read-only — <b>required:</b> boolean — <b>showPrefixIcon · showSuffixIcon · showHelper · showError · showCount:</b> booleans — text overrides for label, placeholder, helper, error, value.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

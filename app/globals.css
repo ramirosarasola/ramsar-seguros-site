@@ -1,26 +1,256 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/* ─────────────────────────────────────────────────────────────
+   Tailwind v4 token mapping — shadcn/ui semantic vars
+   @theme inline = references CSS vars without creating new ones
+   ───────────────────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background:           var(--background);
+  --color-foreground:           var(--foreground);
+  --color-card:                 var(--card);
+  --color-card-foreground:      var(--card-foreground);
+  --color-popover:              var(--popover);
+  --color-popover-foreground:   var(--popover-foreground);
+  --color-primary:              var(--primary);
+  --color-primary-foreground:   var(--primary-foreground);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:                var(--muted);
+  --color-muted-foreground:     var(--muted-foreground);
+  --color-accent:               var(--accent);
+  --color-accent-foreground:    var(--accent-foreground);
+  --color-destructive:          var(--destructive);
+  --color-border:               var(--border);
+  --color-input:                var(--input);
+  --color-ring:                 var(--ring);
+  --color-chart-1:              var(--chart-1);
+  --color-chart-2:              var(--chart-2);
+  --color-chart-3:              var(--chart-3);
+  --color-chart-4:              var(--chart-4);
+  --color-chart-5:              var(--chart-5);
+  --color-sidebar:              var(--sidebar);
+  --color-sidebar-foreground:   var(--sidebar-foreground);
+  --color-sidebar-primary:      var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:       var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:       var(--sidebar-border);
+  --color-sidebar-ring:         var(--sidebar-ring);
+
+  /* Fonts — reference CSS vars injected by next/font */
+  --font-serif:   var(--font-instrument-serif), "EB Garamond", Georgia, serif;
+  --font-sans:    var(--font-geist), -apple-system, Helvetica, sans-serif;
+  --font-mono:    var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-instrument-serif), "EB Garamond", Georgia, serif;
+
+  /* shadcn radius tokens — wired to our radius-sm base */
+  --radius-sm:  calc(var(--radius) * 0.75);   /* ≈ 6px  */
+  --radius-md:  calc(var(--radius) * 1);      /* ≈ 8px  */
+  --radius-lg:  calc(var(--radius) * 1.5);    /* ≈ 12px */
+  --radius-xl:  calc(var(--radius) * 2);      /* ≈ 16px */
+  --radius-2xl: calc(var(--radius) * 3);      /* ≈ 24px */
+  --radius-3xl: calc(var(--radius) * 4);      /* ≈ 32px */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────────────────────────────────────────────
+   Ramsar brand tokens — full scale (Primary, Secondary, Accent,
+   Neutral, Semantic, Shadows)
+   Source: .agents/design/Ramsar Seguros - Brand Identity & Design Tokens.html
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* ── Primary — Marine Teal ── */
+  --color-primary-50:  #ecf4f3;
+  --color-primary-100: #cee2df;
+  --color-primary-200: #9ec5bf;
+  --color-primary-300: #6ea89f;
+  --color-primary-400: #418c82;
+  --color-primary-500: #1f6f66;
+  --color-primary-600: #155952;
+  --color-primary-700: #0e433f; /* Marine — core brand */
+  --color-primary-800: #0a302e;
+  --color-primary-900: #061f1e;
+
+  /* ── Secondary — Midnight Navy ── */
+  --color-secondary-100: #dbdee2;
+  --color-secondary-300: #7b8590;
+  --color-secondary-500: #2e3a47;
+  --color-secondary-700: #0b1f2a; /* footer ground */
+  --color-secondary-900: #061018; /* bottom bar    */
+
+  /* ── Accent — Amber ── */
+  --color-accent-300: #f4c98a;
+  --color-accent-500: #e8a451; /* eclipse ring, CTAs on dark */
+  --color-accent-600: #d18a37;
+  --color-accent-700: #a86a23;
+
+  /* ── Neutral — Sand (2% warm bias) ── */
+  --color-neutral-0:   #ffffff;
+  --color-neutral-50:  #f8f7f4; /* page background */
+  --color-neutral-100: #efeee9;
+  --color-neutral-200: #e2e0d8;
+  --color-neutral-300: #cac7bc;
+  --color-neutral-400: #a8a496;
+  --color-neutral-500: #807c6e;
+  --color-neutral-600: #5e5b50;
+  --color-neutral-700: #423f37;
+  --color-neutral-800: #292723;
+  --color-neutral-900: #181612;
+  --color-neutral-950: #0c0b09;
+
+  /* ── Semantic ── */
+  --color-success:       #1f7a4d;
+  --color-success-light: #e4f1ea;
+  --color-success-dark:  #0f4a2c;
+  --color-warning:       #c8881e;
+  --color-warning-light: #fbefd8;
+  --color-warning-dark:  #6e4a0c;
+  --color-error:         #b8341c;
+  --color-error-light:   #f6e2dd;
+  --color-error-dark:    #7a1f0f;
+  --color-info:          #2a5f9e;
+  --color-info-light:    #e1ecf7;
+  --color-info-dark:     #173a66;
+
+  /* ── Shadows — marine-tinted rgba(15,67,63,α), never pure black ── */
+  --shadow-elevation-1: 0 1px 0 rgba(15,67,63,.06), 0 1px 2px rgba(15,67,63,.04);
+  --shadow-elevation-2: 0 1px 2px rgba(15,67,63,.06), 0 2px 6px rgba(15,67,63,.06);
+  --shadow-elevation-3: 0 2px 4px rgba(15,67,63,.06), 0 8px 16px rgba(15,67,63,.08);
+  --shadow-elevation-4: 0 4px 8px rgba(15,67,63,.06), 0 16px 32px rgba(15,67,63,.12);
+  --shadow-elevation-5: 0 8px 16px rgba(15,67,63,.08), 0 32px 64px rgba(15,67,63,.18);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Ramsar-branded shadcn semantic variables (light mode)
+   shadcn components automatically inherit the brand palette.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Base surfaces */
+  --background: #f8f7f4;  /* neutral-50 — warm page ground */
+  --foreground: #181612;  /* neutral-900 */
+
+  /* Card / popover */
+  --card:            #ffffff;
+  --card-foreground: #181612;
+  --popover:            #ffffff;
+  --popover-foreground: #181612;
+
+  /* Primary — Marine 700 */
+  --primary:            #0e433f;
+  --primary-foreground: #ffffff;
+
+  /* Secondary — neutral tint */
+  --secondary:            #efeee9; /* neutral-100 */
+  --secondary-foreground: #181612;
+
+  /* Muted */
+  --muted:            #efeee9;
+  --muted-foreground: #807c6e; /* neutral-500 */
+
+  /* Accent — Amber 500 */
+  --accent:            #e8a451;
+  --accent-foreground: #061018; /* secondary-900 for contrast on amber */
+
+  /* Destructive — Error */
+  --destructive: #b8341c;
+
+  /* Borders / inputs */
+  --border: #e2e0d8; /* neutral-200 */
+  --input:  #e2e0d8;
+
+  /* Focus ring — Marine */
+  --ring: #0e433f;
+
+  /* Base radius = 8px (radius-sm), shadcn components scale from this */
+  --radius: 0.5rem;
+
+  /* Charts — using brand palette */
+  --chart-1: #0e433f; /* marine-700   */
+  --chart-2: #1f6f66; /* marine-500   */
+  --chart-3: #e8a451; /* amber-500    */
+  --chart-4: #6ea89f; /* marine-300   */
+  --chart-5: #cee2df; /* marine-100   */
+
+  /* Sidebar */
+  --sidebar:            #f8f7f4;
+  --sidebar-foreground: #181612;
+  --sidebar-primary:    #0e433f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:     #e8a451;
+  --sidebar-accent-foreground: #061018;
+  --sidebar-border: #e2e0d8;
+  --sidebar-ring:   #0e433f;
+}
+
+/* Dark mode — minimal inversion (not a launch priority for Ramsar) */
+.dark {
+  --background: #0e443f;
+  --foreground: #f8f7f4;
+  --card:            #155952;
+  --card-foreground: #f8f7f4;
+  --popover:            #155952;
+  --popover-foreground: #f8f7f4;
+  --primary:            #e8a451;
+  --primary-foreground: #061018;
+  --secondary:            #0a302e;
+  --secondary-foreground: #cee2df;
+  --muted:            #0a302e;
+  --muted-foreground: #9ec5bf;
+  --accent:            #e8a451;
+  --accent-foreground: #061018;
+  --destructive: #f6e2dd;
+  --border: #155952;
+  --input: #155952;
+  --ring: #6ea89f;
+  --chart-1: #e8a451;
+  --chart-2: #6ea89f;
+  --chart-3: #cee2df;
+  --chart-4: #1f6f66;
+  --chart-5: #0e443f;
+  --sidebar:            #0a302e;
+  --sidebar-foreground: #f8f7f4;
+  --sidebar-primary:    #e8a451;
+  --sidebar-primary-foreground: #061018;
+  --sidebar-accent:     #155952;
+  --sidebar-accent-foreground: #cee2df;
+  --sidebar-border: #155952;
+  --sidebar-ring:   #6ea89f;
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
-}
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Focus ring — 2-layer per design spec */
+  :focus-visible {
+    outline: 2px solid #0e433f;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(14, 67, 63, 0.18);
+    border-radius: 4px;
+  }
+
+  /* Skip-link for keyboard accessibility */
+  .skip-link {
+    position: absolute;
+    transform: translateY(-100%);
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: #0e433f;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: transform 0.15s ease-out;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+  }
 }

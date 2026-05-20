@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Insurance Company Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-3-1">
+  <header class="cs-head">
+    <div class="cs-num">§ 3.1</div>
+    <h3 class="cs-title">Insurance Company Card</h3>
+    <p class="cs-purpose">The product's highest-frequency conversion surface. Appears in homepage insurer grids, search results, and on every vehicle page. Built to compare, scan, and convert in roughly that order.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview" style="gap: 20px;">
+        <span class="px-label">DEFAULT &amp; "MÁS POPULAR" VARIANT</span>
+        <div class="demo-icard">
+          <div class="logo">SANCOR</div>
+          <div class="nm">Sancor Seguros</div>
+          <div class="rt">★ ★ ★ ★ ☆  4.4 <span style="color: var(--ramsar-neutral-500);">(312)</span></div>
+          <ul class="bullets">
+            <li>Granizo + robo total</li>
+            <li>Auxilio 24 h en todo el país</li>
+            <li>Sin franquicia en luneta</li>
+          </ul>
+          <div class="price"><span class="from">Desde</span> $34.800<span class="from"> /mes</span></div>
+          <div class="cta">Ver coberturas</div>
+        </div>
+        <div class="demo-icard popular">
+          <div class="logo">ZURICH</div>
+          <div class="nm">Zurich Argentina</div>
+          <div class="rt">★ ★ ★ ★ ★  4.7 <span style="color: var(--ramsar-neutral-500);">(541)</span></div>
+          <ul class="bullets">
+            <li>Cobertura nacional + MERCOSUR</li>
+            <li>Cotización 100% digital</li>
+            <li>App con denuncia online</li>
+          </ul>
+          <div class="price"><span class="from">Desde</span> $41.200<span class="from"> /mes</span></div>
+          <div class="cta">Ver coberturas</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Grid context</th><td>3-column desktop · 2-column tablet · 1-column mobile. Column width at <code>lg</code>: <span class="mono">368 px</span>. Column gap <code>space-8 (32 px)</code>.</td></tr>
+        <tr><th>Card dimensions</th><td>Min-height <span class="mono">340 px</span> (locks rhythm in mixed-content rows). Padding <span class="mono">space-5 (20 px)</span> all sides. Inner stack gap <span class="mono">space-3 (12 px)</span>.</td></tr>
+        <tr><th>Surface</th><td>Background <code>bg-card</code> (sand-0). Border 1 px <code>border-default (sand-300)</code>. Radius <code>radius-md (12 px)</code>. Shadow <code>elevation-0</code> default · <code>elevation-2</code> hover.</td></tr>
+
+        <tr><th>"Más popular" badge</th><td><b>Position:</b> absolute · top: −10 px · right: 12 px (floats above the card edge to feel pinned, not contained). <b>Background</b> <code>amber-500</code> · <b>text</b> <code>midnight-700</code>. <b>Typography</b> <code>label-s (11.5 · 500 · +0.01 em)</code>. <b>Padding</b> <span class="mono">3 px / 10 px</span>. <b>Radius</b> <code>radius-full</code>. <b>Icon</b> star (icon-xs, midnight-700) preceding label "Más popular". <b>Rule:</b> exactly one card per grid carries this badge. If the system can't decide, none do.</td></tr>
+
+        <tr><th>Logo container</th><td>Width 100% of card content · height <span class="mono">44 px</span> · background <code>sand-100</code> · radius <code>radius-sm (8 px)</code> · no border. Image fit <b>contain</b> (never cover; insurer marks lose meaning when cropped). Centered both axes. The container <i>always</i> uses sand-100 even if the card is on a tinted background — neutral pad keeps every insurer logo legible.</td></tr>
+
+        <tr><th>Company name</th><td>Typography <code>h5 (18 / 26 · 600 · sans)</code> · color <code>sand-900</code> · top margin <span class="mono">space-3 (12 px)</span> from logo. The name is rendered as an <code>&lt;a&gt;</code> linking to the insurer landing page (e.g. <code>/aseguradoras/sancor-seguros</code>) — provides a second navigational entry without the whole card being a link. Underline appears on hover, 1 px offset 3 px.</td></tr>
+
+        <tr><th>Star rating · stars</th><td>Star icon size <span class="mono">14 px</span> · filled color <code>amber-500</code> · empty color <code>sand-300</code> · half star uses CSS <code>clip-path</code> on a duplicated star at 50% width (no half-star asset needed). Gap between stars <span class="mono">2 px</span>.</td></tr>
+        <tr><th>Star rating · numbers</th><td>Rating number ("4.4") · typography <code>label-m (13 · 500 · mono · tabular-nums)</code> · color <code>sand-800</code> · 8 px gap from last star. Review count ("(312)" — no word, just the count in parens) · typography <code>label-m mono</code> · color <code>sand-500</code> · 6 px gap from rating number.</td></tr>
+
+        <tr><th>Coverage bullets</th><td>3 items, vertical stack, gap <span class="mono">space-1 (4 px)</span>. Each item: <code>check</code> icon (icon-xs · marine-700 · stroke 1.75) + label. Label typography <code>body-s (14 · 400)</code> · color <code>sand-700</code> · max one line · truncate with ellipsis. <b>Icon color rationale:</b> marine-700, <i>not</i> success-default — these are feature inclusions, not validation states. Reserving success-green for validated states keeps the semantic palette honest.</td></tr>
+
+        <tr><th>Price block</th><td>Sits above CTA, <span class="mono">space-4 (16 px)</span> top margin. Single line, baseline-aligned. "Desde" · typography <code>caption (12 · 400 · +0.005 em · sans)</code> · color <code>sand-500</code>. Price value "$34.800" · typography <code>h4 sans (22 · 600)</code> with <code>font-variant-numeric: tabular-nums</code> · color <code>sand-900</code> · 4 px gap from "Desde". Suffix "/mes" · typography <code>body-s mono</code> · color <code>sand-500</code> · 2 px gap from price. Note: prices use Argentine thousands separator (period: 34.800) not comma — locale critical.</td></tr>
+
+        <tr><th>CTA button</th><td>Label <b>"Ver coberturas"</b>. Variant <code>btn-primary-md</code> · full card width · top margin <span class="mono">space-4 (16 px)</span>. <b>Why primary over secondary:</b> on this card, the CTA <i>is</i> the page's call to compare. A grid of secondary buttons reads as "browse"; a grid of primary buttons reads as "choose" — which matches user intent on a comparison page. The competing-primaries risk is mitigated by uniform color (no card "wins" chromatically); the Amber badge is what surfaces the one recommendation.</td></tr>
+
+        <tr><th>States · hover</th><td>Border color → <code>marine-300</code>, shadow → <code>elevation-2</code>, translateY(−2 px), CTA bg darkens marine-700 → marine-800. All interpolated together at <span class="mono">duration-default (220 ms) · ease-out</span>.</td></tr>
+        <tr><th>States · focus-visible</th><td>Card-level focus ring (when a keyboard user lands on the card via Tab on the CTA): 2 px <code>marine-700</code> outline with 4 px <code>marine-700 @ 18%</code> halo, 2 px offset. Applied to the CTA, not the card itself — the card is not a link.</td></tr>
+
+        <tr><th>Responsive</th><td>At <code>md</code>: 2-column grid. At <code>xs/sm</code>: 1-column, full width. Card internals unchanged. CTA remains full-width.</td></tr>
+        <tr><th>Accessibility</th><td>Card is a <code>&lt;article&gt;</code>; it is <b>not</b> a single link. The company name and CTA are independent <code>&lt;a&gt;</code> elements. <code>aria-labelledby</code> points to the H5. Star rating row: <code>role="img" aria-label="Calificación: 4.4 de 5 estrellas, 312 reseñas"</code>. The bullets list is a real <code>&lt;ul&gt;</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Make the company name a real link to the insurer page. Some users want depth before they want a quote; deliver both entries within one card.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't wrap the entire card in a single <code>&lt;a&gt;</code>. It collapses the two destinations (insurer page · quote flow) into one and breaks the per-element analytics that drives the recommendation badge.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>hasBadge:</b> boolean — <b>ratingValue:</b> 0–5 step 0.1 — <b>reviewCount:</b> number — <b>price:</b> text override — <b>logoImage:</b> instance-swap — text overrides for name + 3 bullets + CTA label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

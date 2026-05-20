@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Breadcrumb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-1-5">
+  <header class="cs-head">
+    <div class="cs-num">§ 1.5</div>
+    <h3 class="cs-title">Breadcrumb</h3>
+    <p class="cs-purpose">Tiny component, oversized SEO impact. Mirrors site hierarchy in the UI <em>and</em> in <code>BreadcrumbList</code> JSON-LD — Google reads both. Used on every page except homepage and cotizador.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="flex-direction: column; gap: 14px; align-items: flex-start; padding: 24px;">
+        <span class="px-label">DESKTOP · full chain</span>
+        <div class="demo-bc">
+          <a>Inicio</a>
+          <span class="sep">/</span>
+          <a>Aseguradoras</a>
+          <span class="sep">/</span>
+          <a>Sancor Seguros</a>
+          <span class="sep">/</span>
+          <span class="curr">Plan Federal</span>
+        </div>
+        <div style="height: 12px;"></div>
+        <span class="px-label">MOBILE · collapsed</span>
+        <div class="demo-bc">
+          <a>Inicio</a>
+          <span class="sep">/</span>
+          <a style="font-family: var(--mono); padding: 0 4px; background: var(--ramsar-neutral-100); border-radius: 4px;">…</a>
+          <span class="sep">/</span>
+          <span class="curr">Plan Federal</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Anatomy</th><td>"Inicio" (text, not icon) · separator · 1–N intermediate links · separator · current page (not a link).</td></tr>
+        <tr><th>Inicio · text vs icon</th><td><b>Text "Inicio"</b>, not a home icon. Justification: Spanish-AR users scan text faster than icon-as-first-item, and screen-readers parse it without an <code>aria-label</code> workaround. The icon is reserved for in-content "Volver al inicio" buttons.</td></tr>
+        <tr><th>Separator</th><td><b>Forward slash "/"</b> · color <code>sand-300</code> · same size as link text · padding <code>space-1 (4 px)</code> on each side. Justification: chevron-right would compete visually with §1.4 dropdown chevrons and §3 card "leer más" affordances; the slash is path-like and unambiguous.</td></tr>
+        <tr><th>Typography · links</th><td><code>body-s (14 / 22 · 400)</code> · color <code>sand-600</code>. Hover: <code>marine-700</code> · underline 1 px offset 3 px.</td></tr>
+        <tr><th>Typography · current</th><td>Same size as links · weight <code>500</code> (subtle bump) · color <code>sand-900</code>. <b>More prominent, not less</b>: this is the page label and the most important text in the row.</td></tr>
+        <tr><th>Gap</th><td><span class="mono">space-2 (8 px)</span> between every adjacent element (link · sep · link · sep · current). The separator absorbs the 4 px of padding on each side; visible spacing is uniform.</td></tr>
+        <tr><th>Container</th><td>Width: matches the page's content container (<code>container-default</code>). Top padding <code>space-5 (20 px)</code>, bottom padding <code>space-3 (12 px)</code>. Sits between the global nav and the page hero/H1.</td></tr>
+        <tr><th>Mobile truncation</th><td>If the chain has &gt; 3 items <b>and</b> viewport &lt; <code>md (768 px)</code>: collapse all middle items into an ellipsis token <code>…</code> styled as a tappable chip (sand-100 background, radius-xs, 4×2 padding). Tap expands the full chain inline. Always preserves <code>Inicio</code> and the current page.</td></tr>
+        <tr><th>Long page title</th><td>Current-page label truncates with ellipsis if the row would otherwise wrap. Full title remains in document <code>&lt;h1&gt;</code> and in the schema.</td></tr>
+        <tr><th>SEO / Schema</th><td>Required: <code>BreadcrumbList</code> JSON-LD emitted in <code>&lt;head&gt;</code>, with every chain item indexed 1..N. Visual order and schema order <b>must match exactly</b>. <span class="mono">rel="nofollow"</span> is forbidden on breadcrumb links — they pass equity. Internal anchor text in the breadcrumb is the canonical short title of the target page, never the long title.</td></tr>
+        <tr><th>ARIA</th><td><code>&lt;nav aria-label="Breadcrumb"&gt;</code> wrapping an <code>&lt;ol&gt;</code>. Each <code>&lt;li&gt;</code> contains either an <code>&lt;a&gt;</code> or the current span. Current span carries <code>aria-current="page"</code>. Separators are CSS-generated (<code>::before</code> on each <code>&lt;li&gt;</code> except the first) so SRs do not read "slash slash slash".</td></tr>
+        <tr><th>Keyboard</th><td>Native — Tab through the links, Enter to follow.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Match each visible label to its <code>BreadcrumbList</code> name 1:1. Mismatched breadcrumb data is the most common reason rich-results validation fails.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't render separators as text inside <code>&lt;li&gt;</code>. They must be CSS pseudo-elements so screen readers don't recite them.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>depth:</b> 2 · 3 · 4 · 5 — <b>truncated:</b> boolean (mobile state) — text overrides per crumb. No color variants; breadcrumb is light-bg only.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

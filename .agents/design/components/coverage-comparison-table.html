@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Coverage Comparison Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-1">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.1</div>
+    <h3 class="cs-title">Coverage Comparison Table</h3>
+    <p class="cs-purpose">The system's most complex content surface. Lives on insurer landing pages and on vehicle-model pages. Built so the eye can scan plans horizontally and features vertically without losing position.</p>
+  </header>
+
+  <div class="cs-grid" style="grid-template-columns: 1fr;">
+    <div class="cs-preview white" style="padding: 28px;">
+      <span class="px-label">3-PLAN TABLE · MIDDLE = RECOMMENDED · STRIPED ROWS</span>
+      <div class="demo-ctable" style="max-width: 720px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align: left;">Cobertura</th>
+              <th>Terceros</th>
+              <th class="rec-col" style="background: var(--ramsar-primary-700); color: #fff; border-color: var(--ramsar-primary-700);">★ Terceros Plus</th>
+              <th>Todo Riesgo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Responsabilidad civil</td><td><span class="y">✓</span></td><td class="rec-col"><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+            <tr style="background: var(--ramsar-neutral-50);"><td>Auxilio mecánico</td><td><span class="y">✓</span></td><td class="rec-col"><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+            <tr><td>Granizo</td><td><span class="n">—</span></td><td class="rec-col"><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+            <tr style="background: var(--ramsar-neutral-50);"><td>Robo total</td><td><span class="n">—</span></td><td class="rec-col"><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+            <tr><td>Daño parcial</td><td><span class="n">—</span></td><td class="rec-col"><span class="n">—</span></td><td><span class="y">✓</span></td></tr>
+            <tr style="background: var(--ramsar-neutral-50);"><td>Cristales · franquicia</td><td>$15.000</td><td class="rec-col">$5.000</td><td>$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-tbl">
+    <tbody>
+      <tr><th>Orientation</th><td><b>Rows = coverage features · Columns = plan tiers.</b> The user's question is "which plan covers what I care about?" — they scan a feature row to compare plans on that feature, then drop to the next feature. Inverting to columns-as-features would force horizontal scanning across longer cells and ruin the comparison rhythm at 320 px.</td></tr>
+      <tr><th>Container</th><td>Width 100% of <code>container-default</code>. Min-width <span class="mono">600 px</span> — below this the table enters horizontal-scroll mode. Border 1 px <code>sand-200</code> · radius <code>radius-lg (16 px)</code> · <code>overflow: hidden</code>.</td></tr>
+
+      <tr><th>Header row · height &amp; background</th><td>Height <span class="mono">64 px</span>. Background <code>marine-700</code> for standard columns · <code>marine-800</code> for the recommended column (one step darker). Border-bottom 1 px <code>marine-900</code>.</td></tr>
+      <tr><th>Header · feature column (top-left cell)</th><td>Background matches the header row (marine-700). Typography <code>label-m mono (13 · 500)</code> · color <code>amber-300</code> · padding <code>space-4 / space-5 (16 / 20 px)</code> · text-align left. Label: <i>"Cobertura"</i>.</td></tr>
+      <tr><th>Header · plan columns</th><td>Typography <code>label-l (15 · 600 · sans)</code> · color <code>sand-0</code> · text-align center. Recommended column carries a leading <code>★</code> (filled star · color <code>amber-500</code>) before the plan name with 6 px gap. "Recomendado" eyebrow is rendered as a tiny <code>caption mono (11 · +0.12 em · uppercase · amber-300)</code> above the plan name, line-height 1.</td></tr>
+      <tr><th>Header · sticky behavior</th><td><code>position: sticky · top: 72 px</code> (matches sticky nav height). On scroll past the table top, the header detaches from the table border and gains <code>elevation-2</code> shadow on its bottom edge. Border-radius corners (top-left + top-right) flatten to 0 once sticky.</td></tr>
+
+      <tr><th>Left column · width</th><td><b>40%</b> of table on desktop · <b>52%</b> at <code>md</code> · <b>min 200 px</b> on mobile horizontal-scroll.</td></tr>
+      <tr><th>Left column · background</th><td><code>sand-50</code> (sticks visually with the page background, distinguishes feature labels from data cells).</td></tr>
+      <tr><th>Left column · sticky</th><td><code>position: sticky · left: 0</code>. On horizontal scroll, gains a 1 px <code>sand-300</code> right border + <code>elevation-1</code> shadow on its right edge.</td></tr>
+      <tr><th>Left column · feature label</th><td>Typography <code>body-s (14 / 22 · 400)</code> · color <code>sand-800</code> · text-align left · padding <code>space-3 / space-5 (12 / 20)</code>.</td></tr>
+      <tr><th>Left column · tooltip icon</th><td>Optional <code>info</code> icon (icon-xs · color <code>sand-400</code>) trailing the feature label · 6 px gap. Click/hover opens a §5.x tooltip (max-width 280 px). Hover color <code>marine-700</code>. Used on technical features like "Franquicia", "Cobertura MERCOSUR".</td></tr>
+
+      <tr><th>Data cells · height</th><td><span class="mono">52 px</span>. Padding <code>space-3 / space-4 (12 / 16)</code>. Vertical-align middle · text-align center.</td></tr>
+      <tr><th>Data cells · included</th><td><code>check</code> icon · <span class="mono">20 px</span> · color <code>success-default (#1F7A4D)</code>. No text accompanies the check unless a coverage limit is specified.</td></tr>
+      <tr><th>Data cells · excluded</th><td><code>minus</code> icon (Lucide · horizontal line) · 20 px · color <code>sand-300</code>. <b>Not "x"</b> — minus reads as "not applicable", x reads as "denied". The semantic distinction matters for plan comparison.</td></tr>
+      <tr><th>Data cells · numeric values</th><td>Typography <code>body-s mono (14 · 500 · tabular-nums)</code> · color <code>sand-900</code>. Format: "$15.000" (Argentine thousands separator).</td></tr>
+      <tr><th>Data cells · text values</th><td>Typography <code>body-s (14 · 500)</code> · color <code>sand-900</code>. Used for qualitative differences ("Nacional" · "MERCOSUR" · "Sin tope").</td></tr>
+
+      <tr><th>Row striping</th><td>Odd rows <code>sand-0</code> · even rows <code>sand-50</code>. Border-bottom 1 px <code>sand-200</code> between rows (no border on the last row before the table footer). Both stripes survive in the recommended column with a 4% Marine tint mixed in.</td></tr>
+      <tr><th>Row hover</th><td>Entire row background → <code>marine-50</code> over <span class="mono">120 ms · ease-out</span>. Survives across the recommended column (the marine-50 wins over the marine-tint). Hover applies on desktop only.</td></tr>
+
+      <tr><th>Recommended column · highlight</th><td>Data cells use background <code>marine-50</code> (slightly stronger than the standard zebra). Left edge 1.5 px <code>marine-700</code> · right edge 1.5 px <code>marine-700</code>. The vertical strip ties the recommended column to its plan-card sibling (§3.5).</td></tr>
+
+      <tr><th>Mobile · horizontal scroll</th><td>Below <code>md (768 px)</code> the table scrolls horizontally inside its container. Left column stays sticky (per spec). Native browser scrollbar is hidden via CSS, replaced by a custom 4 px <code>sand-300</code> thumb on a 6 px <code>sand-100</code> track at the bottom of the container — always visible to communicate scrollability. Right-edge fade: 24 px linear gradient mask (cream → transparent) hints at off-screen content.</td></tr>
+
+      <tr><th>"Ver tabla completa" expand</th><td>By default show 8 feature rows. Excess rows are hidden behind a <i>"Ver tabla completa (12 ítems más)"</i> button: variant <code>btn-ghost-md</code> · centered below the table · top margin <code>space-4 (16)</code>. Expand: grid-template-rows 0fr → 1fr on the hidden rows wrapper · <span class="mono">duration-slow (360 ms) · ease-in-out</span>. Collapse reverses, button relabels to "Mostrar menos".</td></tr>
+
+      <tr><th>Accessibility</th><td>Real <code>&lt;table&gt;</code> with <code>&lt;caption class="sr-only"&gt;Comparación de coberturas&lt;/caption&gt;</code>. Header cells use <code>&lt;th scope="col"&gt;</code> for plan columns, <code>scope="row"</code> on the leftmost cell of each row. Included/excluded icons are <code>aria-hidden</code> with a sibling <code>&lt;span class="sr-only"&gt;Incluido&lt;/span&gt;</code> or "No incluido". <code>aria-live="off"</code> on the expand region.</td></tr>
+      <tr><th>SEO</th><td>The table is HTML <i>not</i> rendered to canvas/SVG — every feature name is crawlable text. Coverage names match the H3 anchors inside the article body so internal-link queries route to deeper content.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use <code>minus</code> for excluded coverage, not <code>x</code>. "Not included" is a feature of a plan, not a failure of one.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't add a "sticky right-edge fade" desktop too. The fade is a mobile affordance for the scroll affordance — adding it on desktop tells users the table is incomplete.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>planCount:</b> 2 · 3 · 4 — <b>recommendedColumn:</b> 0 · 1 · 2 · 3 — <b>rowCount:</b> number — <b>showExpand:</b> boolean — text overrides for every header label, feature name, and cell value.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

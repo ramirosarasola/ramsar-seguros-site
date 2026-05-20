@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Cotizador Page Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-2-4">
+  <header class="cs-head">
+    <div class="cs-num">§ 2.4</div>
+    <h3 class="cs-title">Cotizador Page Hero</h3>
+    <p class="cs-purpose">The most stripped-down hero in the system. Lives above the quote widget on <code>/cotizar</code>. Every element exists to absorb one specific anxiety before the user types their first character.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="flex-direction: column; gap: 28px; align-items: stretch; padding: 32px;">
+        <span class="px-label">COTIZADOR · stripped nav + reassurance stack</span>
+        <div style="display: flex; justify-content: center; padding-bottom: 16px; border-bottom: 1px solid var(--ramsar-neutral-200);">
+          <span class="nav-logo" style="font-family: var(--serif); font-size: 22px; color: var(--ramsar-primary-700);">Ramsar</span>
+        </div>
+        <div style="text-align: center; max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;">
+          <h2 style="font-family: var(--serif); font-size: 36px; line-height: 1.1; letter-spacing: -0.015em; color: var(--ramsar-neutral-900); margin: 0;">Vamos a buscarte la mejor cobertura.</h2>
+          <p style="font-family: var(--sans); font-size: 16px; color: var(--ramsar-neutral-600); margin: 0;">Te toma menos de 2 minutos. Sin cargos. Sin tarjeta de crédito.</p>
+          <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; padding-top: 8px; font-family: var(--sans); font-size: 12px; color: var(--ramsar-neutral-600);">
+            <span>🔒 SSL Seguro</span>
+            <span>💸 Sin cargo</span>
+            <span>⚡ Respuesta inmediata</span>
+            <span>🏢 +20 aseguradoras</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Navigation</th><td><b>Stripped</b>: only the Ramsar logo, centered. No menu links, no hamburger, no Cotizá CTA (the user is already converting). Pseudo-header height <span class="mono">72 px</span> · 1 px <code>border-subtle</code> bottom · sticky on scroll. <i>Why:</i> in a 2-minute conversion flow, navigation links offer exits, not utility. Their absence is a deliberate constraint that lifts completion rate.</td></tr>
+        <tr><th>Container</th><td><code>container-narrow (720 px max)</code> · content centered · horizontal padding <code>space-6 (24 px)</code> mobile / <code>space-12 (48 px)</code> desktop.</td></tr>
+        <tr><th>Height</th><td>Content-driven. Vertical padding <code>space-16 (64 px)</code> top (below stripped nav) · <code>space-8 (32 px)</code> bottom (above the widget card). Mobile <code>space-10 / space-6</code>.</td></tr>
+
+        <tr><th>Elements (top → bottom)</th><td>
+          <ol style="margin: 0; padding-left: 18px;">
+            <li>Stripped logo-only nav</li>
+            <li>Vertical space <code>space-16 (64 px)</code></li>
+            <li>Headline (H2, not H1 — the page is functional, not landing)</li>
+            <li>Bottom margin <code>space-3 (12 px)</code></li>
+            <li>One-line reassurance</li>
+            <li>Bottom margin <code>space-6 (24 px)</code></li>
+            <li>Trust badges row</li>
+            <li>Bottom margin <code>space-8 (32 px)</code> to widget card</li>
+          </ol>
+        </td></tr>
+
+        <tr><th>Headline · copy</th><td><b>"Vamos a buscarte la mejor cobertura."</b> First-person plural ("vamos") plants the brand alongside the user. "Buscarte" is voseo — Spanish-AR consistency. No promises about price (managing expectations), only about commitment.</td></tr>
+        <tr><th>Headline · typography</th><td><code>h2 (36 / 42 · −0.015 em · serif · 400)</code>. <b>Not H1</b> — this page is conversion utility, not a landing page; the H1 is reserved for SEO landing pages where keyword-in-H1 matters. Color <code>sand-900</code>. Centered. Max-width <span class="mono">18 ch</span>.</td></tr>
+
+        <tr><th>Reassurance · copy</th><td><b>"Te toma menos de 2 minutos. Sin cargos. Sin tarjeta de crédito."</b> Three commitments, each a measured negation of a specific anxiety: time, money, future surprise.</td></tr>
+        <tr><th>Reassurance · typography</th><td><code>body-l (18 / 30 · 400)</code> · color <code>text-secondary</code> (sand-700). Centered. Max-width <span class="mono">48 ch</span>.</td></tr>
+
+        <tr><th>Trust badges row</th><td>4 badges, horizontally centered, gap <code>space-6 (24 px)</code>. Wraps to a 2×2 grid below <code>sm (480 px)</code>. Each badge: icon <code>icon-sm (16 px) · stroke marine-700</code> + label.<br/>
+          <b>Label typography:</b> <code>label-s (11.5 · 500 · +0.01 em)</code> · color <code>sand-600</code>.<br/>
+          <b>Icon → label gap:</b> <code>space-2 (8 px)</code>.<br/>
+          <b>Items + anxiety addressed:</b>
+          <ul>
+            <li><code>lock</code> + "SSL Seguro" — <i>"They're asking for my DNI and license plate; is this safe?"</i></li>
+            <li><code>circle-check</code> + "Sin cargo" — <i>"Is there a hidden fee at the end?"</i></li>
+            <li><code>clock</code> + "Respuesta inmediata" — <i>"How long is this going to take?"</i></li>
+            <li><code>shield-check</code> + "+20 aseguradoras" — <i>"Is this a real comparison or just one company's pitch?"</i></li>
+          </ul>
+        </td></tr>
+
+        <tr><th>Background</th><td><b>Pure white</b> (<code>bg-card</code> · #FFFFFF) — one step lighter than <code>bg-page</code> (cream) used everywhere else. <b>Psychological rationale:</b> cream paper is the brand voice; white is the form. The shift to white signals "you are now in a tool, not on a landing page." It also gives the quote-widget card visual independence — when the widget sits on the same color as the hero, it must work harder to feel like an interactive surface.</td></tr>
+
+        <tr><th>Responsive</th><td>Single column at all breakpoints. Headline reduces from 36 → 28 → 24 px between md/sm/xs. Trust badges wrap from 1×4 → 2×2 below 480 px. Stripped nav height stays 72 px desktop / 56 px mobile.</td></tr>
+        <tr><th>Accessibility</th><td>The cotizador page <i>does</i> have a hidden visually-clipped <code>&lt;h1&gt;</code> ("Cotizador de seguros de auto") for SEO + SR users, placed before the visible H2. The visible H2 is the conversational entry. Trust badges are <code>aria-hidden</code> icons + visible text (icons are decorative).</td></tr>
+        <tr><th>SEO</th><td>The cotizador page is the lowest-priority SEO surface in the system — its title is "Cotizá tu seguro de auto · Ramsar Seguros" but it is set <code>&lt;meta name="robots" content="index, follow"&gt;</code> only for the entry URL; deep-flow URLs (<code>/cotizar/paso-2</code> etc.) are <code>noindex</code> to keep the indexable graph clean.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Keep the four trust badges fixed and ordered as specified. Each was placed against a specific user anxiety; reordering breaks the choreography of reassurance.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't restore the global nav on this page "for consistency". Conversion pages earn their right to remove links the way exit doors earn their right to be wider than entrances.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>step:</b> 1 · 2 · 3 · 4 (optional progress indicator above headline) — <b>showTrustBadges:</b> boolean (always true except confirmation step) — text overrides for headline + reassurance — instance-swap for each trust badge.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Price Range Indicator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-4-3">
+  <header class="cs-head">
+    <div class="cs-num">§ 4.3</div>
+    <h3 class="cs-title">Price Range Indicator</h3>
+    <p class="cs-purpose">Shows minimum · average · maximum monthly insurance cost for a vehicle model. Designed to communicate one number (the average) in under two seconds, while remaining honest about variance.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 32px;">
+        <span class="px-label">PRICE RANGE · avg callout · gradient fill</span>
+        <div style="width: 100%; max-width: 480px;">
+          <div style="font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--ramsar-neutral-700); margin-bottom: 14px;">Costo estimado del seguro</div>
+          <div style="position: relative; height: 56px; padding-top: 28px;">
+            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--ramsar-primary-700); color: #fff; padding: 3px 10px; border-radius: 6px; font-family: var(--sans); font-size: 11.5px; font-weight: 600;">Promedio</div>
+            <div style="position: absolute; top: 22px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid var(--ramsar-primary-700);"></div>
+            <div style="height: 8px; background: linear-gradient(90deg, #6EA89F 0%, #1F6F66 50%, #0E433F 100%); border-radius: 999px; position: relative;">
+              <div style="position: absolute; left: 0; top: -3px; width: 12px; height: 12px; border-radius: 50%; background: var(--ramsar-primary-300); border: 2px solid #fff;"></div>
+              <div style="position: absolute; left: calc(50% - 8px); top: -5px; width: 16px; height: 16px; border-radius: 50%; background: var(--ramsar-primary-600); border: 2px solid #fff; box-shadow: 0 1px 2px rgba(15,67,63,0.18);"></div>
+              <div style="position: absolute; right: 0; top: -3px; width: 12px; height: 12px; border-radius: 50%; background: var(--ramsar-primary-700); border: 2px solid #fff;"></div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 14px; font-family: var(--sans);">
+            <div style="font-size: 12px; color: var(--ramsar-neutral-500);">Desde <span style="font-family: var(--mono); color: var(--ramsar-neutral-800);">$28.500/mes</span></div>
+            <div style="font-size: 12.5px; color: var(--ramsar-primary-700); font-weight: 600;">Promedio <span style="font-family: var(--mono);">$42.800/mes</span></div>
+            <div style="font-size: 12px; color: var(--ramsar-neutral-500);">Hasta <span style="font-family: var(--mono); color: var(--ramsar-neutral-800);">$68.200/mes</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Container width</th><td>Full content column. The component is single-instance per page (only appears on vehicle-model pages).</td></tr>
+        <tr><th>Section label</th><td>"Costo estimado del seguro" · typography <code>h6 (16 · 600 · sans)</code> · color <code>sand-700</code> · bottom margin <code>space-3 (12 px)</code>.</td></tr>
+
+        <tr><th>Track</th><td>Height <span class="mono">8 px</span>. Border-radius <code>radius-full</code>. Background base color <code>sand-200</code> (visible only where the gradient hasn't reached on a partial-range component variant — at full range it is entirely covered).</td></tr>
+        <tr><th>Fill · gradient</th><td><code>linear-gradient(90deg, marine-300 0%, marine-500 50%, marine-700 100%)</code>. Saturation/lightness increase toward the right reads as "more coverage / higher commitment" — semantically aligned with price.</td></tr>
+
+        <tr><th>Min marker</th><td>Circle · <span class="mono">12 px</span> diameter · background <code>marine-300</code> · 2 px <code>sand-0</code> border. Positioned absolute · left: 0 · vertically centered on track.</td></tr>
+        <tr><th>Avg marker</th><td>Circle · <span class="mono">16 px</span> · background <code>marine-600</code> · 2 px <code>sand-0</code> border · <code>elevation-1</code> shadow. Position: left = avg-percentage. <b>Larger + shadowed</b> so the eye lands here first.</td></tr>
+        <tr><th>Max marker</th><td>Circle · <span class="mono">12 px</span> · background <code>marine-700</code> · 2 px <code>sand-0</code> border. Position: right: 0.</td></tr>
+
+        <tr><th>"Promedio" callout</th><td><b>Floating above</b> the avg marker. Background <code>marine-700</code> · text <code>sand-0</code>. Typography <code>label-s (11.5 · 600 · sans)</code>. Padding <code>3 px / 10 px</code>. Radius <code>radius-sm (8 px)</code>. CSS triangle tail below the pill (5 px transparent / 5 px marine-700 border-top) points at the avg marker. Positioned absolute · top above track · transform: translateX(−50%) anchored to avg-percentage.</td></tr>
+
+        <tr><th>Labels below track</th><td>Single row, justify-content space-between. Top margin from track: <code>space-4 (16 px)</code>.<br/>
+          <p><b>Min:</b> Typography <code>caption (12 · 400)</code> · text "Desde" color <code>sand-500</code> · price "$28.500/mes" typography <code>label-s mono (11.5 · 500 · tabular-nums)</code> color <code>sand-800</code>.</p>
+          <p><b>Avg:</b> Typography <code>label-s (11.5 · 600 · sans)</code> · text "Promedio" + price both color <code>marine-700</code>. Bolder than min/max — the avg label echoes the callout above.</p>
+          <p><b>Max:</b> Same treatment as min · text "Hasta" + price.</p>
+        </td></tr>
+
+        <tr><th>Currency format</th><td>Strictly "$XX.XXX/mes" — period thousands separator, no space before "/mes", no decimals on integer values, "AR$" prefix only on the cotizador page (here ambient context is sufficient).</td></tr>
+
+        <tr><th>Animation</th><td>On viewport entry (IntersectionObserver, threshold 0.6): fill gradient animates from 0% width → 100% width over <span class="mono">duration-glacial (600 ms) · ease-out</span>. Markers fade in (opacity 0 → 1) at 60% / 80% / 100% progress (staggered). Callout drops in (translateY(−6 px) → 0 + opacity 0 → 1) at the end · <span class="mono">duration-default · ease-out</span>. Reduced-motion: fill renders at 100% immediately, markers and callout appear instantly.</td></tr>
+
+        <tr><th>Responsive</th><td>Layout unchanged across breakpoints. Below <code>sm (480 px)</code>: label row wraps · min/avg/max stack vertically left-aligned · markers and track stay full-width. Callout above the avg may overlap horizontally — drop the triangle tail and place the callout above the section label on mobile if avg position is &lt; 25% or &gt; 75% of width.</td></tr>
+
+        <tr><th>Accessibility</th><td>Track + markers are presentational. Adjacent to the visual: a visually-hidden <code>&lt;dl&gt;</code> with the three values ("Mínimo: $28.500/mes" · "Promedio: $42.800/mes" · "Máximo: $68.200/mes") for screen readers. Whole component carries <code>role="group" aria-label="Costo estimado del seguro de Toyota Corolla 2022"</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Anchor the "Promedio" callout to the avg marker, not to the center of the bar. The marker may not be centered — variance is real, and the callout should follow the data.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't use comma thousands-separators on prices. AR uses periods; commas are decimal markers. Mixed locale on a money component erodes trust faster than any other UI bug.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>min · avg · max:</b> numeric inputs — <b>showCallout:</b> boolean — <b>currency:</b> ARS (default) · USD — text override for the section label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

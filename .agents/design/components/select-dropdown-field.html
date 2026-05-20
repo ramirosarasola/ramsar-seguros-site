@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Select Dropdown Field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-2">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.2</div>
+    <h3 class="cs-title">Select / Dropdown Field</h3>
+    <p class="cs-purpose">Same trigger as Input Field; different reveal. Used for marca (15 options), modelo (100+ options), provincia (24), and any constrained choice. The 8-option threshold triggers built-in search.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 24px; flex-direction: column; gap: 14px; align-items: stretch;">
+        <span class="px-label">SELECT · TRIGGER (CLOSED) + OPEN PANEL WITH SEARCH</span>
+        <div class="demo-field">
+          <label>Marca del vehículo</label>
+          <div class="input" style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--ramsar-neutral-400);">Seleccioná una marca</span>
+            <span style="width: 12px; height: 12px; border-right: 1.5px solid var(--ramsar-neutral-500); border-bottom: 1.5px solid var(--ramsar-neutral-500); transform: rotate(45deg); margin-top: -4px;"></span>
+          </div>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--ramsar-neutral-200); border-radius: 8px; box-shadow: 0 1px 2px rgba(15,67,63,0.06), 0 2px 6px rgba(15,67,63,0.06); padding: 4px; max-width: 280px;">
+          <div style="padding: 8px 12px; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid var(--ramsar-neutral-100);">
+            <div style="width: 14px; height: 14px; border: 1.5px solid var(--ramsar-neutral-400); border-radius: 50%;"></div>
+            <span style="font-family: var(--sans); font-size: 13.5px; color: var(--ramsar-neutral-400);">Buscar marca…</span>
+          </div>
+          <div style="padding: 9px 12px; font-size: 14px; color: var(--ramsar-neutral-900);">Toyota</div>
+          <div style="padding: 9px 12px; font-size: 14px; color: var(--ramsar-primary-700); background: var(--ramsar-primary-50); border-radius: 6px; display: flex; justify-content: space-between;">Volkswagen <span>✓</span></div>
+          <div style="padding: 9px 12px; font-size: 14px; color: var(--ramsar-neutral-900);">Ford</div>
+          <div style="padding: 9px 12px; font-size: 14px; color: var(--ramsar-neutral-900);">Chevrolet</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Base</th><td>Identical to §5.1 Input Field in dimensions, padding, radius, and all six states (default, hover, focus, filled, error, disabled).</td></tr>
+
+        <tr><th>Trigger value display</th><td>When unselected: placeholder copy ("Seleccioná una marca") · color <code>sand-400</code>. When selected: chosen option label · color <code>sand-900</code> · weight 400 (not 500 — value is data, not a heading).</td></tr>
+
+        <tr><th>Trigger icon</th><td><code>chevron-down</code> · icon-sm (16 px) · color <code>sand-500</code> · position absolute right · 16 px right inset · vertically centered. On panel open: rotates 180° over <span class="mono">duration-fast (120 ms) · ease-in-out</span> · color shifts to <code>marine-700</code>.</td></tr>
+
+        <tr><th>Options panel · width</th><td>Equal to trigger width (anchored). Panel offset 4 px below trigger.</td></tr>
+        <tr><th>Options panel · surface</th><td>Background <code>sand-0</code>. Border 1 px <code>sand-200</code>. Radius <code>radius-sm (8 px)</code>. Shadow <code>elevation-2</code>. Padding <code>4 px</code> all sides. Z-index <code>z-40</code>.</td></tr>
+        <tr><th>Options panel · max-height</th><td><span class="mono">240 px</span> with internal scroll. Scrollbar 4 px <code>sand-300</code> thumb on 6 px <code>sand-100</code> track.</td></tr>
+
+        <tr><th>Option item</th><td>Height <span class="mono">40 px</span>. Padding <code>space-2 (8 px) vertical · space-3 (12 px) horizontal</code>. Typography <code>body-m (16 · 400)</code> · color <code>sand-900</code>. Radius <code>radius-sm (8 px)</code> per item (matches hover bg).</td></tr>
+        <tr><th>Option · hover</th><td>Background <code>marine-50</code>. Text color stays <code>sand-900</code>.</td></tr>
+        <tr><th>Option · selected</th><td>Background <code>marine-50</code>. Text color <code>marine-700</code>, weight 500. Trailing <code>check</code> icon (icon-sm · color <code>marine-700</code>) right-aligned.</td></tr>
+        <tr><th>Option · focused (kbd)</th><td>Same as hover plus 2 px <code>marine-700</code> focus ring inset 2 px.</td></tr>
+
+        <tr><th>Search input</th><td><b>Enabled when option count &gt; 8.</b> Sits at top of panel, separated from options by 1 px <code>sand-100</code> bottom border. Height 36 px. Leading <code>search</code> icon-sm · color <code>sand-400</code>. Placeholder "Buscar…" (or "Buscar marca…" / "Buscar modelo…" — contextual). Filters options live with a 60 ms debounce. Clears automatically on panel close.</td></tr>
+        <tr><th>Empty search state</th><td>Centered text "<i>No se encontraron resultados</i>" · typography <code>body-s (14 · 400)</code> · color <code>sand-500</code>. Vertical padding <code>space-6 (24 px)</code>. Optional helper link below: "Ver todas las marcas" → reset search · typography <code>label-s (11.5 · 500)</code> · color <code>marine-700</code> · underline 1 px offset 2 px.</td></tr>
+
+        <tr><th>Animation</th><td>Open: opacity 0 → 1 + translateY(−4 → 0) · <code>duration-default (220 ms) · ease-out</code>. Close: opacity 1 → 0 + translateY(0 → −4) · <code>duration-fast (120 ms) · ease-in</code>.</td></tr>
+
+        <tr><th>Keyboard</th><td><b>Space / Enter / ↓</b> open the panel and focus first option. <b>↑ / ↓</b> move between options. <b>Type-ahead</b>: typing characters when panel is open jumps to the first option matching the typed string. <b>Enter</b> selects the focused option, closes the panel, returns focus to the trigger. <b>Esc</b> closes without selection.</td></tr>
+        <tr><th>ARIA</th><td>Trigger: <code>role="combobox" aria-expanded aria-controls aria-haspopup="listbox"</code>. Panel: <code>role="listbox"</code>. Options: <code>role="option" aria-selected</code>. Search input inside panel: <code>role="searchbox"</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Auto-enable search at 9+ options. Below that, search is friction; above it, search is the only sane interface.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't use a native <code>&lt;select&gt;</code> on mobile "because the OS picker is faster." Native pickers can't surface search and can't render our 2-line option layout (model + year). The custom component is mandatory.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>state:</b> closed · open · empty · error — <b>showSearch:</b> boolean — <b>optionCount:</b> 3–20 — <b>selectedIndex:</b> -1 to N — text overrides per option.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

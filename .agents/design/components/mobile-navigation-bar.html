@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Mobile Navigation Bar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-1-2">
+  <header class="cs-head">
+    <div class="cs-num">§ 1.2</div>
+    <h3 class="cs-title">Mobile Navigation Bar</h3>
+    <p class="cs-purpose">The mobile top bar. Same job as desktop nav, compressed to fit one thumb: brand on the left, drawer trigger on the right, persistent quote affordance.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview">
+        <span class="px-label">DEFAULT · 56 px tall</span>
+        <div class="demo-mobile-nav">
+          <span class="nav-logo" style="font-family: var(--serif); font-size: 20px; color: var(--ramsar-primary-700);">Ramsar</span>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button class="btn-primary" style="padding: 7px 12px; font-size: 12.5px;">Cotizá</button>
+            <div class="ham"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-preview" style="margin-top: 12px;">
+        <span class="px-label">OPEN STATE · ham → X (rotates 90°)</span>
+        <div class="demo-mobile-nav">
+          <span class="nav-logo" style="font-family: var(--serif); font-size: 20px; color: var(--ramsar-primary-700);">Ramsar</span>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button class="btn-primary" style="padding: 7px 12px; font-size: 12.5px;">Cotizá</button>
+            <div style="width: 24px; height: 24px; position: relative;">
+              <span style="position: absolute; top: 11px; left: 2px; right: 2px; height: 1.5px; background: var(--ramsar-neutral-800); transform: rotate(45deg);"></span>
+              <span style="position: absolute; top: 11px; left: 2px; right: 2px; height: 1.5px; background: var(--ramsar-neutral-800); transform: rotate(-45deg);"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Height</th><td><span class="mono">56&nbsp;px</span> · vertical padding <span class="mono">space-3 (12 px)</span>. Does not shrink on scroll (mobile space is too constrained for a height transition to be felt).</td></tr>
+        <tr><th>Background</th><td><code>bg-page</code> (sand-50). On scroll ≥ 24 px adds <code>elevation-2</code>; no opacity change.</td></tr>
+        <tr><th>Shadow</th><td>Rest: <span class="mono">border-bottom: 1px solid border-subtle</span>. Scrolled: drops border, gains <code>elevation-2</code>.</td></tr>
+        <tr><th>Logo</th><td>Left-aligned, height <span class="mono">22&nbsp;px</span>. Padded to a 44×44 hit-target. Tap returns to <code>/</code>.</td></tr>
+        <tr><th>Hamburger icon</th><td>Lucide <code>menu</code> · size <code>icon-md (20&nbsp;px)</code> · stroke 1.75 · color <code>sand-800</code>. Hit-target <span class="mono">44×44&nbsp;px</span> (centred padding). Rightmost element.</td></tr>
+        <tr><th>Ham → X animation</th><td>Cross-fade with rotation. Three bars: top translateY +6 + rotate 45°, middle opacity 1→0, bottom translateY −6 + rotate −45°. Synchronous, <span class="mono">duration-default (220 ms) · ease-in-out</span>. Reverse identically on close.</td></tr>
+        <tr><th>CTA in mobile bar</th><td><b>Yes</b> — compact variant. Label "Cotizá" (Cotizá ahora is too long for 320 px viewports). Variant <code>btn-primary-sm</code> (32 px tall, padding 7+12, label-m). Sits to the left of the hamburger with <span class="mono">space-3 (12 px)</span> gap. Justification: cotizar is the dominant intent — burying it inside the drawer costs measurable conversion.</td></tr>
+        <tr><th>Layout</th><td>Logo left · spacer · CTA · gap-3 · Hamburger. Outer padding <code>space-5 (20 px)</code> horizontal.</td></tr>
+        <tr><th>Z-index</th><td><code>z-50</code> · <span class="mono">50</span>. Same stack as desktop nav.</td></tr>
+        <tr><th>Responsive</th><td>Visible 0–767 px. At ≥ <code>md</code> swap to §1.1 Top Navigation Bar.</td></tr>
+        <tr><th>Accessibility</th><td>Hamburger is a <code>&lt;button&gt;</code> with <code>aria-controls="primary-drawer"</code> and <code>aria-expanded</code> reflecting state. <code>aria-label="Abrir menú"</code> (closed) / <code>"Cerrar menú"</code> (open).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Truncate CTA label to "Cotizá" on mobile. Reads as imperative voseo; the "ahora" is implied by its persistence.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't hide the CTA inside the drawer. Two taps to a quote is one tap too many.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>state:</b> default · scrolled · open — <b>showCta:</b> boolean (true everywhere except cotizador page, see §2.4) — <b>ctaLabel:</b> text override.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

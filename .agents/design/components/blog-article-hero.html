@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Blog Article Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-2-3">
+  <header class="cs-head">
+    <div class="cs-num">§ 2.3</div>
+    <h3 class="cs-title">Blog Article Hero</h3>
+    <p class="cs-purpose">The reading entrance. Establishes article topic, credibility, and visual context, then hands the reader to body copy. No CTA — the visitor is in <em>read</em> mode; a CTA here interrupts the contract.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 32px; align-items: stretch; flex-direction: column;">
+        <span class="px-label">BLOG HERO · contained · 720 px reading column</span>
+        <div style="max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;">
+          <div class="demo-bc"><a>Inicio</a><span class="sep">/</span><a>Blog</a><span class="sep">/</span><span class="curr">Comparativas</span></div>
+          <div class="badge b-popular" style="align-self: flex-start; background: var(--ramsar-accent-300); color: var(--ramsar-accent-700);">Comparativas</div>
+          <h1 style="font-family: var(--serif); font-size: 36px; line-height: 1.08; color: var(--ramsar-neutral-900); margin: 0; letter-spacing: -0.018em;">Sancor vs. Zurich: ¿cuál cubre mejor a tu auto en 2026?</h1>
+          <div style="display: flex; gap: 10px; align-items: center; font-family: var(--mono); font-size: 11.5px; color: var(--ramsar-neutral-600);">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--ramsar-neutral-300);"></div>
+            <span>Lucía Andrade</span><span style="color: var(--ramsar-neutral-300);">·</span>
+            <span>12 mayo 2026</span><span style="color: var(--ramsar-neutral-300);">·</span>
+            <span>8 min</span>
+          </div>
+          <div style="aspect-ratio: 16/9; background: repeating-linear-gradient(45deg, var(--ramsar-neutral-200) 0 8px, var(--ramsar-neutral-100) 8px 16px); border-radius: 12px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Container</th><td><code>container-narrow (720 px max · 48 / 20 px outer padding)</code> — same reading column the article body uses. Hero and body share gutters; the rhythm of the article is unbroken.</td></tr>
+        <tr><th>Height</th><td>Content-driven. No min-height enforced. Top padding <code>space-12 (48 px)</code>, bottom padding <code>space-8 (32 px)</code> before article body.</td></tr>
+
+        <tr><th>Elements (top → bottom)</th><td>
+          <ol style="margin: 0; padding-left: 18px;">
+            <li>Breadcrumb (§1.5) · left-aligned · ends in category name as last link before current</li>
+            <li>Category badge · left-aligned · bottom margin <code>space-3 (12)</code></li>
+            <li>H1 · left-aligned · bottom margin <code>space-5 (20)</code></li>
+            <li>Metadata bar · bottom margin <code>space-6 (24)</code></li>
+            <li>Hero image · bottom margin <code>space-4 (16)</code> to caption</li>
+            <li>Caption (optional) · bottom margin <code>space-12 (48)</code> to article body</li>
+          </ol>
+        </td></tr>
+
+        <tr><th>Category badge · colors</th><td>Each of 5 categories carries a fixed color treatment (token-driven, recolorable later):
+          <ul>
+            <li><b>Consejos</b> — bg <code>marine-50</code> · text <code>marine-700</code></li>
+            <li><b>Comparativas</b> — bg <code>amber-300</code> · text <code>amber-700</code></li>
+            <li><b>Novedades</b> — bg <code>info-light (#E1ECF7)</code> · text <code>info-dark (#173A66)</code></li>
+            <li><b>Guías</b> — bg <code>success-light (#E4F1EA)</code> · text <code>success-dark (#0F4A2C)</code></li>
+            <li><b>Opiniones</b> — bg <code>sand-100</code> · text <code>sand-800</code></li>
+          </ul>
+          Badge variant <code>badge-md</code> · radius-full · padding <code>4 px / 10 px</code>. Same color appears on the matching blog-card category badge for visual continuity.
+        </td></tr>
+
+        <tr><th>H1 · typography</th><td><code>h1 (44 / 50 · −0.018 em · serif · 400)</code> on desktop. On mobile clamp to <code>display-l → 32 / 38</code>. Color <code>sand-900</code>. <b>Max 60 characters</b> — enforced — for SEO title-tag fallback and clean wrap at 720 px. If editor exceeds: H1 truncates display only; full title remains in <code>&lt;title&gt;</code> and OG tags.</td></tr>
+
+        <tr><th>Metadata bar</th><td>Single row, baseline-aligned. Order: avatar · author name · separator · publish date · separator · read time · separator · "Actualizado" date (optional).
+          <p><b>Author avatar:</b> circular 32 px · 1 px <code>sand-200</code> border. Fallback: initials in <code>marine-50</code> bg + <code>marine-700</code> text · serif initials.</p>
+          <p><b>Author name:</b> <code>label-m (13 · 500 · sans)</code> · color <code>sand-800</code> · linked to author profile (<code>/blog/autor/[slug]</code>).</p>
+          <p><b>Separator dot:</b> CSS pseudo-element "·" · color <code>sand-300</code> · space-2 padding each side.</p>
+          <p><b>Publish date:</b> <code>label-m</code> · color <code>sand-600</code>. Format Spanish-AR: "12 may 2026". Marked-up with <code>&lt;time datetime="2026-05-12"&gt;</code>.</p>
+          <p><b>Read time:</b> <code>label-m</code> · color <code>sand-600</code>. Format: "8 min de lectura" (full label first article, abbreviated "8 min" after first separator if the bar would wrap on mobile).</p>
+          <p><b>Updated date:</b> <code>caption (12 · 400 · +0.005 em)</code> · color <code>sand-500</code>. Format: "(Actualizado: 14 may 2026)". Only present if updated-date differs from publish-date by ≥ 30 days. Marked-up with <code>&lt;time datetime="..."&gt;</code> — SEO-significant for evergreen content.</p>
+        </td></tr>
+
+        <tr><th>Hero image · dimensions</th><td>Aspect ratio fixed <span class="mono">16 : 9</span>. Width 100% of reading column (max 720 px). Border radius <code>radius-md (12 px)</code> all four corners. Object-fit cover.</td></tr>
+        <tr><th>Hero image · caption</th><td>Typography <code>caption (12 · 400 · +0.005 em)</code> · color <code>sand-500</code>. <b>Left-aligned</b>, matching the rest of the article body's left-aligned text. Wrapped in <code>&lt;figcaption&gt;</code> inside a parent <code>&lt;figure&gt;</code>. Optional — omit the element entirely if no caption (do not render an empty space).</td></tr>
+        <tr><th>Hero image · alt &amp; SEO</th><td>Every hero image carries <code>alt</code> describing its content factually — not the article title. Example: alt="Tablero comparativo de cobertura entre Sancor y Zurich con valores de prima anual." Length 60–125 chars. Files named by topic ("comparativa-sancor-zurich-2026.webp"), never "hero.jpg". Width 1600 px source, served via responsive <code>srcset</code> at 1×, 1.5×, 2×.</td></tr>
+
+        <tr><th>No CTA · justification</th><td>The mid-article CTA block (§4.7) appears at the 50% scroll mark, where the reader has signalled engagement. Placing a CTA above the fold would interrupt the reading contract and measurably reduce article completion rates. The conversion offer is honoured later, when it's earned.</td></tr>
+
+        <tr><th>Responsive</th><td>Layout unchanged structurally. H1 clamps from 44 → 32 px between md and xs. Metadata bar wraps to 2 rows when needed: row 1 = avatar + author + date; row 2 = read time + updated date. Hero image keeps 16:9 aspect.</td></tr>
+        <tr><th>Accessibility</th><td>Single <code>&lt;h1&gt;</code>. Author avatar carries empty alt (decorative) when accompanied by author name. Hero image is the <code>&lt;img&gt;</code> inside <code>&lt;figure&gt;</code> with <code>&lt;figcaption&gt;</code>. Dates use <code>&lt;time&gt;</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Surface the "Actualizado" date when content is materially refreshed. Freshness is a documented ranking signal for evergreen finance content.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't drop a "Cotizá ahora" CTA into this hero. Reading-mode interruptions cost completion and trust; the mid-article block converts better.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>category:</b> Consejos · Comparativas · Novedades · Guías · Opiniones — <b>showUpdated:</b> boolean — <b>showCaption:</b> boolean — instance-swap for author avatar — text overrides for H1, author, dates, read-time, caption.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

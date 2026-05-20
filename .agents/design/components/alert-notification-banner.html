@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Alert Notification Banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-5">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.5</div>
+    <h3 class="cs-title">Alert / Notification Banner</h3>
+    <p class="cs-purpose">Inline status banner — sits within page content, not floating. Used to surface policy expirations, partial form errors, contextual info, post-action confirmations. Four semantic variants, identical structure.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 24px; align-items: stretch; flex-direction: column; gap: 12px;">
+        <span class="px-label">4 VARIANTS · LEFT BORDER ACCENT + DISMISSIBLE</span>
+        <div class="demo-alert" style="background: rgba(31,122,77,0.06); border-left-color: var(--ramsar-success);">
+          <div class="ic-sq" style="border-color: var(--ramsar-success); background: var(--ramsar-success); border-radius: 50%;"></div>
+          <div style="flex: 1;"><div class="t" style="color: #0F4A2C;">Cotización guardada</div><div class="b">Te enviamos los detalles a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f130a1c161e511e111b0d1e1b1a3f18121e1613511c1012">[email&#160;protected]</a></div></div>
+          <div style="cursor: pointer; color: var(--ramsar-neutral-400);">✕</div>
+        </div>
+        <div class="demo-alert" style="background: rgba(200,136,30,0.08); border-left-color: var(--ramsar-warning);">
+          <div class="ic-sq" style="border-color: var(--ramsar-warning); transform: rotate(45deg);"></div>
+          <div style="flex: 1;"><div class="t" style="color: #6E4A0C;">Tu cobertura vence en 12 días</div><div class="b">Cotizá la renovación antes del 31 de mayo para evitar interrupciones. <a style="color: var(--ramsar-warning); text-decoration: underline;">Renovar ahora</a></div></div>
+          <div style="cursor: pointer; color: var(--ramsar-neutral-400);">✕</div>
+        </div>
+        <div class="demo-alert" style="background: rgba(184,52,28,0.08); border-left-color: var(--ramsar-error);">
+          <div class="ic-sq" style="border-color: var(--ramsar-error); border-radius: 50%; position: relative;"></div>
+          <div style="flex: 1;"><div class="t" style="color: #7A1F0F;">No pudimos procesar tu cotización</div><div class="b">Revisá los datos del vehículo y volvé a intentar.</div></div>
+          <div style="cursor: pointer; color: var(--ramsar-neutral-400);">✕</div>
+        </div>
+        <div class="demo-alert">
+          <div class="ic-sq" style="border-radius: 50%;"></div>
+          <div style="flex: 1;"><div class="t">Sabías que…</div><div class="b">Podés cambiar de aseguradora cualquier mes con 30 días de aviso.</div></div>
+          <div style="cursor: pointer; color: var(--ramsar-neutral-400);">✕</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Container</th><td>Padding <code>space-4 (16 px)</code> all sides. Background variant-soft. <b>Left border 4 px</b> in variant-default color. Full border 1 px in variant-light (a softer tone of the same hue). Radius <code>radius-md (12 px)</code>. Layout: flex · gap <code>space-3 (12 px)</code> · align-items flex-start.</td></tr>
+
+        <tr><th>Variants · success</th><td>BG <code>success-light (#E4F1EA)</code> · border-left 4 px <code>success-default (#1F7A4D)</code> · border 1 px <code>success @ 30%</code> · icon <code>success-default</code> · title <code>success-dark (#0F4A2C)</code> · text <code>sand-700</code>. Icon: <code>circle-check</code>.</td></tr>
+        <tr><th>Variants · warning</th><td>BG <code>warning-light (#FBEFD8)</code> · border-left <code>warning-default (#C8881E)</code> · border 1 px <code>warning @ 30%</code> · icon <code>warning-default</code> · title <code>warning-dark (#6E4A0C)</code> · text <code>sand-700</code>. Icon: <code>triangle-alert</code>.</td></tr>
+        <tr><th>Variants · error</th><td>BG <code>error-light (#F6E2DD)</code> · border-left <code>error-default (#B8341C)</code> · border 1 px <code>error @ 30%</code> · icon <code>error-default</code> · title <code>error-dark (#7A1F0F)</code> · text <code>sand-700</code>. Icon: <code>circle-x</code>.</td></tr>
+        <tr><th>Variants · info</th><td>BG <code>info-light (#E1ECF7)</code> · border-left <code>info-default (#2A5F9E)</code> · border 1 px <code>info @ 30%</code> · icon <code>info-default</code> · title <code>info-dark (#173A66)</code> · text <code>sand-700</code>. Icon: <code>info</code>.</td></tr>
+
+        <tr><th>Icon</th><td>Size <code>icon-md (20 px)</code> · stroke 1.75 · color = variant-default. Vertical alignment: top-aligned to title cap-height, not center (when content wraps to many lines, center-alignment drifts the icon).</td></tr>
+
+        <tr><th>Content area</th><td>Flex 1 (fills available width).</td></tr>
+        <tr><th>Title</th><td>Typography <code>label-m (13 · 600 · sans)</code>. Color = variant-dark. Bottom margin <code>space-1 (4 px)</code> when description follows; 0 otherwise.</td></tr>
+        <tr><th>Description</th><td>Typography <code>body-s (14 · 400)</code>. Color <code>sand-700</code>. Max-width <span class="mono">62 ch</span>. Can contain inline links (color = variant-default · underline 1 px / 3 px offset) and a single trailing action link.</td></tr>
+        <tr><th>Action link</th><td>Inline at end of description. Typography <code>label-s (11.5 · 600)</code> · color variant-default · underline. Hover: color darkens to variant-dark.</td></tr>
+
+        <tr><th>Dismiss button</th><td>Optional. <code>x</code> icon · icon-sm · color <code>sand-400</code> · hover <code>sand-700</code>. Position: top-right of container · padding <code>space-3 (12 px)</code> (becomes a 32 × 32 hit-target). On click: alert collapses (height 0 + opacity 0, <code>duration-fast · ease-in</code>).</td></tr>
+
+        <tr><th>Width</th><td>Full width of parent container. No fixed max-width — caller controls placement.</td></tr>
+
+        <tr><th>Accessibility</th><td><code>role="alert"</code> for time-sensitive (warning, error). <code>role="status"</code> for success and info. <code>aria-live="polite"</code> for status, <code>"assertive"</code> for error. Icons are <code>aria-hidden</code>. Dismiss button has <code>aria-label="Descartar alerta"</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Top-align the icon to the title's cap-height. When alerts wrap to multiple description lines, a center-aligned icon drifts away from the title — and the icon-title pair is the unit of meaning.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't auto-dismiss alerts. Auto-dismiss belongs to toasts (transient feedback); alerts are persistent context — they live until the user dismisses or the page reloads.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> success · warning · error · info — <b>showTitle:</b> boolean — <b>showAction:</b> boolean — <b>dismissible:</b> boolean — text overrides for title · description · action label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>

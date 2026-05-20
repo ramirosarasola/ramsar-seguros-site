@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ramsar Seguros — Badge Tag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../components.css" />
+</head>
+<body>
+<main class="page">
+
+<article class="cs" id="c-5-4">
+  <header class="cs-head">
+    <div class="cs-num">§ 5.4</div>
+    <h3 class="cs-title">Badge / Tag</h3>
+    <p class="cs-purpose">Small pill component used for category labels, "Recomendado", "Más popular", status indicators, and filter tags. Pill-shaped (radius-full) always — the rounded form differentiates badges from buttons at a glance.</p>
+  </header>
+
+  <div class="cs-grid">
+    <div>
+      <div class="cs-preview white" style="padding: 24px; align-items: stretch; flex-direction: column; gap: 14px;">
+        <span class="px-label">SIZES &amp; COLORS</span>
+        <div class="demo-badge-row">
+          <span class="badge b-recommended">★ Recomendado</span>
+          <span class="badge b-new">Cobertura nacional</span>
+          <span class="badge b-popular">Más popular</span>
+          <span class="badge" style="background: rgba(31,122,77,0.12); color: var(--ramsar-success);">Verificado</span>
+          <span class="badge" style="background: rgba(184,52,28,0.12); color: var(--ramsar-error);">Cobertura vencida</span>
+          <span class="badge" style="background: var(--ramsar-neutral-100); color: var(--ramsar-neutral-700);">Borrador</span>
+        </div>
+        <div class="demo-badge-row">
+          <span class="badge b-new" style="height: 20px; padding: 0 8px; font-size: 10.5px;">SM</span>
+          <span class="badge b-new" style="height: 24px; padding: 0 12px;">MD · default</span>
+          <span class="badge b-new" style="height: 28px; padding: 0 16px; font-size: 12.5px;">LG · with icon ✓</span>
+          <span class="badge" style="background: var(--ramsar-primary-700); color: #fff; height: 24px; padding: 0 6px 0 12px; display: inline-flex; gap: 6px; align-items: center;">Toyota <span style="opacity: 0.7; cursor: pointer;">✕</span></span>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-tbl">
+      <tbody>
+        <tr><th>Radius</th><td><code>radius-full</code> always. The pill is the badge's signature. Square-cornered "tags" don't exist in this system — they'd be confused with disabled buttons.</td></tr>
+
+        <tr><th>Size · sm</th><td>Height <span class="mono">20 px</span> · padding <code>0 space-2 (8 px)</code> · typography <code>label-s (10.5 · 600 · sans · +0.01 em)</code>. Used: dense table cells, tight metadata rows.</td></tr>
+        <tr><th>Size · md (default)</th><td>Height <span class="mono">24 px</span> · padding <code>0 space-3 (12 px)</code> · typography <code>label-s (11.5 · 600 · +0.02 em)</code>. Default. Used: card badges, status indicators.</td></tr>
+        <tr><th>Size · lg</th><td>Height <span class="mono">28 px</span> · padding <code>0 space-4 (16 px)</code> · typography <code>label-m (12.5 · 600)</code>. Used: hero badges ("Aseguradora destacada"), prominent labels.</td></tr>
+
+        <tr><th>Color variants · background / text</th><td>
+          <ul>
+            <li><b>brand-soft</b>: <code>marine-50</code> / <code>marine-700</code></li>
+            <li><b>brand-solid</b>: <code>marine-700</code> / <code>sand-0</code> — heavier emphasis</li>
+            <li><b>accent-soft</b>: <code>amber-300</code> / <code>amber-700</code> — "Recomendado", "Más popular" affordances</li>
+            <li><b>accent-solid</b>: <code>amber-500</code> / <code>midnight-700</code> — for badges on dark surfaces</li>
+            <li><b>success</b>: <code>success-light (rgba success @ 12%)</code> / <code>success-dark</code></li>
+            <li><b>warning</b>: <code>warning-light @ 14%</code> / <code>warning-dark</code></li>
+            <li><b>error</b>: <code>error-light @ 14%</code> / <code>error-dark</code></li>
+            <li><b>info</b>: <code>info-light @ 14%</code> / <code>info-dark</code></li>
+            <li><b>neutral</b>: <code>sand-100</code> / <code>sand-700</code></li>
+          </ul>
+        </td></tr>
+
+        <tr><th>Icon support</th><td>Icon-left only · icon-xs (12 px) · color inherits text-color · gap <code>space-1 (4 px)</code>. Common: <code>★</code> on "Recomendado", <code>check</code> on "Verificado".</td></tr>
+
+        <tr><th>Non-interactive (informational)</th><td>No hover state · no cursor change · no tab-stop. Default for category labels, "Recomendado", status indicators. Wrap in <code>&lt;span&gt;</code>, not <code>&lt;button&gt;</code>.</td></tr>
+        <tr><th>Interactive (filter / removable tag)</th><td>Hover: bg deepens one shade (e.g. marine-50 → marine-100). Cursor pointer. Focus ring per §05. Removable variant: trailing <code>x</code> icon (icon-xs · color inherits text @ 70% α · hover full opacity). Click on x dismisses the badge (used in filter pill stacks).</td></tr>
+
+        <tr><th>Accessibility</th><td>Informational badges are <code>&lt;span&gt;</code>. Removable filter badges are wrapped in <code>&lt;button aria-label="Quitar filtro: [label]"&gt;</code>. Status badges that convey state (e.g. "Cobertura vencida") use <code>aria-label</code> when their visual meaning requires color recognition — color alone is insufficient for accessibility.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dd-grid">
+    <div class="cell do"><span class="lbl">Do</span>Use accent-soft for "Recomendado" / "Más popular". Amber-300 on amber-700 is the warmest, most-trusted recommendation cue the palette can carry without entering CTA territory.</div>
+    <div class="cell dont"><span class="lbl">Don't</span>Don't pair a brand-solid badge with a primary button in the same card. Two solid marine surfaces compete for the eye — badge soft, button solid is the rule.</div>
+  </div>
+
+  <table class="spec-tbl" style="margin-top: 14px;">
+    <tbody>
+      <tr><th>Figma props</th><td><b>variant:</b> 9 enum — <b>size:</b> sm · md · lg — <b>showIcon:</b> boolean — <b>removable:</b> boolean — text override for label.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+</main>
+</body>
+</html>
