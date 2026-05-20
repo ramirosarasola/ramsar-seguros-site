@@ -32,6 +32,24 @@ Use shadcn/ui as the component base, extend with design system tokens via tailwi
 
 ---
 
+## Tailwind
+
+Always use canonical Tailwind classes — never arbitrary values when a canonical class exists.
+
+Examples of what NOT to do:
+- `backdrop-blur-[12px]` → use `backdrop-blur-md`
+- `max-w-[1200px]` → use `max-w-300`
+- `duration-[120ms]` → use `duration-120`
+- `text-[16px]` → use `text-base`
+- `p-[24px]` → use `p-6`
+
+Rules:
+- Before writing any arbitrary value `[]`, check if a Tailwind canonical class exists
+- Arbitrary values are only allowed for values that don't exist in the Tailwind scale
+- Run `npx tailwindcss --help` or check tailwind.config.ts for available tokens
+
+---
+
 # Ramsar Seguros — Next.js 16
 
 Insurance comparison platform targeting #1 ranking for "seguros de auto Argentina".

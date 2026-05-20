@@ -13,7 +13,8 @@
       "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => /insta|linked|twitter|tiktok/i.test\\(k\\)\\).join\\('\\\\n'\\)\\)\")",
       "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\); console.log\\('Total:', keys.length\\); console.log\\(keys.filter\\(k => /gram|link|social|face|music/i.test\\(k\\)\\).slice\\(0,20\\).join\\('\\\\n'\\)\\)\")",
       "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => /^[A-Z]/.test\\(k\\) && /gram|linked|whats|tiktok|twitter|music2|message/i.test\\(k\\)\\).slice\\(0,20\\).join\\('\\\\n'\\)\\)\")",
-      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => /^[A-Z]/.test\\(k\\) && !k.endsWith\\('Icon'\\) && !k.startsWith\\('Lucide'\\)\\).filter\\(k => /^\\(Twi|Insta|Link|Fac|Music|Whats|Tik\\)/i.test\\(k\\)\\).join\\('\\\\n'\\)\\)\")"
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => /^[A-Z]/.test\\(k\\) && !k.endsWith\\('Icon'\\) && !k.startsWith\\('Lucide'\\)\\).filter\\(k => /^\\(Twi|Insta|Link|Fac|Music|Whats|Tik\\)/i.test\\(k\\)\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(npx shadcn@latest add tooltip --yes)"
     ]
   }
 }

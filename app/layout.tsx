@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import { Suspense } from 'react'
+import { Providers } from '@/components/ui/providers'
 import './globals.css'
 
 /* ── Fonts (next/font — no external network requests at runtime) ── */
@@ -121,7 +122,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <Suspense>{children}</Suspense>
+        <Providers>
+          <Suspense>{children}</Suspense>
+        </Providers>
       </body>
     </html>
   )
