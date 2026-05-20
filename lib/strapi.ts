@@ -21,6 +21,7 @@ export type InsurerReview = {
   vehicle: string
 }
 
+// Percentages 0-100, not raw counts
 export type RatingBreakdown = {
   five: number
   four: number
@@ -65,23 +66,95 @@ export type Insurer = {
   reviews: InsurerReview[]
 }
 
-// ─── Strapi Client ────────────────────────────────────────────────────────────
+// ─── Strapi v5 Client ─────────────────────────────────────────────────────────
 
-async function strapiRequest<T>(path: string, revalidate = 3600): Promise<T | null> {
-  if (!STRAPI_URL) return null
+async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> {
+  if (!STRAPI_URL) {
+    console.log('[strapi] STRAPI_URL no configurada — usando datos estáticos')
+    return null
+  }
+  const url = `${STRAPI_URL}/api/${path}`
   try {
-    const res = await fetch(`${STRAPI_URL}/api/${path}?populate=*`, {
+    const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,
         'Content-Type': 'application/json',
       },
       next: { revalidate },
     })
-    if (!res.ok) return null
+    if (!res.ok) {
+      console.error(`[strapi] ${res.status} ${res.statusText} → ${url}`)
+      return null
+    }
     const json = await res.json()
-    return (json.data ?? null) as T
-  } catch {
+    const data = json.data ?? null
+    console.log(`[strapi] OK → ${url} | data:`, Array.isArray(data) ? `array[${data.length}]` : data)
+    return data as T
+  } catch (err) {
+    console.error(`[strapi] fetch error → ${url}`, err)
     return null
+  }
+}
+
+// Strapi v5 returns flat objects — no `attributes` wrapper.
+// Components embed `id` and `__component`. We strip those in the mapper.
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapInsurer(raw: Record<string, any>): Insurer {
+  return {
+    slug: raw.slug,
+    name: raw.name,
+    tagline: raw.tagline ?? '',
+    foundedYear: raw.foundedYear,
+    rating: raw.rating,
+    reviewCount: raw.reviewCount,
+    priceFrom: raw.priceFrom,
+    sinisterResponse: raw.sinisterResponse,
+    description: raw.description ?? '',
+    updatedMonth: raw.updatedMonth ?? '',
+    ratingBreakdown: {
+      five: raw.ratingBreakdown?.five ?? 0,
+      four: raw.ratingBreakdown?.four ?? 0,
+      three: raw.ratingBreakdown?.three ?? 0,
+      two: raw.ratingBreakdown?.two ?? 0,
+      one: raw.ratingBreakdown?.one ?? 0,
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    plans: (raw.plans ?? []).map((p: any) => ({
+      id: p.planId as InsurerPlan['id'],
+      name: p.name,
+      tagline: p.tagline ?? '',
+      priceFrom: p.priceFrom,
+      recommended: p.recommended ?? false,
+      included: p.included ?? [],
+      excluded: p.excluded ?? null,
+      excludedNote: p.excludedNote,
+    })) as [InsurerPlan, InsurerPlan, InsurerPlan],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    comparisonRows: (raw.comparisonRows ?? []).map((r: any) => ({
+      feature: r.feature,
+      terceros: r.terceros,
+      tercerosPlus: r.tercerosPlus,
+      todoRiesgo: r.todoRiesgo,
+      tooltip: r.tooltip,
+    })),
+    pros: raw.pros ?? [],
+    cons: raw.cons ?? [],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    personas: (raw.personas ?? []).map((p: any) => ({
+      icon: p.icon,
+      title: p.title,
+      description: p.description,
+      linkText: p.linkText,
+      linkHref: p.linkHref,
+    })),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reviews: (raw.reviews ?? []).map((r: any) => ({
+      stars: r.stars as InsurerReview['stars'],
+      quote: r.quote,
+      authorName: r.authorName,
+      vehicle: r.vehicle,
+    })),
   }
 }
 
@@ -179,7 +252,7 @@ const STATIC_INSURERS: Insurer[] = [
     updatedMonth: 'mayo 2026',
     description:
       'Todo lo que necesitás saber sobre Atlántida Seguros para decidir si es la aseguradora ideal para tu auto. Coberturas, precios actualizados, opiniones reales y comparativa con el resto del mercado.',
-    ratingBreakdown: { five: 1440, four: 277, three: 74, two: 37, one: 19 },
+    ratingBreakdown: { five: 78, four: 15, three: 4, two: 2, one: 1 },
     plans: makePlans('Desde $35.000/mes', 'Desde $52.000/mes', 'Desde $78.000/mes'),
     comparisonRows: STANDARD_ROWS,
     pros: [
@@ -254,23 +327,12 @@ const STATIC_INSURERS: Insurer[] = [
     priceFrom: 'Desde $34.800/mes',
     sinisterResponse: 'Respuesta en 48hs',
     updatedMonth: 'mayo 2026',
-    description:
-      'Coberturas, precios y opiniones de Sancor Seguros para autos en Argentina. Comparativa actualizada con el resto del mercado.',
-    ratingBreakdown: { five: 172, four: 78, three: 37, two: 16, one: 9 },
+    description: 'Coberturas, precios y opiniones de Sancor Seguros para autos en Argentina. Comparativa actualizada con el resto del mercado.',
+    ratingBreakdown: { five: 55, four: 25, three: 12, two: 5, one: 3 },
     plans: makePlans('Desde $24.800/mes', 'Desde $36.400/mes', 'Desde $54.900/mes'),
     comparisonRows: STANDARD_ROWS,
-    pros: [
-      'Cooperativa argentina con más de 75 años en el mercado, sin fines de lucro.',
-      'Amplia red de sucursales y talleres propios en todo el país.',
-      'Precios competitivos para el segmento Terceros y Terceros Plus.',
-      'Atención personalizada en sucursales físicas en todas las provincias.',
-      'Baja tasa de cancelación de pólizas — indicador de satisfacción del cliente.',
-    ],
-    cons: [
-      'App móvil con funcionalidades más limitadas que competidores digitales como Zurich.',
-      'Tiempos de respuesta en siniestros variables según la provincia.',
-      'Proceso de cotización online menos ágil que otras aseguradoras.',
-    ],
+    pros: ['Cooperativa argentina con más de 75 años en el mercado, sin fines de lucro.', 'Amplia red de sucursales y talleres propios en todo el país.', 'Precios competitivos para el segmento Terceros y Terceros Plus.', 'Atención personalizada en sucursales físicas en todas las provincias.', 'Baja tasa de cancelación de pólizas — indicador de satisfacción del cliente.'],
+    cons: ['App móvil con funcionalidades más limitadas que competidores digitales como Zurich.', 'Tiempos de respuesta en siniestros variables según la provincia.', 'Proceso de cotización online menos ágil que otras aseguradoras.'],
     personas: [
       { icon: 'User', title: 'Conductores que valoran el servicio presencial', description: 'Con sucursales en todo el país, Sancor es ideal para quienes prefieren resolver trámites en persona o necesitan atención cara a cara.', linkText: 'Ver Terceros Plus →', linkHref: '/seguros-de-auto/cotizar?aseguradora=sancor-seguros&plan=terceros-plus' },
       { icon: 'Shield', title: 'Quienes buscan granizo incluido', description: 'El plan Terceros Plus de Sancor incluye granizo sin franquicia, una de las coberturas más buscadas en Argentina.', linkText: 'Ver coberturas →', linkHref: '/aseguradoras/sancor-seguros#coberturas' },
@@ -292,25 +354,14 @@ const STATIC_INSURERS: Insurer[] = [
     priceFrom: 'Desde $41.200/mes',
     sinisterResponse: 'Respuesta en 24hs',
     updatedMonth: 'mayo 2026',
-    description:
-      'Coberturas, precios y opiniones de Zurich Argentina para autos. Aseguradora internacional con fuerte presencia digital.',
-    ratingBreakdown: { five: 325, four: 108, three: 65, two: 32, one: 11 },
+    description: 'Coberturas, precios y opiniones de Zurich Argentina para autos. Aseguradora internacional con fuerte presencia digital.',
+    ratingBreakdown: { five: 60, four: 20, three: 12, two: 6, one: 2 },
     plans: makePlans('Desde $31.000/mes', 'Desde $45.000/mes', 'Desde $68.000/mes'),
     comparisonRows: STANDARD_ROWS,
-    pros: [
-      'Grupo internacional con más de 150 años de trayectoria global.',
-      'App y portal digital líderes del mercado para gestión de pólizas y siniestros.',
-      'Cobertura MERCOSUR incluida en todos los planes desde Terceros Plus.',
-      'Proceso de cotización 100% digital en menos de 3 minutos.',
-      'Alta tasa de resolución de siniestros en primeras 24 horas.',
-    ],
-    cons: [
-      'Precios superiores al promedio del mercado en el segmento Todo Riesgo.',
-      'Red de talleres propios más reducida que cooperativas nacionales.',
-      'Atención presencial limitada — principalmente digital y telefónica.',
-    ],
+    pros: ['Grupo internacional con más de 150 años de trayectoria global.', 'App y portal digital líderes del mercado para gestión de pólizas y siniestros.', 'Cobertura MERCOSUR incluida en todos los planes desde Terceros Plus.', 'Proceso de cotización 100% digital en menos de 3 minutos.', 'Alta tasa de resolución de siniestros en primeras 24 horas.'],
+    cons: ['Precios superiores al promedio del mercado en el segmento Todo Riesgo.', 'Red de talleres propios más reducida que cooperativas nacionales.', 'Atención presencial limitada — principalmente digital y telefónica.'],
     personas: [
-      { icon: 'Smartphone', title: 'Conductores digitales', description: 'Si preferís gestionar todo desde el celular, Zurich tiene la mejor app del mercado para denuncia de siniestros, pagos y asistencia.', linkText: 'Ver funciones digitales →', linkHref: '/aseguradoras/zurich#digital' },
+      { icon: 'Smartphone', title: 'Conductores digitales', description: 'Si preferís gestionar todo desde el pepe, Zurich tiene la mejor app del mercado para denuncia de siniestros, pagos y asistencia.', linkText: 'Ver funciones digitales →', linkHref: '/aseguradoras/zurich#digital' },
       { icon: 'Globe', title: 'Viajeros frecuentes al exterior', description: 'La cobertura MERCOSUR de Zurich incluye Argentina, Uruguay, Paraguay, Brasil y Chile sin costo adicional.', linkText: 'Ver cobertura MERCOSUR →', linkHref: '/aseguradoras/zurich#mercosur' },
       { icon: 'Car', title: 'Autos de alta gama', description: 'Los planes Todo Riesgo de Zurich son ideales para vehículos de alta gama por la cobertura integral sin límites de valor.', linkText: 'Ver Todo Riesgo →', linkHref: '/seguros-de-auto/cotizar?aseguradora=zurich&plan=todo-riesgo' },
     ],
@@ -330,9 +381,8 @@ const STATIC_INSURERS: Insurer[] = [
     priceFrom: 'Desde $32.500/mes',
     sinisterResponse: 'Respuesta en 48hs',
     updatedMonth: 'mayo 2026',
-    description:
-      'Coberturas, precios y opiniones de San Cristóbal Seguros para autos en Argentina. Atención personalizada en más de 100 sucursales.',
-    ratingBreakdown: { five: 124, four: 62, three: 37, two: 15, one: 10 },
+    description: 'Coberturas, precios y opiniones de San Cristóbal Seguros para autos en Argentina. Atención personalizada en más de 100 sucursales.',
+    ratingBreakdown: { five: 50, four: 25, three: 15, two: 6, one: 4 },
     plans: makePlans('Desde $24.000/mes', 'Desde $35.500/mes', 'Desde $52.000/mes'),
     comparisonRows: STANDARD_ROWS,
     pros: ['Más de 100 sucursales en todo el país para atención presencial.', 'Precios accesibles en el segmento Terceros.', 'Buen servicio de asistencia en ruta a nivel nacional.', 'Atención en español nativo sin derivaciones al exterior.', 'Amplia experiencia en el mercado argentino — más de 80 años.'],
@@ -358,9 +408,8 @@ const STATIC_INSURERS: Insurer[] = [
     priceFrom: 'Desde $48.900/mes',
     sinisterResponse: 'Respuesta en 24hs',
     updatedMonth: 'mayo 2026',
-    description:
-      'Coberturas, precios y opiniones de La Meridional para autos en Argentina. Especialistas en vehículos de gama media-alta y premium.',
-    ratingBreakdown: { five: 102, four: 47, three: 20, two: 11, one: 7 },
+    description: 'Coberturas, precios y opiniones de La Meridional para autos en Argentina. Especialistas en vehículos de gama media-alta y premium.',
+    ratingBreakdown: { five: 55, four: 25, three: 11, two: 6, one: 3 },
     plans: makePlans('Desde $38.000/mes', 'Desde $56.000/mes', 'Desde $82.000/mes'),
     comparisonRows: STANDARD_ROWS,
     pros: ['Especialistas en vehículos de alta gama con tasación a valor de mercado.', 'Tasación del vehículo mediante app para reclamaciones más justas.', 'Servicio premium con gestores dedicados para pólizas Todo Riesgo.', 'Cobertura internacional incluida en planes premium.', 'App con valuación instantánea del vehículo para reclamaciones.'],
@@ -386,9 +435,8 @@ const STATIC_INSURERS: Insurer[] = [
     priceFrom: 'Desde $38.400/mes',
     sinisterResponse: 'Respuesta en 48hs',
     updatedMonth: 'mayo 2026',
-    description:
-      'Coberturas, precios y opiniones de Mapfre para autos en Argentina. Grupo internacional con más de 90 años de historia global.',
-    ratingBreakdown: { five: 148, four: 74, three: 44, two: 20, one: 10 },
+    description: 'Coberturas, precios y opiniones de Mapfre para autos en Argentina. Grupo internacional con más de 90 años de historia global.',
+    ratingBreakdown: { five: 50, four: 25, three: 15, two: 7, one: 3 },
     plans: makePlans('Desde $28.000/mes', 'Desde $41.000/mes', 'Desde $62.000/mes'),
     comparisonRows: STANDARD_ROWS,
     pros: ['Grupo internacional con respaldo global y más de 90 años de experiencia.', 'Cobertura todo riesgo flexible con franquicias configurables.', 'Atención telefónica disponible 24/7 los 365 días del año.', 'Amplia red de talleres concertados en todo el país.', 'Planes adaptables a distintos perfiles de conductor y uso del vehículo.'],
@@ -414,9 +462,8 @@ const STATIC_INSURERS: Insurer[] = [
     priceFrom: 'Desde $33.700/mes',
     sinisterResponse: 'Respuesta en 24hs',
     updatedMonth: 'mayo 2026',
-    description:
-      'Coberturas, precios y opiniones de Federación Patronal para autos en Argentina. Cooperativa con más de 100 años de historia.',
-    ratingBreakdown: { five: 247, four: 103, three: 41, two: 14, one: 7 },
+    description: 'Coberturas, precios y opiniones de Federación Patronal para autos en Argentina. Cooperativa con más de 100 años de historia.',
+    ratingBreakdown: { five: 60, four: 25, three: 10, two: 3, one: 2 },
     plans: makePlans('Desde $25.500/mes', 'Desde $38.000/mes', 'Desde $56.000/mes'),
     comparisonRows: STANDARD_ROWS,
     pros: ['Cooperativa argentina con más de 100 años de historia — la más antigua del país.', 'Tasa de siniestros más baja del mercado según datos de la Superintendencia.', 'Precios estables con aumentos por debajo del promedio del sector.', 'Sin letra chica — pólizas redactadas en lenguaje claro y sencillo.', 'Atención personalizada con ejecutivos de cuenta dedicados.'],
@@ -437,13 +484,20 @@ const STATIC_INSURERS: Insurer[] = [
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 export async function getAllAseguradoras(): Promise<{ slug: string }[]> {
-  const remote = await strapiRequest<{ slug: string }[]>('aseguradoras?fields[0]=slug', 86400)
+  const remote = await strapiGet<{ slug: string }[]>(
+    'aseguradoras?fields[0]=slug&pagination[pageSize]=100',
+    86400,
+  )
   if (remote) return remote
   return STATIC_INSURERS.map((i) => ({ slug: i.slug }))
 }
 
 export async function getInsurer(slug: string): Promise<Insurer | null> {
-  const remote = await strapiRequest<Insurer>(`aseguradoras/${slug}`, 3600)
-  if (remote) return remote
+  type StrapiItem = Record<string, unknown>
+  const remote = await strapiGet<StrapiItem[]>(
+    `aseguradoras?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=*`,
+    3600,
+  )
+  if (remote?.[0]) return mapInsurer(remote[0])
   return STATIC_INSURERS.find((i) => i.slug === slug) ?? null
 }
