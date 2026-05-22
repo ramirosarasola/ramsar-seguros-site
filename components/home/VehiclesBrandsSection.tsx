@@ -39,7 +39,7 @@ export function VehiclesBrandsSection() {
           <h2 className="font-serif text-[36px] leading-[1.06] tracking-[-0.015em] text-neutral-900 max-w-[20ch]">
             Seguros de auto por marca y modelo
           </h2>
-          <p className="font-sans text-[16px] text-neutral-500 mt-2 max-w-[600px]">
+          <p className="font-sans text-[16px] text-neutral-500 mt-2 max-w-150">
             Encontrá el seguro ideal según tu vehículo. Cada marca y modelo
             tiene características que afectan el precio y las coberturas
             disponibles.
@@ -75,7 +75,7 @@ export function VehiclesBrandsSection() {
         </div>
 
         {/* SEO copy block */}
-        <div className="mt-12 pt-6 border-t border-neutral-200 max-w-[640px]">
+        <div className="mt-12 pt-6 border-t border-neutral-200 max-w-160">
           <h3 className="font-serif text-[22px] leading-[1.2] tracking-[-0.01em] text-neutral-900 mb-3">
             ¿Por qué el seguro varía según la marca del auto?
           </h3>
