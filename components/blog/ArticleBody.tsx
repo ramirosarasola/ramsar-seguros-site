@@ -1,5 +1,14 @@
 import type { ContentBlock } from '@/lib/blog'
 
+function renderInline(text: string) {
+  const parts = text.split(/\*\*(.+?)\*\*/g)
+  return parts.map((part, i) =>
+    i % 2 === 0
+      ? part
+      : <strong key={i} className="font-semibold text-neutral-900">{part}</strong>
+  )
+}
+
 type Props = { content: ContentBlock[] }
 
 export function ArticleBody({ content }: Props) {
@@ -39,7 +48,7 @@ function Block({ block }: { block: ContentBlock }) {
     case 'p':
       return (
         <p className="font-sans text-[15px] lg:text-[16px] leading-[1.75] text-neutral-700 max-w-[68ch]">
-          {block.text}
+          {renderInline(block.text)}
         </p>
       )
 
@@ -55,7 +64,7 @@ function Block({ block }: { block: ContentBlock }) {
                 aria-hidden="true"
                 className="mt-2 w-1.5 h-1.5 rounded-full bg-primary-500 shrink-0"
               />
-              <span>{item}</span>
+              <span>{renderInline(item)}</span>
             </li>
           ))}
         </ul>
@@ -72,7 +81,7 @@ function Block({ block }: { block: ContentBlock }) {
               <span className="font-mono text-[12px] font-semibold text-primary-500 mt-0.5 w-5 shrink-0 tabular-nums">
                 {i + 1}.
               </span>
-              <span>{item}</span>
+              <span>{renderInline(item)}</span>
             </li>
           ))}
         </ol>
@@ -156,7 +165,7 @@ function CalloutBlock({
           {block.title}
         </span>
         <p className="font-sans text-[14px] leading-[1.6] text-neutral-700">
-          {block.body}
+          {renderInline(block.body)}
         </p>
       </div>
     </div>

@@ -20,7 +20,8 @@
       "mcp__plugin_engram_engram__mem_search",
       "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros\\\\app\\\\blog\\\\[categoria]\\\\[slug]\")",
       "Bash(Out-Null)",
-      "Bash(Write-Host \"dir created\")"
+      "Bash(Write-Host \"dir created\")",
+      "Bash(pnpm add *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\ramir\\OneDrive\\Escritorio\\ram_projects\\ramsar-seguros-mcp\\src\\components\\aseguradora",

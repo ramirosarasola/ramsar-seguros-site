@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CircleCheck, Clock, ShieldCheck } from "lucide-react";
 import { CotizadorWidget } from "./CotizadorWidget";
+import { LottieHeroAnimation } from "./LottieHeroAnimation";
 
 const INSURER_NAMES = [
   "Sancor",
@@ -31,130 +32,6 @@ const TRUST = [
   },
 ];
 
-function HeroIllustration() {
-  return (
-    <svg
-      viewBox="0 0 400 360"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      className="w-full max-w-[480px] h-auto mx-auto"
-    >
-      {/* Ground shadow */}
-      <ellipse
-        cx="200"
-        cy="344"
-        rx="175"
-        ry="14"
-        fill="#9ec5bf"
-        opacity="0.2"
-      />
-
-      {/* Car body */}
-      <rect x="72" y="218" width="256" height="96" rx="14" fill="#cac7bc" />
-
-      {/* Car cabin */}
-      <path
-        d="M128 218 C128 218 154 152 178 144 L222 144 C246 152 272 218 272 218Z"
-        fill="#9ec5bf"
-      />
-      {/* Windows */}
-      <path
-        d="M142 213 C147 213 161 162 180 156 L220 156 C239 162 253 213 258 213Z"
-        fill="#418c82"
-        opacity="0.75"
-      />
-      {/* B-pillar */}
-      <rect x="198" y="156" width="5" height="57" fill="#9ec5bf" />
-
-      {/* Headlight */}
-      <rect x="308" y="242" width="24" height="11" rx="5.5" fill="#f4c98a" />
-      {/* Tail light */}
-      <rect
-        x="68"
-        y="242"
-        width="24"
-        height="11"
-        rx="5.5"
-        fill="#f4c98a"
-        opacity="0.7"
-      />
-
-      {/* Front bumper */}
-      <rect x="304" y="254" width="24" height="36" rx="4" fill="#9ec5bf" />
-      {/* Rear bumper */}
-      <rect x="72" y="254" width="24" height="36" rx="4" fill="#9ec5bf" />
-
-      {/* Door crease */}
-      <line
-        x1="200"
-        y1="218"
-        x2="200"
-        y2="314"
-        stroke="#a8a496"
-        strokeWidth="1"
-        opacity="0.4"
-      />
-      {/* Door handles */}
-      <rect x="158" y="264" width="20" height="7" rx="3.5" fill="#9ec5bf" />
-      <rect x="222" y="264" width="20" height="7" rx="3.5" fill="#9ec5bf" />
-
-      {/* Wheel L */}
-      <circle cx="148" cy="316" r="32" fill="#292723" />
-      <circle cx="148" cy="316" r="21" fill="#807c6e" />
-      <circle cx="148" cy="316" r="11" fill="#cac7bc" />
-
-      {/* Wheel R */}
-      <circle cx="252" cy="316" r="32" fill="#292723" />
-      <circle cx="252" cy="316" r="21" fill="#807c6e" />
-      <circle cx="252" cy="316" r="11" fill="#cac7bc" />
-
-      {/* Person 1 — right side, holding phone */}
-      <rect x="328" y="202" width="38" height="106" rx="10" fill="#418c82" />
-      <circle cx="347" cy="188" r="27" fill="#f4c98a" />
-      {/* Hair */}
-      <path d="M320 182 Q347 160 374 182" fill="#9ec5bf" opacity="0.65" />
-      {/* Arm */}
-      <rect x="306" y="246" width="26" height="14" rx="5" fill="#418c82" />
-      {/* Phone body */}
-      <rect x="282" y="228" width="28" height="46" rx="5" fill="#181612" />
-      {/* Screen */}
-      <rect x="286" y="233" width="20" height="36" rx="3" fill="#0e433f" />
-      {/* Checkmark on screen */}
-      <path
-        d="M290 251 L295 257 L306 242"
-        stroke="#e8a451"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Person 2 — left side */}
-      <rect x="34" y="208" width="34" height="100" rx="10" fill="#f4c98a" />
-      {/* Jacket */}
-      <rect x="36" y="224" width="30" height="56" rx="8" fill="#9ec5bf" />
-      <circle cx="51" cy="195" r="25" fill="#f4c98a" />
-      {/* Hair */}
-      <path d="M26 190 Q51 168 76 190" fill="#418c82" opacity="0.55" />
-
-      {/* Check badge — top right */}
-      <circle cx="368" cy="76" r="40" fill="#0e433f" />
-      <circle cx="368" cy="76" r="36" fill="#1f6f66" />
-      <path
-        d="M350 76 L361 88 L388 62"
-        stroke="#e8a451"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Decorative accents */}
-      <circle cx="20" cy="126" r="5" fill="#f4c98a" />
-      <circle cx="8" cy="152" r="3" fill="#9ec5bf" />
-      <circle cx="380" cy="148" r="3" fill="#9ec5bf" opacity="0.6" />
-    </svg>
-  );
-}
 
 export function HeroSection() {
   return (
@@ -171,11 +48,11 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.22fr_1fr] gap-8 lg:gap-12 items-center">
           {/* Left column */}
           <div className="flex flex-col pb-10 lg:pb-20">
-            <h1 className="font-serif text-[clamp(40px,6vw,68px)] leading-[1.02] tracking-[-0.025em] text-neutral-900 max-w-[520px]">
+            <h1 className="font-serif text-[clamp(40px,6vw,68px)] leading-[1.02] tracking-tight text-neutral-900 max-w-130">
               Compará seguros de auto en Argentina y encontrá el mejor precio
             </h1>
 
-            <p className="font-sans text-[18px] leading-[1.6] text-neutral-700 mt-5 max-w-[480px]">
+            <p className="font-sans text-[18px] leading-[1.6] text-neutral-700 mt-5 max-w-120">
               Cotizá gratis en 2 minutos. Comparamos más de 20 aseguradoras y te
               mostramos las mejores opciones para tu auto.
             </p>
@@ -213,7 +90,7 @@ export function HeroSection() {
             </div>
 
             {/* CotizadorWidget */}
-            <div className="mt-6 max-w-[560px]">
+            <div className="mt-6 max-w-140">
               <CotizadorWidget />
             </div>
 
@@ -242,10 +119,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right column — illustration (always visible, scaled on mobile) */}
+          {/* Right column — animation (always visible, scaled on mobile) */}
           <div className="flex items-end justify-center lg:self-end order-first lg:order-last pb-0">
-            <div className="w-full max-w-[300px] sm:max-w-[380px] lg:max-w-full">
-              <HeroIllustration />
+            <div className="w-full max-w-75 sm:max-w-95 lg:max-w-full aspect-square">
+              <LottieHeroAnimation />
             </div>
           </div>
         </div>

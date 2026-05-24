@@ -30,6 +30,9 @@ Workflow:
 Always use design tokens from the files above — never hardcode colors, spacing, or typography.
 Use shadcn/ui as the component base, extend with design system tokens via tailwind.config.ts.
 
+Always see folder @design-system to use our actual design-system components.
+If neecessary you can create a new shadncn component, and add it to our design-system following our best practices for UX/UI.
+
 ---
 
 ## Tailwind
