@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Star } from "lucide-react";
+import posthog from "posthog-js";
 
 const INSURERS = [
   {
@@ -131,6 +134,14 @@ export function AseguradorasGrid() {
             <Link
               key={ins.slug}
               href={`/aseguradoras/${ins.slug}`}
+              onClick={() =>
+                posthog.capture("insurer_card_clicked", {
+                  insurer_slug: ins.slug,
+                  insurer_name: ins.name,
+                  is_popular: ins.popular,
+                  rating: ins.rating,
+                })
+              }
               className={[
                 "block bg-white rounded-[10px] p-5 no-underline group relative",
                 "transition-shadow duration-120",
@@ -141,7 +152,7 @@ export function AseguradorasGrid() {
               ].join(" ")}
             >
               {ins.popular && (
-                <span className="absolute -top-[10px] right-3 bg-accent-500 text-secondary-700 font-sans font-bold text-[10.5px] px-2.5 py-[3px] rounded-full">
+                <span className="absolute -top-2.5 right-3 bg-accent-500 text-secondary-700 font-sans font-bold text-[10.5px] px-2.5 py-0.75 rounded-full">
                   ★ Más popular
                 </span>
               )}

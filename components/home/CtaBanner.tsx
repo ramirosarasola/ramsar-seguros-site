@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { CircleCheck, Clock, ShieldCheck } from "lucide-react";
+import posthog from "posthog-js";
 
 const TRUST = [
   { Icon: CircleCheck, label: "100% gratis" },
@@ -30,6 +33,7 @@ export function CtaBanner() {
 
         <Link
           href="/seguros-de-auto/cotizar"
+          onClick={() => posthog.capture("cta_banner_clicked", { location: "home_bottom" })}
           className={[
             "inline-flex items-center gap-2",
             "bg-white text-primary-700",

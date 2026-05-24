@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Check, X, ShieldCheck } from "lucide-react";
+import posthog from "posthog-js";
 import type { Insurer, InsurerPlan } from "@/lib/strapi";
 
 interface Props {
@@ -115,6 +118,14 @@ function PlanCard({
       <div className="mt-6">
         <Link
           href={`/seguros-de-auto/cotizar?aseguradora=${insurerSlug}&plan=${plan.id}`}
+          onClick={() =>
+            posthog.capture("insurer_plan_cta_clicked", {
+              insurer_slug: insurerSlug,
+              plan_id: plan.id,
+              plan_name: plan.name,
+              is_recommended: isRec,
+            })
+          }
           className={[
             "flex items-center justify-center w-full rounded-lg py-3 font-semibold text-base transition-colors duration-150 no-underline",
             isRec

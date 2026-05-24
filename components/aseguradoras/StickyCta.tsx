@@ -1,10 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { X, ArrowRight, Lock } from "lucide-react";
+import posthog from "posthog-js";
 
 const DISMISS_KEY = "sticky-cta-dismissed";
+
+const noop = () => () => {};
+const getStorageSnapshot = () => localStorage.getItem(DISMISS_KEY) === "1";
+const getServerSnapshot = () => false;
 
 export function StickyCta({
   insurerSlug,
@@ -14,15 +19,19 @@ export function StickyCta({
   insurerShortName: string;
 }) {
   const [visible, setVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
+  const [localDismissed, setLocalDismissed] = useState(false);
   const footerObserverRef = useRef<IntersectionObserver | null>(null);
 
+  const storageDismissed = useSyncExternalStore(
+    noop,
+    getStorageSnapshot,
+    getServerSnapshot,
+  );
+
+  const dismissed = localDismissed || storageDismissed;
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (localStorage.getItem(DISMISS_KEY) === "1") {
-      setDismissed(true);
-      return;
-    }
+    if (dismissed) return;
 
     const heroCta = document.getElementById("hero-cta");
     const footer = document.querySelector("footer");
@@ -30,9 +39,7 @@ export function StickyCta({
     if (!heroCta) return;
 
     const heroObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (!dismissed) setVisible(!entry.isIntersecting);
-      },
+      ([entry]) => setVisible(!entry.isIntersecting),
       { threshold: 0 },
     );
     heroObserver.observe(heroCta);
@@ -58,9 +65,17 @@ export function StickyCta({
   }, [dismissed]);
 
   function handleDismiss() {
-    setDismissed(true);
+    posthog.capture("sticky_cta_dismissed", { insurer_slug: insurerSlug });
+    setLocalDismissed(true);
     setVisible(false);
     localStorage.setItem(DISMISS_KEY, "1");
+  }
+
+  function handleCtaClick(placement: "desktop" | "mobile") {
+    posthog.capture("sticky_cta_clicked", {
+      insurer_slug: insurerSlug,
+      placement,
+    });
   }
 
   if (dismissed) return null;
@@ -74,7 +89,7 @@ export function StickyCta({
         className={[
           "hidden lg:block fixed right-6 top-1/2 -translate-y-1/2 w-72 z-40",
           "bg-white rounded-xl shadow-elevation-2 p-5",
-          "transition-[transform,opacity] ease-[cubic-bezier(0.16,1,0.3,1)] duration-[240ms]",
+          "transition-[transform,opacity] ease-[cubic-bezier(0.16,1,0.3,1)] duration-240",
           visible
             ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-5 pointer-events-none",
@@ -109,6 +124,7 @@ export function StickyCta({
 
           <Link
             href={cotizarHref}
+            onClick={() => handleCtaClick("desktop")}
             className="flex items-center justify-center gap-2 w-full bg-primary-700 text-white text-sm font-semibold rounded-lg py-3 shadow-elevation-3 hover:bg-primary-600 active:bg-primary-800 transition-colors duration-150 no-underline"
           >
             Cotizar con {insurerShortName}
@@ -150,6 +166,7 @@ export function StickyCta({
           </div>
           <Link
             href={cotizarHref}
+            onClick={() => handleCtaClick("mobile")}
             className="inline-flex items-center gap-1.5 bg-primary-700 text-white text-sm font-semibold rounded-lg px-4 py-2.5 shadow-elevation-3 hover:bg-primary-600 active:bg-primary-800 transition-colors duration-150 no-underline shrink-0"
           >
             Cotizar

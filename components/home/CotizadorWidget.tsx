@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 
 const MARCAS = [
   "Volkswagen",
@@ -37,6 +38,11 @@ export function CotizadorWidget() {
     if (marca) params.set("marca", marca);
     if (anio) params.set("anio", anio);
     if (cp) params.set("cp", cp);
+    posthog.capture("cotizador_submitted", {
+      marca: marca || null,
+      anio: anio ? Number(anio) : null,
+      has_cp: !!cp,
+    });
     router.push(`/seguros-de-auto/cotizar?${params.toString()}`);
   };
 

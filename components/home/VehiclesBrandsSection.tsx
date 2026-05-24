@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import posthog from "posthog-js";
 
 const BRANDS = [
   { slug: "volkswagen", name: "Volkswagen", models: 9 },
@@ -52,6 +55,13 @@ export function VehiclesBrandsSection() {
             <Link
               key={brand.slug}
               href={`/vehiculos/${brand.slug}`}
+              onClick={() =>
+                posthog.capture("vehicle_brand_clicked", {
+                  brand_slug: brand.slug,
+                  brand_name: brand.name,
+                  model_count: brand.models,
+                })
+              }
               className={[
                 "aspect-square flex flex-col items-center justify-center gap-1.5 p-3",
                 "bg-neutral-50 border border-neutral-200 rounded-[10px] no-underline",
