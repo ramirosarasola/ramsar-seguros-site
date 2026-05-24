@@ -21,7 +21,21 @@
       "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros\\\\app\\\\blog\\\\[categoria]\\\\[slug]\")",
       "Bash(Out-Null)",
       "Bash(Write-Host \"dir created\")",
-      "Bash(pnpm add *)"
+      "Bash(pnpm add *)",
+      "Bash(npx.cmd -y modern-web-guidance@latest search \"Next.js images LCP optimization priority\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(where.exe npx.cmd)",
+      "Bash(\"C:\\\\Users\\\\ramir\\\\AppData\\\\Roaming\\\\npm\\\\npx.cmd\" -y modern-web-guidance@latest search \"Next.js images LCP optimization\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(\"C:\\\\Users\\\\ramir\\\\AppData\\\\Roaming\\\\npm\\\\npx.cmd\" -y modern-web-guidance@latest list --skill-version 2026_05_16-c5e7870)",
+      "Bash(\"C:\\\\Users\\\\ramir\\\\AppData\\\\Roaming\\\\npm\\\\npx.cmd\" -y modern-web-guidance@latest retrieve \"performance,optimize-image-priority,html\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(\"C:\\\\Users\\\\ramir\\\\AppData\\\\Roaming\\\\npm\\\\npx.cmd\" -y modern-web-guidance@latest search \"metadata SEO open graph canonical structured data\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(\"C:\\\\Users\\\\ramir\\\\AppData\\\\Roaming\\\\npm\\\\npx.cmd\" -y modern-web-guidance@latest search \"animation CLS layout shift content-visibility deferred rendering\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(\"C:\\\\Users\\\\ramir\\\\AppData\\\\Roaming\\\\npm\\\\npx.cmd\" -y modern-web-guidance@latest search \"scroll animations view transitions intersection observer\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(rtk grep *)",
+      "mcp__plugin_engram_engram__mem_session_summary",
+      "Bash(npx.cmd -y modern-web-guidance@latest search \"color contrast decorative text accessibility WCAG\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(npx.cmd -y modern-web-guidance@latest search \"color contrast decorative text WCAG non-text contrast\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(cmd /c \"cd /d c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros && npx -y modern-web-guidance@latest search \\\\\"color contrast decorative text WCAG\\\\\" --skill-version 2026_05_16-c5e7870\")",
+      "Bash(cmd /c \"cd /d c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros && npx -y modern-web-guidance@latest list\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\ramir\\OneDrive\\Escritorio\\ram_projects\\ramsar-seguros-mcp\\src\\components\\aseguradora",

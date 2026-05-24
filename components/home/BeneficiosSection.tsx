@@ -24,8 +24,8 @@ const STEPS = [
   {
     num: "03",
     Icon: CircleCheck,
-    iconColor: "text-success",
-    bgColor: "bg-green-50",
+    iconColor: "text-primary-700",
+    bgColor: "bg-primary-100",
     title: "Elegís el que más te conviene",
     description:
       "Seleccionás la cobertura ideal y contratás directo desde nuestra plataforma.",
@@ -69,7 +69,7 @@ export function BeneficiosSection() {
             {/* Dashed connectors — desktop only */}
             <div
               aria-hidden="true"
-              className="hidden md:block absolute top-[52px] left-[calc(33.33%+16px)] right-[calc(33.33%+16px)] h-[1.5px]"
+              className="hidden md:block absolute top-18 left-[calc(33.33%+16px)] right-[calc(33.33%+16px)] h-[1.5px]"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(90deg,#9ec5bf 0,#9ec5bf 6px,transparent 6px,transparent 10px)",
@@ -83,7 +83,7 @@ export function BeneficiosSection() {
               >
                 {/* Decorative number */}
                 <span
-                  className="font-serif text-[72px] leading-none text-primary-50 select-none absolute -top-4 left-0 md:-top-2 z-0"
+                  className="font-serif text-[72px] leading-none text-primary-200 select-none absolute -top-6 left-0 z-0"
                   aria-hidden="true"
                 >
                   {step.num}
@@ -92,7 +92,7 @@ export function BeneficiosSection() {
                 {/* Icon circle */}
                 <div
                   className={[
-                    "relative z-10 w-16 h-16 rounded-full flex items-center justify-center mb-4 mt-4",
+                    "relative z-10 w-16 h-16 rounded-full flex items-center justify-center mb-4 mt-10",
                     step.bgColor,
                   ].join(" ")}
                 >

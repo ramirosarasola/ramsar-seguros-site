@@ -115,7 +115,7 @@ function mapBlocks(raw: Record<string, any>[]): ContentBlock[] {
       case 'blog.content-callout':
         return [{ type: 'callout', variant: block.variant as 'tip' | 'warning' | 'info', title: block.title, body: block.body }]
       case 'blog.content-image':
-        return [{ type: 'image', alt: block.alt, caption: block.caption }]
+        return [{ type: 'image', url: block.image?.url ?? '', alt: block.alt ?? '', caption: block.caption }]
       case 'blog.content-table':
         return [{ type: 'table', headers: block.headers ?? [], rows: block.rows ?? [] }]
       case 'blog.content-divider':
@@ -176,7 +176,7 @@ export type ContentBlock =
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'callout'; variant: 'tip' | 'warning' | 'info'; title: string; body: string }
-  | { type: 'image'; alt: string; caption?: string }
+  | { type: 'image'; url: string; alt: string; caption?: string }
   | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'hr' }
 

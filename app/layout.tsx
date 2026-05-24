@@ -86,24 +86,6 @@ export const metadata: Metadata = {
   },
 }
 
-/* ── InsuranceAgency JSON-LD — site-level schema ── */
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'InsuranceAgency',
-  name: 'Ramsar Seguros',
-  description:
-    'Comparador de seguros de auto en Argentina. Comparamos las mejores aseguradoras para que elijas con información real.',
-  url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
-  areaServed: {
-    '@type': 'Country',
-    name: 'Argentina',
-  },
-  serviceType: 'Seguro de Automóvil',
-  knowsLanguage: 'es-AR',
-  sameAs: [],
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -118,10 +100,6 @@ export default function RootLayout({
       ].join(' ')}
     >
       <body className="min-h-full flex flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
         <Providers>
           <Suspense>{children}</Suspense>
         </Providers>

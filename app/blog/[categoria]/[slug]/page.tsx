@@ -49,6 +49,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: [post.author],
       tags: post.tags,
       section: CATEGORY_LABELS[post.categoria],
+      ...(post.coverUrl && {
+        images: [{ url: post.coverUrl, width: 1200, height: 630, alt: post.title }],
+      }),
     },
   })
 }

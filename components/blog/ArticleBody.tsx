@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { ContentBlock } from '@/lib/blog'
 
 function renderInline(text: string) {
@@ -96,18 +97,14 @@ function Block({ block }: { block: ContentBlock }) {
     case 'image':
       return (
         <figure className="my-2">
-          <div
-            className="w-full aspect-video rounded-lg overflow-hidden relative"
-            style={{
-              background:
-                'repeating-linear-gradient(135deg,#cee2df 0,#cee2df 14px,#ecf4f3 14px,#ecf4f3 28px)',
-            }}
-            role="img"
-            aria-label={block.alt}
-          >
-            <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] tracking-[0.18em] uppercase text-primary-500">
-              {block.alt}
-            </span>
+          <div className="w-full aspect-video rounded-lg overflow-hidden relative">
+            <Image
+              src={block.url}
+              alt={block.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 900px"
+              className="object-cover"
+            />
           </div>
           {block.caption && (
             <figcaption className="mt-2 font-mono text-[11px] text-neutral-500 text-center">
@@ -185,7 +182,10 @@ function TableBlock({
             {block.headers.map((h, i) => (
               <th
                 key={i}
-                className="px-4 py-3 text-left font-semibold text-neutral-700 whitespace-nowrap"
+                className={[
+                  'px-4 py-3 font-semibold text-neutral-700 whitespace-nowrap',
+                  i === 0 ? 'text-left' : 'text-center',
+                ].join(' ')}
               >
                 {h}
               </th>

@@ -35,14 +35,7 @@ const TRUST = [
 
 export function HeroSection() {
   return (
-    <section
-      className="relative overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(90deg, #ecf4f3 0%, #f8f7f4 55%, #ffffff 100%)",
-        minHeight: "640px",
-      }}
-    >
+    <section className="relative overflow-hidden min-h-160 bg-[linear-gradient(90deg,#ecf4f3_0%,#f8f7f4_55%,#ffffff_100%)]">
       <div className="max-w-300 mx-auto px-6 lg:px-16 pt-24 pb-0">
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.22fr_1fr] gap-8 lg:gap-12 items-center">
@@ -119,9 +112,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right column — animation (always visible, scaled on mobile) */}
-          <div className="flex items-end justify-center lg:self-end order-first lg:order-last pb-0">
-            <div className="w-full max-w-75 sm:max-w-95 lg:max-w-full aspect-square">
+          {/* Right column — animation (desktop only) */}
+          <div className="hidden lg:flex items-end justify-center lg:self-end pb-0">
+            <div className="w-full aspect-square">
               <LottieHeroAnimation />
             </div>
           </div>

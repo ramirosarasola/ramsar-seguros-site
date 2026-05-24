@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getAllAseguradoras, getInsurer } from '@/lib/strapi'
+import { buildMetadata } from '@/lib/metadata'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { InsurerBreadcrumb } from '@/components/aseguradoras/InsurerBreadcrumb'
 import { InsurerHero } from '@/components/aseguradoras/InsurerHero'
@@ -26,26 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const insurer = await getInsurer(nombre)
   if (!insurer) return {}
 
-  const title = `${insurer.name}: coberturas, precios y opiniones 2026`
-  const description = `Analizamos ${insurer.name} en profundidad: planes de cobertura, precios actualizados, opiniones reales de asegurados y comparativa con el resto del mercado argentino.`
-  const canonicalUrl = `${siteUrl}/aseguradoras/${insurer.slug}`
-
-  return {
-    title,
-    description,
-    alternates: { canonical: canonicalUrl },
-    openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
-  }
+  return buildMetadata({
+    title: `${insurer.name}: coberturas, precios y opiniones 2026`,
+    description: `Analizamos ${insurer.name} en profundidad: planes de cobertura, precios actualizados, opiniones reales de asegurados y comparativa con el resto del mercado argentino.`,
+    canonicalPath: `/aseguradoras/${insurer.slug}`,
+    openGraph: { type: 'website' },
+  })
 }
 
 export default async function InsurerPage({ params }: Props) {

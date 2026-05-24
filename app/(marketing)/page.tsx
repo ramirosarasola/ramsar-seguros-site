@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { buildMetadata } from '@/lib/metadata'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -41,11 +40,13 @@ const insuranceAgencySchema = {
   '@type': 'InsuranceAgency',
   name: 'Ramsar Seguros',
   url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
   description:
-    'Comparador de seguros de auto en Argentina. Cotizá gratis entre las mejores aseguradoras.',
+    'Comparador de seguros de auto en Argentina. Comparamos las mejores aseguradoras para que elijas con información real.',
   areaServed: { '@type': 'Country', name: 'Argentina', sameAs: 'https://www.wikidata.org/wiki/Q414' },
   serviceType: 'Seguro de Automóvil',
   knowsLanguage: 'es-AR',
+  sameAs: [],
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: 4.8,
@@ -61,33 +62,13 @@ export default function HomePage() {
       <JsonLd schema={[websiteSchema, insuranceAgencySchema]} />
 
       <HeroSection />
-
       <SocialProofBar />
-
-      <Suspense>
-        <BeneficiosSection />
-      </Suspense>
-
-      <Suspense>
-        <AseguradorasGrid />
-      </Suspense>
-
-      <Suspense>
-        <VehiclesBrandsSection />
-      </Suspense>
-
-      <Suspense>
-        <BlogSection />
-      </Suspense>
-
-      <Suspense>
-        <TestimoniosSection />
-      </Suspense>
-
-      <Suspense>
-        <FaqSection />
-      </Suspense>
-
+      <BeneficiosSection />
+      <AseguradorasGrid />
+      <VehiclesBrandsSection />
+      <BlogSection />
+      <TestimoniosSection />
+      <FaqSection />
       <CtaBanner />
     </>
   )

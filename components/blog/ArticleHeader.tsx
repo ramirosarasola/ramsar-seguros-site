@@ -1,6 +1,10 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { JsonLd } from '@/components/seo/JsonLd'
 import type { BlogPost } from '@/lib/blog'
 import { CATEGORY_LABELS, CATEGORY_STYLES, formatDate } from '@/lib/blog'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ramsarseguros.com.ar'
 
 type Props = { post: BlogPost }
 
@@ -8,8 +12,20 @@ export function ArticleHeader({ post }: Props) {
   const cat = CATEGORY_STYLES[post.categoria]
   const label = CATEGORY_LABELS[post.categoria]
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+      { '@type': 'ListItem', position: 3, name: label, item: `${siteUrl}/blog?categoria=${post.categoria}` },
+      { '@type': 'ListItem', position: 4, name: post.title, item: `${siteUrl}/blog/${post.categoria}/${post.slug}` },
+    ],
+  }
+
   return (
     <header className="bg-neutral-50 border-b border-neutral-200">
+      <JsonLd schema={breadcrumbSchema} />
       {/* Breadcrumb */}
       <div className="max-w-300 mx-auto px-6 lg:px-16 pt-8 pb-2">
         <nav aria-label="Breadcrumb">
@@ -116,6 +132,22 @@ export function ArticleHeader({ post }: Props) {
           )}
         </div>
       </div>
+
+      {/* Cover image — LCP candidate, always priority */}
+      {post.coverUrl && (
+        <div className="max-w-300 mx-auto px-6 lg:px-16 pb-10 lg:pb-14">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+            <Image
+              src={post.coverUrl}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </header>
   )
 }
