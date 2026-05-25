@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-10 lg:gap-16">
             {/* Body */}
             <div>
-              <ArticleBody content={post.content} />
+              <ArticleBody content={post.content} internalLinks={post.internalLinks} />
               <ArticleAuthorCard post={post} />
 
               {/* Mobile: related articles */}

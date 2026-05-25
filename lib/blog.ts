@@ -182,9 +182,16 @@ export type ContentBlock =
 
 export type TocHeading = { id: string; text: string; level: 2 | 3 }
 
+export type InternalLink = {
+  anchorText: string
+  href: string
+  title?: string
+}
+
 export type BlogPost = BlogArticle & {
   content: ContentBlock[]
   authorBio: string
+  internalLinks: InternalLink[]
 }
 
 export function extractTocHeadings(content: ContentBlock[]): TocHeading[] {
@@ -195,13 +202,30 @@ export function extractTocHeadings(content: ContentBlock[]): TocHeading[] {
     .map((b) => ({ id: b.id, text: b.text, level: b.type === 'h2' ? 2 : 3 }))
 }
 
+const INTERNAL_LINKS_POPULATE = [
+  'populate[internalLinks][fields][0]=anchorText',
+  'populate[internalLinks][fields][1]=href',
+  'populate[internalLinks][fields][2]=title',
+].join('&')
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapInternalLinks(raw: Record<string, any>[]): InternalLink[] {
+  return raw
+    .filter((l) => l.anchorText && l.href)
+    .map((l) => ({
+      anchorText: String(l.anchorText),
+      href: String(l.href),
+      ...(l.title && { title: String(l.title) }),
+    }))
+}
+
 export async function getArticleBySlug(
   categoria: string,
   slug: string,
 ): Promise<BlogPost | null> {
   type StrapiItem = Record<string, unknown>
   const remote = await strapiGet<StrapiItem[]>(
-    `articulos?filters[slug][$eq]=${encodeURIComponent(slug)}&filters[categoria][$eq]=${encodeURIComponent(categoria)}&pagination[pageSize]=1&populate[author][fields][0]=name&populate[author][fields][1]=role&populate[author][fields][2]=bio&populate[cover][fields][0]=url&${BLOCKS_POPULATE}`,
+    `articulos?filters[slug][$eq]=${encodeURIComponent(slug)}&filters[categoria][$eq]=${encodeURIComponent(categoria)}&pagination[pageSize]=1&populate[author][fields][0]=name&populate[author][fields][1]=role&populate[author][fields][2]=bio&populate[cover][fields][0]=url&${BLOCKS_POPULATE}&${INTERNAL_LINKS_POPULATE}`,
     86400,
   )
   if (!remote?.[0]) return null
@@ -213,6 +237,7 @@ export async function getArticleBySlug(
     ...base,
     authorBio: authorRel?.bio ?? `${base.author} es especialista en seguros automotor con experiencia en el mercado argentino.`,
     content: mapBlocks(Array.isArray(raw.blocks) ? raw.blocks : []),
+    internalLinks: mapInternalLinks(Array.isArray(raw.internalLinks) ? raw.internalLinks : []),
   }
 }
 

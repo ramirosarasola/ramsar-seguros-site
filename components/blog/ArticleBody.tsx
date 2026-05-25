@@ -1,30 +1,78 @@
+import Link from 'next/link'
 import Image from 'next/image'
-import type { ContentBlock } from '@/lib/blog'
+import type { ContentBlock, InternalLink } from '@/lib/blog'
 
-function renderInline(text: string) {
+// ─── Inline renderers ─────────────────────────────────────────────────────────
+
+function renderBold(text: string, keyPrefix: string) {
   const parts = text.split(/\*\*(.+?)\*\*/g)
   return parts.map((part, i) =>
     i % 2 === 0
-      ? part
-      : <strong key={i} className="font-semibold text-neutral-900">{part}</strong>
+      ? part || null
+      : <strong key={`${keyPrefix}-b${i}`} className="font-semibold text-neutral-900">{part}</strong>
   )
 }
 
-type Props = { content: ContentBlock[] }
+function renderWithLinks(text: string, links: InternalLink[], keyPrefix: string) {
+  type Span = { start: number; end: number; link: InternalLink }
 
-export function ArticleBody({ content }: Props) {
+  const spans: Span[] = []
+  for (const link of links) {
+    const idx = text.indexOf(link.anchorText)
+    if (idx === -1) continue
+    spans.push({ start: idx, end: idx + link.anchorText.length, link })
+  }
+  spans.sort((a, b) => a.start - b.start)
+
+  // remove overlapping spans (keep first occurrence)
+  const filtered = spans.filter((s, i) => i === 0 || s.start >= spans[i - 1].end)
+
+  if (filtered.length === 0) return renderBold(text, keyPrefix)
+
+  const nodes: React.ReactNode[] = []
+  let cursor = 0
+
+  for (const span of filtered) {
+    if (cursor < span.start) {
+      nodes.push(...renderBold(text.slice(cursor, span.start), `${keyPrefix}-pre${span.start}`))
+    }
+    nodes.push(
+      <Link
+        key={`${keyPrefix}-lnk${span.start}`}
+        href={span.link.href}
+        title={span.link.title}
+        className="text-primary-700 underline underline-offset-2 decoration-primary-300 hover:decoration-primary-600 transition-colors duration-120"
+      >
+        {span.link.anchorText}
+      </Link>
+    )
+    cursor = span.end
+  }
+
+  if (cursor < text.length) {
+    nodes.push(...renderBold(text.slice(cursor), `${keyPrefix}-suf`))
+  }
+
+  return nodes
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+type Props = { content: ContentBlock[]; internalLinks?: InternalLink[] }
+
+export function ArticleBody({ content, internalLinks = [] }: Props) {
   return (
     <article className="min-w-0">
       <div className="flex flex-col gap-5">
         {content.map((block, i) => (
-          <Block key={i} block={block} />
+          <Block key={i} block={block} links={internalLinks} blockIndex={i} />
         ))}
       </div>
     </article>
   )
 }
 
-function Block({ block }: { block: ContentBlock }) {
+function Block({ block, links, blockIndex }: { block: ContentBlock; links: InternalLink[]; blockIndex: number }) {
   switch (block.type) {
     case 'h2':
       return (
@@ -49,7 +97,7 @@ function Block({ block }: { block: ContentBlock }) {
     case 'p':
       return (
         <p className="font-sans text-[15px] lg:text-[16px] leading-[1.75] text-neutral-700 max-w-[68ch]">
-          {renderInline(block.text)}
+          {renderWithLinks(block.text, links, `p${blockIndex}`)}
         </p>
       )
 
@@ -65,7 +113,7 @@ function Block({ block }: { block: ContentBlock }) {
                 aria-hidden="true"
                 className="mt-2 w-1.5 h-1.5 rounded-full bg-primary-500 shrink-0"
               />
-              <span>{renderInline(item)}</span>
+              <span>{renderWithLinks(item, links, `ul${blockIndex}-${i}`)}</span>
             </li>
           ))}
         </ul>
@@ -82,14 +130,14 @@ function Block({ block }: { block: ContentBlock }) {
               <span className="font-mono text-[12px] font-semibold text-primary-500 mt-0.5 w-5 shrink-0 tabular-nums">
                 {i + 1}.
               </span>
-              <span>{renderInline(item)}</span>
+              <span>{renderWithLinks(item, links, `ol${blockIndex}-${i}`)}</span>
             </li>
           ))}
         </ol>
       )
 
     case 'callout':
-      return <CalloutBlock block={block} />
+      return <CalloutBlock block={block} links={links} blockIndex={blockIndex} />
 
     case 'table':
       return <TableBlock block={block} />
@@ -126,8 +174,12 @@ function Block({ block }: { block: ContentBlock }) {
 
 function CalloutBlock({
   block,
+  links,
+  blockIndex,
 }: {
   block: Extract<ContentBlock, { type: 'callout' }>
+  links: InternalLink[]
+  blockIndex: number
 }) {
   const styles = {
     tip: {
@@ -162,7 +214,7 @@ function CalloutBlock({
           {block.title}
         </span>
         <p className="font-sans text-[14px] leading-[1.6] text-neutral-700">
-          {renderInline(block.body)}
+          {renderWithLinks(block.body, links, `callout${blockIndex}`)}
         </p>
       </div>
     </div>
