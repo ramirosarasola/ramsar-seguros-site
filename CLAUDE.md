@@ -33,6 +33,8 @@ Use shadcn/ui as the component base, extend with design system tokens via tailwi
 Always see folder @design-system to use our actual design-system components.
 If neecessary you can create a new shadncn component, and add it to our design-system following our best practices for UX/UI.
 
+Always use the @nextjs-seo and @modern-web-guidance skills when you need to create or update a page of our project.
+
 ---
 
 ## Tailwind

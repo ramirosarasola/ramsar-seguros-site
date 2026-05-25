@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Check, X, ShieldCheck } from "lucide-react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import type { Insurer, InsurerPlan } from "@/lib/strapi";
 
 interface Props {
@@ -119,7 +119,7 @@ function PlanCard({
         <Link
           href={`/seguros-de-auto/cotizar?aseguradora=${insurerSlug}&plan=${plan.id}`}
           onClick={() =>
-            posthog.capture("insurer_plan_cta_clicked", {
+            capture("insurer_plan_cta_clicked", {
               insurer_slug: insurerSlug,
               plan_id: plan.id,
               plan_name: plan.name,

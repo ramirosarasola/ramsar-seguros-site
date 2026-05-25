@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { BlogArticle } from "@/lib/blog";
 import { CATEGORY_LABELS, CATEGORY_STYLES, formatDate } from "@/lib/blog";
 
@@ -14,18 +15,29 @@ export function ArticleCard({ article }: Props) {
       href={href}
       className="block bg-white border border-neutral-200 rounded-[10px] overflow-hidden no-underline group transition-shadow duration-120 hover:shadow-elevation-3"
     >
-      {/* Image placeholder — replace with next/image when Strapi is connected */}
+      {/* Image - usando next/image con fallback al placeholder */}
       <div className="aspect-video relative shrink-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "repeating-linear-gradient(45deg,#e2e0d8 0,#e2e0d8 6px,#efeee9 6px,#efeee9 12px)",
-          }}
-        />
+        {article.coverUrl ? (
+          <Image
+            src={article.coverUrl}
+            alt={article.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          /* Placeholder cuando no hay imagen */
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "repeating-linear-gradient(45deg,#e2e0d8 0,#e2e0d8 6px,#efeee9 6px,#efeee9 12px)",
+            }}
+          />
+        )}
         <span
           className={[
-            "absolute bottom-2 left-2 font-sans font-semibold text-[10.5px] px-2 py-0.5 rounded-full",
+            "absolute bottom-2 left-2 font-sans font-semibold text-[10.5px] px-2 py-0.5 rounded-full z-10",
             cat.bg,
             cat.text,
           ].join(" ")}

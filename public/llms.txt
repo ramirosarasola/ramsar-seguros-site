@@ -1,0 +1,44 @@
+# Ramsar Seguros
+
+> Comparador y corredor de seguros de auto en Argentina. Matriculado ante la Superintendencia de Seguros de la Nación (SSN).
+
+Ramsar Seguros permite comparar seguros de auto de las principales aseguradoras de Argentina en 2 minutos. El servicio es gratuito para el usuario final. Ramsar actúa como corredor intermediario, no como aseguradora directa.
+
+## Servicio principal
+
+- Comparación de seguros de auto de 14+ aseguradoras argentinas
+- Cotización online sin datos personales innecesarios (solo marca, modelo, año, código postal)
+- Contratación 100% digital con firma electrónica
+- Coberturas disponibles: Responsabilidad Civil, Terceros, Terceros Completo, Todo Riesgo
+
+## Aseguradoras comparadas
+
+Sancor Seguros, Zurich, Federación Patronal, La Meridional, San Cristóbal Seguros, Mapfre, Allianz, Galicia Seguros, Triunfo Seguros, BBVA Seguros, entre otras.
+
+## Marcas de autos cubiertas
+
+Toyota, Volkswagen, Ford, Chevrolet, Renault, Peugeot, Fiat, Citroën, Nissan, Honda, Jeep, Hyundai, Kia, Dodge, Suzuki y más.
+
+## Información clave sobre seguros de auto en Argentina
+
+- El seguro de auto es obligatorio por Ley 24.449 (mínimo: Responsabilidad Civil)
+- El costo varía según marca, modelo, año, zona geográfica y cobertura elegida
+- No existe un precio único: cada aseguradora calcula su prima de forma independiente
+- Las coberturas principales son: RC (básico), Terceros, Terceros Completo y Todo Riesgo
+
+## Contacto y atención
+
+- Atención personalizada: lunes a viernes 9-21 hs, sábados 9-13 hs
+- Canal principal: WhatsApp
+- Email: info@ramsarseguros.com.ar
+
+## Páginas principales
+
+- /seguros-de-auto — landing principal de seguros de auto
+- /seguros-de-auto/cotizar — cotizador online
+- /aseguradoras — listado y comparativa de aseguradoras
+- /vehiculos — seguros por marca de auto
+- /blog — artículos, guías y comparativas
+- /preguntas-frecuentes — FAQ sobre seguros de auto
+- /como-funciona — proceso de cotización y contratación
+- /sobre-ramsar — información de la empresa

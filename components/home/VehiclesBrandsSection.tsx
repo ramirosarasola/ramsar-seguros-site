@@ -1,91 +1,132 @@
 "use client";
 
 import Link from "next/link";
-import posthog from "posthog-js";
+import Image from "next/image";
+import { capture } from "@/lib/analytics";
+import { MARCAS } from "@/lib/vehiculos";
 
-const BRANDS = [
-  { slug: "volkswagen", name: "Volkswagen", models: 9 },
-  { slug: "toyota", name: "Toyota", models: 12 },
-  { slug: "chevrolet", name: "Chevrolet", models: 10 },
-  { slug: "ford", name: "Ford", models: 11 },
-  { slug: "renault", name: "Renault", models: 8 },
-  { slug: "peugeot", name: "Peugeot", models: 7 },
-  { slug: "fiat", name: "Fiat", models: 9 },
-  { slug: "citroen", name: "Citroën", models: 6 },
-  { slug: "nissan", name: "Nissan", models: 5 },
-  { slug: "honda", name: "Honda", models: 6 },
-  { slug: "jeep", name: "Jeep", models: 4 },
-  { slug: "hyundai", name: "Hyundai", models: 7 },
-  { slug: "kia", name: "Kia", models: 6 },
-  { slug: "dodge", name: "Dodge", models: 3 },
-  { slug: "suzuki", name: "Suzuki", models: 4 },
-];
+const half = Math.ceil(MARCAS.length / 2);
+const row1 = MARCAS.slice(0, half);   // first 8 brands
+const row2 = MARCAS.slice(half);      // last 7 brands
 
 function initials(name: string) {
   return name
     .split(" ")
     .map((w) => w[0])
     .join("")
-    .slice(0, 3)
+    .slice(0, 2)
     .toUpperCase();
+}
+
+function BrandItem({
+  brand,
+  tabIndex = 0,
+}: {
+  brand: (typeof MARCAS)[0];
+  tabIndex?: number;
+}) {
+  return (
+    <Link
+      href={`/vehiculos/${brand.slug}`}
+      tabIndex={tabIndex}
+      onClick={() =>
+        capture("vehicle_brand_clicked", {
+          brand_slug: brand.slug,
+          brand_name: brand.name,
+        })
+      }
+      className="group flex items-center justify-center w-32 h-20 bg-white border border-neutral-200 rounded-xl p-3 shrink-0 hover:border-primary-300 hover:shadow-sm transition-all duration-120 no-underline"
+    >
+      {brand.img ? (
+        <Image
+          src={brand.img}
+          alt={brand.name}
+          width={96}
+          height={52}
+          className="object-contain group-hover:scale-105 transition-transform duration-120"
+          sizes="96px"
+        />
+      ) : (
+        <span className="font-mono text-[12px] text-neutral-400 group-hover:text-primary-600 transition-colors duration-120">
+          {initials(brand.name)}
+        </span>
+      )}
+    </Link>
+  );
 }
 
 export function VehiclesBrandsSection() {
   return (
     <section id="vehiculos" className="bg-white py-20">
-      <div className="max-w-300 mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="mb-8">
-          <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary-500 block mb-2">
-            Por vehículo
-          </span>
-          <h2 className="font-serif text-[36px] leading-[1.06] tracking-[-0.015em] text-neutral-900 max-w-[20ch]">
-            Seguros de auto por marca y modelo
-          </h2>
-          <p className="font-sans text-[16px] text-neutral-500 mt-2 max-w-150">
-            Encontrá el seguro ideal según tu vehículo. Cada marca y modelo
-            tiene características que afectan el precio y las coberturas
-            disponibles.
-          </p>
-        </div>
+      {/* Header */}
+      <div className="max-w-300 mx-auto px-6 lg:px-16 mb-10">
+        <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary-500 block mb-2">
+          Por vehículo
+        </span>
+        <h2 className="font-serif text-[36px] leading-[1.06] tracking-[-0.015em] text-neutral-900 max-w-[20ch]">
+          Seguros de auto por marca y modelo
+        </h2>
+        <p className="font-sans text-[16px] text-neutral-500 mt-2 max-w-150">
+          Encontrá el seguro ideal según tu vehículo. Cada marca y modelo tiene
+          características que afectan el precio y las coberturas disponibles.
+        </p>
+      </div>
 
-        {/* Brand grid — 6 cols desktop, 4 tablet, 3 mobile */}
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {BRANDS.map((brand) => (
-            <Link
-              key={brand.slug}
-              href={`/vehiculos/${brand.slug}`}
-              onClick={() =>
-                posthog.capture("vehicle_brand_clicked", {
-                  brand_slug: brand.slug,
-                  brand_name: brand.name,
-                  model_count: brand.models,
-                })
-              }
-              className={[
-                "aspect-square flex flex-col items-center justify-center gap-1.5 p-3",
-                "bg-neutral-50 border border-neutral-200 rounded-[10px] no-underline",
-                "transition-all duration-120",
-                "hover:bg-primary-50 hover:border-primary-200",
-                "group",
-              ].join(" ")}
-            >
-              {/* Brand logo placeholder */}
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-mono text-[10px] text-neutral-500 shrink-0 border border-neutral-100">
-                {initials(brand.name)}
+      {/* Marquee — constrained to content max-width */}
+      <div className="max-w-300 mx-auto overflow-hidden">
+        <div className="flex flex-col gap-4">
+
+          {/* Row 1 — scrolls left, brands 1–8 */}
+          <div
+            className="mask-fade-x overflow-hidden"
+            aria-label="Marcas de autos — primera fila"
+            role="region"
+          >
+            <div className="flex gap-4 w-max animate-marquee-left hover:paused focus-within:paused">
+              {row1.map((brand) => (
+                <BrandItem key={`r1-${brand.slug}`} brand={brand} />
+              ))}
+              <div aria-hidden="true" className="contents">
+                {row1.map((brand) => (
+                  <BrandItem
+                    key={`r1-dup-${brand.slug}`}
+                    brand={brand}
+                    tabIndex={-1}
+                  />
+                ))}
               </div>
-              <span className="font-sans font-semibold text-[11px] text-neutral-900 text-center leading-tight group-hover:text-primary-700 transition-colors duration-120">
-                {brand.name}
-              </span>
-              <span className="font-mono text-[9.5px] text-neutral-500">
-                {brand.models} modelos
-              </span>
-            </Link>
-          ))}
-        </div>
+            </div>
+          </div>
 
-        {/* SEO copy block */}
-        <div className="mt-12 pt-6 border-t border-neutral-200 max-w-160">
+          {/* Row 2 — scrolls right, brands 9–15 */}
+          {/* [dup][original] structure → -50%→0 = rightward motion */}
+          <div
+            className="mask-fade-x overflow-hidden"
+            aria-label="Marcas de autos — segunda fila"
+            role="region"
+          >
+            <div className="flex gap-4 w-max animate-marquee-right hover:paused focus-within:paused">
+              <div aria-hidden="true" className="contents">
+                {row2.map((brand) => (
+                  <BrandItem
+                    key={`r2-dup-${brand.slug}`}
+                    brand={brand}
+                    tabIndex={-1}
+                  />
+                ))}
+              </div>
+              {row2.map((brand) => (
+                <BrandItem key={`r2-${brand.slug}`} brand={brand} />
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* SEO copy */}
+      <div className="max-w-300 mx-auto px-6 lg:px-16 mt-12 pt-6 border-t border-neutral-200">
+        <div className="max-w-160">
           <h3 className="font-serif text-[22px] leading-[1.2] tracking-[-0.01em] text-neutral-900 mb-3">
             ¿Por qué el seguro varía según la marca del auto?
           </h3>

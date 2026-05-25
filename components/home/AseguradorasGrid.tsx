@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Star } from "lucide-react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const INSURERS = [
   {
@@ -15,7 +15,6 @@ const INSURERS = [
       "Auxilio 24 h en todo el país",
       "Sin franquicia en luneta",
     ],
-    price: "Desde $34.800/mes",
     popular: true,
   },
   {
@@ -28,7 +27,6 @@ const INSURERS = [
       "Cotización 100% digital",
       "App con denuncia online",
     ],
-    price: "Desde $41.200/mes",
     popular: false,
   },
   {
@@ -37,7 +35,6 @@ const INSURERS = [
     rating: 4.3,
     reviews: 248,
     bullets: ["100+ sucursales", "Atención presencial", "Cobertura nacional"],
-    price: "Desde $32.500/mes",
     popular: false,
   },
   {
@@ -50,7 +47,6 @@ const INSURERS = [
       "Tasación con app",
       "Servicio premium",
     ],
-    price: "Desde $48.900/mes",
     popular: false,
   },
   {
@@ -63,7 +59,6 @@ const INSURERS = [
       "Cobertura todo riesgo flexible",
       "Atención telefónica 24/7",
     ],
-    price: "Desde $38.400/mes",
     popular: false,
   },
   {
@@ -76,7 +71,6 @@ const INSURERS = [
       "Sin sorpresas en la prima",
       "Tasa de siniestros baja",
     ],
-    price: "Desde $33.700/mes",
     popular: false,
   },
 ];
@@ -135,7 +129,7 @@ export function AseguradorasGrid() {
               key={ins.slug}
               href={`/aseguradoras/${ins.slug}`}
               onClick={() =>
-                posthog.capture("insurer_card_clicked", {
+                capture("insurer_card_clicked", {
                   insurer_slug: ins.slug,
                   insurer_name: ins.name,
                   is_popular: ins.popular,
@@ -190,9 +184,7 @@ export function AseguradorasGrid() {
                 ))}
               </ul>
 
-              <p className="font-mono text-[13px] text-neutral-900 font-medium">
-                {ins.price}
-              </p>
+
             </Link>
           ))}
         </div>

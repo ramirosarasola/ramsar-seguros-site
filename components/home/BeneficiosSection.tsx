@@ -1,31 +1,21 @@
 import Link from "next/link";
-import { CarFront, RefreshCw, CircleCheck } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 const STEPS = [
   {
     num: "01",
-    Icon: CarFront,
-    iconColor: "text-primary-700",
-    bgColor: "bg-primary-100",
     title: "Ingresá los datos de tu auto",
     description:
       "Marca, modelo, año y tu código postal. Solo lo esencial, nada más.",
   },
   {
     num: "02",
-    Icon: RefreshCw,
-    iconColor: "text-primary-700",
-    bgColor: "bg-primary-100",
     title: "Comparamos por vos",
     description:
       "Consultamos en tiempo real las aseguradoras más elegidas y ordenamos los resultados por precio y cobertura.",
   },
   {
     num: "03",
-    Icon: CircleCheck,
-    iconColor: "text-primary-700",
-    bgColor: "bg-primary-100",
     title: "Elegís el que más te conviene",
     description:
       "Seleccionás la cobertura ideal y contratás directo desde nuestra plataforma.",
@@ -69,7 +59,7 @@ export function BeneficiosSection() {
             {/* Dashed connectors — desktop only */}
             <div
               aria-hidden="true"
-              className="hidden md:block absolute top-18 left-[calc(33.33%+16px)] right-[calc(33.33%+16px)] h-[1.5px]"
+              className="hidden md:block absolute top-9 left-[calc(33.33%+16px)] right-[calc(33.33%+16px)] h-[1.5px]"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(90deg,#9ec5bf 0,#9ec5bf 6px,transparent 6px,transparent 10px)",
@@ -79,35 +69,16 @@ export function BeneficiosSection() {
             {STEPS.map((step) => (
               <div
                 key={step.num}
-                className="flex flex-col items-center text-center md:items-start md:text-left relative"
+                className="flex flex-col items-center text-center md:items-start md:text-left"
               >
-                {/* Decorative number */}
-                <span
-                  className="font-serif text-[72px] leading-none text-primary-200 select-none absolute -top-6 left-0 z-0"
-                  aria-hidden="true"
-                >
+                <span className="font-serif text-[72px] leading-none text-primary-200 select-none mb-4" aria-hidden="true">
                   {step.num}
                 </span>
 
-                {/* Icon circle */}
-                <div
-                  className={[
-                    "relative z-10 w-16 h-16 rounded-full flex items-center justify-center mb-4 mt-10",
-                    step.bgColor,
-                  ].join(" ")}
-                >
-                  <step.Icon
-                    size={28}
-                    strokeWidth={1.75}
-                    className={step.iconColor}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <h3 className="font-sans font-semibold text-[18px] text-neutral-900 mb-2 relative z-10">
+                <h3 className="font-sans font-semibold text-[18px] text-neutral-900 mb-2">
                   {step.title}
                 </h3>
-                <p className="font-sans text-[14px] text-neutral-600 leading-relaxed max-w-[240px] relative z-10">
+                <p className="font-sans text-[14px] text-neutral-600 leading-relaxed max-w-60">
                   {step.description}
                 </p>
               </div>

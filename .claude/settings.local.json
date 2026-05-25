@@ -35,7 +35,12 @@
       "Bash(npx.cmd -y modern-web-guidance@latest search \"color contrast decorative text accessibility WCAG\" --skill-version 2026_05_16-c5e7870)",
       "Bash(npx.cmd -y modern-web-guidance@latest search \"color contrast decorative text WCAG non-text contrast\" --skill-version 2026_05_16-c5e7870)",
       "Bash(cmd /c \"cd /d c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros && npx -y modern-web-guidance@latest search \\\\\"color contrast decorative text WCAG\\\\\" --skill-version 2026_05_16-c5e7870\")",
-      "Bash(cmd /c \"cd /d c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros && npx -y modern-web-guidance@latest list\")"
+      "Bash(cmd /c \"cd /d c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros && npx -y modern-web-guidance@latest list\")",
+      "Bash(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros\\\\app\\\\vehiculos\\\\[marca]\")",
+      "Bash(Write-Host \"ok\")",
+      "Bash(npx.cmd -y modern-web-guidance@latest search \"infinite auto-scrolling marquee carousel CSS animation pause on hover\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(npx.cmd -y modern-web-guidance@latest list --skill-version 2026_05_16-c5e7870)",
+      "Bash(npx.cmd -y modern-web-guidance@latest retrieve \"carousel-slide-effects,css\" --skill-version 2026_05_16-c5e7870)"
     ],
     "additionalDirectories": [
       "c:\\Users\\ramir\\OneDrive\\Escritorio\\ram_projects\\ramsar-seguros-mcp\\src\\components\\aseguradora",

@@ -57,7 +57,7 @@ export function FaqSection() {
     <>
       <JsonLd schema={faqSchema} />
       <section id="faq" className="bg-neutral-100 py-20">
-        <div className="max-w-[720px] mx-auto px-6 lg:px-8">
+        <div className="max-w-180 mx-auto px-6 lg:px-8">
           {/* Centered header */}
           <div className="flex flex-col items-center text-center mb-10">
             <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary-500 mb-3">

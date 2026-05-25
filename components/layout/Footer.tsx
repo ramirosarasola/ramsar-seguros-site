@@ -34,8 +34,8 @@ const COL_BLOG = [
   { href: "/blog/comparativas", label: "Comparativas" },
   { href: "/blog/novedades", label: "Novedades" },
   { href: "/blog/guias", label: "Guías" },
-  { href: "/blog/por-marca", label: "Por marca" },
-  { href: "/blog/por-aseguradora", label: "Por aseguradora" },
+  { href: "/vehiculos", label: "Por marca de auto" },
+  { href: "/aseguradoras", label: "Por aseguradora" },
 ];
 
 const COL_EMPRESA = [

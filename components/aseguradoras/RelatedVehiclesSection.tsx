@@ -44,7 +44,7 @@ export function RelatedVehiclesSection({ insurer }: { insurer: Insurer }) {
                 "hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
                 "transition-colors duration-150 no-underline",
-                "min-h-[44px]",
+                "min-h-11",
               ].join(" ")}
             >
               <Car

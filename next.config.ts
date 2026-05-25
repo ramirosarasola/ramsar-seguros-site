@@ -18,6 +18,18 @@ const nextConfig: NextConfig = {
     ];
   },
   skipTrailingSlashRedirect: true,
+  // 👇 Agrega esta sección para configurar las imágenes
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337",
+        pathname: "/uploads/**", // Permite todas las imágenes dentro de /uploads/
+      },
+    ],
+    dangerouslyAllowLocalIP: true,
+  },
 };
 
 export default nextConfig;

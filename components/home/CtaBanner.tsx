@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CircleCheck, Clock, ShieldCheck } from "lucide-react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const TRUST = [
   { Icon: CircleCheck, label: "100% gratis" },
@@ -18,7 +18,7 @@ export function CtaBanner() {
         background: "linear-gradient(180deg, #0e433f 0%, #061f1e 100%)",
       }}
     >
-      <div className="max-w-[720px] mx-auto px-6 lg:px-8">
+      <div className="max-w-180 mx-auto px-6 lg:px-8">
         <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-accent-300 block mb-3">
           Empezá hoy
         </span>
@@ -33,12 +33,14 @@ export function CtaBanner() {
 
         <Link
           href="/seguros-de-auto/cotizar"
-          onClick={() => posthog.capture("cta_banner_clicked", { location: "home_bottom" })}
+          onClick={() =>
+            capture("cta_banner_clicked", { location: "home_bottom" })
+          }
           className={[
             "inline-flex items-center gap-2",
             "bg-white text-primary-700",
             "font-sans font-semibold text-[15px]",
-            "px-6 h-14 rounded-[8px]",
+            "px-6 h-14 rounded-xl",
             "no-underline",
             "transition-colors duration-120",
             "hover:bg-neutral-50 active:bg-neutral-100",

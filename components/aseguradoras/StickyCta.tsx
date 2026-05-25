@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { X, ArrowRight, Lock } from "lucide-react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const DISMISS_KEY = "sticky-cta-dismissed";
 
@@ -65,14 +65,14 @@ export function StickyCta({
   }, [dismissed]);
 
   function handleDismiss() {
-    posthog.capture("sticky_cta_dismissed", { insurer_slug: insurerSlug });
+    capture("sticky_cta_dismissed", { insurer_slug: insurerSlug });
     setLocalDismissed(true);
     setVisible(false);
     localStorage.setItem(DISMISS_KEY, "1");
   }
 
   function handleCtaClick(placement: "desktop" | "mobile") {
-    posthog.capture("sticky_cta_clicked", {
+    capture("sticky_cta_clicked", {
       insurer_slug: insurerSlug,
       placement,
     });

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const MARCAS = [
   "Volkswagen",
@@ -38,7 +38,7 @@ export function CotizadorWidget() {
     if (marca) params.set("marca", marca);
     if (anio) params.set("anio", anio);
     if (cp) params.set("cp", cp);
-    posthog.capture("cotizador_submitted", {
+    capture("cotizador_submitted", {
       marca: marca || null,
       anio: anio ? Number(anio) : null,
       has_cp: !!cp,
@@ -91,7 +91,7 @@ export function CotizadorWidget() {
         <select
           value={anio}
           onChange={(e) => setAnio(e.target.value)}
-          className={`${selectBase} w-full sm:w-[120px]`}
+          className={`${selectBase} w-full sm:w-30`}
           aria-label="Año del vehículo"
         >
           <option value="" disabled>
@@ -113,7 +113,7 @@ export function CotizadorWidget() {
           placeholder="Código postal"
           value={cp}
           onChange={(e) => setCp(e.target.value.replace(/\D/g, ""))}
-          className={`${inputBase} w-full sm:w-[150px]`}
+          className={`${inputBase} w-full sm:w-37.5`}
           aria-label="Código postal"
         />
 

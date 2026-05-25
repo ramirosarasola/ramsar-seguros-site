@@ -11,7 +11,7 @@ export function CategoryFilter({ active }: Props) {
     { label: "Todos", href: "/blog", value: null },
     ...ALL_CATEGORIES.map((cat: ArticleCategory) => ({
       label: CATEGORY_LABELS[cat],
-      href: `/blog?categoria=${cat}`,
+      href: `/blog/${cat}`,
       value: cat,
     })),
   ];
