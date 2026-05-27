@@ -221,7 +221,7 @@ export function TiposDeCobertura() {
                       : "bg-primary-700 text-white hover:bg-primary-600 active:bg-primary-800",
                   ].join(" ")}
                 >
-                  Cotizar {name} →
+                  {name} →
                 </Link>
               </article>
             )

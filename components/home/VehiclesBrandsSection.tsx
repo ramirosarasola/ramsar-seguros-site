@@ -35,17 +35,18 @@ function BrandItem({
           brand_name: brand.name,
         })
       }
-      className="group flex items-center justify-center w-32 h-20 bg-white border border-neutral-200 rounded-xl p-3 shrink-0 hover:border-primary-300 hover:shadow-sm transition-all duration-120 no-underline"
+      className="group relative flex items-center justify-center w-32 h-20 bg-white border border-neutral-200 rounded-xl p-3 shrink-0 overflow-hidden hover:border-primary-300 hover:shadow-sm transition-all duration-120 no-underline"
     >
       {brand.img ? (
-        <Image
-          src={brand.img}
-          alt={brand.name}
-          width={96}
-          height={52}
-          className="object-contain group-hover:scale-105 transition-transform duration-120"
-          sizes="96px"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={brand.img}
+            alt={brand.name}
+            fill
+            className="object-contain group-hover:scale-105 transition-transform duration-120"
+            sizes="128px"
+          />
+        </div>
       ) : (
         <span className="font-mono text-[12px] text-neutral-400 group-hover:text-primary-600 transition-colors duration-120">
           {initials(brand.name)}

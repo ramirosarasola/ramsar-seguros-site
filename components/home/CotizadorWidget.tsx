@@ -74,7 +74,7 @@ export function CotizadorWidget() {
         <select
           value={marca}
           onChange={(e) => setMarca(e.target.value)}
-          className={`${selectBase} flex-1 min-w-0`}
+          className={`${selectBase} w-full sm:flex-1 sm:min-w-0`}
           aria-label="Marca del vehículo"
         >
           <option value="" disabled>
@@ -124,7 +124,7 @@ export function CotizadorWidget() {
             "h-12 px-5 rounded-sm",
             "bg-accent-500 text-secondary-700",
             "font-sans font-semibold text-[14px]",
-            "shrink-0 whitespace-nowrap",
+            "w-full sm:w-auto shrink-0 whitespace-nowrap",
             "transition-colors duration-120",
             "hover:bg-accent-600 active:bg-accent-700",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-700/50",

@@ -83,7 +83,7 @@ export function HeroSection() {
             </div>
 
             {/* CotizadorWidget */}
-            <div className="mt-6 max-w-140">
+            <div className="mt-6">
               <CotizadorWidget />
             </div>
 
