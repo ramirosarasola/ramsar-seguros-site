@@ -118,35 +118,17 @@ export default async function BlogPostPage({ params }: Props) {
             <div>
               <ArticleBody content={post.content} internalLinks={post.internalLinks} />
               <ArticleAuthorCard post={post} />
-
-              {/* Mobile: related articles */}
-              {related.length > 0 && (
-                <section className="mt-12 pt-8 border-t border-neutral-200 lg:hidden">
-                  <h2 className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-neutral-500 mb-5">
-                    Artículos relacionados
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {related.slice(0, 2).map((article) => (
-                      <ArticleCard key={article.slug} article={article} />
-                    ))}
-                  </div>
-                </section>
-              )}
             </div>
 
             {/* Sticky sidebar — desktop only */}
-            <ArticleSidebar
-              headings={headings}
-              post={post}
-              related={related}
-            />
+            <ArticleSidebar headings={headings} />
           </div>
         </div>
       </div>
 
-      {/* Related articles — full grid at bottom (desktop) */}
+      {/* Related articles — full grid at bottom */}
       {related.length > 0 && (
-        <section className="hidden lg:block bg-neutral-50 border-t border-neutral-200 py-16">
+        <section className="bg-neutral-50 border-t border-neutral-200 py-16">
           <div className="max-w-300 mx-auto px-6 lg:px-16">
             <div className="flex items-baseline justify-between mb-8">
               <h2 className="font-serif text-[28px] leading-[1.1] tracking-[-0.015em] text-neutral-900">
@@ -159,7 +141,7 @@ export default async function BlogPostPage({ params }: Props) {
                 Ver todos →
               </Link>
             </div>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {related.map((article) => (
                 <ArticleCard key={article.slug} article={article} />
               ))}

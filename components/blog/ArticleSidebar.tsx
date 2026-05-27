@@ -1,15 +1,12 @@
 import Link from 'next/link'
 import { TableOfContents } from '@/components/blog/TableOfContents'
-import { ArticleCard } from '@/components/blog/ArticleCard'
-import type { BlogArticle, BlogPost, TocHeading } from '@/lib/blog'
+import type { TocHeading } from '@/lib/blog'
 
 type Props = {
   headings: TocHeading[]
-  post: BlogPost
-  related: BlogArticle[]
 }
 
-export function ArticleSidebar({ headings, related }: Props) {
+export function ArticleSidebar({ headings }: Props) {
   return (
     <aside className="hidden lg:block">
       <div className="sticky top-20 flex flex-col gap-6">
@@ -41,19 +38,6 @@ export function ArticleSidebar({ headings, related }: Props) {
           </Link>
         </div>
 
-        {/* Related articles */}
-        {related.length > 0 && (
-          <div className="flex flex-col gap-3">
-            <h3 className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-neutral-500">
-              Artículos relacionados
-            </h3>
-            <div className="flex flex-col gap-3">
-              {related.slice(0, 2).map((article) => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </aside>
   )
