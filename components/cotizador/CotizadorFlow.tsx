@@ -21,7 +21,6 @@ interface FormData {
   marca: string;
   modelo: string;
   anio: string;
-  uso: "particular" | "comercial" | "";
   cp: string;
   cobertura: string;
   email: string;
@@ -219,7 +218,7 @@ function Step2({
   onNext: () => void;
   onBack: () => void;
 }) {
-  const valid = data.cp.length === 4 && data.uso;
+  const valid = data.cp.length === 4;
 
   return (
     <div className="flex flex-col gap-6">
@@ -242,39 +241,6 @@ function Step2({
         <p className="font-mono text-[11px] text-neutral-400 mt-1.5">
           La zona afecta las coberturas disponibles y condiciones.
         </p>
-      </div>
-
-      <div>
-        <fieldset>
-          <legend className={labelCls}>
-            Uso del vehículo <span className="text-error">*</span>
-          </legend>
-          <div className="grid grid-cols-2 gap-3 mt-1">
-            {(["particular", "comercial"] as const).map((opt) => {
-              const labels = {
-                particular: "Particular",
-                comercial: "Comercial / remis",
-              };
-              const selected = data.uso === opt;
-              return (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => onChange({ uso: opt })}
-                  className={[
-                    "h-12 rounded-sm border font-sans font-medium text-[14px]",
-                    "transition-colors duration-120",
-                    selected
-                      ? "border-primary-700 bg-primary-50 text-primary-700"
-                      : "border-neutral-300 bg-white text-neutral-700 hover:border-neutral-400",
-                  ].join(" ")}
-                >
-                  {labels[opt]}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
       </div>
 
       <div className="flex gap-3">
@@ -488,10 +454,6 @@ function DoneScreen({ data }: { data: FormData }) {
               `${data.marca}${data.modelo ? ` ${data.modelo}` : ""} ${data.anio}`,
             ],
             [
-              "Uso",
-              data.uso === "particular" ? "Particular" : "Comercial / remis",
-            ],
-            [
               "Cobertura",
               COBERTURAS.find((c) => c.slug === data.cobertura)?.name ??
                 data.cobertura,
@@ -551,7 +513,6 @@ export function CotizadorFlow({
     marca: "",
     modelo: "",
     anio: "",
-    uso: "",
     cp: "",
     cobertura: "",
     email: "",
@@ -572,9 +533,9 @@ export function CotizadorFlow({
           <h2 className="font-serif text-[32px] md:text-[36px] leading-[1.1] tracking-[-0.015em] text-neutral-900 max-w-[18ch] mx-auto">
             Vamos a buscarte la mejor cobertura.
           </h2>
-          <p className="font-sans text-[16px] text-neutral-600 mt-3 max-w-[44ch] mx-auto">
+          {/* <p className="font-sans text-[16px] text-neutral-600 mt-3 max-w-[44ch] mx-auto">
             Te toma menos de 2 minutos. Sin cargos. Sin tarjeta de crédito.
-          </p>
+          </p> */}
         </div>
       )}
 
