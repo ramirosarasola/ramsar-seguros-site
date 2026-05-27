@@ -99,7 +99,7 @@ const TRUST_BADGES = [
 const inputCls = [
   "w-full h-12 px-4 rounded-sm",
   "bg-white border border-neutral-300",
-  "font-sans text-[14px] text-neutral-900 placeholder:text-neutral-400",
+  "font-sans text-base text-neutral-900 placeholder:text-neutral-400",
   "focus:outline-none focus:ring-2 focus:ring-primary-700/25 focus:border-primary-700",
   "transition-colors duration-120",
 ].join(" ");
@@ -575,22 +575,6 @@ export function CotizadorFlow({
           <p className="font-sans text-[16px] text-neutral-600 mt-3 max-w-[44ch] mx-auto">
             Te toma menos de 2 minutos. Sin cargos. Sin tarjeta de crédito.
           </p>
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-5">
-            {TRUST_BADGES.map(({ Icon, label }) => (
-              <span
-                key={label}
-                className="flex items-center gap-1.5 font-sans font-medium text-[12px] text-neutral-500"
-              >
-                <Icon
-                  size={14}
-                  strokeWidth={1.75}
-                  className="text-primary-600"
-                  aria-hidden="true"
-                />
-                {label}
-              </span>
-            ))}
-          </div>
         </div>
       )}
 
@@ -619,6 +603,26 @@ export function CotizadorFlow({
         )}
         {step === "done" && <DoneScreen data={form} />}
       </div>
+
+      {/* Trust badges */}
+      {step !== "done" && (
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-5">
+          {TRUST_BADGES.map(({ Icon, label }) => (
+            <span
+              key={label}
+              className="flex items-center gap-1.5 font-sans font-medium text-[12px] text-neutral-500"
+            >
+              <Icon
+                size={14}
+                strokeWidth={1.75}
+                className="text-primary-600"
+                aria-hidden="true"
+              />
+              {label}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

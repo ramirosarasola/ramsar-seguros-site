@@ -48,7 +48,7 @@ export function CotizadorWidget() {
 
   const selectBase = [
     "h-12 px-3 bg-white border border-neutral-300 rounded-sm",
-    "font-sans text-[14px] text-neutral-900",
+    "font-sans text-base text-neutral-900",
     "focus:outline-none focus:ring-2 focus:ring-primary-700/30 focus:border-primary-700",
     "transition-colors duration-120",
     "cursor-pointer appearance-none",
@@ -58,7 +58,7 @@ export function CotizadorWidget() {
 
   const inputBase = [
     "h-12 px-3 bg-white border border-neutral-300 rounded-sm",
-    "font-sans text-[14px] text-neutral-900 placeholder:text-neutral-400",
+    "font-sans text-base text-neutral-900 placeholder:text-neutral-400",
     "focus:outline-none focus:ring-2 focus:ring-primary-700/30 focus:border-primary-700",
     "transition-colors duration-120",
   ].join(" ");

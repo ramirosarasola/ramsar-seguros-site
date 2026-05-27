@@ -47,7 +47,11 @@
       "Bash(dir \"c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros-mcp\" /b)",
       "Bash(python3 -c \"import json; f=open\\(r'c:\\\\Users\\\\ramir\\\\OneDrive\\\\Escritorio\\\\ram_projects\\\\ramsar-seguros-mcp\\\\Blog Ramsar Seguros.json'\\); json.load\\(f\\); print\\('JSON válido'\\)\")",
       "Bash(node -e \"const fs=require\\('fs'\\); JSON.parse\\(fs.readFileSync\\('Blog Ramsar Seguros.json','utf8'\\)\\); console.log\\('JSON valido'\\)\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(npx.cmd -y modern-web-guidance@latest search \"mobile drawer navigation hamburger menu\" --skill-version 2026_05_16-c5e7870)",
+      "Bash(npx.cmd --offline -y modern-web-guidance@latest search \"mobile drawer navigation hamburger menu\")",
+      "Bash(npx.cmd -y modern-web-guidance@latest list)",
+      "Bash(npx.cmd -y modern-web-guidance@latest retrieve \"dialog,accessibility\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\ramir\\OneDrive\\Escritorio\\ram_projects\\ramsar-seguros-mcp\\src\\components\\aseguradora",
