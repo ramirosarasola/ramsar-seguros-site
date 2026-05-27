@@ -7,7 +7,6 @@ import { FeaturedArticle } from "@/components/blog/FeaturedArticle";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import {
   getAllArticles,
-  getFeaturedArticle,
   CATEGORY_LABELS,
 } from "@/lib/blog";
 import type { ArticleCategory } from "@/lib/blog";
@@ -92,10 +91,10 @@ export default async function BlogPage({ searchParams }: Props) {
       ? (categoria as ArticleCategory)
       : undefined;
 
-  const [featuredArticle, articles] = await Promise.all([
-    getFeaturedArticle(),
-    getAllArticles(validCategoria),
-  ]);
+  const articles = await getAllArticles(validCategoria)
+
+  // Derive featured from the same list — no extra request needed
+  const featuredArticle = !validCategoria ? (articles.find((a) => a.featured) ?? null) : null
 
   // On filtered views, exclude the featured article from the grid to avoid duplicate
   const gridArticles =

@@ -1,3 +1,5 @@
+import { cache } from 'react'
+
 const STRAPI_URL = process.env.STRAPI_URL ?? ''
 const STRAPI_TOKEN = process.env.STRAPI_API_TOKEN ?? ''
 
@@ -57,8 +59,10 @@ const BLOCKS_POPULATE = [
 ].join('&')
 
 // ─── Strapi v5 Client ─────────────────────────────────────────────────────────
+// React.cache() deduplicates identical requests within the same render pass,
+// preventing double-fetching when generateMetadata and the page both call the same function.
 
-async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> {
+const strapiGetCached = cache(async (path: string, revalidate: number): Promise<unknown> => {
   if (!STRAPI_URL) return null
   const url = `${STRAPI_URL}/api/${path}`
   try {
@@ -73,10 +77,14 @@ async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> 
     })
     if (!res.ok) return null
     const json = await res.json()
-    return (json.data ?? null) as T
+    return json.data ?? null
   } catch {
     return null
   }
+})
+
+async function strapiGet<T>(path: string, revalidate = 3600): Promise<T | null> {
+  return strapiGetCached(path, revalidate) as Promise<T | null>
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,7 +123,7 @@ function mapBlocks(raw: Record<string, any>[]): ContentBlock[] {
       case 'blog.content-callout':
         return [{ type: 'callout', variant: block.variant as 'tip' | 'warning' | 'info', title: block.title, body: block.body }]
       case 'blog.content-image':
-        return [{ type: 'image', url: block.image?.url ?? '', alt: block.alt ?? '', caption: block.caption }]
+        return [{ type: 'image', url: block.image?.url ? `${STRAPI_URL}${block.image.url}` : '', alt: block.alt ?? '', caption: block.caption }]
       case 'blog.content-table':
         return [{ type: 'table', headers: block.headers ?? [], rows: block.rows ?? [] }]
       case 'blog.content-divider':

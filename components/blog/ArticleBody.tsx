@@ -143,6 +143,7 @@ function Block({ block, links, blockIndex }: { block: ContentBlock; links: Inter
       return <TableBlock block={block} />
 
     case 'image':
+      if (!block.url) return null
       return (
         <figure className="my-2">
           <div className="w-full aspect-video rounded-lg overflow-hidden relative">
